@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solicitar clase &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/incoming/request.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="IncomingRequest Class" href="incomingrequest.html" />
+    <link rel="prev" title="Mensajes HTTP" href="message.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+      <li class="breadcrumb-item active">Solicitar clase</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="solicitar-clase">
+<h1>Solicitar clase<a class="headerlink" href="#solicitar-clase" title="Link to this heading"></a></h1>
+<p>La clase de solicitud es una representación orientada a objetos de una solicitud HTTP. Esto está destinado a
+funciona tanto para solicitudes entrantes, como una solicitud a la aplicación desde un navegador, como para solicitudes salientes,
+like se usaría para enviar una solicitud desde la aplicación a una aplicación de terceros.</p>
+<p>Esta clase
+proporciona la funcionalidad común que ambos necesitan, pero ambos casos tienen clases personalizadas que amplían
+de la clase Solicitud para agregar una funcionalidad específica. En la práctica, necesitarás utilizar estas clases.</p>
+<p>Consulte la documentación para <a class="reference internal" href="incomingrequest.html"><span class="doc">Clase IncomingRequest</span></a> y
+<a class="reference internal" href="../libraries/curlrequest.html"><span class="doc">CURLRequest Class</span></a> para obtener más detalles de uso.</p>
+<section id="referencia-de-clase">
+<h2>Referencia de clase<a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\HTTP">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\HTTP\</span></span><span class="sig-name descname"><span class="pre">Request</span></span><a class="headerlink" href="#Higgs\HTTP\Request" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::getIPAddress">
+<span class="sig-name descname"><span class="pre">getIPAddress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::getIPAddress" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>la dirección IP del usuario, si se puede detectar. Si la dirección IP
+no es una dirección IP válida, devolverá <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>.</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la dirección IP del usuario actual. Si la dirección IP no es válida, el método
+devolverá <code class="docutils literal notranslate"><span class="pre">0.0.0.0</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getIPAddress</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This method takes into account the <code class="docutils literal notranslate"><span class="pre">Config\App::$proxyIPs</span></code> setting and will
+devuelve la dirección IP del cliente informada mediante el encabezado HTTP para la dirección IP permitida.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::isValidIP">
+<span class="sig-name descname"><span class="pre">isValidIP</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$ip</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$which</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::isValidIP" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 7.0.5: </span>Utilice <a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a> en su lugar.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This method is deprecated. It will be removed in future releases.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$ip</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – dirección IP</p></li>
+<li><p><strong>$cual</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – protocolo IP (<code class="docutils literal notranslate"><span class="pre">ipv4</span></code> o <code class="docutils literal notranslate"><span class="pre">ipv6</span></code>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero si la dirección es válida, falso si no</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Toma una dirección IP como entrada y devuelve verdadero o falso (booleano) dependiendo
+sobre si es válido o no.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The $request-&gt;getIPAddress() method above automatically validates the IP address.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">isValidIP</span><span class="p">(</span><span class="nv">$ip</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;Not Valid&#39;</span><span class="p">;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;Valid&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p>Acepta un segundo parámetro de cadena opcional de <code class="docutils literal notranslate"><span class="pre">ipv4</span></code> o <code class="docutils literal notranslate"><span class="pre">ipv6</span></code> para especificar
+un formato IP. El valor predeterminado comprueba ambos formatos.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::getMethod">
+<span class="sig-name descname"><span class="pre">getMethod</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$upper</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::getMethod" title="Link to this definition"></a></dt>
+<dd><div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Use of the <code class="docutils literal notranslate"><span class="pre">$upper</span></code> parameter is deprecated. It will be removed in future releases.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$upper</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se debe devolver el nombre del método de solicitud en mayúsculas o minúsculas</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>método de solicitud HTTP</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve <code class="docutils literal notranslate"><span class="pre">$_SERVER['REQUEST_METHOD']</span></code>, con la opción de configurarlo
+en mayúsculas o minúsculas.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>  <span class="c1">// Outputs: POST</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">(</span><span class="k">false</span><span class="p">);</span> <span class="c1">// Outputs: post</span>
+<span class="k">echo</span> <span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getMethod</span><span class="p">();</span>      <span class="c1">// Outputs: post</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::setMethod">
+<span class="sig-name descname"><span class="pre">setMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$method</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::setMethod" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 7.0.5: </span>Utilice <a class="reference internal" href="#Higgs\HTTP\Request::withMethod" title="Higgs\HTTP\Request::withMethod"><code class="xref php php-meth docutils literal notranslate"><span class="pre">Higgs\HTTP\Request::withMethod()</span></code></a> en su lugar.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$método</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – establece el método de solicitud. Se utiliza al falsificar la solicitud.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Esta solicitud</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Solicitud</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::withMethod">
+<span class="sig-name descname"><span class="pre">withMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$method</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::withMethod" title="Link to this definition"></a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.5.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$método</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – establece el método de solicitud.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Vuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nueva instancia de solicitud</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Solicitud</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::getServer">
+<span class="sig-name descname"><span class="pre">getServer</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::getServer" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – nombre del valor</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – El tipo de filtro a aplicar. Puede encontrar una lista de filtros en el <cite>Manual de PHP&lt;https://www.php.net/manual/en/filter.filters.php&gt;</cite> __.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) – Banderas a aplicar. Se puede encontrar una lista de banderas en el <cite>Manual de PHP&lt;https://www.php.net/manual/en/filter.filters.flags.php&gt;</cite> __.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>valor del elemento <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code> si se encuentra, nulo si no</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Este método es idéntico a los métodos <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> y <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> del
+<a class="reference internal" href="incomingrequest.html"><span class="doc">Clase IncomingRequest</span></a>, solo recupera datos del servidor (<code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Para devolver una matriz de múltiples valores <code class="docutils literal notranslate"><span class="pre">$_SERVER</span></code>, pase todas las claves requeridas
+como una matriz.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getServer</span><span class="p">([</span><span class="s1">&#39;SERVER_PROTOCOL&#39;</span><span class="p">,</span> <span class="s1">&#39;REQUEST_URI&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::getEnv">
+<span class="sig-name descname"><span class="pre">getEnv</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::getEnv" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 4.4.4: </span>This method does not work from the beginning. Use
+<a class="reference internal" href="../general/common_functions.html#env" title="env"><code class="xref php php-func docutils literal notranslate"><span class="pre">env()</span></code></a> en su lugar.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – nombre del valor</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – El tipo de filtro a aplicar. Puede encontrar una lista de filtros en el <cite>Manual de PHP&lt;https://www.php.net/manual/en/filter.filters.php&gt;</cite> __.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) – Banderas a aplicar. Se puede encontrar una lista de banderas en el <cite>Manual de PHP&lt;https://www.php.net/manual/en/filter.filters.flags.php&gt;</cite> __.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>valor del elemento <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code> si se encuentra, nulo si no</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Este método es idéntico a los métodos <code class="docutils literal notranslate"><span class="pre">getPost()</span></code>, <code class="docutils literal notranslate"><span class="pre">getGet()</span></code> y <code class="docutils literal notranslate"><span class="pre">getCookie()</span></code> del
+<a class="reference internal" href="incomingrequest.html"><span class="doc">Clase IncomingRequest</span></a>, solo recupera datos ambientales (<code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getEnv</span><span class="p">(</span><span class="s1">&#39;some_data&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Para devolver una matriz de múltiples valores <code class="docutils literal notranslate"><span class="pre">$_ENV</span></code>, pase todas las claves requeridas
+como una matriz.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$request</span><span class="o">-&gt;</span><span class="na">getEnv</span><span class="p">([</span><span class="s1">&#39;HIGGS_ENVIRONMENT&#39;</span><span class="p">,</span> <span class="s1">&#39;S3_BUCKET&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::setGlobal">
+<span class="sig-name descname"><span class="pre">setGlobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$method</span></em>, <em class="sig-param"><span class="pre">$value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::setGlobal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$método</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del método</p></li>
+<li><p><strong>$valor</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Datos a agregar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Esta solicitud</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Solicitud</span></code></span></p>
+</dd>
+</dl>
+<p>Permite configurar manualmente el valor de PHP global, como <code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, etc.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\HTTP\Request::fetchGlobal">
+<span class="sig-name descname"><span class="pre">fetchGlobal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$method</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$index</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$filter</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$flags</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\HTTP\Request::fetchGlobal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$método</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – constante de filtro de entrada</p></li>
+<li><p><strong>$index</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – nombre del valor</p></li>
+<li><p><strong>$filter</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – El tipo de filtro a aplicar. Puede encontrar una lista de filtros en el <cite>manual de PHP&lt;https://www.php.net/manual/en/filter.filters.php&gt;</cite> __.</p></li>
+<li><p><strong>$flags</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int|array</span></code></span>) – Banderas a aplicar. Se puede encontrar una lista de banderas en el <cite>Manual de PHP&lt;https://www.php.net/manual/en/filter.filters.flags.php&gt;</cite> __.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Obtiene uno o más elementos de un global, como cookies, get, post, etc.
+Opcionalmente, puede filtrar la entrada cuando la recupera pasando un filtro.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="message.html" class="btn btn-neutral float-left" title="Mensajes HTTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="incomingrequest.html" class="btn btn-neutral float-right" title="IncomingRequest Class" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

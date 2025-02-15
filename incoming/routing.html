@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enrutamiento URI &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/incoming/routing.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Controladores" href="controllers.html" />
+    <link rel="prev" title="Controllers and Routing" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+      <li class="breadcrumb-item active">Enrutamiento URI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="enrutamiento-uri">
+<h1>Enrutamiento URI<a class="headerlink" href="#enrutamiento-uri" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#que-es-el-enrutamiento-uri" id="id3">¿Qué es el enrutamiento URI?</a></p></li>
+<li><p><a class="reference internal" href="#establecer-reglas-de-enrutamiento" id="id4">Establecer reglas de enrutamiento</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ejemplos" id="id5">Ejemplos</a></p></li>
+<li><p><a class="reference internal" href="#rutas-de-verbos-http" id="id6">Rutas de verbos HTTP</a></p></li>
+<li><p><a class="reference internal" href="#especificacion-de-controladores-de-ruta" id="id7">Especificación de controladores de ruta</a></p>
+<ul>
+<li><p><a class="reference internal" href="#espacio-de-nombres-del-controlador" id="id8">Espacio de nombres del controlador</a></p></li>
+<li><p><a class="reference internal" href="#sintaxis-invocable-de-matriz" id="id9">Sintaxis invocable de matriz</a></p></li>
+<li><p><a class="reference internal" href="#usando-cierres" id="id10">Usando cierres</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#especificacion-de-rutas-de-ruta" id="id11">Especificación de rutas de ruta</a></p>
+<ul>
+<li><p><a class="reference internal" href="#marcadores-de-posicion" id="id12">Marcadores de posición</a></p></li>
+<li><p><a class="reference internal" href="#marcadores-de-posicion-personalizados" id="id13">Marcadores de posición personalizados</a></p></li>
+<li><p><a class="reference internal" href="#expresiones-regulares" id="id14">Expresiones regulares</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ver-rutas" id="id15">Ver rutas</a></p></li>
+<li><p><a class="reference internal" href="#redirigir-rutas" id="id16">Redirigir rutas</a></p></li>
+<li><p><a class="reference internal" href="#restricciones-ambientales" id="id17">Restricciones ambientales</a></p></li>
+<li><p><a class="reference internal" href="#rutas-con-cualquier-verbo-http" id="id18">Rutas con cualquier verbo HTTP</a></p></li>
+<li><p><a class="reference internal" href="#mapeo-de-multiples-rutas" id="id19">Mapeo de múltiples rutas</a></p></li>
+<li><p><a class="reference internal" href="#rutas-solo-de-linea-de-comandos" id="id20">Rutas solo de línea de comandos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#opciones-globales" id="id21">Opciones globales</a></p>
+<ul>
+<li><p><a class="reference internal" href="#aplicar-filtros" id="id22">Aplicar filtros</a></p>
+<ul>
+<li><p><a class="reference internal" href="#filtro-de-alias" id="id23">Filtro de alias</a></p></li>
+<li><p><a class="reference internal" href="#filtro-de-nombre-de-clase" id="id24">Filtro de nombre de clase</a></p></li>
+<li><p><a class="reference internal" href="#multiples-filtros" id="id25">Múltiples filtros</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#asignar-espacio-de-nombres" id="id26">Asignar espacio de nombres</a></p></li>
+<li><p><a class="reference internal" href="#limitar-al-nombre-de-host" id="id27">Limitar al nombre de host</a></p></li>
+<li><p><a class="reference internal" href="#limitar-a-subdominios" id="id28">Limitar a subdominios</a></p></li>
+<li><p><a class="reference internal" href="#compensacion-de-los-parametros-coincidentes" id="id29">Compensación de los parámetros coincidentes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#enrutamiento-inverso" id="id30">Enrutamiento inverso</a></p></li>
+<li><p><a class="reference internal" href="#rutas-con-nombre" id="id31">Rutas con nombre</a></p></li>
+<li><p><a class="reference internal" href="#rutas-de-agrupacion" id="id32">Rutas de agrupación</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuracion-del-espacio-de-nombres" id="id33">Configuración del espacio de nombres</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-filtros" id="id34">Configuración de filtros</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-otras-opciones" id="id35">Configuración de otras opciones</a></p></li>
+<li><p><a class="reference internal" href="#grupos-de-anidacion" id="id36">Grupos de anidación</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#prioridad-de-ruta" id="id37">Prioridad de ruta</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cambiar-la-prioridad-de-la-ruta" id="id38">Cambiar la prioridad de la ruta</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#opciones-de-configuracion-de-rutas" id="id39">Opciones de configuración de rutas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#espacio-de-nombres-predeterminado" id="id40">Espacio de nombres predeterminado</a></p></li>
+<li><p><a class="reference internal" href="#traducir-guiones-uri" id="id41">Traducir guiones URI</a></p></li>
+<li><p><a class="reference internal" href="#utilice-unicamente-rutas-definidas" id="id42">Utilice únicamente rutas definidas</a></p></li>
+<li><p><a class="reference internal" href="#anulacion-404" id="id43">Anulación 404</a></p></li>
+<li><p><a class="reference internal" href="#procesamiento-de-ruta-por-prioridad" id="id44">Procesamiento de ruta por prioridad</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ruta-automatica-mejorada" id="id45">Ruta automática (mejorada)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#habilitar-enrutamiento-automatico" id="id46">Habilitar enrutamiento automático</a></p></li>
+<li><p><a class="reference internal" href="#segmentos-uri" id="id47">Segmentos URI</a></p></li>
+<li><p><a class="reference internal" href="#opciones-de-configuracion" id="id48">Opciones de configuración</a></p>
+<ul>
+<li><p><a class="reference internal" href="#controlador-predeterminado" id="id49">Controlador predeterminado</a></p></li>
+<li><p><a class="reference internal" href="#metodo-predeterminado" id="id50">Método predeterminado</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#enrutamiento-del-modulo" id="id51">Enrutamiento del módulo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#enrutamiento-automatico-heredado" id="id52">Enrutamiento automático (heredado)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#habilitar-enrutamiento-automatico-heredado" id="id53">Habilitar enrutamiento automático (heredado)</a></p></li>
+<li><p><a class="reference internal" href="#segmentos-uri-heredados" id="id54">Segmentos URI (heredados)</a></p></li>
+<li><p><a class="reference internal" href="#opciones-de-configuracion-heredadas" id="id55">Opciones de configuración (heredadas)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#controlador-predeterminado-heredado" id="id56">Controlador predeterminado (heredado)</a></p></li>
+<li><p><a class="reference internal" href="#metodo-predeterminado-heredado" id="id57">Método predeterminado (heredado)</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#confirmacion-de-rutas" id="id58">Confirmación de rutas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rutas-de-chispa" id="id59">rutas de chispa</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id60">Ruta automática (mejorada)</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id61">Enrutamiento automático (heredado)</a></p></li>
+<li><p><a class="reference internal" href="#ordenar-por-controlador" id="id62">Ordenar por controlador</a></p></li>
+<li><p><a class="reference internal" href="#especificar-anfitrion" id="id63">Especificar anfitrión</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="que-es-el-enrutamiento-uri">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">¿Qué es el enrutamiento URI?</a><a class="headerlink" href="#que-es-el-enrutamiento-uri" title="Link to this heading"></a></h2>
+<p>URI Routing asocia un URI con el método de un controlador.</p>
+<p>Higgs tiene dos tipos de ruta. Uno es <strong>Enrutamiento de ruta definida</strong> y el otro es <strong>Enrutamiento automático</strong>.
+Con Enrutamiento de ruta definida, puede definir rutas manualmente. Permite URL flexible.
+Auto Routing enruta automáticamente las solicitudes HTTP según convenciones y ejecuta los métodos de controlador correspondientes. No es necesario definir rutas manualmente.</p>
+<p>Primero, veamos el enrutamiento de ruta definida. Si desea utilizar el enrutamiento automático, consulte <a class="reference internal" href="#auto-routing-improved"><span class="std std-ref">Ruta automática (mejorada)</span></a>.</p>
+</section>
+<section id="establecer-reglas-de-enrutamiento">
+<span id="defined-route-routing"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Establecer reglas de enrutamiento</a><a class="headerlink" href="#establecer-reglas-de-enrutamiento" title="Link to this heading"></a></h2>
+<p>Las reglas de enrutamiento se definen en el archivo <strong>app/Config/Routes.php</strong>. En él verás que
+crea una instancia de la clase RouteCollection (<code class="docutils literal notranslate"><span class="pre">$routes</span></code>) que le permite especificar sus propios criterios de ruta.
+Las rutas se pueden especificar utilizando marcadores de posición o expresiones regulares.</p>
+<p>Cuando especifica una ruta, elige un método correspondiente a los verbos HTTP (método de solicitud).
+Si espera una solicitud GET, utilice el método <code class="docutils literal notranslate"><span class="pre">get()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Una ruta toma la <strong>Ruta de ruta</strong> (ruta URI relativa a BaseURL. <code class="docutils literal notranslate"><span class="pre">/</span></code>) a la izquierda,
+y lo asigna al <strong>Manejador de ruta</strong> (controlador y método <code class="docutils literal notranslate"><span class="pre">Home::index</span></code>) a la derecha,
+junto con cualquier parámetro que deba pasarse al controlador.</p>
+<p>El controlador y el método deben
+listarse de la misma manera que usaría un método estático, separando la clase
+y su método con dos puntos, como <code class="docutils literal notranslate"><span class="pre">Usuarios::lista</span></code>.</p>
+<p>Si ese método requiere que los parámetros sean
+pasados, entonces se enumerarán después del nombre del método, separados por barras diagonales:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Calls $Users-&gt;list()</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::list&#39;</span><span class="p">);</span>
+
+<span class="c1">// Calls $Users-&gt;list(1, 23)</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/1/23&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::list/1/23&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="ejemplos">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Ejemplos</a><a class="headerlink" href="#ejemplos" title="Link to this heading"></a></h3>
+<p>A continuación se muestran algunos ejemplos de enrutamiento básicos.</p>
+<p>Una URL que contenga la palabra <strong>revistas</strong> en el primer segmento se asignará a la clase <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Blogs</span></code>.
+y el método predeterminado, que suele ser <code class="docutils literal notranslate"><span class="pre">index()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;journals&#39;</span><span class="p">,</span> <span class="s1">&#39;Blogs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Una URL que contenga los segmentos <strong>blog/joe</strong> se asignará a la clase <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Blogs</span></code> y al método <code class="docutils literal notranslate"><span class="pre">users()</span></code>.
+El ID se establecerá en <code class="docutils literal notranslate"><span class="pre">34</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;blog/joe&#39;</span><span class="p">,</span> <span class="s1">&#39;Blogs::users/34&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Una URL con <strong>producto</strong> como primer segmento y cualquier elemento del segundo se asignará a la clase <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Catalog</span></code>.
+y el método <code class="docutils literal notranslate"><span class="pre">productLookup()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Una URL con <strong>producto</strong> como primer segmento y un número en el segundo se asignará a la clase <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Catalog</span></code>
+y el método <code class="docutils literal notranslate"><span class="pre">productLookupByID()</span></code> pasando la coincidencia como una variable al método:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookupByID/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="rutas-de-verbos-http">
+<span id="routing-http-verb-routes"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Rutas de verbos HTTP</a><a class="headerlink" href="#rutas-de-verbos-http" title="Link to this heading"></a></h3>
+<p>Puede utilizar cualquier verbo HTTP estándar (GET, POST, PUT, DELETE, OPTIONS, etc.):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;products/1&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;products/1&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Puedes proporcionar varios verbos que una ruta debe coincidir pasándolos como una matriz al método <code class="docutils literal notranslate"><span class="pre">match()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">([</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span><span class="p">],</span> <span class="s1">&#39;products&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="especificacion-de-controladores-de-ruta">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Especificación de controladores de ruta</a><a class="headerlink" href="#especificacion-de-controladores-de-ruta" title="Link to this heading"></a></h3>
+<section id="espacio-de-nombres-del-controlador">
+<span id="controllers-namespace"></span><h4><a class="toc-backref" href="#id8" role="doc-backlink">Espacio de nombres del controlador</a><a class="headerlink" href="#espacio-de-nombres-del-controlador" title="Link to this heading"></a></h4>
+<p>Cuando especifica un controlador y un nombre de método como una cadena, si un controlador es
+escrito sin un <code class="docutils literal notranslate"><span class="pre">\</span></code> inicial, el <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Espacio de nombres predeterminado</span></a> será
+antepuesto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Routes to \App\Controllers\Api\Users::update()</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;api/users&#39;</span><span class="p">,</span> <span class="s1">&#39;Api\Users::update&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si pones <code class="docutils literal notranslate"><span class="pre">\</span></code> al principio, se trata como un nombre de clase completo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Routes to \Acme\Blog\Controllers\Home::list()</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">,</span> <span class="s1">&#39;\Acme\Blog\Controllers\Home::list&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puedes especificar el espacio de nombres con la opción <code class="docutils literal notranslate"><span class="pre">namespace</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Routes to \Admin\Users::index()</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin/users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Admin&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Consulte <a class="reference internal" href="#assigning-namespace"><span class="std std-ref">Asignar espacio de nombres</span></a> para obtener más detalles.</p>
+</section>
+<section id="sintaxis-invocable-de-matriz">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Sintaxis invocable de matriz</a><a class="headerlink" href="#sintaxis-invocable-de-matriz" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.2.0.</span></p>
+</div>
+<p>Desde v7.2.0, puede usar la sintaxis de matriz invocable para especificar el controlador:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">\App\Controllers\Home</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>O usando la palabra clave <code class="docutils literal notranslate"><span class="pre">usar</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Home</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Home</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Si olvida agregar <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">App\Controllers\Home;</span></code>, el nombre de clase del controlador es
+interpretado como <code class="docutils literal notranslate"><span class="pre">Config\Home</span></code>, no como <code class="docutils literal notranslate"><span class="pre">App\Controllers\Home</span></code> porque
+<strong>app/Config/Routes.php</strong> tiene <code class="docutils literal notranslate"><span class="pre">namespace</span> <span class="pre">Config;</span></code> en la parte superior.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When you use Array Callable Syntax, the classname is always interpreted
+como un nombre de clase completamente calificado. Entonces <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Espacio de nombres predeterminado</span></a> y
+<a class="reference internal" href="#assigning-namespace"><span class="std std-ref">opción de espacio de nombres</span></a>  no tiene ningún efecto.</p>
+</div>
+<section id="sintaxis-y-marcadores-de-posicion-de-matrices-invocables">
+<h5>Sintaxis y marcadores de posición de matrices invocables<a class="headerlink" href="#sintaxis-y-marcadores-de-posicion-de-matrices-invocables" title="Link to this heading"></a></h5>
+<p>Si hay marcadores de posición, establecerá automáticamente los parámetros en el orden especificado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Product</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+
+<span class="c1">// The above code is the same as the following:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::index/$1/$2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Pero es posible que los parámetros configurados automáticamente no sean correctos si utiliza expresiones regulares en las rutas.
+En tal caso, puede especificar los parámetros manualmente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Product</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="p">[[</span><span class="nx">Product</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="s1">&#39;$2/$1&#39;</span><span class="p">]);</span>
+
+<span class="c1">// The above code is the same as the following:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::index/$2/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="usando-cierres">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Usando cierres</a><a class="headerlink" href="#usando-cierres" title="Link to this heading"></a></h4>
+<p>Puede utilizar una función anónima, o Cierre, como destino al que se asigna una ruta. Esta función será
+ejecutado cuando el usuario visita ese URI. Esto es útil para ejecutar rápidamente tareas pequeñas o incluso simplemente mostrar
+una vista sencilla:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">App\Libraries\RSSFeeder</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;feed&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nv">$rss</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">RSSFeeder</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nv">$rss</span><span class="o">-&gt;</span><span class="na">feed</span><span class="p">(</span><span class="s1">&#39;general&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="especificacion-de-rutas-de-ruta">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Especificación de rutas de ruta</a><a class="headerlink" href="#especificacion-de-rutas-de-ruta" title="Link to this heading"></a></h3>
+<section id="marcadores-de-posicion">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Marcadores de posición</a><a class="headerlink" href="#marcadores-de-posicion" title="Link to this heading"></a></h4>
+<p>Una ruta típica podría verse así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>En una ruta, el primer parámetro contiene el URI que debe coincidir, mientras que el segundo parámetro
+contiene el destino al que debe enrutarse. En el ejemplo anterior, si la palabra literal
+«producto» se encuentra en el primer segmento de la ruta URL y se encuentra un número en el segundo segmento,
+en su lugar se utilizan la clase <code class="docutils literal notranslate"><span class="pre">Catalog</span></code> y el método <code class="docutils literal notranslate"><span class="pre">productLookup</span></code>.</p>
+<p>Los marcadores de posición son simplemente cadenas que representan un patrón de expresión regular. durante la ruta
+proceso, estos marcadores de posición se reemplazan con el valor de la expresión regular. son principalmente
+utilizado para facilitar la lectura.</p>
+<p>Los siguientes marcadores de posición están disponibles para que los utilice en sus rutas:
+============ ======================================== ==================================================== ====================
+Descripción de los marcadores de posición
+============ ======================================== ==================================================== ====================
+(:any) coincidirá con todos los caracteres desde ese punto hasta el final del URI. Esto puede incluir múltiples segmentos de URI.
+(:segmento) coincidirá con cualquier carácter excepto una barra diagonal (<code class="docutils literal notranslate"><span class="pre">/</span></code>) que restringe el resultado a un solo segmento.
+(:num) coincidirá con cualquier número entero.
+(:alpha) coincidirá con cualquier cadena de caracteres alfabéticos
+(:alphanum) coincidirá con cualquier cadena de caracteres alfabéticos o números enteros, o cualquier combinación de los dos.
+(:hash) es lo mismo que <code class="docutils literal notranslate"><span class="pre">(:segment)</span></code>, pero se puede usar para ver fácilmente qué rutas usan identificadores hash.
+============ ======================================== ==================================================== ====================</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">{locale}</span></code> cannot be used as a placeholder or other part of the route, as it is reserved for use
+en <a class="reference internal" href="../outgoing/localization.html"><span class="doc">localización</span></a> .</p>
+</div>
+<section id="el-comportamiento-de-cualquiera">
+<span id="routing-placeholder-any"></span><h5>El comportamiento de (:cualquiera)<a class="headerlink" href="#el-comportamiento-de-cualquiera" title="Link to this heading"></a></h5>
+<p>Tenga en cuenta que un único <code class="docutils literal notranslate"><span class="pre">(:any)</span></code> coincidirá con varios segmentos de la URL, si están presentes.</p>
+<p>Por ejemplo la ruta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:any)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>coincidirá con <strong>producto/123</strong>, <strong>producto/123/456</strong>, <strong>producto/123/456/789</strong> y así sucesivamente.</p>
+<p>En el ejemplo anterior, si el marcador de posición <code class="docutils literal notranslate"><span class="pre">$1</span></code> contiene una barra diagonal
+(<code class="docutils literal notranslate"><span class="pre">/</span></code>), aún se dividirá en múltiples parámetros cuando se pase a
+<code class="docutils literal notranslate"><span class="pre">Catálogo::productLookup()</span></code>.</p>
+<p>La implementación en el
+El controlador debe tener en cuenta los parámetros máximos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Catalog</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">productLookup</span><span class="p">(</span><span class="nv">$seg1</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span> <span class="nv">$seg2</span> <span class="o">=</span> <span class="k">false</span><span class="p">,</span> <span class="nv">$seg3</span> <span class="o">=</span> <span class="k">false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="nv">$seg1</span><span class="p">;</span> <span class="c1">// Will be 123 in all examples</span>
+        <span class="k">echo</span> <span class="nv">$seg2</span><span class="p">;</span> <span class="c1">// false in first, 456 in second and third example</span>
+        <span class="k">echo</span> <span class="nv">$seg3</span><span class="p">;</span> <span class="c1">// false in first and second, 789 in third</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>O puede utilizar <cite>listas de argumentos de longitud variable&lt;https://www.php.net/manual/en/functions.arguments.php#functions.variable-arg-list&gt;</cite> _:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Catalog</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">productLookup</span><span class="p">(</span><span class="o">...</span><span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="nv">$params</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">;</span> <span class="c1">// Will be 123 in all examples</span>
+        <span class="k">echo</span> <span class="nv">$params</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">;</span> <span class="c1">// null in first, 456 in second and third example</span>
+        <span class="k">echo</span> <span class="nv">$params</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">??</span> <span class="k">null</span><span class="p">;</span> <span class="c1">// null in first and second, 789 in third</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Do not put any placeholder after <code class="docutils literal notranslate"><span class="pre">(:any)</span></code>. Because the number of
+Los parámetros pasados al método del controlador pueden cambiar.</p>
+</div>
+<p>Si hacer coincidir múltiples segmentos no es el comportamiento deseado, se debe utilizar <code class="docutils literal notranslate"><span class="pre">(:segmento)</span></code> al definir el
+rutas. Con las URL de ejemplo de arriba:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;product/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Catalog::productLookup/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>solo coincidirá con <strong>producto/123</strong> y generará errores 404 para otro ejemplo.</p>
+</section>
+</section>
+<section id="marcadores-de-posicion-personalizados">
+<h4><a class="toc-backref" href="#id13" role="doc-backlink">Marcadores de posición personalizados</a><a class="headerlink" href="#marcadores-de-posicion-personalizados" title="Link to this heading"></a></h4>
+<p>Puede crear sus propios marcadores de posición que pueden usarse en su archivo de rutas para personalizar completamente la experiencia.
+y legibilidad.</p>
+<p>Agrega nuevos marcadores de posición con el método <code class="docutils literal notranslate"><span class="pre">addPlaceholder()</span></code>. El primer parámetro es la cadena que se utilizará como
+el marcador de posición. El segundo parámetro es el patrón de expresión regular por el que debe reemplazarse.
+Esto debe llamarse antes de agregar la ruta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addPlaceholder</span><span class="p">(</span><span class="s1">&#39;uuid&#39;</span><span class="p">,</span> <span class="s1">&#39;[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/(:uuid)&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::show/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="expresiones-regulares">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Expresiones regulares</a><a class="headerlink" href="#expresiones-regulares" title="Link to this heading"></a></h4>
+<p>Si lo prefiere, puede utilizar expresiones regulares para definir sus reglas de enrutamiento. Cualquier expresión regular válida
+está permitido, al igual que las referencias anteriores.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Note: If you use back-references you must use the dollar syntax rather than the double backslash syntax.
+Una ruta RegEx típica podría verse así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;products/([a-z]+)/(\d+)&#39;</span><span class="p">,</span> <span class="s1">&#39;Products::show/$1/id_$2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<p>En el ejemplo anterior, un URI similar a <strong>productos/camisas/123</strong> llamaría al método <code class="docutils literal notranslate"><span class="pre">show()</span></code>.
+de la clase de controlador <code class="docutils literal notranslate"><span class="pre">Productos</span></code>, con el primer y segundo segmento originales pasados como argumentos.</p>
+<p>Con expresiones regulares, también puede capturar un segmento que contenga una barra diagonal (<code class="docutils literal notranslate"><span class="pre">/</span></code>), que normalmente
+Representa el delimitador entre múltiples segmentos.</p>
+<p>Por ejemplo, si un usuario accede a un área protegida con contraseña de su aplicación web y desea poder
+Redirigirlos de nuevo a la misma página después de que inicien sesión. Este ejemplo puede resultarle útil:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;login/(.+)&#39;</span><span class="p">,</span> <span class="s1">&#39;Auth::login/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, si el marcador de posición <code class="docutils literal notranslate"><span class="pre">$1</span></code> contiene una barra diagonal
+(<code class="docutils literal notranslate"><span class="pre">/</span></code>), aún se dividirá en múltiples parámetros cuando se pase a
+<code class="docutils literal notranslate"><span class="pre">Autentificación::iniciar</span> <span class="pre">sesión()</span></code>.</p>
+<p>Para aquellos de ustedes que no conocen las expresiones regulares y quieren aprender más sobre ellas,
+<cite>expresiones-regulares.info&lt;https://www.regular-expressions.info/&gt;</cite> _ podría ser un buen punto de partida.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You can also mix and match placeholders with regular expressions.</p>
+</div>
+</section>
+</section>
+<section id="ver-rutas">
+<span id="view-routes"></span><h3><a class="toc-backref" href="#id15" role="doc-backlink">Ver rutas</a><a class="headerlink" href="#ver-rutas" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Si solo desea representar una vista que no tiene lógica asociada, puede usar el método <code class="docutils literal notranslate"><span class="pre">view()</span></code>.
+Esto siempre se trata como una solicitud GET.
+Este método acepta el nombre de la vista a cargar como segundo parámetro.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Displays the view in /app/Views/pages/about.php</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;about&#39;</span><span class="p">,</span> <span class="s1">&#39;pages/about&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si utiliza marcadores de posición dentro de su ruta, puede acceder a ellos dentro de la vista en una variable especial, <code class="docutils literal notranslate"><span class="pre">$segmentos</span></code>.
+Están disponibles como una matriz, indexados en el orden en que aparecen en la ruta.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Displays the view in /app/Views/map.php</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">view</span><span class="p">(</span><span class="s1">&#39;map/(:segment)/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;map&#39;</span><span class="p">);</span>
+
+<span class="c1">// Within the view, you can access the segments with</span>
+<span class="c1">// $segments[0] and $segments[1] respectively.</span>
+</pre></div>
+</div>
+</section>
+<section id="redirigir-rutas">
+<span id="redirecting-routes"></span><h3><a class="toc-backref" href="#id16" role="doc-backlink">Redirigir rutas</a><a class="headerlink" href="#redirigir-rutas" title="Link to this heading"></a></h3>
+<p>Cualquier sitio que dure lo suficiente seguramente tendrá páginas que se mueven. Puede especificar rutas que deben redirigir
+a otras rutas con el método <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code>. El primer parámetro es el patrón URI de la ruta anterior. El
+El segundo parámetro es el nuevo URI al que redirigir o el nombre de una ruta con nombre. El tercer parámetro es
+el código de estado HTTP que debe enviarse junto con la redirección. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">302</span></code>, que es temporal.
+redirigir y se recomienda en la mayoría de los casos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/profile&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::profile&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;profile&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Redirect to a named route</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addRedirect</span><span class="p">(</span><span class="s1">&#39;users/about&#39;</span><span class="p">,</span> <span class="s1">&#39;profile&#39;</span><span class="p">);</span>
+<span class="c1">// Redirect to a URI</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addRedirect</span><span class="p">(</span><span class="s1">&#39;users/about&#39;</span><span class="p">,</span> <span class="s1">&#39;users/profile&#39;</span><span class="p">);</span>
+
+<span class="c1">// Redirect with placeholder</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;post/(:num)/comment/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;PostsComments::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;post.comment&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Redirect to a URI</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addRedirect</span><span class="p">(</span><span class="s1">&#39;article/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;post/$1/comment/$2&#39;</span><span class="p">);</span>
+<span class="c1">// Redirect to a named route</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">addRedirect</span><span class="p">(</span><span class="s1">&#39;article/(:num)/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;post.comment&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.2.0, <code class="docutils literal notranslate"><span class="pre">addRedirect()</span></code> can use placeholders.</p>
+</div>
+<p>Si una ruta de redireccionamiento coincide durante la carga de una página, el usuario será redirigido inmediatamente a la nueva página antes de que
+El controlador se puede cargar.</p>
+</section>
+<section id="restricciones-ambientales">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Restricciones ambientales</a><a class="headerlink" href="#restricciones-ambientales" title="Link to this heading"></a></h3>
+<p>Puede crear un conjunto de rutas que solo serán visibles en un entorno determinado. Esto le permite crear
+herramientas que solo el desarrollador puede usar en sus máquinas locales y a las que no se puede acceder en servidores de prueba o producción.
+Esto se puede hacer con el método <code class="docutils literal notranslate"><span class="pre">environment()</span></code>. El primer parámetro es el nombre del entorno. Cualquier
+Las rutas definidas dentro de este cierre solo son accesibles desde el entorno dado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">environment</span><span class="p">(</span><span class="s1">&#39;development&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;builder&#39;</span><span class="p">,</span> <span class="s1">&#39;Tools\Builder::index&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="rutas-con-cualquier-verbo-http">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Rutas con cualquier verbo HTTP</a><a class="headerlink" href="#rutas-con-cualquier-verbo-http" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This method exists only for backward compatibility. Do not use it
+en nuevos proyectos. Incluso si ya lo estás usando, te recomendamos que uses
+otro método más apropiado.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>While the <code class="docutils literal notranslate"><span class="pre">add()</span></code> method seems to be convenient, it is recommended to always use the HTTP-verb-based
+rutas, descritas anteriormente, ya que son más seguras. Si utiliza la protección <a class="reference internal" href="../libraries/security.html"><span class="doc">CSRF</span></a> , no protege <strong>GET</strong>
+peticiones. Si el URI especificado en el método <code class="docutils literal notranslate"><span class="pre">add()</span></code> es accesible mediante el método GET, la protección CSRF
+no trabajará.</p>
+</div>
+<p>Es posible definir una ruta con cualquier verbo HTTP.
+Puedes usar el método <code class="docutils literal notranslate"><span class="pre">add()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;products&#39;</span><span class="p">,</span> <span class="s1">&#39;Product::feature&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Using the HTTP-verb-based routes will also provide a slight performance increase, since
+solo se almacenan las rutas que coinciden con el método de solicitud actual, lo que da como resultado menos rutas para escanear
+al intentar encontrar una coincidencia.</p>
+</div>
+</section>
+<section id="mapeo-de-multiples-rutas">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Mapeo de múltiples rutas</a><a class="headerlink" href="#mapeo-de-multiples-rutas" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This method exists only for backward compatibility. Do not use it
+en nuevos proyectos. Incluso si ya lo estás usando, te recomendamos que uses
+otro método más apropiado.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">map()</span></code> method is not recommended as well as <code class="docutils literal notranslate"><span class="pre">add()</span></code>
+porque llama a <code class="docutils literal notranslate"><span class="pre">add()</span></code> internamente.</p>
+</div>
+<p>Si bien el método <code class="docutils literal notranslate"><span class="pre">add()</span></code> es fácil de usar, a menudo es más práctico trabajar con múltiples rutas a la vez, usando
+el método <code class="docutils literal notranslate"><span class="pre">mapa()</span></code>. En lugar de llamar al método <code class="docutils literal notranslate"><span class="pre">add()</span></code> para cada ruta que necesite agregar, puede
+defina una matriz de rutas y luego pásela como primer parámetro al método <code class="docutils literal notranslate"><span class="pre">map()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$multipleRoutes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;product/(:num)&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;Catalog::productLookupById&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;product/(:alphanum)&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Catalog::productLookupByName&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="nv">$multipleRoutes</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="rutas-solo-de-linea-de-comandos">
+<span id="command-line-only-routes"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Rutas solo de línea de comandos</a><a class="headerlink" href="#rutas-solo-de-linea-de-comandos" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>It is recommended to use Spark Commands for CLI scripts instead of calling controllers via CLI.
+Consulte la página <a class="reference internal" href="../cli/cli_commands.html"><span class="doc">Crear comandos Spark</span></a> para obtener información detallada.</p>
+</div>
+<p>Cualquier ruta creada por cualquiera de los métodos basados en verbos HTTP.
+Los métodos de ruta tampoco serán accesibles desde la CLI, pero las rutas creadas por el método <code class="docutils literal notranslate"><span class="pre">add()</span></code> seguirán siendo
+disponible desde la línea de comando.</p>
+<p>Puede crear rutas que funcionen solo desde la línea de comandos y que sean inaccesibles desde el navegador web, con la
+Método <code class="docutils literal notranslate"><span class="pre">cli()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">cli</span><span class="p">(</span><span class="s1">&#39;migrate&#39;</span><span class="p">,</span> <span class="s1">&#39;App\Database::migrate&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If you enable <a class="reference internal" href="#auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado)</span></a> and place the command file in <strong>app/Controllers</strong>,
+cualquiera podría acceder al comando con la ayuda de Auto Routing (Legacy) a través de HTTP.</p>
+</div>
+</section>
+</section>
+<section id="opciones-globales">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Opciones globales</a><a class="headerlink" href="#opciones-globales" title="Link to this heading"></a></h2>
+<p>Todos los métodos para crear una ruta (<code class="docutils literal notranslate"><span class="pre">get()</span></code>, <code class="docutils literal notranslate"><span class="pre">post()</span></code>, <a class="reference internal" href="restful.html"><span class="doc">resource()</span></a>  etc) puede tomar una variedad de opciones que
+puede modificar las rutas generadas, o restringirlas aún más. La matriz <code class="docutils literal notranslate"><span class="pre">$options</span></code> es siempre el último parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">head</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">patch</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">match</span><span class="p">([</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span><span class="p">],</span> <span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">map</span><span class="p">(</span><span class="nv">$array</span><span class="p">,</span> <span class="nv">$options</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="nv">$options</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{});</span>
+</pre></div>
+</div>
+<section id="aplicar-filtros">
+<span id="applying-filters"></span><h3><a class="toc-backref" href="#id22" role="doc-backlink">Aplicar filtros</a><a class="headerlink" href="#aplicar-filtros" title="Link to this heading"></a></h3>
+<p>Puede alterar el comportamiento de rutas específicas proporcionando filtros para ejecutar antes o después del controlador. Esto es especialmente útil durante la autenticación o el registro de API.
+El valor del filtro puede ser una cadena o una matriz de cadenas:</p>
+<ul class="simple">
+<li><p>coincide con los alias definidos en <strong>app/Config/Filters.php</strong>.</p></li>
+<li><p>filtrar nombres de clases</p></li>
+</ul>
+<p>Ver <a class="reference internal" href="filters.html"><span class="doc">Filtros del controlador</span></a>  para obtener más información sobre cómo configurar filtros.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If you set filters to routes in <strong>app/Config/Routes.php</strong>
+(no en <strong>app/Config/Filters.php</strong>), se recomienda desactivar el enrutamiento automático (heredado).
+Cuando <a class="reference internal" href="#auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado)</span></a> está habilitado, es posible que se pueda acceder a un controlador
+a través de una URL diferente a la ruta configurada,
+en cuyo caso no se aplicará el filtro que especificaste para la ruta.
+Consulte <span class="xref std std-ref">use-available-routes-only</span> para deshabilitar el enrutamiento automático.</p>
+</div>
+<section id="filtro-de-alias">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">Filtro de alias</a><a class="headerlink" href="#filtro-de-alias" title="Link to this heading"></a></h4>
+<p>Especifica un alias definido en <strong>app/Config/Filters.php</strong> para el valor del filtro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39; AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;admin-auth&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>También puede proporcionar argumentos para pasar a los métodos <code class="docutils literal notranslate"><span class="pre">before()</span></code> y <code class="docutils literal notranslate"><span class="pre">after()</span></code> del filtro de alias:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;users/delete/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;admin-auth:dual,noreturn&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="filtro-de-nombre-de-clase">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">Filtro de nombre de clase</a><a class="headerlink" href="#filtro-de-nombre-de-clase" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.1.5.</span></p>
+</div>
+<p>Usted especifica un nombre de clase de filtro para el valor del filtro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39; AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="nx">\App\Filters\SomeFilter</span><span class="o">::</span><span class="na">class</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="multiples-filtros">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">Múltiples filtros</a><a class="headerlink" href="#multiples-filtros" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.1.5.</span></p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><em>Multiple filters</em> is disabled by default. Because it breaks backward compatibility. If you want to use it, you need to configure. See <span class="xref std std-ref">upgrade-415-multiple-filters-for-a-route</span> for the details.</p>
+</div>
+<p>Usted especifica una matriz para el valor del filtro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39; AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;admin-auth&#39;</span><span class="p">,</span> <span class="nx">\App\Filters\SomeFilter</span><span class="o">::</span><span class="na">class</span><span class="p">]]);</span>
+</pre></div>
+</div>
+<section id="filtrar-argumentos">
+<h5>Filtrar argumentos<a class="headerlink" href="#filtrar-argumentos" title="Link to this heading"></a></h5>
+<p>Se pueden pasar argumentos adicionales a un filtro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="s1">&#39;users/delete/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;AdminController::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;admin-auth:dual,noreturn&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>En este ejemplo, la matriz <code class="docutils literal notranslate"><span class="pre">['dual',</span> <span class="pre">'noreturn']</span></code> se pasará en <code class="docutils literal notranslate"><span class="pre">$arguments</span></code>
+a los métodos de implementación <code class="docutils literal notranslate"><span class="pre">before()</span></code> y <code class="docutils literal notranslate"><span class="pre">after()</span></code> del filtro.</p>
+</section>
+</section>
+</section>
+<section id="asignar-espacio-de-nombres">
+<span id="assigning-namespace"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink">Asignar espacio de nombres</a><a class="headerlink" href="#asignar-espacio-de-nombres" title="Link to this heading"></a></h3>
+<p>Si bien se antepondrá un <a class="reference internal" href="#routing-default-namespace"><span class="std std-ref">Espacio de nombres predeterminado</span></a> a los controladores generados, también puede especificar
+un espacio de nombres diferente para ser usado en cualquier matriz de opciones, con la opción <code class="docutils literal notranslate"><span class="pre">espacio</span> <span class="pre">de</span> <span class="pre">nombres</span></code>. El valor debe ser el
+espacio de nombres que desea modificar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Routes to \Admin\Users::index()</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin/users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Admin&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>El nuevo espacio de nombres solo se aplica durante esa llamada para cualquier método que cree una ruta única, como get, post, etc.
+Para cualquier método que cree múltiples rutas, el nuevo espacio de nombres se adjunta a todas las rutas generadas por esa función.
+o, en el caso de <code class="docutils literal notranslate"><span class="pre">group()</span></code>, todas las rutas generadas durante el cierre.</p>
+</section>
+<section id="limitar-al-nombre-de-host">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Limitar al nombre de host</a><a class="headerlink" href="#limitar-al-nombre-de-host" title="Link to this heading"></a></h3>
+<p>Puede restringir grupos de rutas para que funcionen solo en ciertos dominios o subdominios de su aplicación.
+pasando la opción «nombre de host» junto con el dominio deseado para permitirlo como parte de la matriz de opciones:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;hostname&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;accounts.example.com&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Este ejemplo solo permitiría que los hosts especificados funcionaran si el dominio coincidiera exactamente con <strong>cuentas.ejemplo.com</strong>.
+No funcionaría en el sitio principal en <strong>example.com</strong>.</p>
+</section>
+<section id="limitar-a-subdominios">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink">Limitar a subdominios</a><a class="headerlink" href="#limitar-a-subdominios" title="Link to this heading"></a></h3>
+<p>Cuando la opción <code class="docutils literal notranslate"><span class="pre">subdominio</span></code> está presente, el sistema restringirá las rutas para que solo estén disponibles en ese
+subdominio. La ruta solo coincidirá si el subdominio es aquel a través del cual se está viendo la aplicación:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Limit to media.example.com</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;subdomain&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;media&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Puede restringirlo a cualquier subdominio estableciendo el valor en un asterisco (<code class="docutils literal notranslate"><span class="pre">*</span></code>). Si estás viendo desde una URL
+que no tiene ningún subdominio presente, este no será coincidente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Limit to any sub-domain</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;from&#39;</span><span class="p">,</span> <span class="s1">&#39;to&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;subdomain&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;*&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The system is not perfect and should be tested for your specific domain before being used in production.
+La mayoría de los dominios deberían funcionar bien, pero algunos casos extremos, especialmente con un punto en el dominio mismo (no utilizado)
+para separar sufijos o www) puede conducir potencialmente a falsos positivos.</p>
+</div>
+</section>
+<section id="compensacion-de-los-parametros-coincidentes">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink">Compensación de los parámetros coincidentes</a><a class="headerlink" href="#compensacion-de-los-parametros-coincidentes" title="Link to this heading"></a></h3>
+<p>Puede compensar los parámetros coincidentes en su ruta con cualquier valor numérico con la opción <code class="docutils literal notranslate"><span class="pre">compensación</span></code>, con el
+siendo el valor el número de segmentos a compensar.</p>
+<p>Esto puede resultar beneficioso al desarrollar API en las que el primer segmento de URI sea el número de versión. También puede
+usarse cuando el primer parámetro es una cadena de idioma:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;users/show/$1&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;offset&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c1">// Creates:</span>
+<span class="nv">$routes</span><span class="p">[</span><span class="s1">&#39;users/(:num)&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;users/show/$2&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="enrutamiento-inverso">
+<span id="reverse-routing"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink">Enrutamiento inverso</a><a class="headerlink" href="#enrutamiento-inverso" title="Link to this heading"></a></h2>
+<p>El enrutamiento inverso le permite definir el controlador y el método, así como cualquier parámetro, al que debe ir un enlace.
+y haga que el enrutador busque la ruta actual hacia él. Esto permite que las definiciones de ruta cambien sin que usted tenga que
+para actualizar el código de su aplicación. Esto normalmente se usa dentro de las vistas para crear enlaces.</p>
+<p>Por ejemplo, si tiene una ruta a una galería de fotos a la que desea vincular, puede usar el asistente <a class="reference internal" href="../helpers/url_helper.html#url_to" title="url_to"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_to()</span></code></a>.
+función para obtener la ruta que se debe utilizar. El primer parámetro es el controlador y el método completamente calificados.
+separados por dos puntos dobles (<code class="docutils literal notranslate"><span class="pre">::</span></code>), muy parecido a lo que usaría al escribir la ruta inicial. Cualquier parámetro que
+se debe pasar a la ruta que se pasa en la siguiente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// The route is defined as:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/(:num)/gallery/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Galleries::showUserGallery/$1/$2&#39;</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="cm">&lt;!-- Generate the URI to link to user ID 15, gallery 12: --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">url_to</span><span class="p">(</span><span class="s1">&#39;Galleries::showUserGallery&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>View Gallery<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Result: &#39;http://example.com/users/15/gallery/12&#39; --&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="rutas-con-nombre">
+<span id="using-named-routes"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink">Rutas con nombre</a><a class="headerlink" href="#rutas-con-nombre" title="Link to this heading"></a></h2>
+<p>Puede nombrar rutas para que su aplicación sea menos frágil. Esto aplica un nombre a una ruta que se puede llamar.
+más tarde, e incluso si la definición de ruta cambia, todos los enlaces en su aplicación creados con <a class="reference internal" href="../helpers/url_helper.html#url_to" title="url_to"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_to()</span></code></a>
+seguirá funcionando sin que tengas que hacer ningún cambio. Una ruta se nombra pasando la opción <code class="docutils literal notranslate"><span class="pre">as</span></code>
+con el nombre de la ruta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// The route is defined as:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users/(:num)/gallery/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Galleries::showUserGallery/$1/$2&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user_gallery&#39;</span><span class="p">]);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="cm">&lt;!-- Generate the URI to link to user ID 15, gallery 12: --&gt;</span>
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">url_to</span><span class="p">(</span><span class="s1">&#39;user_gallery&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>View Gallery<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Result: &#39;http://example.com/users/15/gallery/12&#39; --&gt;</span>
+</pre></div>
+</div>
+<p>Esto también tiene el beneficio adicional de hacer que las vistas sean más legibles.</p>
+</section>
+<section id="rutas-de-agrupacion">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Rutas de agrupación</a><a class="headerlink" href="#rutas-de-agrupacion" title="Link to this heading"></a></h2>
+<p>Puedes agrupar tus rutas bajo un nombre común con el método <code class="docutils literal notranslate"><span class="pre">group()</span></code>. El nombre del grupo se convierte en un segmento que
+aparece antes de las rutas definidas dentro del grupo. Esto le permite reducir la escritura necesaria para crear un
+Amplio conjunto de rutas que comparten la cadena de apertura, como cuando se construye un área de administración:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::index&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Blog::index&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Esto prefijaría los URI de <strong>usuarios</strong> y <strong>blog</strong> con <strong>admin</strong>, manejando URL como <strong>admin/usuarios</strong> y <strong>admin/blog</strong>.</p>
+<section id="configuracion-del-espacio-de-nombres">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">Configuración del espacio de nombres</a><a class="headerlink" href="#configuracion-del-espacio-de-nombres" title="Link to this heading"></a></h3>
+<p>Si necesita asignar opciones a un grupo, como <a class="reference internal" href="#assigning-namespace"><span class="std std-ref">Asignar espacio de nombres</span></a>, hágalo antes de la devolución de llamada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\API\v1&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Esto manejaría una ruta de recursos al controlador <code class="docutils literal notranslate"><span class="pre">App\API\v1\Users</span></code> con el URI <strong>api/users</strong>.</p>
+</section>
+<section id="configuracion-de-filtros">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">Configuración de filtros</a><a class="headerlink" href="#configuracion-de-filtros" title="Link to this heading"></a></h3>
+<p>También puedes usar un filtro <a class="reference internal" href="filters.html"><span class="doc">específico</span></a>  para un grupo de rutas. Esto siempre será
+ejecute el filtro antes o después del controlador. Esto es especialmente útil durante la autenticación o el registro de API:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;api&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;filter&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;api-auth&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>El valor del filtro debe coincidir con uno de los alias definidos en <strong>app/Config/Filters.php</strong>.</p>
+</section>
+<section id="configuracion-de-otras-opciones">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">Configuración de otras opciones</a><a class="headerlink" href="#configuracion-de-otras-opciones" title="Link to this heading"></a></h3>
+<p>En algún momento, es posible que desees agrupar rutas con el fin de aplicar filtros u otras rutas.
+opciones de configuración como espacio de nombres, subdominio, etc. Sin necesidad de agregar necesariamente un prefijo al grupo, puede pasar
+una cadena vacía en lugar del prefijo y las rutas en el grupo se enrutarán como si el grupo nunca existiera pero con el
+opciones de configuración de ruta dadas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Myth\Auth\Controllers&#39;</span><span class="p">],</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;AuthController::login&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;login&#39;</span><span class="p">]);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">,</span> <span class="s1">&#39;AuthController::attemptLogin&#39;</span><span class="p">);</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;logout&#39;</span><span class="p">,</span> <span class="s1">&#39;AuthController::logout&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+<section id="grupos-de-anidacion">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Grupos de anidación</a><a class="headerlink" href="#grupos-de-anidacion" title="Link to this heading"></a></h3>
+<p>Es posible anidar grupos dentro de grupos para una organización más precisa si lo necesita:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">group</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$routes</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::list&#39;</span><span class="p">);</span>
+    <span class="p">});</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<p>Esto manejaría la URL en <strong>admin/users/list</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Options passed to the outer <code class="docutils literal notranslate"><span class="pre">group()</span></code> (for example <code class="docutils literal notranslate"><span class="pre">namespace</span></code> and <code class="docutils literal notranslate"><span class="pre">filter</span></code>) are not merged with the inner <code class="docutils literal notranslate"><span class="pre">group()</span></code> options.</p>
+</div>
+</section>
+</section>
+<section id="prioridad-de-ruta">
+<span id="routing-priority"></span><h2><a class="toc-backref" href="#id37" role="doc-backlink">Prioridad de ruta</a><a class="headerlink" href="#prioridad-de-ruta" title="Link to this heading"></a></h2>
+<p>Las rutas se registran en la tabla de enrutamiento en el orden en que se definen. Esto significa que cuando se accede a un URI, se ejecutará la primera ruta coincidente.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If a route path is defined more than once with different handlers, only the first defined route is registered.</p>
+</div>
+<p>Puede verificar las rutas registradas en la tabla de enrutamiento ejecutando <a class="reference internal" href="#routing-spark-routes"><span class="std std-ref">spark route</span></a> comando.</p>
+<section id="cambiar-la-prioridad-de-la-ruta">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">Cambiar la prioridad de la ruta</a><a class="headerlink" href="#cambiar-la-prioridad-de-la-ruta" title="Link to this heading"></a></h3>
+<p>Cuando se trabaja con módulos, puede ser un problema si las rutas de la aplicación contienen comodines.
+Entonces las rutas del módulo no se procesarán correctamente.
+Puede resolver este problema reduciendo la prioridad del procesamiento de rutas usando la opción <code class="docutils literal notranslate"><span class="pre">prioridad</span></code>. El parámetro
+acepta números enteros positivos y cero. Cuanto mayor sea el número especificado en la «prioridad», menor
+prioridad de ruta en la cola de procesamiento:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// First you need to enable processing of the routes queue by priority.</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setPrioritize</span><span class="p">();</span>
+
+<span class="c1">// Config\Routes</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;(.*)&#39;</span><span class="p">,</span> <span class="s1">&#39;Posts::index&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;priority&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c1">// Modules\Acme\Config\Routes</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin::index&#39;</span><span class="p">);</span>
+
+<span class="c1">// The &quot;admin&quot; route will now be processed before the wildcard route.</span>
+</pre></div>
+</div>
+<p>Para deshabilitar esta funcionalidad, debes llamar al método con el parámetro <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setPrioritize</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>By default, all routes have a priority of 0.
+Los números enteros negativos se convertirán al valor absoluto.</p>
+</div>
+</section>
+</section>
+<section id="opciones-de-configuracion-de-rutas">
+<span id="routes-configuration-options"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink">Opciones de configuración de rutas</a><a class="headerlink" href="#opciones-de-configuracion-de-rutas" title="Link to this heading"></a></h2>
+<p>La clase RoutesCollection proporciona varias opciones que afectan a todas las rutas y se pueden modificar para satisfacer sus necesidades.
+necesidades de la aplicación. Estas opciones están disponibles en <strong>app/Config/Routing.php</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The config file <strong>app/Config/Routing.php</strong> has been added since v7.4.0.
+En versiones anteriores, los métodos de configuración se usaban en <strong>app/Config/Routes.php</strong>
+para cambiar la configuración.</p>
+</div>
+<section id="espacio-de-nombres-predeterminado">
+<span id="routing-default-namespace"></span><h3><a class="toc-backref" href="#id40" role="doc-backlink">Espacio de nombres predeterminado</a><a class="headerlink" href="#espacio-de-nombres-predeterminado" title="Link to this heading"></a></h3>
+<p>Al hacer coincidir un controlador con una ruta, el enrutador agregará el valor del espacio de nombres predeterminado al frente del controlador.
+especificado por la ruta. De forma predeterminada, este valor es <code class="docutils literal notranslate"><span class="pre">App\Controllers</span></code>.</p>
+<p>Si establece el valor de cadena vacía (<code class="docutils literal notranslate"><span class="pre">''</span></code>), deja que cada ruta especifique el espacio de nombres completo
+controlador:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In app/Config/Routing.php</span>
+<span class="k">use</span> <span class="nx">Higgs\Config\Routing</span> <span class="k">as</span> <span class="nx">BaseRouting</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Routing</span> <span class="k">extends</span> <span class="nx">BaseRouting</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$defaultNamespace</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// In app/Config/Routes.php</span>
+<span class="c1">// Controller is \Users</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">);</span>
+
+<span class="c1">// Controller is \Admin\Users</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si sus controladores no tienen un espacio de nombres explícito, no es necesario cambiarlo. Si asigna un espacio de nombres a sus controladores,
+entonces puedes cambiar este valor para ahorrar escribiendo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// This can be overridden in app/Config/Routes.php</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setDefaultNamespace</span><span class="p">(</span><span class="s1">&#39;App&#39;</span><span class="p">);</span>
+
+<span class="c1">// Controller is \App\Users</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Users::index&#39;</span><span class="p">);</span>
+
+<span class="c1">// Controller is \App\Admin\Users</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;Admin\Users::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="traducir-guiones-uri">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink">Traducir guiones URI</a><a class="headerlink" href="#traducir-guiones-uri" title="Link to this heading"></a></h3>
+<p>Esta opción le permite reemplazar automáticamente guiones (<code class="docutils literal notranslate"><span class="pre">-</span></code>) con guiones bajos en el controlador y el método.
+Segmentos URI cuando se utilizan en enrutamiento automático, lo que le ahorra entradas de ruta adicionales si necesita hacerlo. Esto es necesario porque el guión no es un carácter válido de nombre de clase o método y causaría un error fatal si intenta usarlo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In app/Config/Routing.php</span>
+<span class="k">use</span> <span class="nx">Higgs\Config\Routing</span> <span class="k">as</span> <span class="nx">BaseRouting</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Routing</span> <span class="k">extends</span> <span class="nx">BaseRouting</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">bool</span> <span class="nv">$translateURIDashes</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// This can be overridden in app/Config/Routes.php</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setTranslateURIDashes</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When using Auto Routing (Improved), prior to v7.4.0, if
+<code class="docutils literal notranslate"><span class="pre">$translateURIDashes</span></code> es verdadero, dos URI corresponden a un único controlador
+método, un URI para guiones (por ejemplo, <strong>foo-bar</strong>) y un URI para guiones bajos
+(por ejemplo, <strong>foo_bar</strong>). Este fue un comportamiento incorrecto. Desde v7.4.0, el URI para
+Los guiones bajos (<strong>foo_bar</strong>) no son accesibles.</p>
+</div>
+</section>
+<section id="utilice-unicamente-rutas-definidas">
+<span id="use-defined-routes-only"></span><h3><a class="toc-backref" href="#id42" role="doc-backlink">Utilice únicamente rutas definidas</a><a class="headerlink" href="#utilice-unicamente-rutas-definidas" title="Link to this heading"></a></h3>
+<p>Desde v7.2.0, el enrutamiento automático está deshabilitado de forma predeterminada.</p>
+<p>Cuando no se encuentra una ruta definida que coincida con el URI, el sistema intentará hacer coincidir ese URI con el
+controladores y métodos cuando el enrutamiento automático está habilitado.</p>
+<p>Puedes desactivar esta coincidencia automática y restringir rutas.
+solo a aquellos definidos por usted, estableciendo la propiedad <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> en falso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In app/Config/Routing.php</span>
+<span class="k">use</span> <span class="nx">Higgs\Config\Routing</span> <span class="k">as</span> <span class="nx">BaseRouting</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Routing</span> <span class="k">extends</span> <span class="nx">BaseRouting</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">bool</span> <span class="nv">$autoRoute</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// This can be overridden in app/Config/Routes.php</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setAutoRoute</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If you use the <a class="reference internal" href="../libraries/security.html"><span class="doc">CSRF protection</span></a>, it does not protect <strong>GET</strong>
+peticiones. Si se puede acceder al URI mediante el método GET, la protección CSRF no funcionará.</p>
+</div>
+</section>
+<section id="anulacion-404">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Anulación 404</a><a class="headerlink" href="#anulacion-404" title="Link to this heading"></a></h3>
+<p>Cuando no se encuentra una página que coincida con el URI actual, el sistema mostrará un
+vista genérica 404. Usando la propiedad <code class="docutils literal notranslate"><span class="pre">$override404</span></code> dentro de la configuración de enrutamiento
+archivo, puede definir la clase/método de controlador para rutas 404.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In app/Config/Routing.php</span>
+<span class="k">use</span> <span class="nx">Higgs\Config\Routing</span> <span class="k">as</span> <span class="nx">BaseRouting</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Routing</span> <span class="k">extends</span> <span class="nx">BaseRouting</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$override404</span> <span class="o">=</span> <span class="s1">&#39;App\Errors::show404&#39;</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>También puedes cambiar lo que sucede especificando una acción que sucederá con el
+Método <code class="docutils literal notranslate"><span class="pre">set404Override()</span></code> en el archivo de configuración de Rutas. El valor puede ser un
+par clase/método válido, o un cierre:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In app/Config/Routes.php</span>
+<span class="c1">// Would execute the show404 method of the App\Errors class</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">set404Override</span><span class="p">(</span><span class="s1">&#39;App\Errors::show404&#39;</span><span class="p">);</span>
+
+<span class="c1">// Will display a custom view.</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">set404Override</span><span class="p">(</span><span class="k">static</span> <span class="k">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// If you want to get the URI segments.</span>
+    <span class="nv">$segments</span> <span class="o">=</span> <span class="nx">request</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getSegments</span><span class="p">();</span>
+
+    <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;my_errors/not_found.html&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The 404 Override feature does not change the Response status code to <code class="docutils literal notranslate"><span class="pre">404</span></code>.
+Si no configura el código de estado en el controlador que configuró, el código de estado predeterminado <code class="docutils literal notranslate"><span class="pre">200</span></code>
+Será devuelto. Consulte <a class="reference internal" href="../outgoing/response.html#Higgs\HTTP\Response::setStatusCode" title="Higgs\HTTP\Response::setStatusCode"><code class="xref php php-meth docutils literal notranslate"><span class="pre">Higgs\HTTP\Response::setStatusCode()</span></code></a> para
+información sobre cómo configurar el código de estado.</p>
+</div>
+</section>
+<section id="procesamiento-de-ruta-por-prioridad">
+<h3><a class="toc-backref" href="#id44" role="doc-backlink">Procesamiento de ruta por prioridad</a><a class="headerlink" href="#procesamiento-de-ruta-por-prioridad" title="Link to this heading"></a></h3>
+<p>Habilita o deshabilita el procesamiento de la cola de rutas por prioridad. Bajar la prioridad se define en la opción de ruta.
+Deshabilitado por defecto. Esta funcionalidad afecta a todas las rutas.
+Para ver un ejemplo de cómo reducir la prioridad, consulte <a class="reference internal" href="#routing-priority"><span class="std std-ref">Prioridad de ruta</span></a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// In app/Config/Routing.php</span>
+<span class="k">use</span> <span class="nx">Higgs\Config\Routing</span> <span class="k">as</span> <span class="nx">BaseRouting</span><span class="p">;</span>
+
+<span class="c1">// ...</span>
+<span class="k">class</span> <span class="nc">Routing</span> <span class="k">extends</span> <span class="nx">BaseRouting</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">bool</span> <span class="nv">$prioritize</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// In app/Config/Routes.php</span>
+<span class="c1">// to enable</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setPrioritize</span><span class="p">();</span>
+
+<span class="c1">// to disable</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">setPrioritize</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ruta-automatica-mejorada">
+<span id="auto-routing-improved"></span><h2><a class="toc-backref" href="#id45" role="doc-backlink">Ruta automática (mejorada)</a><a class="headerlink" href="#ruta-automatica-mejorada" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.2.0.</span></p>
+</div>
+<p>Desde la versión 4.2.0, se introdujo el nuevo enrutamiento automático más seguro.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you are familiar with Auto Routing, which was enabled by default
+desde Higgs 3 hasta 4.1.x, puedes ver las diferencias en
+<span class="xref std std-ref">Registro de cambios v7.2.0</span> .</p>
+</div>
+<p>Cuando no se encuentra una ruta definida que coincida con el URI, el sistema intentará hacer coincidir ese URI con los controladores y métodos cuando el enrutamiento automático esté habilitado.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>For security reasons, if a controller is used in the defined routes, Auto Routing (Improved) does not route to the controller.</p>
+</div>
+<p>El enrutamiento automático puede enrutar automáticamente solicitudes HTTP según convenciones
+y ejecutar los métodos de controlador correspondientes.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Auto Routing (Improved) is disabled by default. To use it, see below.</p>
+</div>
+<section id="habilitar-enrutamiento-automatico">
+<span id="enabled-auto-routing-improved"></span><h3><a class="toc-backref" href="#id46" role="doc-backlink">Habilitar enrutamiento automático</a><a class="headerlink" href="#habilitar-enrutamiento-automatico" title="Link to this heading"></a></h3>
+<p>Para usarlo, necesita cambiar la configuración de la opción <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> a <code class="docutils literal notranslate"><span class="pre">true</span></code> en <strong>app/Config/Routing.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">bool</span> <span class="nx">público</span> <span class="nv">$autoRoute</span> <span class="o">=</span> <span class="nx">verdadero</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Y necesita cambiar la propiedad <code class="docutils literal notranslate"><span class="pre">$autoRoutesImproved</span></code> a <code class="docutils literal notranslate"><span class="pre">true</span></code> en <strong>app/Config/Feature.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">bool</span> <span class="nv">$autoRoutesImproved</span> <span class="o">=</span> <span class="nx">verdadero</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="segmentos-uri">
+<h3><a class="toc-backref" href="#id47" role="doc-backlink">Segmentos URI</a><a class="headerlink" href="#segmentos-uri" title="Link to this heading"></a></h3>
+<p>Los segmentos en la URL, siguiendo el enfoque Modelo-Vista-Controlador, generalmente representan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">class</span><span class="o">/</span><span class="nx">method</span><span class="o">/</span><span class="nx">ID</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>El primer segmento representa la <strong>clase</strong> del controlador que debe invocarse.</p></li>
+<li><p>El segundo segmento representa la clase <strong>método</strong> que se debe llamar.</p></li>
+<li><p>El tercer segmento y cualquier segmento adicional representan el ID y cualquier variable que se pasará al controlador.</p></li>
+</ol>
+<p>Considere este URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">hello</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, cuando envía una solicitud HTTP con el método <strong>GET</strong>,
+El enrutamiento automático intentaría encontrar un controlador llamado <code class="docutils literal notranslate"><span class="pre">App\Controllers\Helloworld</span></code>
+y ejecuta el método <code class="docutils literal notranslate"><span class="pre">getHello()</span></code> pasando <code class="docutils literal notranslate"><span class="pre">'1'</span></code> como primer argumento.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A controller method that will be executed by Auto Routing (Improved) needs HTTP verb (<code class="docutils literal notranslate"><span class="pre">get</span></code>, <code class="docutils literal notranslate"><span class="pre">post</span></code>, <code class="docutils literal notranslate"><span class="pre">put</span></code>, etc.) prefix like <code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>, <code class="docutils literal notranslate"><span class="pre">postCreate()</span></code>.</p>
+</div>
+<p>Ver <a class="reference internal" href="controllers.html#controller-auto-routing-improved"><span class="std std-ref">Enrutamiento automático en controladores</span></a> para más información.</p>
+</section>
+<section id="opciones-de-configuracion">
+<span id="routing-auto-routing-improved-configuration-options"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink">Opciones de configuración</a><a class="headerlink" href="#opciones-de-configuracion" title="Link to this heading"></a></h3>
+<p>Estas opciones están disponibles en el archivo <strong>app/Config/Routing.php</strong>.</p>
+<section id="controlador-predeterminado">
+<h4><a class="toc-backref" href="#id49" role="doc-backlink">Controlador predeterminado</a><a class="headerlink" href="#controlador-predeterminado" title="Link to this heading"></a></h4>
+<section id="para-uri-raiz-del-sitio">
+<h5>Para URI raíz del sitio<a class="headerlink" href="#para-uri-raiz-del-sitio" title="Link to this heading"></a></h5>
+<p>Cuando un usuario visita la raíz de su sitio (es decir, <strong>ejemplo.com</strong>), el controlador
+a utilizar está determinado por el valor establecido en la propiedad <code class="docutils literal notranslate"><span class="pre">$defaultController</span></code>,
+a menos que exista una ruta para ello explícitamente.</p>
+<p>El valor predeterminado para esto es <code class="docutils literal notranslate"><span class="pre">Home</span></code> que coincide con el controlador en
+<strong>aplicación/Controladores/Home.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">cadena</span> <span class="nx">pública</span> <span class="nv">$defaultController</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nx">Inicio</span><span class="o">&amp;</span><span class="c1">#39;;</span>
+</pre></div>
+</div>
+</section>
+<section id="para-uri-de-directorio">
+<h5>Para URI de directorio<a class="headerlink" href="#para-uri-de-directorio" title="Link to this heading"></a></h5>
+<p>El controlador predeterminado también se utiliza cuando no se ha encontrado ninguna ruta coincidente y el URI apuntaría a un directorio.
+en el directorio de controladores. Por ejemplo, si el usuario visita <strong>ejemplo.com/admin</strong>, si se encontró un controlador en
+<strong>app/Controllers/Admin/Home.php</strong>, se usaría.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>You cannot access the default controller with the URI of the controller name.
+Cuando el controlador predeterminado es <code class="docutils literal notranslate"><span class="pre">Home</span></code>, puede acceder a <strong>example.com/</strong>, pero si accede a <strong>example.com/home</strong>, no lo encontrará.</p>
+</div>
+<p>Ver <a class="reference internal" href="controllers.html#controller-auto-routing-improved"><span class="std std-ref">Enrutamiento automático en controladores</span></a> para más información.</p>
+</section>
+</section>
+<section id="metodo-predeterminado">
+<h4><a class="toc-backref" href="#id50" role="doc-backlink">Método predeterminado</a><a class="headerlink" href="#metodo-predeterminado" title="Link to this heading"></a></h4>
+<p>Esto funciona de manera similar a la configuración predeterminada del controlador, pero se usa para determinar el método predeterminado que se utiliza.
+cuando se encuentra un controlador que coincide con el URI, pero no existe ningún segmento para el método. El valor predeterminado es
+<code class="docutils literal notranslate"><span class="pre">índice</span></code>.</p>
+<p>En este ejemplo, si el usuario visitara <strong>ejemplo.com/productos</strong> y un <code class="docutils literal notranslate"><span class="pre">Productos</span></code>
+Si existiera el controlador, se ejecutaría el método <code class="docutils literal notranslate"><span class="pre">Products::getListAll()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">cadena</span> <span class="nx">pública</span> <span class="nv">$defaultMethod</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nx">listaTodo</span><span class="o">&amp;</span><span class="c1">#39;;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>You cannot access the controller with the URI of the default method name.
+En el ejemplo anterior, puede acceder a <strong>example.com/products</strong>, pero si accede a <strong>example.com/products/listall</strong>, no se encontrará.</p>
+</div>
+</section>
+</section>
+<section id="enrutamiento-del-modulo">
+<span id="auto-routing-improved-module-routing"></span><h3><a class="toc-backref" href="#id51" role="doc-backlink">Enrutamiento del módulo</a><a class="headerlink" href="#enrutamiento-del-modulo" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Puedes usar el enrutamiento automático incluso si usas <a class="reference internal" href="../general/modules.html"><span class="doc">Módulos de código</span></a> y colocas
+los controladores en un espacio de nombres diferente.</p>
+<p>Para enrutar a un módulo, la propiedad <code class="docutils literal notranslate"><span class="pre">$moduleRoutes</span></code> en <strong>app/Config/Routing.php</strong>
+se debe establecer:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">matriz</span> <span class="nx">pública</span> <span class="nv">$moduleRoutes</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;blog&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Acme\Blog\Controllers&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>La clave es el primer segmento URI del módulo y el valor es el controlador.
+espacio de nombres. En la configuración anterior, <strong>http://localhost:8080/blog/foo/bar</strong>
+será enrutado a <code class="docutils literal notranslate"><span class="pre">Acme\Blog\Controllers\Foo::getBar()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you define <code class="docutils literal notranslate"><span class="pre">$moduleRoutes</span></code>, the routing for the module takes
+precedencia. En el ejemplo anterior, incluso si tiene la <code class="docutils literal notranslate"><span class="pre">App\Controllers\Blog</span></code>
+controlador, <strong>http://localhost:8080/blog</strong> se enrutará al valor predeterminado
+controlador <code class="docutils literal notranslate"><span class="pre">Acme\Blog\Controllers\Home</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="enrutamiento-automatico-heredado">
+<span id="auto-routing-legacy"></span><h2><a class="toc-backref" href="#id52" role="doc-backlink">Enrutamiento automático (heredado)</a><a class="headerlink" href="#enrutamiento-automatico-heredado" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This feature exists only for backward compatibility. Do not use it
+en nuevos proyectos. Incluso si ya lo estás usando, te recomendamos que uses
+el <a class="reference internal" href="#auto-routing-improved"><span class="std std-ref">Ruta automática (mejorada)</span></a> en su lugar.</p>
+</div>
+<p>Auto Routing (Legacy) es un sistema de enrutamiento de Higgs 3.
+Puede enrutar automáticamente solicitudes HTTP según convenciones y ejecutar los métodos de controlador correspondientes.</p>
+<p>Se recomienda que todas las rutas estén definidas en el archivo <strong>app/Config/Routes.php</strong>,
+o usar <span class="xref std std-ref">auto-routing-mejorado</span>,</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>To prevent misconfiguration and miscoding, we recommend that you do not use
+Función de enrutamiento automático (heredado). Es fácil crear aplicaciones vulnerables donde el controlador filtra
+o la protección CSRF se omiten.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Auto Routing (Legacy) routes a HTTP request with <strong>any</strong> HTTP method to a controller method.</p>
+</div>
+<section id="habilitar-enrutamiento-automatico-heredado">
+<h3><a class="toc-backref" href="#id53" role="doc-backlink">Habilitar enrutamiento automático (heredado)</a><a class="headerlink" href="#habilitar-enrutamiento-automatico-heredado" title="Link to this heading"></a></h3>
+<p>Desde v7.2.0, el enrutamiento automático está deshabilitado de forma predeterminada.</p>
+<p>Para usarlo, necesita cambiar la configuración de la opción <code class="docutils literal notranslate"><span class="pre">$autoRoute</span></code> a <code class="docutils literal notranslate"><span class="pre">true</span></code> en <strong>app/Config/Routing.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">bool</span> <span class="nx">público</span> <span class="nv">$autoRoute</span> <span class="o">=</span> <span class="nx">verdadero</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Y establezca la propiedad <code class="docutils literal notranslate"><span class="pre">$autoRoutesImproved</span></code> en <code class="docutils literal notranslate"><span class="pre">false</span></code> en <strong>app/Config/Feature.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span> <span class="nx">bool</span> <span class="nv">$autoRoutesImproved</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="segmentos-uri-heredados">
+<h3><a class="toc-backref" href="#id54" role="doc-backlink">Segmentos URI (heredados)</a><a class="headerlink" href="#segmentos-uri-heredados" title="Link to this heading"></a></h3>
+<p>Los segmentos en la URL, siguiendo el enfoque Modelo-Vista-Controlador, generalmente representan:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">class</span><span class="o">/</span><span class="nx">method</span><span class="o">/</span><span class="nx">ID</span>
+</pre></div>
+</div>
+<ol class="arabic simple">
+<li><p>El primer segmento representa la <strong>clase</strong> del controlador que debe invocarse.</p></li>
+<li><p>El segundo segmento representa la clase <strong>método</strong> que se debe llamar.</p></li>
+<li><p>El tercer segmento y cualquier segmento adicional representan el ID y cualquier variable que se pasará al controlador.</p></li>
+</ol>
+<p>Considere este URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">index</span><span class="o">/</span><span class="mi">1</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, Higgs intentaría encontrar un controlador llamado <strong>Helloworld.php</strong>
+y ejecuta el método <code class="docutils literal notranslate"><span class="pre">index()</span></code> pasando <code class="docutils literal notranslate"><span class="pre">'1'</span></code> como primer argumento.</p>
+<p>Ver <a class="reference internal" href="controllers.html#controller-auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado) en controladores</span></a> para más información.</p>
+</section>
+<section id="opciones-de-configuracion-heredadas">
+<span id="routing-auto-routing-legacy-configuration-options"></span><h3><a class="toc-backref" href="#id55" role="doc-backlink">Opciones de configuración (heredadas)</a><a class="headerlink" href="#opciones-de-configuracion-heredadas" title="Link to this heading"></a></h3>
+<p>Estas opciones están disponibles en el archivo <strong>app/Config/Routing.php</strong>.</p>
+<section id="controlador-predeterminado-heredado">
+<h4><a class="toc-backref" href="#id56" role="doc-backlink">Controlador predeterminado (heredado)</a><a class="headerlink" href="#controlador-predeterminado-heredado" title="Link to this heading"></a></h4>
+<section id="para-uri-raiz-del-sitio-heredado">
+<h5>Para URI raíz del sitio (heredado)<a class="headerlink" href="#para-uri-raiz-del-sitio-heredado" title="Link to this heading"></a></h5>
+<p>Cuando un usuario visita la raíz de su sitio (es decir, <strong>ejemplo.com</strong>), el controlador
+a utilizar está determinado por el valor establecido en la propiedad <code class="docutils literal notranslate"><span class="pre">$defaultController</span></code>,
+a menos que exista una ruta para ello explícitamente.</p>
+<p>El valor predeterminado para esto es <code class="docutils literal notranslate"><span class="pre">Home</span></code> que coincide con el controlador en
+<strong>aplicación/Controladores/Home.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">cadena</span> <span class="nx">pública</span> <span class="nv">$defaultController</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nx">Inicio</span><span class="o">&amp;</span><span class="c1">#39;;</span>
+</pre></div>
+</div>
+</section>
+<section id="para-uri-de-directorio-heredado">
+<h5>Para URI de directorio (heredado)<a class="headerlink" href="#para-uri-de-directorio-heredado" title="Link to this heading"></a></h5>
+<p>El controlador predeterminado también se utiliza cuando no se ha encontrado ninguna ruta coincidente y el URI apuntaría a un directorio.
+en el directorio de controladores. Por ejemplo, si el usuario visita <strong>ejemplo.com/admin</strong>, si se encontró un controlador en
+<strong>app/Controllers/Admin/Home.php</strong>, se usaría.</p>
+<p>Ver <a class="reference internal" href="controllers.html#controller-auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado) en controladores</span></a> para más información.</p>
+</section>
+</section>
+<section id="metodo-predeterminado-heredado">
+<h4><a class="toc-backref" href="#id57" role="doc-backlink">Método predeterminado (heredado)</a><a class="headerlink" href="#metodo-predeterminado-heredado" title="Link to this heading"></a></h4>
+<p>Esto funciona de manera similar a la configuración predeterminada del controlador, pero se usa para determinar el método predeterminado que se utiliza.
+cuando se encuentra un controlador que coincide con el URI, pero no existe ningún segmento para el método. El valor predeterminado es
+<code class="docutils literal notranslate"><span class="pre">índice</span></code>.</p>
+<p>En este ejemplo, si el usuario visitara <strong>ejemplo.com/productos</strong> y un <code class="docutils literal notranslate"><span class="pre">Productos</span></code>
+Si existiera el controlador, se ejecutaría el método <code class="docutils literal notranslate"><span class="pre">Products::listAll()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">cadena</span> <span class="nx">pública</span> <span class="nv">$defaultMethod</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nx">listaTodo</span><span class="o">&amp;</span><span class="c1">#39;;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="confirmacion-de-rutas">
+<h2><a class="toc-backref" href="#id58" role="doc-backlink">Confirmación de rutas</a><a class="headerlink" href="#confirmacion-de-rutas" title="Link to this heading"></a></h2>
+<p>Higgs tiene el siguiente comando <span class="xref std std-doc">&lt;/cli/spark_commands&gt;</span>  para mostrar todas las rutas.</p>
+<section id="rutas-de-chispa">
+<span id="routing-spark-routes"></span><h3><a class="toc-backref" href="#id59" role="doc-backlink">rutas de chispa</a><a class="headerlink" href="#rutas-de-chispa" title="Link to this heading"></a></h3>
+<p>Muestra todas las rutas y filtros:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rutas de chispa php</span>
+</pre></div>
+</div>
+<p>El resultado es como el siguiente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------+---------+---------------+--------------------------------+----------------+-------------- -+
+| Método | Ruta | Nombre | Manejador | Antes de los filtros | Después de los filtros |
++---------+---------+---------------+--------------------------------+----------------+-------------- -+
+| OBTENER | / | » | \Aplicación\Controladores\Inicio::índice | | barra de herramientas |
+| OBTENER | alimentar | » | (Cierre) | | barra de herramientas |
++---------+---------+---------------+--------------------------------+----------------+-------------- -+
+</pre></div>
+</div>
+<p>La columna <em>Método</em> muestra el método HTTP que escucha la ruta.</p>
+<p>La columna <em>Ruta</em> muestra la ruta que debe coincidir. La ruta de una ruta definida se expresa como una expresión regular.</p>
+<p>Desde v7.3.0, la columna <em>Nombre</em> muestra el nombre de la ruta. <code class="docutils literal notranslate"><span class="pre">»</span></code> indica que el nombre es el mismo que la ruta de la ruta.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The system is not perfect.
+Para rutas que contienen patrones de expresión regular como <code class="docutils literal notranslate"><span class="pre">([^/]+)</span></code> o <code class="docutils literal notranslate"><span class="pre">{locale}</span></code>,
+Es posible que los <em>Filtros</em> mostrados no sean correctos (si configura un patrón de URI complicado)
+para los filtros en <strong>app/Config/Filters.php</strong>), o se muestra como <code class="docutils literal notranslate"><span class="pre">&lt;unknown&gt;</span></code>.</p>
+<p>El <a class="reference internal" href="filters.html#spark-filter-check"><span class="std std-ref">filtro de chispa:verificar</span></a> El comando se puede utilizar para comprobar
+para filtros 100% precisos.</p>
+</div>
+<section id="id1">
+<h4><a class="toc-backref" href="#id60" role="doc-backlink">Ruta automática (mejorada)</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Cuando utiliza el enrutamiento automático (mejorado), el resultado es similar al siguiente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-----------+-------------------------+----------------+-----------------------------------+-----------------+---------------+
+| Método | Ruta | Nombre | Manejador | Antes de los filtros | Después de los filtros |
++-----------+-------------------------+----------------+-----------------------------------+-----------------+---------------+
+| OBTENER (automático) | producto/lista/../..[/..] | | \Aplicación\Controladores\Producto::getList | | barra de herramientas |
++-----------+-------------------------+----------------+-----------------------------------+-----------------+---------------+
+</pre></div>
+</div>
+<p>El <em>Método</em> será como <code class="docutils literal notranslate"><span class="pre">GET(auto)</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/..</span></code> en la columna <em>Ruta</em> indica un segmento. <code class="docutils literal notranslate"><span class="pre">[/..]</span></code> indica que es opcional.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When auto-routing is enabled and you have the route <code class="docutils literal notranslate"><span class="pre">home</span></code>, it can be also accessed by <code class="docutils literal notranslate"><span class="pre">Home</span></code>, or maybe by <code class="docutils literal notranslate"><span class="pre">hOme</span></code>, <code class="docutils literal notranslate"><span class="pre">hoMe</span></code>, <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, etc. but the command will show only <code class="docutils literal notranslate"><span class="pre">home</span></code>.</p>
+</div>
+<p>Si ve una ruta que comienza con <code class="docutils literal notranslate"><span class="pre">x</span></code> como la siguiente, indica una ruta no válida
+ruta que no será enrutada, pero el controlador tiene un método público para enrutar.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-----------+----------------+------+--------------------------------------+----------------+----------------+
+| Método | Ruta | Nombre | Manejador | Antes de los filtros | Después de los filtros |
++-----------+----------------+------+--------------------------------------+----------------+----------------+
+| OBTENER (automático) | x inicio/foo | | \Aplicación\Controladores\Home::getFoo |&lt;unknown&gt; |&lt;unknown&gt; |
++-----------+----------------+------+--------------------------------------+----------------+----------------+
+</pre></div>
+</div>
+<p>El ejemplo anterior muestra que tiene el método <code class="docutils literal notranslate"><span class="pre">\App\Controllers\Home::getFoo()</span></code>,
+pero no se enruta porque es el controlador predeterminado (<code class="docutils literal notranslate"><span class="pre">Home</span></code> por defecto)
+y el nombre del controlador predeterminado debe omitirse en el URI. deberías eliminar
+el método <code class="docutils literal notranslate"><span class="pre">getFoo()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Prior to v7.3.4, the invalid route is displayed as a normal route
+debido a un error.</p>
+</div>
+</section>
+<section id="id2">
+<h4><a class="toc-backref" href="#id61" role="doc-backlink">Enrutamiento automático (heredado)</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<p>Cuando utiliza el enrutamiento automático (heredado), el resultado es similar al siguiente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------+--------------------+---------------+---------------------+----------------+ ---------------+
+| Método | Ruta | Nombre | Manejador | Antes de los filtros | Después de los filtros |
++--------+--------------------+---------------+---------------------+----------------+ ---------------+
+| automático | producto/lista[/...] | | \Aplicación\Controladores\Producto::getList | | barra de herramientas |
++--------+--------------------+---------------+---------------------+----------------+ ---------------+
+</pre></div>
+</div>
+<p>El <em>Método</em> será <code class="docutils literal notranslate"><span class="pre">automático</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">[/...]</span></code> en la columna <em>Ruta</em> indica cualquier número de segmentos.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When auto-routing is enabled and you have the route <code class="docutils literal notranslate"><span class="pre">home</span></code>, it can be also accessed by <code class="docutils literal notranslate"><span class="pre">Home</span></code>, or maybe by <code class="docutils literal notranslate"><span class="pre">hOme</span></code>, <code class="docutils literal notranslate"><span class="pre">hoMe</span></code>, <code class="docutils literal notranslate"><span class="pre">HOME</span></code>, etc. but the command will show only <code class="docutils literal notranslate"><span class="pre">home</span></code>.</p>
+</div>
+</section>
+<section id="ordenar-por-controlador">
+<span id="routing-spark-routes-sort-by-handler"></span><h4><a class="toc-backref" href="#id62" role="doc-backlink">Ordenar por controlador</a><a class="headerlink" href="#ordenar-por-controlador" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Puedes ordenar las rutas por <em>Handler</em>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rutas de chispa php -h</span>
+</pre></div>
+</div>
+</section>
+<section id="especificar-anfitrion">
+<span id="routing-spark-routes-specify-host"></span><h4><a class="toc-backref" href="#id63" role="doc-backlink">Especificar anfitrión</a><a class="headerlink" href="#especificar-anfitrion" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Puede especificar el host en la URL de solicitud con la opción <code class="docutils literal notranslate"><span class="pre">--host</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">rutas de chispa php --cuentas de host.ejemplo.com</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Controllers and Routing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="controllers.html" class="btn btn-neutral float-right" title="Controladores" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

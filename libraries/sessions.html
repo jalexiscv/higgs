@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biblioteca de sesiones &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/sessions.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="acelerador" href="throttler.html" />
+    <link rel="prev" title="Seguridad" href="security.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Biblioteca de sesiones</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="biblioteca-de-sesiones">
+<h1>Biblioteca de sesiones<a class="headerlink" href="#biblioteca-de-sesiones" title="Link to this heading"></a></h1>
+<p>La clase Session le permite mantener el «estado» de un usuario y realizar un seguimiento de su
+actividad mientras navegan por su sitio.</p>
+<p>Higgs viene con algunos controladores de almacenamiento de sesión, que puedes ver
+en la última sección del índice:</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#usando-la-clase-de-sesion" id="id2">Usando la clase de sesión</a></p>
+<ul>
+<li><p><a class="reference internal" href="#inicializando-una-sesion" id="id3">Inicializando una sesión</a></p></li>
+<li><p><a class="reference internal" href="#como-funcionan-las-sesiones" id="id4">¿Cómo funcionan las sesiones?</a></p></li>
+<li><p><a class="reference internal" href="#que-son-los-datos-de-sesion" id="id5">¿Qué son los datos de sesión?</a></p></li>
+<li><p><a class="reference internal" href="#recuperar-datos-de-la-sesion" id="id6">Recuperar datos de la sesión</a></p></li>
+<li><p><a class="reference internal" href="#agregar-datos-de-sesion" id="id7">Agregar datos de sesión</a></p></li>
+<li><p><a class="reference internal" href="#impulsar-nuevo-valor-a-los-datos-de-la-sesion" id="id8">Impulsar nuevo valor a los datos de la sesión</a></p></li>
+<li><p><a class="reference internal" href="#eliminar-datos-de-sesion" id="id9">Eliminar datos de sesión</a></p></li>
+<li><p><a class="reference internal" href="#datos-flash" id="id10">datos flash</a></p></li>
+<li><p><a class="reference internal" href="#datos-temporales" id="id11">datos temporales</a></p></li>
+<li><p><a class="reference internal" href="#cerrar-una-sesion" id="id12">Cerrar una sesión</a></p></li>
+<li><p><a class="reference internal" href="#destruir-una-sesion" id="id13">Destruir una sesión</a></p></li>
+<li><p><a class="reference internal" href="#acceder-a-los-metadatos-de-la-sesion" id="id14">Acceder a los metadatos de la sesión</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#preferencias-de-sesion" id="id15">Preferencias de sesión</a></p></li>
+<li><p><a class="reference internal" href="#controladores-de-sesion" id="id16">Controladores de sesión</a></p>
+<ul>
+<li><p><a class="reference internal" href="#controlador-filehandler-el-predeterminado" id="id17">Controlador FileHandler (el predeterminado)</a></p></li>
+<li><p><a class="reference internal" href="#controlador-del-controlador-de-base-de-datos" id="id18">Controlador del controlador de base de datos</a></p></li>
+<li><p><a class="reference internal" href="#controlador-redishandler" id="id19">Controlador RedisHandler</a></p></li>
+<li><p><a class="reference internal" href="#controlador-memcachedhandler" id="id20">Controlador MemcachedHandler</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="usando-la-clase-de-sesion">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Usando la clase de sesión</a><a class="headerlink" href="#usando-la-clase-de-sesion" title="Link to this heading"></a></h2>
+<section id="inicializando-una-sesion">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Inicializando una sesión</a><a class="headerlink" href="#inicializando-una-sesion" title="Link to this heading"></a></h3>
+<p>Las sesiones normalmente se ejecutarán globalmente con cada carga de página, por lo que la sesión
+La clase debe inicializarse mágicamente.</p>
+<p>Para acceder e inicializar la sesión:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">session</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El parámetro <code class="docutils literal notranslate"><span class="pre">$config</span></code> es opcional: la configuración de su aplicación.
+Si no se proporciona, el registro de servicios creará una instancia de su valor predeterminado.
+uno.</p>
+<p>Una vez cargado, el objeto de la biblioteca Sessions estará disponible usando:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$sesión</span>
+</pre></div>
+</div>
+<p>Alternativamente, puede usar la función auxiliar que usará el valor predeterminado
+opciones de configuración. Esta versión es un poco más amigable de leer,
+pero no acepta ninguna opción de configuración.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span> <span class="o">=</span> <span class="nx">session</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="como-funcionan-las-sesiones">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">¿Cómo funcionan las sesiones?</a><a class="headerlink" href="#como-funcionan-las-sesiones" title="Link to this heading"></a></h3>
+<p>Cuando se carga una página, la clase de sesión comprobará si hay una página válida.
+La cookie de sesión es enviada por el navegador del usuario. Si una cookie de sesión no
+<strong>no</strong> existe (o si no coincide con uno almacenado en el servidor o tiene
+caducado) se creará y guardará una nueva sesión.</p>
+<p>Si existe una sesión válida, su información se actualizará. Con cada
+actualización, el ID de sesión puede regenerarse si está configurado para hacerlo.</p>
+<p>Es importante que comprenda que una vez inicializada, la sesión
+La clase se ejecuta automáticamente. No hay nada que debas hacer para causar el
+comportamiento anterior para que suceda. Puedes, como verás a continuación, trabajar con sesión
+datos, pero el proceso de lectura, escritura y actualización de una sesión es
+automático.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Under CLI, the Session library will automatically halt itself,
+ya que este es un concepto basado enteramente en el protocolo HTTP.</p>
+</div>
+<section id="una-nota-sobre-la-simultaneidad">
+<h4>Una nota sobre la simultaneidad<a class="headerlink" href="#una-nota-sobre-la-simultaneidad" title="Link to this heading"></a></h4>
+<p>A menos que esté desarrollando un sitio web con un uso intensivo de AJAX, puede omitir esto
+sección. Sin embargo, si es así y si está experimentando un rendimiento
+problemas, entonces esta nota es exactamente lo que estás buscando.</p>
+<p>Las sesiones en Higgs v2.x no implementaron el bloqueo,
+lo que significaba que dos solicitudes HTTP usando la misma sesión podrían ejecutarse exactamente
+al mismo tiempo. Para usar un término técnico más apropiado - las solicitudes fueron
+sin bloqueo.</p>
+<p>Sin embargo, las solicitudes sin bloqueo en el contexto de las sesiones también significan
+No es seguro porque modifica los datos de la sesión (o la regeneración del ID de la sesión).
+en una solicitud puede interferir con la ejecución de una segunda, concurrente
+pedido. Este detalle fue la raíz de muchos problemas y la razón principal por la que
+Higgs 3 tiene una biblioteca de sesiones completamente reescrita.</p>
+<p>¿Por qué os contamos esto? Porque es probable que después de intentar
+Si encuentra el motivo de sus problemas de rendimiento, puede concluir que bloquear
+Ese es el problema y, por lo tanto, investiga cómo quitar las cerraduras…</p>
+<p>¡NO HAGAS ESO! Quitar candados sería <strong>incorrecto</strong> y te provocará
+¡mas problemas!</p>
+<p>El bloqueo no es el problema, es una solución. Tu problema es que todavía
+tener la sesión abierta, mientras ya la has procesado y por lo tanto no
+ya no lo necesito. Entonces, lo que necesitas es cerrar la sesión por el
+solicitud actual después de que ya no la necesite.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="que-son-los-datos-de-sesion">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">¿Qué son los datos de sesión?</a><a class="headerlink" href="#que-son-los-datos-de-sesion" title="Link to this heading"></a></h3>
+<p>Los datos de la sesión son simplemente una matriz asociada con una ID de sesión particular.
+(Galleta).</p>
+<p>Si ha usado sesiones en PHP antes, debería estar familiarizado con PHP.
+<cite>$_SESSION superglobal&lt;https://www.php.net/manual/en/reserved.variables.session.php&gt;</cite> _
+(si no, lea el contenido de ese enlace).</p>
+<p>Higgs da acceso a los datos de su sesión por el mismo medio, ya que
+utiliza el mecanismo de controladores de sesión proporcionado por PHP. Usar datos de sesión es
+tan simple como manipular (leer, configurar y desarmar valores) el <code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code>
+formación.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In general, it is bad practice to use global variables.
+Por lo tanto, no se recomienda utilizar el superglobal <code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code> directamente.</p>
+</div>
+<p>Además, Higgs también proporciona 2 tipos especiales de datos de sesión.
+que se explican con más detalle a continuación: <a href="#id21"><span class="problematic" id="id22">`Flashdata`_</span></a> y <a href="#id23"><span class="problematic" id="id24">`Tempdata`_</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>For historical reasons, we refer to session data excluding Flashdata and Tempdata as «userdata».</p>
+</div>
+</section>
+<section id="recuperar-datos-de-la-sesion">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Recuperar datos de la sesión</a><a class="headerlink" href="#recuperar-datos-de-la-sesion" title="Link to this heading"></a></h3>
+<p>Cualquier información del conjunto de sesiones está disponible a través del
+<code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code> superglobal:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>O mediante el método de acceso convencional:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>O a través del captador mágico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">item</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>O incluso a través del método de ayuda de sesión:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nx">session</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Donde <code class="docutils literal notranslate"><span class="pre">item</span></code> es la clave de matriz correspondiente al elemento que desea recuperar.
+Por ejemplo, para asignar un elemento <code class="docutils literal notranslate"><span class="pre">nombre</span></code> previamente almacenado al elemento <code class="docutils literal notranslate"><span class="pre">$nombre</span></code>
+variable, harás esto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$name</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+
+<span class="c1">// or:</span>
+
+<span class="nv">$name</span> <span class="o">=</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+
+<span class="c1">// or:</span>
+
+<span class="nv">$name</span> <span class="o">=</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get()</span></code> method returns null if the item you are trying
+para acceder no existe.</p>
+</div>
+<p>Si desea recuperar todos los datos de la sesión existente, simplemente puede
+omita la clave del elemento (el captador mágico solo funciona para valores de propiedad individuales):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userData</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">;</span>
+<span class="c1">// or:</span>
+<span class="nv">$userData</span> <span class="o">=</span> <span class="nv">$session</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get()</span></code> method WILL return flashdata or tempdata items when
+recuperar un solo elemento por clave. No devolverá datos flash o datos temporales cuando
+Sin embargo, toma todos los datos de la sesión.</p>
+</div>
+</section>
+<section id="agregar-datos-de-sesion">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Agregar datos de sesión</a><a class="headerlink" href="#agregar-datos-de-sesion" title="Link to this heading"></a></h3>
+<p>Digamos que un usuario en particular inicia sesión en su sitio. Una vez autenticado, usted
+podría agregar su nombre de usuario y dirección de correo electrónico a la sesión, haciendo que
+datos globalmente disponibles para usted sin tener que ejecutar una consulta de base de datos cuando
+lo necesita.</p>
+<p>Simplemente puedes asignar datos a la matriz <code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code>, como con cualquier otro
+variable. O como propiedad de <code class="docutils literal notranslate"><span class="pre">$session</span></code>.</p>
+<p>Puede pasar una matriz que contenga los datos de su nueva sesión al
+Método <code class="docutils literal notranslate"><span class="pre">set()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Donde <code class="docutils literal notranslate"><span class="pre">$array</span></code> es una matriz asociativa que contiene sus nuevos datos. Aquí está
+un ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$newdata</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;johndoe&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;johndoe@some-site.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;logged_in&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="nv">$newdata</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si desea agregar datos de sesión un valor a la vez, <code class="docutils literal notranslate"><span class="pre">set()</span></code> también
+admite esta sintaxis:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">set</span><span class="p">(</span><span class="s1">&#39;some_name&#39;</span><span class="p">,</span> <span class="s1">&#39;some_value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si desea verificar que existe un valor de sesión, simplemente verifique con
+<code class="docutils literal notranslate"><span class="pre">isset()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// returns false if the &#39;some_name&#39; item doesn&#39;t exist or is null,</span>
+<span class="c1">// true otherwise:</span>
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;some_name&#39;</span><span class="p">]))</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>O puedes llamar a <code class="docutils literal notranslate"><span class="pre">has()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">has</span><span class="p">(</span><span class="s1">&#39;some_name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="impulsar-nuevo-valor-a-los-datos-de-la-sesion">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Impulsar nuevo valor a los datos de la sesión</a><a class="headerlink" href="#impulsar-nuevo-valor-a-los-datos-de-la-sesion" title="Link to this heading"></a></h3>
+<p>El método <code class="docutils literal notranslate"><span class="pre">push()</span></code> se utiliza para insertar un nuevo valor en un valor de sesión que es una matriz.
+Por ejemplo, si la clave <code class="docutils literal notranslate"><span class="pre">hobbies</span></code> contiene una serie de aficiones, puedes agregar un nuevo valor a la matriz de la siguiente manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">push</span><span class="p">(</span><span class="s1">&#39;hobbies&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;sport&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;tennis&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="eliminar-datos-de-sesion">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Eliminar datos de sesión</a><a class="headerlink" href="#eliminar-datos-de-sesion" title="Link to this heading"></a></h3>
+<p>Al igual que con cualquier otra variable, desarmar un valor en <code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code> puede ser
+hecho a través de <code class="docutils literal notranslate"><span class="pre">unset()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;some_name&#39;</span><span class="p">]);</span>
+<span class="c1">// or multiple values:</span>
+<span class="nb">unset</span><span class="p">(</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;some_name&#39;</span><span class="p">],</span>
+    <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;another_name&#39;</span><span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Además, así como <code class="docutils literal notranslate"><span class="pre">set()</span></code> se puede usar para agregar información a un
+sesión, <code class="docutils literal notranslate"><span class="pre">remove()</span></code> se puede utilizar para eliminarlo, pasando el
+clave de sesión. Por ejemplo, si desea eliminar <code class="docutils literal notranslate"><span class="pre">algún_nombre</span></code> de su
+matriz de datos de sesión:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="s1">&#39;some_name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Este método también acepta una serie de claves de elementos para desarmar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$array_items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">remove</span><span class="p">(</span><span class="nv">$array_items</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="datos-flash">
+<span id="sessions-flashdata"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">datos flash</a><a class="headerlink" href="#datos-flash" title="Link to this heading"></a></h3>
+<p>Higgs admite «flashdata», o datos de sesión que sólo serán
+disponible para la siguiente solicitud y luego se borra automáticamente.</p>
+<p>Esto puede ser muy útil, especialmente para información puntual, error o
+mensajes de estado (por ejemplo: «Registro 2 eliminado»).</p>
+<p>Cabe señalar que las variables flashdata son variables de sesión regulares,
+administrado dentro del controlador de sesión de Higgs.</p>
+<p>Para marcar un elemento existente como «flashdata»:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsFlashdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si desea marcar varios elementos como datos flash, simplemente pase las claves como
+formación:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsFlashdata</span><span class="p">([</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Para agregar datos flash:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">;</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsFlashdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>O alternativamente, usando el método <code class="docutils literal notranslate"><span class="pre">setFlashdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">setFlashdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puedes pasar una matriz a <code class="docutils literal notranslate"><span class="pre">setFlashdata()</span></code>, de la misma manera que
+<code class="docutils literal notranslate"><span class="pre">conjunto()</span></code>.</p>
+<p>Leer variables de datos flash es lo mismo que leer datos de sesión normales.
+a través de <code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get()</span></code> method WILL return flashdata items when
+recuperar un solo elemento por clave. No devolverá datos flash cuando
+Sin embargo, toma todos los datos de la sesión.</p>
+</div>
+<p>Sin embargo, si quiere estar seguro de que está leyendo «flashdata» (y no
+cualquier otro tipo), también puedes usar el método <code class="docutils literal notranslate"><span class="pre">getFlashdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">getFlashdata()</span></code> method returns null if the item cannot be
+encontró.</p>
+</div>
+<p>O para obtener una matriz con todos los datos flash, simplemente omita el parámetro clave:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getFlashdata</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Si descubre que necesita conservar una variable flashdata a través de un
+solicitud adicional, puede hacerlo utilizando el método <code class="docutils literal notranslate"><span class="pre">keepFlashdata()</span></code>.
+Puede pasar un solo elemento o una serie de elementos de datos flash para conservar.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">keepFlashdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">keepFlashdata</span><span class="p">([</span><span class="s1">&#39;item1&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">,</span> <span class="s1">&#39;item3&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="datos-temporales">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">datos temporales</a><a class="headerlink" href="#datos-temporales" title="Link to this heading"></a></h3>
+<p>Higgs también admite «tempdata», o datos de sesión con un
+Tiempo de expiración. Después de que el valor expire, o la sesión expire o sea
+eliminado, el valor se elimina automáticamente.</p>
+<p>De manera similar a flashdata, las variables tempdata son administradas internamente por el
+Manejador de sesión de Higgs.</p>
+<p>Para marcar un elemento existente como «tempdata», simplemente pase su clave y su hora de caducidad.
+(¡en segundos!) al método <code class="docutils literal notranslate"><span class="pre">markAsTempdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// &#39;item&#39; will be erased after 300 seconds</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsTempdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Puede marcar varios elementos como datos temporales de dos maneras, dependiendo de si
+quieres que todos tengan el mismo tiempo de caducidad o no:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Both &#39;item&#39; and &#39;item2&#39; will expire after 300 seconds</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsTempdata</span><span class="p">([</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;item2&#39;</span><span class="p">],</span> <span class="mi">300</span><span class="p">);</span>
+
+<span class="c1">// &#39;item&#39; will be erased after 300 seconds, while &#39;item2&#39;</span>
+<span class="c1">// will do so after only 240 seconds</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsTempdata</span><span class="p">([</span>
+    <span class="s1">&#39;item&#39;</span>  <span class="o">=&gt;</span> <span class="mi">300</span><span class="p">,</span>
+    <span class="s1">&#39;item2&#39;</span> <span class="o">=&gt;</span> <span class="mi">240</span><span class="p">,</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>Para agregar datos temporales:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;value&#39;</span><span class="p">;</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">markAsTempdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span> <span class="c1">// Expire in 5 minutes</span>
+</pre></div>
+</div>
+<p>O alternativamente, usando el método <code class="docutils literal notranslate"><span class="pre">setTempdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">setTempdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puedes pasar una matriz a <code class="docutils literal notranslate"><span class="pre">setTempdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$tempdata</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;newuser&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;message&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Thanks for joining!&#39;</span><span class="p">];</span>
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">setTempdata</span><span class="p">(</span><span class="nv">$tempdata</span><span class="p">,</span> <span class="k">null</span><span class="p">,</span> <span class="nv">$expire</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If the expiration is omitted or set to 0, the default
+Se utilizará un valor de tiempo de vida de 300 segundos (o 5 minutos).</p>
+</div>
+<p>Para leer una variable tempdata, nuevamente puede acceder a ella a través del
+<code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code> matriz superglobal:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$item</span> <span class="o">=</span> <span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">get()</span></code> method WILL return tempdata items when
+recuperar un solo elemento por clave. No devolverá tempdata cuando
+Sin embargo, toma todos los datos de la sesión.</p>
+</div>
+<p>O si quieres estar seguro de que estás leyendo «tempdata» (y no cualquier
+otro tipo), también puedes usar el método <code class="docutils literal notranslate"><span class="pre">getTempdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getTempdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">getTempdata()</span></code> method returns null if the item cannot be
+encontró.</p>
+</div>
+<p>Y, por supuesto, si desea recuperar todos los datos temporales existentes:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">getTempdata</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Si necesita eliminar un valor de tempdata antes de que caduque, puede hacerlo directamente
+desactívelo de la matriz <code class="docutils literal notranslate"><span class="pre">$_SESSION</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nb">unset</span><span class="p">(</span><span class="nv">$_SESSION</span><span class="p">[</span><span class="s1">&#39;item&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Sin embargo, esto no eliminará el marcador que hace que este elemento específico sea
+tempdata (se invalidará en la siguiente solicitud HTTP), por lo que si
+tiene la intención de reutilizar esa misma clave en la misma solicitud, querrá usar
+<code class="docutils literal notranslate"><span class="pre">eliminarTempdata()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">removeTempdata</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="cerrar-una-sesion">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Cerrar una sesión</a><a class="headerlink" href="#cerrar-una-sesion" title="Link to this heading"></a></h3>
+<section id="cerca">
+<span id="session-close"></span><h4>cerca()<a class="headerlink" href="#cerca" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Para cerrar la sesión actual manualmente después de que ya no la necesite, utilice el
+Método <code class="docutils literal notranslate"><span class="pre">cerrar()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">close</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>No es necesario cerrar la sesión manualmente, PHP la cerrará automáticamente
+después de que terminó su script. Pero como los datos de la sesión están bloqueados para evitar la concurrencia
+escribe sólo una solicitud puede operar en una sesión en cualquier momento. puedes mejorar
+el rendimiento de su sitio cerrando la sesión tan pronto como se realicen todos los cambios en la sesión
+Los datos están hechos.</p>
+<p>Este método funcionará exactamente de la misma manera que el de PHP.
+<cite>session_write_close()&lt;https://www.php.net/session_write_close&gt;</cite> _ función.</p>
+</section>
+</section>
+<section id="destruir-una-sesion">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Destruir una sesión</a><a class="headerlink" href="#destruir-una-sesion" title="Link to this heading"></a></h3>
+<section id="destruir">
+<span id="session-destroy"></span><h4>destruir()<a class="headerlink" href="#destruir" title="Link to this heading"></a></h4>
+<p>Para borrar la sesión actual (por ejemplo, durante un cierre de sesión), puede
+simplemente use el método <code class="docutils literal notranslate"><span class="pre">destroy()</span></code> de la biblioteca:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$session</span><span class="o">-&gt;</span><span class="na">destroy</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Este método funcionará exactamente de la misma manera que el de PHP.
+<cite>session_destroy()&lt;https://www.php.net/session_destroy&gt;</cite> _ función.</p>
+<p>Esta debe ser la última operación relacionada con la sesión que realice durante la misma solicitud.
+Todos los datos de la sesión (incluidos flashdata y tempdata) se destruirán permanentemente.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You do not have to call this method from usual code. Cleanup session
+datos en lugar de destruir la sesión.</p>
+</div>
+</section>
+<section id="detener">
+<span id="session-stop"></span><h4>detener()<a class="headerlink" href="#detener" title="Link to this heading"></a></h4>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 4.3.5.</span></p>
+</div>
+<p>La clase de sesión también tiene el método <code class="docutils literal notranslate"><span class="pre">stop()</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Prior to v7.3.5, this method did not destroy the session due to a bug.</p>
+</div>
+<p>A partir de v7.3.5, este método se modificó para destruir la sesión.
+Sin embargo, está en desuso porque es exactamente igual que <code class="docutils literal notranslate"><span class="pre">destroy()</span></code>
+método. Utilice el método <code class="docutils literal notranslate"><span class="pre">destroy()</span></code> en su lugar.</p>
+</section>
+</section>
+<section id="acceder-a-los-metadatos-de-la-sesion">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Acceder a los metadatos de la sesión</a><a class="headerlink" href="#acceder-a-los-metadatos-de-la-sesion" title="Link to this heading"></a></h3>
+<p>En Higgs 2, la matriz de datos de la sesión incluía 4 elementos
+de forma predeterminada: “id_sesión”, “dirección_ip”, “agente_usuario”, “última_actividad”.</p>
+<p>Esto se debió a las características específicas de cómo funcionaban las sesiones, pero ahora ya no es así.
+necesario con nuestra nueva implementación. Sin embargo, puede suceder que su
+La aplicación se basó en estos valores, por lo que aquí hay métodos alternativos de
+accediendo a ellos:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>session_id: <code class="docutils literal notranslate"><span class="pre">$session-&gt;session_id</span></code> o <code class="docutils literal notranslate"><span class="pre">session_id()</span></code> (función integrada de PHP)</p></li>
+<li><p>dirección_ip: <code class="docutils literal notranslate"><span class="pre">$_SERVER['REMOTE_ADDR']</span></code></p></li>
+<li><p>user_agent: <code class="docutils literal notranslate"><span class="pre">$_SERVER['HTTP_USER_AGENT']</span></code> (no utilizado por sesiones)</p></li>
+<li><p>last_activity: Depende del almacenamiento, no es una forma sencilla. ¡Lo siento!</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="preferencias-de-sesion">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Preferencias de sesión</a><a class="headerlink" href="#preferencias-de-sesion" title="Link to this heading"></a></h2>
+<p>Higgs normalmente hará que todo funcione de inmediato. Sin embargo,
+Las sesiones son un componente muy sensible de cualquier aplicación, por lo que algunas
+Se debe realizar una configuración cuidadosa. Por favor tómate tu tiempo para considerar
+todas las opciones y sus efectos.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.3.0, the new <strong>app/Config/Session.php</strong> has been added.
+Anteriormente, las Preferencias de sesión estaban en su archivo <strong>app/Config/App.php</strong>.</p>
+</div>
+<p>Encontrarás las siguientes preferencias relacionadas con la sesión en tu
+Archivo <strong>app/Config/Session.php</strong>:
+======================= ============================ ================= ================================== ================ =================================== ==================================================== ========
+Preferencia Opciones predeterminadas Descripción
+======================= ============================ ================= ================================== ================ =================================== ==================================================== ========
+<strong>controlador</strong> Higgs\Session\Handlers\FileHandler Higgs\Session\Handlers\FileHandler El controlador de almacenamiento de sesión que se utilizará.</p>
+<blockquote>
+<div><p>Higgs\Sesión\Handlers\DatabaseHandler
+Higgs\Sesión\Handlers\MemcachedHandler
+Higgs\Sesión\Handlers\RedisHandler
+Higgs\Sesión\Handlers\ArrayHandler</p>
+</div></blockquote>
+<p><strong>cookieName</strong> HIGGS_session [A-Za-z_-] solo caracteres El nombre utilizado para la cookie de sesión.
+<strong>expiración</strong> 7200 (2 horas) Tiempo en segundos (entero) La cantidad de segundos que desea que dure la sesión.</p>
+<blockquote>
+<div><p>Si desea una sesión que no expire (hasta que se cierre el navegador), establezca el valor en cero: 0</p>
+</div></blockquote>
+<p><strong>savePath</strong> null Ninguno Especifica la ubicación de almacenamiento; depende del controlador que se utilice.
+<strong>matchIP</strong> falso verdadero/falso (booleano) Si se valida la dirección IP del usuario al leer la cookie de sesión.</p>
+<blockquote>
+<div><p>Tenga en cuenta que algunos ISP cambian dinámicamente la IP, por lo que si desea una sesión que no expire, puede
+probablemente establecerá esto en falso.</p>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>timeToUpdate</strong> 300 Tiempo en segundos (entero) Esta opción controla la frecuencia con la que la clase de sesión se regenerará y creará una nueva</dt><dd><p>ID de sesión. Establecerlo en 0 deshabilitará la regeneración de ID de sesión.</p>
+</dd>
+<dt><strong>regenerateDestroy</strong> falso verdadero/falso (booleano) Si se deben destruir los datos de la sesión asociados con el ID de la sesión anterior durante la regeneración automática</dt><dd><p>la identificación de la sesión. Cuando se establece en falso, el recolector de basura eliminará posteriormente los datos.</p>
+</dd>
+</dl>
+<p>Preferencia Descripción predeterminada
+============== =============== ====================== ==================================================== ====
+<strong>dominio</strong> “” El dominio al que se aplica la sesión
+<strong>ruta</strong> / La ruta a la que se aplica la sesión
+<strong>seguro</strong> falso Si se debe crear la cookie de sesión solo en conexiones cifradas (HTTPS)
+<strong>sameSite</strong> Lax La configuración de SameSite para la cookie de sesión
+============== =============== ====================== ==================================================== ====</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">httponly</span></code> setting doesn’t have an effect on sessions.
+En cambio, el parámetro HttpOnly siempre está habilitado, por seguridad.
+razones. Además, la configuración <code class="docutils literal notranslate"><span class="pre">Config\Cookie::$prefix</span></code> está completamente
+ignorado.</p>
+</div>
+</section>
+<section id="controladores-de-sesion">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Controladores de sesión</a><a class="headerlink" href="#controladores-de-sesion" title="Link to this heading"></a></h2>
+<p>Como ya se mencionó, la biblioteca Session viene con 4 controladores o almacenamiento
+motores, que puedes utilizar:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Higgs\Sesión\Handlers\FileHandler</p></li>
+<li><p>Higgs\Sesión\Handlers\DatabaseHandler</p></li>
+<li><p>Higgs\Sesión\Handlers\MemcachedHandler</p></li>
+<li><p>Higgs\Sesión\Handlers\RedisHandler</p></li>
+<li><p>Higgs\Sesión\Handlers\ArrayHandler</p></li>
+</ul>
+</div></blockquote>
+<p>De forma predeterminada, el controlador <code class="docutils literal notranslate"><span class="pre">FileHandler</span></code> se utilizará cuando se inicialice una sesión.
+porque es la opción más segura y se espera que funcione en todas partes
+(prácticamente todos los entornos tienen un sistema de archivos).</p>
+<p>Sin embargo, se puede seleccionar cualquier otro controlador a través del <code class="docutils literal notranslate"><span class="pre">controlador</span> <span class="pre">$público</span></code>.
+línea en su archivo <strong>app/Config/Session.php</strong>, si decide hacerlo.
+Sin embargo, tenga en cuenta que cada conductor tiene diferentes advertencias, así que asegúrese de
+familiarícese con ellos (a continuación) antes de tomar esa decisión.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The ArrayHandler is used during testing and stores all data within
+una matriz PHP, evitando al mismo tiempo que los datos persistan.</p>
+</div>
+<section id="controlador-filehandler-el-predeterminado">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Controlador FileHandler (el predeterminado)</a><a class="headerlink" href="#controlador-filehandler-el-predeterminado" title="Link to this heading"></a></h3>
+<p>El controlador “FileHandler” utiliza su sistema de archivos para almacenar datos de sesión.</p>
+<p>Se puede decir con seguridad que funciona exactamente como la sesión predeterminada de PHP.
+implementación, pero en caso de que este sea un detalle importante para usted, téngalo
+Tenga en cuenta que, de hecho, no es el mismo código y tiene algunas limitaciones.
+(y ventajas).</p>
+<p>Para ser más específico, no es compatible con el nivel y modo de directorio de PHP.
+formatos utilizados en session.save_path
+&lt;<a class="reference external" href="https://www.php.net/manual/en/session.configuration.php#ini.session.save-path">https://www.php.net/manual/en/session.configuration.php#ini.session.save-path</a>&gt;`_,
+y tiene la mayoría de las opciones codificadas por seguridad. En cambio, sólo
+Se admiten rutas absolutas para <code class="docutils literal notranslate"><span class="pre">cadena</span> <span class="pre">pública</span> <span class="pre">$savePath</span></code>.</p>
+<p>Otra cosa importante que debes saber es asegurarte de que
+No utilice un directorio compartido o legible públicamente para almacenar su sesión.
+archivos. Asegúrate de que <em>solo tú</em> tengas acceso para ver el contenido de tu
+directorio <em>savePath</em> elegido. De lo contrario, cualquiera que pueda hacer eso, puede
+también robar cualquiera de las sesiones actuales (también conocido como «fijación de sesión»
+ataque).</p>
+<p>En sistemas operativos tipo UNIX, esto generalmente se logra configurando el
+0700 permisos de modo en ese directorio a través del comando <cite>chmod</cite>, que
+permite que sólo el propietario del directorio realice operaciones de lectura y escritura en
+él. Pero tenga cuidado porque el usuario del sistema que <em>ejecuta</em> el script suele ser
+no el tuyo, sino algo así como “www-data”, por lo que solo configura esos
+Los permisos probablemente dañarán su aplicación.</p>
+<p>En su lugar, deberías hacer algo como esto, dependiendo de tu entorno:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">mkdir /&lt;path to your application directory&gt; /escribible/sesiones/</span>
+<span class="go">chmod 0700 /&lt;path to your application directory&gt; /escribible/sesiones/</span>
+<span class="go">chown www-datos /&lt;path to your application directory&gt; /escribible/sesiones/</span>
+</pre></div>
+</div>
+<section id="consejo-adicional">
+<h4>Consejo adicional<a class="headerlink" href="#consejo-adicional" title="Link to this heading"></a></h4>
+<p>Algunos de ustedes probablemente optarán por elegir otro controlador de sesión porque
+El almacenamiento de archivos suele ser más lento. Esto es sólo una verdad a medias.</p>
+<p>Una prueba muy básica probablemente le hará creer que un SQL
+La base de datos es más rápida, pero en el 99% de los casos, esto sólo es cierto mientras
+Sólo tengo algunas sesiones actuales. A medida que las sesiones cuentan y el servidor se carga
+aumento - que es el momento en el que importa - el sistema de archivos
+superan consistentemente a casi todas las configuraciones de bases de datos relacionales.</p>
+<p>Además, si el rendimiento es su única preocupación, es posible que desee buscar
+en el uso de <cite>tmpfs&lt;https://eddmann.com/posts/storing-php-sessions-file-caches-in-memory-using-tmpfs/&gt;</cite> _,
+(advertencia: recurso externo), lo que puede hacer que sus sesiones sean increíblemente rápidas.</p>
+</section>
+</section>
+<section id="controlador-del-controlador-de-base-de-datos">
+<span id="sessions-databasehandler-driver"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Controlador del controlador de base de datos</a><a class="headerlink" href="#controlador-del-controlador-de-base-de-datos" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Only MySQL and PostgreSQL databases are officially
+apoyado, debido a la falta de mecanismos de bloqueo de asesoramiento en otros
+plataformas. El uso de sesiones sin bloqueos puede provocar todo tipo de problemas.
+problemas, especialmente con el uso intensivo de AJAX, y no lo haremos
+apoyar tales casos. Utilice el método <a class="reference internal" href="#session-close"><span class="std std-ref">cerca()</span></a> después de haber
+terminado de procesar los datos de la sesión si está teniendo rendimiento
+asuntos.</p>
+</div>
+<p>El controlador “DatabaseHandler” utiliza una base de datos relacional como MySQL o
+PostgreSQL para almacenar sesiones. Esta es una opción popular entre muchos usuarios,
+porque permite al desarrollador acceder fácilmente a los datos de la sesión dentro
+una aplicación: es simplemente otra tabla en su base de datos.</p>
+<p>Sin embargo, hay algunas condiciones que deben cumplirse:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>NO puedes utilizar una conexión persistente.</p></li>
+</ul>
+</div></blockquote>
+<section id="configurar-el-controlador-de-base-de-datos">
+<h4>Configurar el controlador de Base de datos<a class="headerlink" href="#configurar-el-controlador-de-base-de-datos" title="Link to this heading"></a></h4>
+<section id="nombre-de-la-tabla-de-configuracion">
+<h5>Nombre de la tabla de configuración<a class="headerlink" href="#nombre-de-la-tabla-de-configuracion" title="Link to this heading"></a></h5>
+<p>Para utilizar el controlador de sesión “DatabaseHandler”, también debe crear este
+tabla que ya mencionamos y luego configúrala como tu
+Valor <code class="docutils literal notranslate"><span class="pre">$savePath</span></code>.
+Por ejemplo, si desea utilizar “HIGGS_sessions” como nombre de su tabla,
+harías esto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Session\Handlers\FileHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Session</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$driver</span> <span class="o">=</span> <span class="s1">&#39;Higgs\Session\Handlers\DatabaseHandler&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$savePath</span> <span class="o">=</span> <span class="s1">&#39;HIGGS_sessions&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="crear-tabla-de-base-de-datos">
+<h5>Crear tabla de base de datos<a class="headerlink" href="#crear-tabla-de-base-de-datos" title="Link to this heading"></a></h5>
+<p>Y luego por supuesto, crear la tabla de la base de datos…</p>
+<p>Para MySQL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">CREAR</span> <span class="nx">TABLA</span> <span class="nx">SI</span> <span class="nx">NO</span> <span class="nx">EXISTE</span> <span class="sb">`HIGGS_sessions`</span> <span class="p">(</span>
+    <span class="sb">`id`</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="nx">NO</span> <span class="nx">nulo</span><span class="p">,</span>
+    <span class="sb">`dirección_ip`</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span> <span class="nx">NO</span> <span class="nx">nulo</span><span class="p">,</span>
+    <span class="sb">`marca de tiempo`</span> <span class="nx">marca</span> <span class="nx">de</span> <span class="nx">tiempo</span> <span class="k">DEFAULT</span> <span class="nx">CURRENT_TIMESTAMP</span> <span class="nx">NO</span> <span class="nx">nulo</span><span class="p">,</span>
+    <span class="nx">blob</span> <span class="sb">`datos`</span> <span class="nx">NO</span> <span class="nx">nulo</span><span class="p">,</span>
+    <span class="nx">CLAVE</span> <span class="sb">`HIGGS_sessions_timestamp`</span> <span class="p">(</span><span class="sb">`marca de tiempo`</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+<p>Para PostgreSQL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">CREAR</span> <span class="nx">TABLA</span> <span class="s2">&quot;HIGGS_sessions&quot;</span> <span class="p">(</span>
+    <span class="s2">&quot;id&quot;</span> <span class="nx">varchar</span><span class="p">(</span><span class="mi">128</span><span class="p">)</span> <span class="nx">NO</span> <span class="nx">NULO</span><span class="p">,</span>
+    <span class="s2">&quot;dirección_ip&quot;</span> <span class="nx">inet</span> <span class="nx">NO</span> <span class="nx">NULO</span><span class="p">,</span>
+    <span class="s2">&quot;marca de tiempo&quot;</span> <span class="nx">marca</span> <span class="nx">de</span> <span class="nx">tiempo</span> <span class="k">DEFAULT</span> <span class="nx">CURRENT_TIMESTAMP</span> <span class="k">NOT</span> <span class="k">NULL</span><span class="p">,</span>
+    <span class="s2">&quot;datos&quot;</span> <span class="nx">bytea</span> <span class="k">DEFAULT</span> <span class="s1">&#39;&#39;</span> <span class="nx">NO</span> <span class="nx">NULO</span>
+<span class="p">);</span>
+
+<span class="nx">CREAR</span> <span class="nx">ÍNDICE</span> <span class="s2">&quot;HIGGS_sessions_timestamp&quot;</span> <span class="nx">EN</span> <span class="s2">&quot;HIGGS_sessions&quot;</span> <span class="p">(</span><span class="s2">&quot;marca de tiempo&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">id</span></code> value contains the session cookie name (<code class="docutils literal notranslate"><span class="pre">Config\Session::$cookieName</span></code>)
+y el ID de sesión y un delimitador. Se debe aumentar según sea necesario, por ejemplo,
+cuando se utilizan ID de sesión largas.</p>
+</div>
+</section>
+<section id="agregar-clave-principal">
+<h5>Agregar clave principal<a class="headerlink" href="#agregar-clave-principal" title="Link to this heading"></a></h5>
+<p>También necesitarás agregar una CLAVE PRIMARIA <strong>dependiendo de tu $matchIP
+configuración</strong>. Los siguientes ejemplos funcionan tanto en MySQL como en PostgreSQL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Cuando $matchIP = verdadero</span>
+<span class="nx">ALTERAR</span> <span class="nx">TABLA</span> <span class="nx">HIGGS_sessions</span> <span class="nx">AÑADIR</span> <span class="nx">CLAVE</span> <span class="nx">PRIMARIA</span> <span class="p">(</span><span class="nx">id</span><span class="p">,</span> <span class="nx">dirección_ip</span><span class="p">);</span>
+
+<span class="c1">// Cuando $matchIP = falso</span>
+<span class="nx">ALTERAR</span> <span class="nx">TABLA</span> <span class="nx">HIGGS_sessions</span> <span class="nx">AÑADIR</span> <span class="nx">CLAVE</span> <span class="nx">PRIMARIA</span> <span class="p">(</span><span class="nx">id</span><span class="p">);</span>
+
+<span class="c1">// Para eliminar una clave principal creada previamente (úsela al cambiar la configuración)</span>
+<span class="nx">ALTER</span> <span class="nx">TABLA</span> <span class="nx">HIGGS_sessions</span> <span class="nx">DROP</span> <span class="nx">PRIMARY</span> <span class="nx">KEY</span><span class="p">;</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>If you don’t add the correct primary key, the following error
+puede ocurrir:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">mysqli_sql_exception</span> <span class="nx">no</span> <span class="nx">detectado</span><span class="o">:</span> <span class="nx">entrada</span> <span class="nx">duplicada</span> <span class="s1">&#39;HIGGS_session:***&#39;</span> <span class="nx">para</span> <span class="nx">la</span> <span class="nx">clave</span> <span class="s1">&#39;HIGGS_sessions.PRIMARY&#39;</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="cambiar-grupo-de-base-de-datos">
+<h5>Cambiar grupo de base de datos<a class="headerlink" href="#cambiar-grupo-de-base-de-datos" title="Link to this heading"></a></h5>
+<p>El grupo de base de datos predeterminado se utiliza de forma predeterminada.
+Puede cambiar el grupo de base de datos a utilizar cambiando la propiedad <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code>
+en el archivo <strong>app/Config/Session.php</strong> al nombre del grupo a usar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Session\Handlers\FileHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Session</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="o">?</span><span class="nx">string</span> <span class="nv">$DBGroup</span> <span class="o">=</span> <span class="s1">&#39;groupName&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="configurar-la-tabla-de-la-base-de-datos-con-el-comando">
+<h5>Configurar la tabla de la base de datos con el comando<a class="headerlink" href="#configurar-la-tabla-de-la-base-de-datos-con-el-comando" title="Link to this heading"></a></h5>
+<p>Si prefiere no hacer todo esto a mano, puede usar el comando <code class="docutils literal notranslate"><span class="pre">make:migration</span> <span class="pre">--session</span></code>
+desde el cli para generar un archivo de migración para usted:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark make:migración --sesión</span>
+<span class="go">migración de chispa php</span>
+</pre></div>
+</div>
+<p>Este comando tendrá en cuenta las configuraciones <code class="docutils literal notranslate"><span class="pre">$savePath</span></code> y <code class="docutils literal notranslate"><span class="pre">$matchIP</span></code>
+cuando genera el código.</p>
+</section>
+</section>
+</section>
+<section id="controlador-redishandler">
+<span id="sessions-redishandler-driver"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Controlador RedisHandler</a><a class="headerlink" href="#controlador-redishandler" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since Redis doesn’t have a locking mechanism exposed, locks for
+este controlador se emula mediante un valor separado que se mantiene hasta
+a 300 segundos. Con <code class="docutils literal notranslate"><span class="pre">v7.3.2</span></code> o superior, puede conectar <code class="docutils literal notranslate"><span class="pre">Redis</span></code> con el protocolo <strong>TLS</strong>.</p>
+</div>
+<p>Redis es un motor de almacenamiento que normalmente se usa para almacenamiento en caché y es popular porque
+de su alto rendimiento, que probablemente también sea su razón para utilizar el
+Controlador de sesión “RedisHandler”.</p>
+<p>La desventaja es que no es tan omnipresente como las bases de datos relacionales y
+requiere el <cite>phpredis&lt;https://github.com/phpredis/phpredis&gt;</cite> _PHP
+extensión que se instalará en su sistema y esa no viene
+incluido con PHP.
+Lo más probable es que solo esté utilizando el controlador RedisHandler si ya está
+ambos familiarizados con Redis y usándolo para otros fines.</p>
+<section id="configurar-redishandler">
+<h4>Configurar RedisHandler<a class="headerlink" href="#configurar-redishandler" title="Link to this heading"></a></h4>
+<p>Al igual que con los controladores “FileHandler” y “DatabaseHandler”, también debes configurar
+la ubicación de almacenamiento de sus sesiones a través del
+Configuración <code class="docutils literal notranslate"><span class="pre">$savePath</span></code>.
+El formato aquí es un poco diferente y complicado al mismo tiempo. Es
+se explica mejor con el archivo README de la extensión <em>phpredis</em>, por lo que simplemente
+te enlace a el:</p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/phpredis/phpredis">https://github.com/phpredis/phpredis</a></p>
+</div></blockquote>
+<p>Sin embargo, para el caso más común, se debe utilizar un par simple <code class="docutils literal notranslate"><span class="pre">host:puerto</span></code>.
+suficiente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Session\Handlers\FileHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Session</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$driver</span> <span class="o">=</span> <span class="s1">&#39;Higgs\Session\Handlers\RedisHandler&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$savePath</span> <span class="o">=</span> <span class="s1">&#39;tcp://localhost:6379&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="controlador-memcachedhandler">
+<span id="sessions-memcachedhandler-driver"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Controlador MemcachedHandler</a><a class="headerlink" href="#controlador-memcachedhandler" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since Memcached doesn’t have a locking mechanism exposed, locks
+para este controlador se emula mediante un valor separado que se conserva para
+hasta 300 segundos.</p>
+</div>
+<p>El controlador “MemcachedHandler” es muy similar al “RedisHandler” en todos sus
+propiedades, excepto quizás por la disponibilidad, porque <a class="reference external" href="https://www.php.net/memcached">Memcached de PHP</a> la extensión se distribuye a través de PECL y algunos
+Las distribuciones de Linux lo ponen a disposición como un paquete fácil de instalar.</p>
+<p>Aparte de eso, y sin ningún sesgo intencional hacia Redis, hay
+No hay mucha diferencia que decir sobre Memcached: también es un popular
+Producto que normalmente se utiliza para el almacenamiento en caché y es famoso por su velocidad.</p>
+<p>Sin embargo, cabe señalar que la única garantía que ofrece Memcached
+es que configurar el valor X para que caduque después de Y segundos resultará en que se
+eliminado después de que hayan pasado Y segundos (pero no necesariamente que no
+caducan antes de esa fecha). Esto sucede muy raramente, pero debe ser
+considerado ya que puede resultar en la pérdida de sesiones.</p>
+<section id="configurar-memcachedhandler">
+<h4>Configurar MemcachedHandler<a class="headerlink" href="#configurar-memcachedhandler" title="Link to this heading"></a></h4>
+<p>El formato <code class="docutils literal notranslate"><span class="pre">$savePath</span></code> es bastante sencillo aquí,
+siendo sólo un par <code class="docutils literal notranslate"><span class="pre">host:puerto</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Session\Handlers\FileHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Session</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$driver</span> <span class="o">=</span> <span class="s1">&#39;Higgs\Session\Handlers\MemcachedHandler&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$savePath</span> <span class="o">=</span> <span class="s1">&#39;localhost:11211&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h4>Consejo adicional<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<p>Configuración multiservidor con un parámetro opcional <em>peso</em> como
+También se admite el tercer valor separado por dos puntos (<code class="docutils literal notranslate"><span class="pre">:peso</span></code>), pero tenemos
+Cabe señalar que no hemos probado si eso es confiable.</p>
+<p>Si desea experimentar con esta función (bajo su propio riesgo), simplemente
+separe las múltiples rutas del servidor con comas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Session\Handlers\FileHandler</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Session</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// localhost will be given higher priority (5) here,</span>
+    <span class="c1">// compared to 192.0.2.1 with a weight of 1.</span>
+    <span class="k">public</span> <span class="nx">string</span> <span class="nv">$savePath</span> <span class="o">=</span> <span class="s1">&#39;localhost:11211:5,192.0.2.1:11211:1&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="security.html" class="btn btn-neutral float-left" title="Seguridad" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="throttler.html" class="btn btn-neutral float-right" title="acelerador" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

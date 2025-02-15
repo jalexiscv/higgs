@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manejo de recursos RESTful &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/incoming/restful.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Construyendo respuestas" href="../outgoing/index.html" />
+    <link rel="prev" title="Suplantación de método HTTP" href="methodspoofing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+      <li class="breadcrumb-item active">Manejo de recursos RESTful</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="manejo-de-recursos-restful">
+<h1>Manejo de recursos RESTful<a class="headerlink" href="#manejo-de-recursos-restful" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#rutas-de-recursos" id="id8">Rutas de recursos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cambiar-el-controlador-utilizado" id="id9">Cambiar el controlador utilizado</a></p></li>
+<li><p><a class="reference internal" href="#cambiar-el-marcador-de-posicion-utilizado" id="id10">Cambiar el marcador de posición utilizado</a></p></li>
+<li><p><a class="reference internal" href="#limitar-las-rutas-realizadas" id="id11">Limitar las rutas realizadas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#controlador-de-recursos" id="id12">Controlador de recursos</a></p></li>
+<li><p><a class="reference internal" href="#rutas-del-presentador" id="id13">Rutas del presentador</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id1" id="id14">Cambiar el controlador utilizado</a></p></li>
+<li><p><a class="reference internal" href="#id2" id="id15">Cambiar el marcador de posición utilizado</a></p></li>
+<li><p><a class="reference internal" href="#id3" id="id16">Limitar las rutas realizadas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#presentador-de-recursos" id="id17">Presentador de recursos</a></p></li>
+<li><p><a class="reference internal" href="#comparacion-presentador-controlador" id="id18">Comparación presentador/controlador</a></p></li>
+</ul>
+</nav>
+<p>La transferencia de estado representacional (REST) es un estilo arquitectónico para
+aplicaciones distribuidas, descritas por primera vez por Roy Fielding en su
+2000 Tesis doctoral, «Estilos arquitectónicos y
+el diseño de arquitecturas de software basadas en red
+&lt;<a class="reference external" href="https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm">https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm</a>&gt;`_.
+Puede que sea una lectura un poco seca, y es posible que encuentres el libro de Martin Fowler
+<cite>Modelo de madurez de Richardson&lt;https://martinfowler.com/articles/richardsonMaturityModel.html&gt;</cite> _
+una introducción más suave.</p>
+<p>REST ha sido interpretado, y malinterpretado, en más formas que la mayoría
+arquitecturas de software, y podría ser más fácil decir que cuanto más
+de los principios de Roy Fielding que se adoptan en una arquitectura, el
+La aplicación más «RESTful» sería considerada.</p>
+<p>Higgs facilita la creación de API RESTful para sus recursos,
+con sus rutas de recursos y <cite>ResourceController</cite>.</p>
+<section id="rutas-de-recursos">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Rutas de recursos</a><a class="headerlink" href="#rutas-de-recursos" title="Link to this heading"></a></h2>
+<p>Puede crear rápidamente un puñado de rutas RESTful para un único recurso con el método <code class="docutils literal notranslate"><span class="pre">resource()</span></code>. Este
+crea las cinco rutas más comunes necesarias para el CRUD completo de un recurso: crear un nuevo recurso, actualizar uno existente,
+enumere todo ese recurso, muestre un solo recurso y elimine un solo recurso. El primer parámetro es el recurso.
+nombre:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+
+<span class="c1">// Equivalent to the following:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/new&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::new&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::index&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)/edit&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::edit/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">patch</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The ordering above is for clarity, whereas the actual order the routes are created in, in RouteCollection, ensures proper route resolution</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The routes are matched in the order they are specified, so if you have a resource photos above a get “photos/poll” the show action’s route for the resource line will be matched before the get line. To fix this, move the get line above the resource line so that it is matched first.</p>
+</div>
+<p>El segundo parámetro acepta una serie de opciones que se pueden utilizar para modificar las rutas que se generan. Mientras estos
+las rutas están orientadas al uso de API, donde se permiten más métodos, puede pasar la opción <code class="docutils literal notranslate"><span class="pre">websafe</span></code> para tenerla
+generar métodos de actualización y eliminación que funcionen con formularios HTML:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;websafe&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">]);</span>
+
+<span class="c1">// The following equivalent routes are created:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)/delete&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="cambiar-el-controlador-utilizado">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Cambiar el controlador utilizado</a><a class="headerlink" href="#cambiar-el-controlador-utilizado" title="Link to this heading"></a></h3>
+<p>Puede especificar el controlador que debe usarse pasando la opción <code class="docutils literal notranslate"><span class="pre">controller</span></code> con el nombre de
+El controlador que se debe utilizar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Gallery&#39;</span><span class="p">]);</span>
+<span class="c1">// Would create routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\Gallery::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\App\Gallery&#39;</span><span class="p">]);</span>
+<span class="c1">// Would create routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Gallery::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">App\Controllers\Gallery</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="nx">Gallery</span><span class="o">::</span><span class="na">class</span><span class="p">]);</span>
+<span class="c1">// Would create routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\Gallery::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Véase también <span class="xref std std-ref">controladores-espacio de nombres</span>.</p>
+</section>
+<section id="cambiar-el-marcador-de-posicion-utilizado">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Cambiar el marcador de posición utilizado</a><a class="headerlink" href="#cambiar-el-marcador-de-posicion-utilizado" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, el marcador de posición <code class="docutils literal notranslate"><span class="pre">(:segmento)</span></code> se utiliza cuando se necesita un ID de recurso. Puedes cambiar esto pasando
+en la opción <code class="docutils literal notranslate"><span class="pre">placeholder</span></code> con la nueva cadena a usar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;(:num)&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Generates routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="limitar-las-rutas-realizadas">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Limitar las rutas realizadas</a><a class="headerlink" href="#limitar-las-rutas-realizadas" title="Link to this heading"></a></h3>
+<p>Puedes restringir las rutas generadas con la opción <code class="docutils literal notranslate"><span class="pre">solo</span></code>. Esto debería ser <strong>una matriz</strong> o una <strong>lista separada por comas</strong> de nombres de métodos que deberían
+ser creado. Sólo se crearán rutas que coincidan con uno de estos métodos. El resto será ignorado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+<p>De lo contrario, puede eliminar rutas no utilizadas con la opción <code class="docutils literal notranslate"><span class="pre">excepto</span></code>. Esto también debería ser <strong>una matriz</strong> o una <strong>lista separada por comas</strong> de nombres de métodos. Esta opción se ejecuta después de <code class="docutils literal notranslate"><span class="pre">solo</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;new,edit&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Los métodos válidos son: <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">show</span></code>, <code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code>, <code class="docutils literal notranslate"><span class="pre">new</span></code>, <code class="docutils literal notranslate"><span class="pre">edit</span></code> y <code class="docutils literal notranslate"><span class="pre">delete</span></code>.</p>
+</section>
+</section>
+<section id="controlador-de-recursos">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Controlador de recursos</a><a class="headerlink" href="#controlador-de-recursos" title="Link to this heading"></a></h2>
+<p>El <code class="docutils literal notranslate"><span class="pre">ResourceController</span></code> proporciona un punto de partida conveniente para su API RESTful,
+con métodos que corresponden a las rutas de recursos anteriores.</p>
+<p>Extiéndalo, anulando las propiedades <code class="docutils literal notranslate"><span class="pre">modelName</span></code> y <code class="docutils literal notranslate"><span class="pre">format</span></code>, y luego
+implemente los métodos que desea manejar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\RESTful\ResourceController</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Photos</span> <span class="k">extends</span> <span class="nx">ResourceController</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$modelName</span> <span class="o">=</span> <span class="s1">&#39;App\Models\Photos&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$format</span>    <span class="o">=</span> <span class="s1">&#39;json&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">respond</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">model</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La ruta para esto sería:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="rutas-del-presentador">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Rutas del presentador</a><a class="headerlink" href="#rutas-del-presentador" title="Link to this heading"></a></h2>
+<p>Puede crear rápidamente un controlador de presentación que alinee
+con un controlador de recursos, usando el método <code class="docutils literal notranslate"><span class="pre">presenter()</span></code>. Este
+crea rutas para los métodos del controlador que devolverían vistas
+para su recurso o procesar formularios enviados desde esas vistas.</p>
+<p>No es necesario, ya que la presentación se puede manejar con
+un controlador convencional: es una comodidad.
+Su uso es similar al enrutamiento de recursos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+
+<span class="c1">// Equivalent to the following:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/new&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::new&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos/create&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::create&#39;</span><span class="p">);</span>   <span class="c1">// alias</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::index&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/show/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>  <span class="c1">// alias</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/edit/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::edit/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos/update/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::update/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/remove/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::remove/$1&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;photos/delete/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::delete/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The ordering above is for clarity, whereas the actual order the routes are created in, in RouteCollection, ensures proper route resolution</p>
+</div>
+<p>No tendría rutas para «fotos» tanto para un recurso como para un presentador
+controlador. Es necesario distinguirlos, por ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">resource</span><span class="p">(</span><span class="s1">&#39;api/photo&#39;</span><span class="p">);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;admin/photos&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El segundo parámetro acepta una serie de opciones que se pueden utilizar para modificar las rutas que se generan.</p>
+<section id="id1">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Cambiar el controlador utilizado</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>Puede especificar el controlador que debe usarse pasando la opción <code class="docutils literal notranslate"><span class="pre">controller</span></code> con el nombre de
+El controlador que se debe utilizar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Gallery&#39;</span><span class="p">]);</span>
+<span class="c1">// Would create routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\Gallery::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\App\Gallery&#39;</span><span class="p">]);</span>
+<span class="c1">// Would create routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Gallery::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">App\Controllers\Gallery</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;namespace&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;controller&#39;</span> <span class="o">=&gt;</span> <span class="nx">Gallery</span><span class="o">::</span><span class="na">class</span><span class="p">]);</span>
+<span class="c1">// Would create routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\Gallery::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Véase también <span class="xref std std-ref">controladores-espacio de nombres</span>.</p>
+</section>
+<section id="id2">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Cambiar el marcador de posición utilizado</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, el marcador de posición <code class="docutils literal notranslate"><span class="pre">(:segmento)</span></code> se utiliza cuando se necesita un ID de recurso. Puedes cambiar esto pasando
+en la opción <code class="docutils literal notranslate"><span class="pre">placeholder</span></code> con la nueva cadena a usar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;placeholder&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;(:num)&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Generates routes like:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos/(:num)&#39;</span><span class="p">,</span> <span class="s1">&#39;Photos::show/$1&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Limitar las rutas realizadas</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>Puedes restringir las rutas generadas con la opción <code class="docutils literal notranslate"><span class="pre">solo</span></code>. Esto debería ser <strong>una matriz</strong> o una <strong>lista separada por comas</strong> de nombres de métodos que deberían
+ser creado. Sólo se crearán rutas que coincidan con uno de estos métodos. El resto será ignorado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+<p>De lo contrario, puede eliminar rutas no utilizadas con la opción <code class="docutils literal notranslate"><span class="pre">excepto</span></code>. Esto también debería ser <strong>una matriz</strong> o una <strong>lista separada por comas</strong> de nombres de métodos. Esta opción se ejecuta después de <code class="docutils literal notranslate"><span class="pre">solo</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;new,edit&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Los métodos válidos son: <code class="docutils literal notranslate"><span class="pre">index</span></code>, <code class="docutils literal notranslate"><span class="pre">show</span></code>, <code class="docutils literal notranslate"><span class="pre">new</span></code>, <code class="docutils literal notranslate"><span class="pre">create</span></code>, <code class="docutils literal notranslate"><span class="pre">edit</span></code>, <code class="docutils literal notranslate"><span class="pre">update</span></code>, <code class="docutils literal notranslate"><span class="pre">remove</span></code> y <a href="#id4"><span class="problematic" id="id5">``</span></a>delete`. <a href="#id6"><span class="problematic" id="id7">`</span></a>.</p>
+</section>
+</section>
+<section id="presentador-de-recursos">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Presentador de recursos</a><a class="headerlink" href="#presentador-de-recursos" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ResourcePresenter</span></code> proporciona un punto de partida conveniente para presentar vistas
+de su recurso y procesar datos de formularios en esas vistas,
+con métodos que se alinean con las rutas de recursos anteriores.</p>
+<p>Extiéndalo, anulando la propiedad <code class="docutils literal notranslate"><span class="pre">modelName</span></code> y luego
+implemente los métodos que desea manejar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\RESTful\ResourcePresenter</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Photos</span> <span class="k">extends</span> <span class="nx">ResourcePresenter</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$modelName</span> <span class="o">=</span> <span class="s1">&#39;App\Models\Photos&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/list&#39;</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">model</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">());</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La ruta para esto sería:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">presenter</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="comparacion-presentador-controlador">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Comparación presentador/controlador</a><a class="headerlink" href="#comparacion-presentador-controlador" title="Link to this heading"></a></h2>
+<p>Esta tabla presenta una comparación de las rutas predeterminadas creadas por <cite>resource()</cite>
+y <cite>presentador()</cite> con sus correspondientes funciones de Controlador.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="methodspoofing.html" class="btn btn-neutral float-left" title="Suplantación de método HTTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../outgoing/index.html" class="btn btn-neutral float-right" title="Construyendo respuestas" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

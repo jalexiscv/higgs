@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funciones auxiliares &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/general/helpers.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Funciones y constantes globales" href="common_functions.html" />
+    <link rel="prev" title="URL de Higgs" href="urls.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Temas generales</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="urls.html">URL de Higgs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Temas generales</a></li>
+      <li class="breadcrumb-item active">Funciones auxiliares</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="funciones-auxiliares">
+<h1>Funciones auxiliares<a class="headerlink" href="#funciones-auxiliares" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#que-son-los-ayudantes" id="id1">¿Qué son los ayudantes?</a></p></li>
+<li><p><a class="reference internal" href="#cargando-ayudantes" id="id2">Cargando ayudantes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cargando-un-ayudante" id="id3">Cargando un ayudante</a></p></li>
+<li><p><a class="reference internal" href="#cargando-multiples-ayudantes" id="id4">Cargando múltiples ayudantes</a></p></li>
+<li><p><a class="reference internal" href="#cargando-en-un-controlador" id="id5">Cargando en un controlador</a></p></li>
+<li><p><a class="reference internal" href="#cargando-desde-el-espacio-de-nombres-especificado" id="id6">Cargando desde el espacio de nombres especificado</a></p></li>
+<li><p><a class="reference internal" href="#ayudantes-de-carga-automatica" id="id7">Ayudantes de carga automática</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#usando-un-ayudante" id="id8">Usando un ayudante</a></p></li>
+<li><p><a class="reference internal" href="#creando-ayudantes" id="id9">Creando ayudantes</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crear-ayudantes-personalizados" id="id10">Crear ayudantes personalizados</a></p></li>
+<li><p><a class="reference internal" href="#ayudantes-ampliantes" id="id11">Ayudantes «ampliantes»</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ahora-que" id="id12">¿Ahora que?</a></p></li>
+</ul>
+</nav>
+<section id="que-son-los-ayudantes">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">¿Qué son los ayudantes?</a><a class="headerlink" href="#que-son-los-ayudantes" title="Link to this heading"></a></h2>
+<p>Los ayudantes, como su nombre indica, le ayudan con las tareas. Cada archivo auxiliar es simplemente un
+colección de funciones en una categoría particular. Hay
+<a class="reference internal" href="../helpers/url_helper.html"><span class="doc">Ayudantes de URL</span></a>,
+que ayudan a crear enlaces, existen <a class="reference internal" href="../helpers/form_helper.html"><span class="doc">Form Helpers</span></a>
+que le ayudan a crear elementos de formulario, <a class="reference internal" href="../helpers/text_helper.html"><span class="doc">Test Helpers</span></a>
+realizar varias rutinas de formato de texto, <a class="reference internal" href="../helpers/cookie_helper.html"><span class="doc">Cookie Helpers</span></a>
+configurar y leer cookies, <a class="reference internal" href="../helpers/filesystem_helper.html"><span class="doc">Filesystem Helpers</span></a> le ayudarán
+ocuparse de archivos, etc.</p>
+<p>A diferencia de la mayoría de los otros sistemas en Higgs, los ayudantes no están escritos en un
+Formato orientado a objetos. Son funciones simples y procedimentales. Cada
+La función auxiliar realiza una tarea específica, sin depender de otras.
+funciones.</p>
+<p>Higgs no carga archivos auxiliares de forma predeterminada, por lo que el primer paso en
+usar un ayudante es cargarlo. Una vez cargado, estará disponible globalmente.
+en su <a class="reference internal" href="../incoming/controllers.html"><span class="doc">controller</span></a> y
+<span class="xref std std-doc">vistas</span>.</p>
+<p>Los ayudantes normalmente se almacenan en su <strong>sistema/Ayudantes</strong>, o
+Directorio <strong>aplicación/Ayudantes</strong>.</p>
+</section>
+<section id="cargando-ayudantes">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Cargando ayudantes</a><a class="headerlink" href="#cargando-ayudantes" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <a class="reference internal" href="../helpers/url_helper.html"><span class="doc">Asistente de URL</span></a> is always loaded so you do not need to load it yourself.</p>
+</div>
+<section id="cargando-un-ayudante">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Cargando un ayudante</a><a class="headerlink" href="#cargando-un-ayudante" title="Link to this heading"></a></h3>
+<p>Cargar un archivo auxiliar es bastante sencillo utilizando el siguiente método:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El código anterior carga el archivo <strong>name_helper.php</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Higgs helper file names are all lowercase.
+Por lo tanto, <code class="docutils literal notranslate"><span class="pre">helper('Name')</span></code> no funcionará en sistemas de archivos que distingan entre mayúsculas y minúsculas.
+como Linux.</p>
+</div>
+<p>Por ejemplo, para cargar el archivo <a class="reference internal" href="../helpers/cookie_helper.html"><span class="doc">Ayudante de galletas</span></a>, que se llama
+<strong>cookie_helper.php</strong>, harías esto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;cookie&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <a class="reference internal" href="common_functions.html#helper" title="helper"><code class="xref php php-func docutils literal notranslate"><span class="pre">helper()</span></code></a> function does not return a value, so
+No intentes asignarlo a una variable. Úselo como se muestra.</p>
+</div>
+<section id="paquetes-de-descubrimiento-automatico-y-compositor">
+<h4>Paquetes de descubrimiento automático y compositor<a class="headerlink" href="#paquetes-de-descubrimiento-automatico-y-compositor" title="Link to this heading"></a></h4>
+<p>De forma predeterminada, Higgs buscará los archivos auxiliares en todos los espacios de nombres definidos.
+por <span class="xref std std-ref">descubrimiento automático</span>.
+Puede verificar sus espacios de nombres definidos mediante el comando Spark. Ver <span class="xref std std-ref">confirmando-espacios de nombres</span>.</p>
+<p>Si utiliza muchos paquetes de Composer, tendrá muchos espacios de nombres definidos.
+Higgs escaneará todos los espacios de nombres de forma predeterminada.</p>
+<p>Para evitar perder tiempo buscando paquetes de Composer irrelevantes, puede hacerlo manualmente.
+especificar paquetes para el descubrimiento automático. Ver <span class="xref std std-ref">módulos-especificar-paquetes-compositores</span>
+para detalles.</p>
+<p>O puedes <a class="reference internal" href="#helpers-loading-from-specified-namespace"><span class="std std-ref">especificar un espacio de nombres</span></a>
+para un ayudante que desea cargar.</p>
+</section>
+<section id="orden-de-carga">
+<h4>Orden de carga<a class="headerlink" href="#orden-de-carga" title="Link to this heading"></a></h4>
+<p>La función <a class="reference internal" href="common_functions.html#helper" title="helper"><code class="xref php php-func docutils literal notranslate"><span class="pre">helper()</span></code></a> escaneará todos los espacios de nombres definidos y
+cargue TODOS los ayudantes coincidentes del mismo nombre. Esto permite que los ayudantes de cualquier módulo
+que se cargará, así como cualquier ayudante que haya creado específicamente para esta aplicación.</p>
+<p>El orden de carga es el siguiente:</p>
+<ol class="arabic simple">
+<li><p>app/Helpers: los archivos cargados aquí siempre se cargan primero.</p></li>
+<li><p>{namespace}/Helpers: todos los espacios de nombres se recorren en el orden en que están definidos.</p></li>
+<li><p>system/Helpers: el archivo base se carga en último lugar.</p></li>
+</ol>
+</section>
+</section>
+<section id="cargando-multiples-ayudantes">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Cargando múltiples ayudantes</a><a class="headerlink" href="#cargando-multiples-ayudantes" title="Link to this heading"></a></h3>
+<p>Si necesita cargar más de un ayudante a la vez, puede pasar
+una serie de nombres de archivos y se cargarán todos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nx">helper</span><span class="p">([</span><span class="s1">&#39;cookie&#39;</span><span class="p">,</span> <span class="s1">&#39;date&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="cargando-en-un-controlador">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Cargando en un controlador</a><a class="headerlink" href="#cargando-en-un-controlador" title="Link to this heading"></a></h3>
+<p>Se puede cargar un asistente en cualquier lugar dentro de los métodos de su controlador (o
+incluso dentro de sus archivos Ver, aunque eso no es una buena práctica), ya que
+siempre y cuando lo cargues antes de usarlo.</p>
+<p>Puedes cargar tus ayudantes en tu
+constructor del controlador para que estén disponibles automáticamente en
+cualquier método, o puede cargar un asistente en un método específico que necesite
+él.</p>
+<p>Sin embargo, si desea cargar en el constructor de su controlador, puede usar <code class="docutils literal notranslate"><span class="pre">$helpers</span></code>
+propiedad en el Controlador en su lugar. Ver <a class="reference internal" href="../incoming/controllers.html#controllers-helpers"><span class="std std-ref">Controladores</span></a> .</p>
+</section>
+<section id="cargando-desde-el-espacio-de-nombres-especificado">
+<span id="helpers-loading-from-specified-namespace"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Cargando desde el espacio de nombres especificado</a><a class="headerlink" href="#cargando-desde-el-espacio-de-nombres-especificado" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, Higgs buscará los archivos auxiliares en todos los espacios de nombres definidos.
+y cargue todos los archivos encontrados.</p>
+<p>Si desea cargar solo un asistente en un espacio de nombres específico, anteponga el nombre del
+ayudante con el espacio de nombres en el que se puede ubicar. Dentro de ese directorio de espacio de nombres,
+el cargador espera que viva dentro de un subdirectorio llamado <strong>Helpers</strong>. Un ejemplo
+ayudará a entender esto.</p>
+<p>Para este ejemplo, supongamos que hemos agrupado todos nuestros blogs relacionados
+código en su propio espacio de nombres, <code class="docutils literal notranslate"><span class="pre">Ejemplo\Blog</span></code>. Los archivos existen en nuestro servidor en
+<strong>Módulos/Blog/</strong>. Entonces, colocaríamos nuestros archivos auxiliares para el módulo del blog en
+<strong>Módulos/Blog/Ayudantes/</strong>. Un archivo <strong>blog_helper</strong> estaría en
+<strong>Módulos/Blog/Ayudantes/blog_helper.php</strong>. Dentro de nuestro controlador podríamos
+use el siguiente comando para cargar el asistente por nosotros:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;Example\Blog\blog&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puedes utilizar la siguiente manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;Example\Blog\Helpers\blog&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The functions within files loaded this way are not truly namespaced.
+El espacio de nombres se utiliza simplemente como una forma conveniente de localizar los archivos.</p>
+</div>
+</section>
+<section id="ayudantes-de-carga-automatica">
+<span id="auto-loading-helpers"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Ayudantes de carga automática</a><a class="headerlink" href="#ayudantes-de-carga-automatica" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Si descubre que necesita un ayudante particular a nivel global a lo largo de su aplicación,
+puede decirle a Higgs que lo cargue automáticamente durante la inicialización del sistema.
+Esto se hace abriendo el archivo <strong>app/Config/Autoload.php</strong>
+y agregando el ayudante a la propiedad <code class="docutils literal notranslate"><span class="pre">$helpers</span></code>.</p>
+</section>
+</section>
+<section id="usando-un-ayudante">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Usando un ayudante</a><a class="headerlink" href="#usando-un-ayudante" title="Link to this heading"></a></h2>
+<p>Una vez que haya cargado el archivo auxiliar que contiene la función que desea
+use, lo llamará de la misma manera que lo haría con una función PHP estándar.</p>
+<p>Por ejemplo, para crear un enlace usando la función <a class="reference internal" href="../helpers/url_helper.html#anchor" title="anchor"><code class="xref php php-func docutils literal notranslate"><span class="pre">anchor()</span></code></a> en uno de
+tus archivos de vista harías esto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+<span class="o">&lt;?=</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;blog/comments&#39;</span><span class="p">,</span> <span class="s1">&#39;Click Here&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Donde <code class="docutils literal notranslate"><span class="pre">Haga</span> <span class="pre">clic</span> <span class="pre">aquí</span></code> es el nombre del enlace y <code class="docutils literal notranslate"><span class="pre">blog/comentarios</span></code> es el
+URI del controlador/método al que desea vincularse.</p>
+</section>
+<section id="creando-ayudantes">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Creando ayudantes</a><a class="headerlink" href="#creando-ayudantes" title="Link to this heading"></a></h2>
+<section id="crear-ayudantes-personalizados">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Crear ayudantes personalizados</a><a class="headerlink" href="#crear-ayudantes-personalizados" title="Link to this heading"></a></h3>
+<p>El nombre del archivo auxiliar es <strong>nombre del asistente</strong> y <strong>_helper.php</strong>.</p>
+<p>Por ejemplo, para crear un asistente de información, creará un archivo llamado
+<strong>app/Helpers/info_helper.php</strong> y agrega una función al archivo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// app/Helpers/info_helper.php</span>
+<span class="k">use</span> <span class="nx">Higgs\Higgs</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * Returns Higgs&#39;s version.</span>
+<span class="sd"> */</span>
+<span class="k">function</span> <span class="nf">HIGGS_version</span><span class="p">()</span><span class="o">:</span> <span class="nx">string</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nx">Higgs</span><span class="o">::</span><span class="na">HIGGS_VERSION</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Puede agregar tantas funciones como desee a un único archivo auxiliar.</p>
+</section>
+<section id="ayudantes-ampliantes">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Ayudantes «ampliantes»</a><a class="headerlink" href="#ayudantes-ampliantes" title="Link to this heading"></a></h3>
+<p>Para «ampliar» los asistentes, cree un archivo en su carpeta <strong>aplicación/ayudantes</strong>
+con un nombre idéntico al del Ayudante existente.</p>
+<p>Si todo lo que necesita hacer es agregar alguna funcionalidad a un asistente existente:</p>
+<p>tal vez agregar una función o dos, o cambiar la forma en que un ayudante en particular
+función funciona, entonces es excesivo reemplazar todo el ayudante con
+tu versión. En este caso, es mejor simplemente «extender» el Asistente.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The term «extend» is used loosely since Helper functions are
+procesal y discreto y no puede extenderse en el modo tradicional.
+sentido programático. Debajo del capó, esto te da la posibilidad de
+agregar o reemplazar las funciones que proporciona un asistente.</p>
+</div>
+<p>Por ejemplo, para ampliar el <strong>Array Helper</strong> nativo, creará un archivo
+llamado <strong>app/Helpers/array_helper.php</strong>, y agregue o anule
+funciones:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// any_in_array() is not in the Array Helper, so it defines a new function</span>
+<span class="k">function</span> <span class="nf">any_in_array</span><span class="p">(</span><span class="nv">$needle</span><span class="p">,</span> <span class="nv">$haystack</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nv">$needle</span> <span class="o">=</span> <span class="nb">is_array</span><span class="p">(</span><span class="nv">$needle</span><span class="p">)</span> <span class="o">?</span> <span class="nv">$needle</span> <span class="o">:</span> <span class="p">[</span><span class="nv">$needle</span><span class="p">];</span>
+
+    <span class="k">foreach</span> <span class="p">(</span><span class="nv">$needle</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">in_array</span><span class="p">(</span><span class="nv">$item</span><span class="p">,</span> <span class="nv">$haystack</span><span class="p">,</span> <span class="k">true</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// random_element() is included in Array Helper, so it overrides the native function</span>
+<span class="k">function</span> <span class="nf">random_element</span><span class="p">(</span><span class="nv">$array</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nb">shuffle</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+
+    <span class="k">return</span> <span class="nb">array_pop</span><span class="p">(</span><span class="nv">$array</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Do not specify the namespace <code class="docutils literal notranslate"><span class="pre">App\Helpers</span></code>.</p>
+</div>
+<p>Consulte <a class="reference internal" href="#orden-de-carga">Orden de carga</a> para conocer el orden en que se cargan los archivos auxiliares.</p>
+</section>
+</section>
+<section id="ahora-que">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">¿Ahora que?</a><a class="headerlink" href="#ahora-que" title="Link to this heading"></a></h2>
+<p>En la Tabla de contenido, encontrará una lista de todos los <a class="reference internal" href="../helpers/index.html"><span class="doc">Helpers</span></a> disponibles.
+Explore cada uno para ver qué hacen.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="urls.html" class="btn btn-neutral float-left" title="URL de Higgs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="common_functions.html" class="btn btn-neutral float-right" title="Funciones y constantes globales" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

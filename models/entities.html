@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usando clases de entidad &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/models/entities.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Administrar bases de datos" href="../dbmgmt/index.html" />
+    <link rel="prev" title="Usando el modelo de Higgs" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Datos de modelado</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Datos de modelado</a></li>
+      <li class="breadcrumb-item active">Usando clases de entidad</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usando-clases-de-entidad">
+<h1>Usando clases de entidad<a class="headerlink" href="#usando-clases-de-entidad" title="Link to this heading"></a></h1>
+<p>Higgs apoya las clases de Entidad como ciudadano de primera clase, manteniendo
+su uso es completamente opcional. Se utilizan comúnmente como parte del patrón Repositorio, pero pueden
+ser usado directamente con el <a class="reference internal" href="model.html"><span class="doc">Modelo</span></a> si eso se adapta mejor a sus necesidades.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#uso-de-entidad" id="id1">Uso de entidad</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crear-la-clase-de-entidad" id="id2">Crear la clase de entidad</a></p></li>
+<li><p><a class="reference internal" href="#crear-el-modelo" id="id3">Crear el modelo</a></p></li>
+<li><p><a class="reference internal" href="#trabajar-con-la-clase-de-entidad" id="id4">Trabajar con la clase de entidad</a></p></li>
+<li><p><a class="reference internal" href="#propiedades-de-relleno-rapidamente" id="id5">Propiedades de relleno rápidamente</a></p></li>
+<li><p><a class="reference internal" href="#propiedades-de-acceso-masivo" id="id6">Propiedades de acceso masivo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#manejo-de-la-logica-empresarial" id="id7">Manejo de la lógica empresarial</a></p>
+<ul>
+<li><p><a class="reference internal" href="#getter-setter-especial" id="id8">Getter/Setter especial</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mapeo-de-datos" id="id9">Mapeo de datos</a></p></li>
+<li><p><a class="reference internal" href="#mutadores" id="id10">Mutadores</a></p>
+<ul>
+<li><p><a class="reference internal" href="#mutadores-de-fecha" id="id11">Mutadores de fecha</a></p></li>
+<li><p><a class="reference internal" href="#fundicion-de-propiedad" id="id12">Fundición de propiedad</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#comprobacion-de-atributos-modificados" id="id13">Comprobación de atributos modificados</a></p></li>
+</ul>
+</nav>
+<section id="uso-de-entidad">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Uso de entidad</a><a class="headerlink" href="#uso-de-entidad" title="Link to this heading"></a></h2>
+<p>En esencia, una clase Entidad es simplemente una clase que representa una única fila de la base de datos. Tiene propiedades de clase.
+para representar las columnas de la base de datos y proporciona métodos adicionales para implementar la lógica empresarial para
+esa fila.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>For ease of understanding, the explanation here is based on the case of
+utilizando una base de datos. Sin embargo, Entidad también se puede utilizar para datos que no vienen
+de una base de datos.</p>
+</div>
+<p>La característica principal, sin embargo, es que no sabe nada sobre cómo persistir. Eso es
+responsabilidad del modelo o de la clase de repositorio. De esa manera, si algo cambia sobre cómo necesita guardar el
+objeto, no es necesario cambiar la forma en que se utiliza ese objeto en toda la aplicación.</p>
+<p>Esto hace posible
+use archivos JSON o XML para almacenar los objetos durante una etapa de creación rápida de prototipos y luego cambie fácilmente a un
+base de datos cuando hayas demostrado que el concepto funciona.</p>
+<p>Veamos una entidad de usuario muy simple y cómo trabajaríamos con ella para ayudar a aclarar las cosas.</p>
+<p>Supongamos que tiene una tabla de base de datos llamada <code class="docutils literal notranslate"><span class="pre">usuarios</span></code> que tiene el siguiente esquema:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">identificación</span> <span class="o">-</span> <span class="nx">número</span> <span class="nx">entero</span>
+<span class="nx">nombre</span> <span class="nx">de</span> <span class="nx">usuario</span> <span class="o">-</span> <span class="nx">cadena</span>
+<span class="nx">correo</span> <span class="nx">electrónico</span> <span class="o">-</span> <span class="nx">cadena</span>
+<span class="nx">contraseña</span> <span class="o">-</span> <span class="nx">cadena</span>
+<span class="nx">creado_en</span> <span class="o">-</span> <span class="nx">fecha</span> <span class="nx">y</span> <span class="nx">hora</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p><code class="docutils literal notranslate"><span class="pre">attributes</span></code> is a reserved word for internal use. If you use it as a column name, the Entity does not work correctly.</p>
+</div>
+<section id="crear-la-clase-de-entidad">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Crear la clase de entidad</a><a class="headerlink" href="#crear-la-clase-de-entidad" title="Link to this heading"></a></h3>
+<p>Ahora crea una nueva clase de entidad. Dado que no existe una ubicación predeterminada para almacenar estas clases y no encaja
+Con la estructura de directorios existente, cree un nuevo directorio en <strong>app/Entities</strong>. Crea el
+Entidad misma en <strong>app/Entities/User.php</strong>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En su forma más simple, esto es todo lo que necesita hacer, aunque lo haremos más útil en un minuto.</p>
+</section>
+<section id="crear-el-modelo">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Crear el modelo</a><a class="headerlink" href="#crear-el-modelo" title="Link to this heading"></a></h3>
+<p>Primero crea el modelo en <strong>app/Models/UserModel.php</strong> para que podamos interactuar con él:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span>         <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$returnType</span>    <span class="o">=</span> <span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$useTimestamps</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El modelo utiliza la tabla <code class="docutils literal notranslate"><span class="pre">usuarios</span></code> en la base de datos para todas sus actividades. Hemos configurado la propiedad <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code>
+para incluir todos los campos que queremos que cambien fuera de las clases. Los campos <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">created_at</span></code> y <code class="docutils literal notranslate"><span class="pre">updated_at</span></code>
+son manejados automáticamente por la clase o la base de datos, por lo que no queremos cambiarlos. Finalmente, hemos configurado nuestra Entidad
+clase como <code class="docutils literal notranslate"><span class="pre">$returnType</span></code>. Esto garantiza que todos los métodos del modelo que devuelven filas de la base de datos devolverán
+instancias de nuestra clase de entidad de usuario en lugar de un objeto o matriz como de costumbre.</p>
+</section>
+<section id="trabajar-con-la-clase-de-entidad">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Trabajar con la clase de entidad</a><a class="headerlink" href="#trabajar-con-la-clase-de-entidad" title="Link to this heading"></a></h3>
+<p>Ahora que todas las piezas están en su lugar, trabajará con la clase Entidad como lo haría con cualquier otra clase:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$id</span><span class="p">);</span>
+
+<span class="c1">// Display</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+
+<span class="c1">// Updating</span>
+<span class="nb">unset</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="s1">&#39;something new&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+
+<span class="c1">// Create</span>
+<span class="nv">$user</span>           <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">username</span> <span class="o">=</span> <span class="s1">&#39;foo&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">email</span>    <span class="o">=</span> <span class="s1">&#39;foo@example.com&#39;</span><span class="p">;</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Quizás hayas notado que la clase <code class="docutils literal notranslate"><span class="pre">Usuario</span></code> no ha establecido ninguna propiedad para las columnas, pero aún puedes
+acceder a ellos como si fueran bienes públicos. La clase base, <code class="docutils literal notranslate"><span class="pre">Higgs\Entity\Entity</span></code>, se encarga de esto por usted, como
+además de brindar la capacidad de verificar las propiedades con <code class="docutils literal notranslate"><span class="pre">isset()</span></code> o <code class="docutils literal notranslate"><span class="pre">unset()</span></code> la propiedad y realizar un seguimiento
+de qué columnas han cambiado desde que se creó el objeto o se extrajo de la base de datos.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The Entity class stores the data in the class property <code class="docutils literal notranslate"><span class="pre">$attributes</span></code> internally.</p>
+</div>
+<p>Cuando el usuario pasa al método <code class="docutils literal notranslate"><span class="pre">save()</span></code> del modelo, automáticamente se encarga de leer las propiedades.
+y guardar cualquier cambio en las columnas enumeradas en la propiedad <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code> del modelo. También sabe si crear
+una nueva fila o actualizar una existente.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When we are making a call to the <code class="docutils literal notranslate"><span class="pre">insert()</span></code> all the values from Entity are passed to the method, but when we
+llame a <code class="docutils literal notranslate"><span class="pre">update()</span></code>, luego solo se pasan los valores que han cambiado.</p>
+</div>
+</section>
+<section id="propiedades-de-relleno-rapidamente">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Propiedades de relleno rápidamente</a><a class="headerlink" href="#propiedades-de-relleno-rapidamente" title="Link to this heading"></a></h3>
+<p>La clase Entity también proporciona un método, <code class="docutils literal notranslate"><span class="pre">fill()</span></code> que le permite insertar una matriz de pares clave/valor en la clase.
+y completar las propiedades de la clase. Cualquier propiedad de la matriz se establecerá en la Entidad. Sin embargo, al guardar mediante
+el modelo, sólo los campos en <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code> realmente se guardarán en la base de datos, para que pueda almacenar datos adicionales
+en sus entidades sin preocuparse mucho de que los campos perdidos se guarden incorrectamente.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">();</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">fill</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puede pasar los datos en el constructor y los datos se pasarán a través del método <code class="docutils literal notranslate"><span class="pre">fill()</span></code> durante la creación de instancias.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">();</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="propiedades-de-acceso-masivo">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Propiedades de acceso masivo</a><a class="headerlink" href="#propiedades-de-acceso-masivo" title="Link to this heading"></a></h3>
+<p>La clase Entity tiene dos métodos para extraer todas las propiedades disponibles en una matriz: <code class="docutils literal notranslate"><span class="pre">toArray()</span></code> y <code class="docutils literal notranslate"><span class="pre">toRawArray()</span></code>.
+El uso de la versión sin formato evitará los métodos y lanzamientos mágicos de «captadores». Ambos métodos pueden tomar un primer parámetro booleano.
+para especificar si los valores devueltos deben filtrarse por aquellos que han cambiado, y un parámetro final booleano para
+haga que el método sea recursivo, en el caso de entidades anidadas.</p>
+</section>
+</section>
+<section id="manejo-de-la-logica-empresarial">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Manejo de la lógica empresarial</a><a class="headerlink" href="#manejo-de-la-logica-empresarial" title="Link to this heading"></a></h2>
+<p>Si bien los ejemplos anteriores son convenientes, no ayudan a aplicar ninguna lógica empresarial. La clase de entidad base implementa
+algunos métodos inteligentes <code class="docutils literal notranslate"><span class="pre">__get()</span></code> y <code class="docutils literal notranslate"><span class="pre">__set()</span></code> que buscarán métodos especiales y los usarán en lugar de usar
+los atributos directamente, lo que le permite aplicar cualquier lógica empresarial o conversión de datos que necesite.</p>
+<p>Aquí hay una entidad de usuario actualizada para proporcionar algunos ejemplos de cómo podría usarse:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\I18n\Time</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setPassword</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$pass</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="nv">$pass</span><span class="p">,</span> <span class="nx">PASSWORD_BCRYPT</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setCreatedAt</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$dateString</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Time</span><span class="p">(</span><span class="nv">$dateString</span><span class="p">,</span> <span class="s1">&#39;UTC&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getCreatedAt</span><span class="p">(</span><span class="nx">string</span> <span class="nv">$format</span> <span class="o">=</span> <span class="s1">&#39;Y-m-d H:i:s&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Convert to Higgs\I18n\Time object</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mutateDate</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]);</span>
+
+        <span class="nv">$timezone</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">timezone</span> <span class="o">??</span> <span class="nx">app_timezone</span><span class="p">();</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">setTimezone</span><span class="p">(</span><span class="nv">$timezone</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">attributes</span><span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">]</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$format</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lo primero que hay que notar es el nombre de los métodos que hemos agregado. Para cada uno, la clase espera el caso_serpiente.
+nombre de la columna que se convertirá a PascalCase y con el prefijo <code class="docutils literal notranslate"><span class="pre">set</span></code> o <code class="docutils literal notranslate"><span class="pre">get</span></code>. Estos métodos luego
+se llamará automáticamente cada vez que configure o recupere la propiedad de clase usando la sintaxis directa (es decir, <code class="docutils literal notranslate"><span class="pre">$usuario-&gt;correo</span> <span class="pre">electrónico</span></code>).
+No es necesario que los métodos sean públicos a menos que desee acceder a ellos desde otras clases. Por ejemplo, <code class="docutils literal notranslate"><span class="pre">created_at</span></code>
+Se accederá a la propiedad de clase a través de los métodos <code class="docutils literal notranslate"><span class="pre">setCreatedAt()</span></code> y <code class="docutils literal notranslate"><span class="pre">getCreatedAt()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This only works when trying to access the properties from outside of the class. Any methods internal to the
+La clase debe llamar a los métodos <code class="docutils literal notranslate"><span class="pre">setX()</span></code> y <code class="docutils literal notranslate"><span class="pre">getX()</span></code> directamente.</p>
+</div>
+<p>En el método <code class="docutils literal notranslate"><span class="pre">setPassword()</span></code> nos aseguramos de que la contraseña siempre esté codificada.</p>
+<p>En <code class="docutils literal notranslate"><span class="pre">setCreatedAt()</span></code> convertimos la cadena que recibimos del modelo en un objeto DateTime, asegurando que nuestra zona horaria
+es UTC para que podamos convertir fácilmente la zona horaria actual del espectador. En <code class="docutils literal notranslate"><span class="pre">getCreatedAt()</span></code>, convierte la hora a
+una cadena formateada en la zona horaria actual de la aplicación.</p>
+<p>Si bien son bastante simples, estos ejemplos muestran que el uso de clases de entidad puede proporcionar una forma muy flexible de hacer cumplir
+lógica de negocios y crear objetos que sean agradables de usar.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Auto-hash the password - both do the same thing</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">password</span> <span class="o">=</span> <span class="s1">&#39;my great password&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">setPassword</span><span class="p">(</span><span class="s1">&#39;my great password&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="getter-setter-especial">
+<span id="entities-special-getter-setter"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Getter/Setter especial</a><a class="headerlink" href="#getter-setter-especial" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Por ejemplo, si la clase principal de su entidad ya tiene un método <code class="docutils literal notranslate"><span class="pre">getParent()</span></code>
+definido, y su Entidad también tiene una columna llamada <code class="docutils literal notranslate"><span class="pre">padre</span></code>, cuando intenta agregar
+lógica de negocios al método <code class="docutils literal notranslate"><span class="pre">getParent()</span></code> en su clase Entidad, el método es
+Ya definido.</p>
+<p>En tal caso, puede utilizar el captador/definidor especial. En lugar de <code class="docutils literal notranslate"><span class="pre">getX()</span></code>/<code class="docutils literal notranslate"><span class="pre">setX()</span></code>,
+establezca <code class="docutils literal notranslate"><span class="pre">_getX()</span></code>/<code class="docutils literal notranslate"><span class="pre">_setX()</span></code>.</p>
+<p>En el ejemplo anterior, si su entidad tiene el método <code class="docutils literal notranslate"><span class="pre">_getParent()</span></code>, el método
+se usará cuando obtenga <code class="docutils literal notranslate"><span class="pre">$entity-&gt;parent</span></code> y el método <code class="docutils literal notranslate"><span class="pre">_setParent()</span></code>
+se utilizará cuando establezca <code class="docutils literal notranslate"><span class="pre">$entidad-&gt;padre</span></code>.</p>
+</section>
+</section>
+<section id="mapeo-de-datos">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Mapeo de datos</a><a class="headerlink" href="#mapeo-de-datos" title="Link to this heading"></a></h2>
+<p>En muchos puntos de tu carrera, te encontrarás con situaciones en las que el uso de una aplicación ha cambiado y la
+Los nombres de columnas originales en la base de datos ya no tienen sentido. O descubre que su estilo de codificación prefiere camelCase
+propiedades de clase, pero el esquema de su base de datos requería nombres de casos de serpientes. Estas situaciones se pueden manejar fácilmente
+con las funciones de mapeo de datos de la clase Entidad.</p>
+<p>Como ejemplo, imagine que tiene la entidad de usuario simplificada que se utiliza en toda su aplicación:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>         <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span>       <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span> <span class="c1">// Represents a username</span>
+        <span class="s1">&#39;email&#39;</span>      <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>   <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;created_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;updated_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Tu jefe se acerca a ti y te dice que ya nadie usa nombres de usuario, por lo que estás cambiando para usar solo correos electrónicos para iniciar sesión.
+Pero sí quieren personalizar un poco la aplicación, por lo que quieren que cambies el campo <code class="docutils literal notranslate"><span class="pre">nombre</span></code> para representar el nombre de un usuario.
+nombre completo ahora, no su nombre de usuario como lo hace actualmente. Para mantener las cosas ordenadas y garantizar que las cosas sigan teniendo sentido.
+en la base de datos, organiza una migración para cambiar el nombre del campo <code class="docutils literal notranslate"><span class="pre">nombre</span></code> a <code class="docutils literal notranslate"><span class="pre">nombre_completo</span></code> para mayor claridad.</p>
+<p>Haciendo caso omiso de lo artificial que es este ejemplo, ahora tenemos dos opciones sobre cómo arreglar la clase Usuario. Podríamos modificar la clase.
+propiedad de <code class="docutils literal notranslate"><span class="pre">$name</span></code> a <code class="docutils literal notranslate"><span class="pre">$full_name</span></code>, pero eso requeriría cambios en toda la aplicación. En cambio, podemos
+simplemente asigne la columna <code class="docutils literal notranslate"><span class="pre">full_name</span></code> en la base de datos a la propiedad <code class="docutils literal notranslate"><span class="pre">$name</span></code> y termine con los cambios de entidad:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>         <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;full_name&#39;</span>  <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span> <span class="c1">// In the $attributes, the key is the db column name</span>
+        <span class="s1">&#39;email&#39;</span>      <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>   <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;created_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;updated_at&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="k">protected</span> <span class="nv">$datamap</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="c1">// property_name =&gt; db_column_name</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;full_name&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Al agregar el nuevo nombre de nuestra base de datos a la matriz <code class="docutils literal notranslate"><span class="pre">$datamap</span></code>, podemos decirle a la clase qué propiedad de clase tiene la columna de la base de datos.
+debe ser accesible a través de. La clave de la matriz es la propiedad de clase a la que asignarla, donde el valor de la matriz es el
+nombre de la columna en la base de datos.</p>
+<p>En este ejemplo, cuando el modelo establece el campo <code class="docutils literal notranslate"><span class="pre">full_name</span></code> en la clase Usuario, en realidad asigna ese valor al
+class” <code class="docutils literal notranslate"><span class="pre">$name</span></code>, por lo que se puede configurar y recuperar a través de <code class="docutils literal notranslate"><span class="pre">$user-&gt;name</span></code>. El valor seguirá siendo accesible.
+a través del <code class="docutils literal notranslate"><span class="pre">$user-&gt;full_name</span></code> original, también, ya que esto es necesario para que el modelo recupere los datos y los guarde.
+a la base de datos. Sin embargo, <code class="docutils literal notranslate"><span class="pre">unset()</span></code> y <code class="docutils literal notranslate"><span class="pre">isset()</span></code> solo funcionan en la propiedad asignada, <code class="docutils literal notranslate"><span class="pre">$user-&gt;name</span></code>, no en el nombre de la columna de la base de datos.
+<code class="docutils literal notranslate"><span class="pre">$usuario-&gt;nombre_completo</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When you use Data Mapping, you must define <code class="docutils literal notranslate"><span class="pre">set*()</span></code> and <code class="docutils literal notranslate"><span class="pre">get*()</span></code> method
+para el nombre de la columna de la base de datos. En este ejemplo, debe definir <code class="docutils literal notranslate"><span class="pre">setFullName()</span></code> y
+<code class="docutils literal notranslate"><span class="pre">getFullName()</span></code>.</p>
+</div>
+</section>
+<section id="mutadores">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Mutadores</a><a class="headerlink" href="#mutadores" title="Link to this heading"></a></h2>
+<section id="mutadores-de-fecha">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Mutadores de fecha</a><a class="headerlink" href="#mutadores-de-fecha" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, la clase Entidad convertirá los campos denominados <cite>created_at</cite>, <cite>updated_at</cite> o <cite>deleted_at</cite> en
+<a class="reference internal" href="../libraries/time.html"><span class="doc">Tiempo</span></a> instancias cada vez que se configuran o recuperan. La clase Time proporciona una gran cantidad
+de métodos útiles de forma inmutable y localizada.</p>
+<p>Puede definir qué propiedades se convierten automáticamente agregando el nombre a la propiedad <code class="docutils literal notranslate"><span class="pre">$dates</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$dates</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;created_at&#39;</span><span class="p">,</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">,</span> <span class="s1">&#39;deleted_at&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora, cuando se establezca cualquiera de esas propiedades, se convertirán en una instancia de tiempo, utilizando el comando de la aplicación.
+zona horaria actual, como se establece en <strong>app/Config/App.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+
+<span class="c1">// Converted to Time instance</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span> <span class="o">=</span> <span class="s1">&#39;April 15, 2017 10:30:00&#39;</span><span class="p">;</span>
+
+<span class="c1">// Can now use any Time methods:</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span><span class="o">-&gt;</span><span class="na">humanize</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">created_at</span><span class="o">-&gt;</span><span class="na">setTimezone</span><span class="p">(</span><span class="s1">&#39;Europe/London&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">toDateString</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="fundicion-de-propiedad">
+<span id="entities-property-casting"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Fundición de propiedad</a><a class="headerlink" href="#fundicion-de-propiedad" title="Link to this heading"></a></h3>
+<p>Puede especificar que las propiedades de su entidad se deben convertir a tipos de datos comunes con la propiedad <code class="docutils literal notranslate"><span class="pre">$casts</span></code>.
+Esta opción debe ser una matriz donde la clave es el nombre de la propiedad de clase y el valor es el tipo de datos.
+debe ser lanzado.</p>
+<p>La conversión de propiedades afecta tanto a la lectura (obtener) como a la escritura (establecer), pero algunos tipos afectan
+solo leer (obtener).</p>
+<section id="fundicion-tipo-escalar">
+<h4>Fundición tipo escalar<a class="headerlink" href="#fundicion-tipo-escalar" title="Link to this heading"></a></h4>
+<p>Las propiedades se pueden convertir a cualquiera de los siguientes tipos de datos:</p>
+<p><strong>entero</strong>, <strong>flotante</strong>, <strong>doble</strong>, <strong>cadena</strong>, <strong>booleano</strong>, <strong>objeto</strong>, <strong>matriz</strong>, <strong>fechahora</strong>, ** marca de tiempo**, <strong>uri</strong> y <strong>int-bool</strong>.
+Agregue un signo de interrogación al principio del tipo para marcar la propiedad como anulable, es decir, <strong>?string</strong>, <strong>?integer</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>int-bool</strong> can be used since v7.3.0.</p>
+</div>
+<p>Por ejemplo, si tuviera una entidad de Usuario con una propiedad <code class="docutils literal notranslate"><span class="pre">is_banned</span></code>, puede convertirla en booleana:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;is_banned&#39;</span>          <span class="o">=&gt;</span> <span class="s1">&#39;boolean&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;is_banned_nullable&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;?boolean&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="transmision-de-matriz-json">
+<h4>Transmisión de matriz/Json<a class="headerlink" href="#transmision-de-matriz-json" title="Link to this heading"></a></h4>
+<p>La conversión de matrices/Json es especialmente útil con campos que almacenan matrices serializadas o json en ellos. Cuando se emite como:</p>
+<ul class="simple">
+<li><p>una <strong>matriz</strong>, se deserializarán automáticamente,</p></li>
+<li><p>un <strong>json</strong>, se establecerán automáticamente como un valor de <code class="docutils literal notranslate"><span class="pre">json_decode($value,</span> <span class="pre">false)</span></code>,</p></li>
+<li><p>un <strong>json-array</strong>, se establecerán automáticamente como un valor de <code class="docutils literal notranslate"><span class="pre">json_decode($value,</span> <span class="pre">true)</span></code>,</p></li>
+</ul>
+<p>cuando establece el valor de la propiedad.
+A diferencia del resto de los tipos de datos a los que puede convertir propiedades,:</p>
+<ul class="simple">
+<li><p><strong>array</strong> el tipo de conversión se serializará,</p></li>
+<li><p><strong>json</strong> y <strong>json-array</strong> cast usarán la función json_encode en</p></li>
+</ul>
+<p>el valor cada vez que se establece la propiedad:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;options&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;array&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;options_object&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;options_array&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;json-array&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span>    <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+<span class="nv">$options</span> <span class="o">=</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">;</span>
+
+<span class="nv">$options</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;bar&#39;</span><span class="p">;</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">options</span> <span class="o">=</span> <span class="nv">$options</span><span class="p">;</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$user</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="transmision-csv">
+<h4>Transmisión CSV<a class="headerlink" href="#transmision-csv" title="Link to this heading"></a></h4>
+<p>Si sabe que tiene una matriz plana de valores simples, codifíquelos como una cadena serializada o JSON.
+puede ser más complejo que la estructura original. La conversión como valores separados por comas (CSV) es
+una alternativa más simple dará como resultado una cadena que utiliza menos espacio y se lee más fácilmente
+por humanos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Widget</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;colors&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Almacenado en la base de datos como «rojo, amarillo, verde»:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$widget</span><span class="o">-&gt;</span><span class="na">colors</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Casting as CSV uses PHP’s internal <code class="docutils literal notranslate"><span class="pre">implode</span></code> and <code class="docutils literal notranslate"><span class="pre">explode</span></code> methods and assumes all values are string-safe and free of commas. For more complex data casts try <code class="docutils literal notranslate"><span class="pre">array</span></code> or <code class="docutils literal notranslate"><span class="pre">json</span></code>.</p>
+</div>
+</section>
+<section id="fundicion-personalizada">
+<h4>Fundición personalizada<a class="headerlink" href="#fundicion-personalizada" title="Link to this heading"></a></h4>
+<p>Puede definir sus propios tipos de conversión para obtener y configurar datos.</p>
+<p>Al principio necesitas crear una clase de controlador para tu tipo.
+Digamos que la clase estará ubicada en el directorio <strong>app/Entities/Cast</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="c1">// The class must inherit the Higgs\Entity\Cast\BaseCast class</span>
+<span class="k">class</span> <span class="nc">CastBase64</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">set</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$value</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora necesitas registrarlo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyEntity</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="c1">// Specify the type for the field</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;base64&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// Bind the type to the handler</span>
+    <span class="k">protected</span> <span class="nv">$castHandlers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;base64&#39;</span> <span class="o">=&gt;</span> <span class="nx">Cast\CastBase64</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+
+<span class="c1">// ...</span>
+
+<span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">key</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span><span class="p">;</span> <span class="c1">// dGVzdA==</span>
+<span class="k">echo</span> <span class="nv">$entity</span><span class="o">-&gt;</span><span class="na">key</span><span class="p">;</span>     <span class="c1">// test</span>
+</pre></div>
+</div>
+<p>Si no necesita cambiar valores al obtener o establecer un valor. Entonces simplemente no implementes el método apropiado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CastBase64</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">base64_decode</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="parametros">
+<h4>Parámetros<a class="headerlink" href="#parametros" title="Link to this heading"></a></h4>
+<p>En algunos casos, un tipo no es suficiente. En esta situación, puede utilizar parámetros adicionales.
+Los parámetros adicionales se indican entre corchetes y se enumeran con una coma.
+como <code class="docutils literal notranslate"><span class="pre">tipo[param1,</span> <span class="pre">param2]</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Entity</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyEntity</span> <span class="k">extends</span> <span class="nx">Entity</span>
+<span class="p">{</span>
+    <span class="c1">// Define a type with parameters</span>
+    <span class="k">protected</span> <span class="nv">$casts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;some_attribute&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;class[App\SomeClass, param2, param3]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// Bind the type to the handler</span>
+    <span class="k">protected</span> <span class="nv">$castHandlers</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;SomeHandler&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities\Cast</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Entity\Cast\BaseCast</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">SomeHandler</span> <span class="k">extends</span> <span class="nx">BaseCast</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="k">function</span> <span class="nf">get</span><span class="p">(</span><span class="nv">$value</span><span class="p">,</span> <span class="k">array</span> <span class="nv">$params</span> <span class="o">=</span> <span class="p">[])</span>
+    <span class="p">{</span>
+        <span class="nb">var_dump</span><span class="p">(</span><span class="nv">$params</span><span class="p">);</span>
+        <span class="cm">/*</span>
+<span class="cm">         * Output:</span>
+<span class="cm">         * array(3) {</span>
+<span class="cm">         *   [0]=&gt;</span>
+<span class="cm">         *   string(13) &quot;App\SomeClass&quot;</span>
+<span class="cm">         *   [1]=&gt;</span>
+<span class="cm">         *   string(6) &quot;param2&quot;</span>
+<span class="cm">         *   [2]=&gt;</span>
+<span class="cm">         *   string(6) &quot;param3&quot;</span>
+<span class="cm">         * }</span>
+<span class="cm">         */</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If the casting type is marked as nullable like <code class="docutils literal notranslate"><span class="pre">?bool</span></code> and the passed value is not null, then the parameter with
+el valor <code class="docutils literal notranslate"><span class="pre">nullable</span></code> se pasará al controlador de tipo de conversión.
+Si el tipo de conversión tiene parámetros predefinidos, se agregará «nullable» al final de la lista.</p>
+</div>
+</section>
+</section>
+</section>
+<section id="comprobacion-de-atributos-modificados">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Comprobación de atributos modificados</a><a class="headerlink" href="#comprobacion-de-atributos-modificados" title="Link to this heading"></a></h2>
+<p>Puede verificar si un atributo de Entidad ha cambiado desde que fue creado. El único parámetro es el nombre del
+atributo a comprobar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Entities\User</span><span class="p">();</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">hasChanged</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="c1">// false</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Fred&#39;</span><span class="p">;</span>
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">hasChanged</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">);</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+<p>O para verificar toda la entidad en busca de valores modificados, omita el parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span><span class="o">-&gt;</span><span class="na">hasChanged</span><span class="p">();</span> <span class="c1">// true</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="model.html" class="btn btn-neutral float-left" title="Usando el modelo de Higgs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../dbmgmt/index.html" class="btn btn-neutral float-right" title="Administrar bases de datos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

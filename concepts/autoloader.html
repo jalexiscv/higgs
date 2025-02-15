@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Archivos de carga automática &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/concepts/autoloader.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Servicios" href="services.html" />
+    <link rel="prev" title="Modelos, vistas y controladores" href="mvc.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Descripción general del Higgs (AI)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Descripción general del Higgs (AI)</a></li>
+      <li class="breadcrumb-item active">Archivos de carga automática</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="archivos-de-carga-automatica">
+<h1>Archivos de carga automática<a class="headerlink" href="#archivos-de-carga-automatica" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#cargador-automatico-de-higgs-ia" id="id1">Cargador automático de Higgs (IA)</a></p></li>
+<li><p><a class="reference internal" href="#configuracion" id="id2">Configuración</a></p>
+<ul>
+<li><p><a class="reference internal" href="#espacios-de-nombres" id="id3">Espacios de nombres</a></p></li>
+<li><p><a class="reference internal" href="#confirmar-espacios-de-nombres" id="id4">Confirmar espacios de nombres</a></p></li>
+<li><p><a class="reference internal" href="#espacio-de-nombres-de-la-aplicacion" id="id5">Espacio de nombres de la aplicación</a></p></li>
+<li><p><a class="reference internal" href="#mapa-de-clase" id="id6">Mapa de clase</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#soporte-para-compositores" id="id7">Soporte para compositores</a></p></li>
+</ul>
+</nav>
+<p>Cada aplicación consta de una gran cantidad de clases en muchos lugares diferentes.
+El marco proporciona clases para la funcionalidad principal. Su solicitud tendrá un
+número de bibliotecas, modelos y otras entidades para que funcione. Es posible que tenga terceros
+clases que utiliza su proyecto. Realizar un seguimiento de dónde está cada archivo y
+codificar esa ubicación en sus archivos en una serie de <code class="docutils literal notranslate"><span class="pre">requires()</span></code> es una tarea enorme.
+dolor de cabeza y muy propenso a errores. Ahí es donde entran los cargadores automáticos.</p>
+<section id="cargador-automatico-de-higgs-ia">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Cargador automático de Higgs (IA)</a><a class="headerlink" href="#cargador-automatico-de-higgs-ia" title="Link to this heading"></a></h2>
+<p>Higgs proporciona un cargador automático muy flexible que se puede utilizar con muy poca configuración. Puede localizar clases con espacios de nombres individuales que se adhieran a
+<cite>PSR-4&lt;https://www.php-fig.org/psr/psr-4/&gt;</cite> _ carga automática
+estructuras de directorios. El cargador automático funciona muy bien por sí solo, pero también puede funcionar con otros cargadores automáticos, como
+<cite>Composer&lt;https://getcomposer.org&gt;</cite> _, o incluso sus propios cargadores automáticos personalizados, si es necesario.
+Porque todos están registrados a través de
+<cite>spl_autoload_register&lt;https://www.php.net/manual/en/function.spl-autoload-register.php&gt;</cite> _,
+Trabajan en secuencia y no se interponen entre sí.</p>
+<p>El autocargador siempre está activo, estando registrado con <code class="docutils literal notranslate"><span class="pre">spl_autoload_register()</span></code> en el
+inicio de la ejecución del framework.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>You should always be careful about the case of filenames. Many
+los desarrolladores desarrollan en sistemas de archivos que no distinguen entre mayúsculas y minúsculas en Windows o macOS.
+Sin embargo, la mayoría de los entornos de servidores utilizan sistemas de archivos que distinguen entre mayúsculas y minúsculas. Si el
+Las mayúsculas y minúsculas del nombre del archivo son incorrectas, el cargador automático no puede encontrar el archivo en el
+servidor.</p>
+</div>
+</section>
+<section id="configuracion">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Configuración</a><a class="headerlink" href="#configuracion" title="Link to this heading"></a></h2>
+<p>La configuración inicial se realiza en <strong>app/Config/Autoload.php</strong>. Este archivo contiene dos principales
+matrices: una para el mapa de clases y otra para espacios de nombres compatibles con PSR-4.</p>
+<section id="espacios-de-nombres">
+<span id="autoloader-namespaces"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Espacios de nombres</a><a class="headerlink" href="#espacios-de-nombres" title="Link to this heading"></a></h3>
+<p>El método recomendado para organizar sus clases es crear uno o más espacios de nombres para su
+archivos de la aplicación. Esto es más importante para cualquier clase relacionada con la lógica empresarial, clases de entidad,
+etc. La matriz <code class="docutils literal notranslate"><span class="pre">$psr4</span></code> en el archivo de configuración le permite asignar el espacio de nombres al directorio
+esas clases se pueden encontrar en:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\AutoloadConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Autoload</span> <span class="k">extends</span> <span class="nx">AutoloadConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nv">$psr4</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="nx">APP_NAMESPACE</span> <span class="o">=&gt;</span> <span class="nx">APPPATH</span><span class="p">,</span> <span class="c1">// For custom app namespace</span>
+        <span class="s1">&#39;Config&#39;</span>      <span class="o">=&gt;</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La clave de cada fila es el propio espacio de nombres. Esto no necesita una barra diagonal inversa.
+El valor es la ubicación del directorio en el que se pueden encontrar las clases.</p>
+</section>
+<section id="confirmar-espacios-de-nombres">
+<span id="confirming-namespaces"></span><h3><a class="toc-backref" href="#id4" role="doc-backlink">Confirmar espacios de nombres</a><a class="headerlink" href="#confirmar-espacios-de-nombres" title="Link to this heading"></a></h3>
+<p>Puede verificar la configuración del espacio de nombres con el comando <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">namespaces</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">espacios de nombres de php spark</span>
+</pre></div>
+</div>
+</section>
+<section id="espacio-de-nombres-de-la-aplicacion">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Espacio de nombres de la aplicación</a><a class="headerlink" href="#espacio-de-nombres-de-la-aplicacion" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, el directorio de la aplicación es un espacio de nombres del espacio de nombres <code class="docutils literal notranslate"><span class="pre">App</span></code>. Debes crear un espacio de nombres para los controladores,
+bibliotecas o modelos en el directorio de la aplicación, y se encontrarán en el espacio de nombres <code class="docutils literal notranslate"><span class="pre">App</span></code>.</p>
+<p>Puede cambiar este espacio de nombres editando el archivo <strong>app/Config/Constants.php</strong> y configurando el
+nuevo valor de espacio de nombres bajo la configuración <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nb">defined</span><span class="p">(</span><span class="s1">&#39;APP_NAMESPACE&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="nb">define</span><span class="p">(</span><span class="s1">&#39;APP_NAMESPACE&#39;</span><span class="p">,</span> <span class="s1">&#39;App&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Deberá modificar cualquier archivo existente que haga referencia al espacio de nombres actual.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Config files are namespaced in the <code class="docutils literal notranslate"><span class="pre">Config</span></code> namespace, not in <code class="docutils literal notranslate"><span class="pre">App\Config</span></code> as you might
+esperar. Esto permite que los archivos principales del sistema siempre puedan ubicarlos, incluso cuando la aplicación
+El espacio de nombres ha cambiado.</p>
+</div>
+</section>
+<section id="mapa-de-clase">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Mapa de clase</a><a class="headerlink" href="#mapa-de-clase" title="Link to this heading"></a></h3>
+<p>Higgs utiliza ampliamente el mapa de clases para obtener los últimos gramos de rendimiento del sistema.
+al no golpear el sistema de archivos con llamadas adicionales <code class="docutils literal notranslate"><span class="pre">is_file()</span></code>. Puede utilizar el mapa de clase para vincular a
+bibliotecas de terceros que no tienen espacios de nombres:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\AutoloadConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Autoload</span> <span class="k">extends</span> <span class="nx">AutoloadConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nv">$classmap</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;Markdown&#39;</span> <span class="o">=&gt;</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;ThirdParty/markdown.php&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La clave de cada fila es el nombre de la clase que desea ubicar. El valor es la ruta para ubicarlo.</p>
+</section>
+</section>
+<section id="soporte-para-compositores">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Soporte para compositores</a><a class="headerlink" href="#soporte-para-compositores" title="Link to this heading"></a></h2>
+<p>La compatibilidad con Composer se inicializa automáticamente de forma predeterminada. De forma predeterminada, busca el archivo de carga automática de Composer en
+<code class="docutils literal notranslate"><span class="pre">ROOTPATH</span> <span class="pre">.</span> <span class="pre">'vendor/autoload.php'</span></code>. Si necesita cambiar la ubicación de ese archivo por algún motivo, puede modificar
+el valor definido en <strong>app/Config/Constants.php</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If the same namespace is defined in both Higgs and Composer, Higgs’s autoloader will be
+el primero en tener la oportunidad de localizar el archivo.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="mvc.html" class="btn btn-neutral float-left" title="Modelos, vistas y controladores" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="services.html" class="btn btn-neutral float-right" title="Servicios" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Actas &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/database/transactions.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Metadatos de la base de datos" href="metadata.html" />
+    <link rel="prev" title="Query Builder Class" href="query_builder.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Trabajar con bases de datos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Trabajar con bases de datos</a></li>
+      <li class="breadcrumb-item active">Actas</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="actas">
+<h1>Actas<a class="headerlink" href="#actas" title="Link to this heading"></a></h1>
+<p>La abstracción de la base de datos de Higgs le permite utilizar transacciones con
+bases de datos que admiten tipos de tablas seguras para transacciones. En MySQL, podrás
+necesita ejecutar tipos de tablas InnoDB o BDB en lugar de los más comunes
+MiISAM. La mayoría de las otras plataformas de bases de datos admiten transacciones de forma nativa.</p>
+<p>Si no estás familiarizado con las transacciones te recomendamos buscar un buen
+recurso en línea para aprender sobre ellos para su base de datos particular. El
+La siguiente información supone que usted tiene un conocimiento básico de
+actas.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#el-enfoque-de-higgs-sobre-las-transacciones" id="id1">El enfoque de Higgs sobre las transacciones</a></p></li>
+<li><p><a class="reference internal" href="#ejecucion-de-transacciones" id="id2">Ejecución de transacciones</a></p></li>
+<li><p><a class="reference internal" href="#modo-estricto" id="id3">Modo estricto</a></p></li>
+<li><p><a class="reference internal" href="#gestion-de-errores" id="id4">Gestión de errores</a></p></li>
+<li><p><a class="reference internal" href="#lanzar-excepciones" id="id5">Lanzar excepciones</a></p></li>
+<li><p><a class="reference internal" href="#deshabilitar-transacciones" id="id6">Deshabilitar transacciones</a></p></li>
+<li><p><a class="reference internal" href="#modo-de-prueba" id="id7">Modo de prueba</a></p></li>
+<li><p><a class="reference internal" href="#ejecutar-transacciones-manualmente" id="id8">Ejecutar transacciones manualmente</a></p></li>
+<li><p><a class="reference internal" href="#transacciones-anidadas" id="id9">Transacciones anidadas</a></p></li>
+</ul>
+</nav>
+<section id="el-enfoque-de-higgs-sobre-las-transacciones">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">El enfoque de Higgs sobre las transacciones</a><a class="headerlink" href="#el-enfoque-de-higgs-sobre-las-transacciones" title="Link to this heading"></a></h2>
+<p>Higgs utiliza un enfoque para las transacciones que es muy similar al
+el proceso utilizado por la popular clase de base de datos ADODB. Hemos elegido eso
+enfoque porque simplifica enormemente el proceso de ejecución
+actas. En la mayoría de los casos, todo lo que se requiere son dos líneas de código.</p>
+<p>Tradicionalmente, las transacciones han requerido una buena cantidad de trabajo para
+implementar ya que exigen que lleves un registro de tus consultas y
+determinar si se debe comprometer o revertir en función del éxito o el fracaso
+de tus consultas. Esto es particularmente engorroso con las consultas anidadas. En
+Por el contrario, hemos implementado un sistema de transacciones inteligente que hace todo
+esto para usted automáticamente (también puede administrar sus transacciones
+manualmente si así lo desea, pero realmente no hay ningún beneficio).</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Desde v7, durante las transacciones, no se lanzan excepciones de forma predeterminada
+incluso si <code class="docutils literal notranslate"><span class="pre">DBDebug</span></code> es verdadero.</p>
+</div>
+</section>
+<section id="ejecucion-de-transacciones">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Ejecución de transacciones</a><a class="headerlink" href="#ejecucion-de-transacciones" title="Link to this heading"></a></h2>
+<p>Para ejecutar sus consultas utilizando transacciones, utilizará el
+Los métodos <code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transStart()</span></code> y <code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transComplete()</span></code> como
+sigue:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">();</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AND YET ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Puede ejecutar tantas consultas como desee entre <code class="docutils literal notranslate"><span class="pre">transStart()</span></code>/<code class="docutils literal notranslate"><span class="pre">transComplete()</span></code>
+métodos y todos serán comprometidos o revertidos en función del éxito
+o fracaso de cualquier consulta determinada.</p>
+</section>
+<section id="modo-estricto">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Modo estricto</a><a class="headerlink" href="#modo-estricto" title="Link to this heading"></a></h2>
+<p>De forma predeterminada, Higgs ejecuta todas las transacciones en modo estricto. cuando estricto
+El modo está habilitado, si está ejecutando múltiples grupos de transacciones, si
+un grupo falla, todos los grupos posteriores se revertirán. Si el modo estricto es
+discapacitados, cada grupo es tratado de forma independiente, lo que significa el fracaso de uno
+grupo no afectará a ningún otro.</p>
+<p>El modo estricto se puede desactivar de la siguiente manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStrict</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="gestion-de-errores">
+<span id="transactions-managing-errors"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Gestión de errores</a><a class="headerlink" href="#gestion-de-errores" title="Link to this heading"></a></h2>
+<p>Cuando tenga <code class="docutils literal notranslate"><span class="pre">DBDebug</span></code> verdadero en su archivo <strong>app/Config/Database.php</strong>,
+Si se produce un error en la consulta, se revertirán todas las consultas y se generará una excepción.
+será arrojado. Entonces verás una página de error estándar.</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">DBDebug</span></code> es falso, puedes gestionar tus propios errores de esta manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">();</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStatus</span><span class="p">()</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// generate an error... or use the log_message() function to log your error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="lanzar-excepciones">
+<span id="transactions-throwing-exceptions"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">Lanzar excepciones</a><a class="headerlink" href="#lanzar-excepciones" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Desde v7.3.0, durante las transacciones, no se lanzan excepciones de forma predeterminada
+incluso si <code class="docutils literal notranslate"><span class="pre">DBDebug</span></code> es verdadero.</p>
+</div>
+<p>Si desea que se produzca una excepción cuando se produce un error de consulta, puede utilizar
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transException(verdadero)</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// When DBDebug in the Database Config must be true.</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Database\Exceptions\DatabaseException</span><span class="p">;</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transException</span><span class="p">(</span><span class="k">true</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">();</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AND YET ANOTHER QUERY...&#39;</span><span class="p">);</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">DatabaseException</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Automatically rolled back already.</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si se produce un error en la consulta, se revertirán todas las consultas y se
+Se lanzará <code class="docutils literal notranslate"><span class="pre">DatabaseException</span></code>.</p>
+</section>
+<section id="deshabilitar-transacciones">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Deshabilitar transacciones</a><a class="headerlink" href="#deshabilitar-transacciones" title="Link to this heading"></a></h2>
+<p>Las transacciones están habilitadas de forma predeterminada. Si desea desactivar las transacciones,
+Puedes hacerlo usando <code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transOff()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transOff</span><span class="p">();</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">();</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Cuando las transacciones estén deshabilitadas, sus consultas se confirmarán automáticamente, solo
+como lo son cuando se ejecutan consultas sin transacciones.</p>
+</section>
+<section id="modo-de-prueba">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Modo de prueba</a><a class="headerlink" href="#modo-de-prueba" title="Link to this heading"></a></h2>
+<p>Opcionalmente, puede poner el sistema de transacciones en «modo de prueba», lo que
+hará que sus consultas se reviertan, incluso si las consultas producen
+un resultado válido. Para usar el modo de prueba simplemente configure el primer parámetro en el
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transStart()</span></code> método a verdadero:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">(</span><span class="k">true</span><span class="p">);</span> <span class="c1">// Query will be rolled back</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="ejecutar-transacciones-manualmente">
+<span id="transactions-manual-transactions"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">Ejecutar transacciones manualmente</a><a class="headerlink" href="#ejecutar-transacciones-manualmente" title="Link to this heading"></a></h2>
+<p>Cuando tienes <code class="docutils literal notranslate"><span class="pre">DBDebug</span></code> false en tu archivo <strong>app/Config/Database.php</strong>, y
+Si desea ejecutar transacciones manualmente, puede hacerlo de la siguiente manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transBegin</span><span class="p">();</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AN SQL QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;ANOTHER QUERY...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;AND YET ANOTHER QUERY...&#39;</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStatus</span><span class="p">()</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transRollback</span><span class="p">();</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transCommit</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Make sure to use <code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transBegin()</span></code> when running manual
+transacciones, <strong>NO</strong> <code class="docutils literal notranslate"><span class="pre">$this-&gt;db-&gt;transStart()</span></code>.</p>
+</div>
+</section>
+<section id="transacciones-anidadas">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Transacciones anidadas</a><a class="headerlink" href="#transacciones-anidadas" title="Link to this heading"></a></h2>
+<p>En Higgs, las transacciones se pueden anidar de tal manera que sólo el
+Se ejecutan los comandos de transacción más externos o de nivel superior. Puedes incluir como
+muchos pares de <code class="docutils literal notranslate"><span class="pre">transStart()</span></code>/<code class="docutils literal notranslate"><span class="pre">transComplete()</span></code> o <code class="docutils literal notranslate"><span class="pre">transBegin()</span></code>/<code class="docutils literal notranslate"><span class="pre">transCommit()</span></code>/<code class="docutils literal notranslate"><span class="pre">transRollback()</span></code>
+como quieras dentro de un bloque de transacciones y así sucesivamente. Higgs se mantendrá
+realizar un seguimiento de la «profundidad» de la transacción y tomar medidas solo en la capa más externa
+(profundidad cero).</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">();</span> <span class="c1">// actually starts a transaction</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SOME QUERY 1 ...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transStart</span><span class="p">();</span> <span class="c1">// doesn&#39;t necessarily start another transaction</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SOME QUERY 2 ...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span> <span class="c1">// doesn&#39;t necessarily end the transaction, but required to finish the inner transaction</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SOME QUERY 3 ...&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">transComplete</span><span class="p">();</span> <span class="c1">// actually ends the transaction</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In case the structure is far more complex, it’s your responsibility
+para garantizar que las transacciones internas puedan llegar a la capa más externa nuevamente
+para que la base de datos lo ejecute completamente, evitando así
+confirmaciones/reversiones.</p>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="query_builder.html" class="btn btn-neutral float-left" title="Query Builder Class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="metadata.html" class="btn btn-neutral float-right" title="Metadatos de la base de datos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

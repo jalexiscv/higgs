@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Migraciones de bases de datos &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/dbmgmt/migration.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Database Seeding" href="seeds.html" />
+    <link rel="prev" title="Clase de forja de base de datos" href="forge.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrar bases de datos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administrar bases de datos</a></li>
+      <li class="breadcrumb-item active">Migraciones de bases de datos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="migraciones-de-bases-de-datos">
+<h1>Migraciones de bases de datos<a class="headerlink" href="#migraciones-de-bases-de-datos" title="Link to this heading"></a></h1>
+<p>Las migraciones son una forma conveniente de modificar su base de datos de una manera
+manera estructurada y organizada. Podrías editar fragmentos de SQL a mano.
+pero luego serías responsable de decirles a otros desarrolladores que
+Necesito ir y ejecutarlos. También tendrías que realizar un seguimiento de los cambios
+debe ejecutarse en las máquinas de producción la próxima vez que realice la implementación.</p>
+<p>La tabla de base de datos <strong>migraciones</strong> rastrea qué migraciones ya se han realizado.
+ejecutar, así que todo lo que tienes que hacer es asegurarte de que tus migraciones estén en su lugar y
+ejecute el comando <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">chose</span></code> para actualizar la base de datos a la versión más reciente
+estado. También puedes usar <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">migrar</span> <span class="pre">--all</span></code> para
+incluir migraciones de todos los espacios de nombres.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#nombres-de-archivos-de-migracion" id="id1">Nombres de archivos de migración</a></p></li>
+<li><p><a class="reference internal" href="#crear-una-migracion" id="id2">Crear una migración</a></p>
+<ul>
+<li><p><a class="reference internal" href="#llaves-extranjeras" id="id3">Llaves extranjeras</a></p></li>
+<li><p><a class="reference internal" href="#grupos-de-bases-de-datos" id="id4">Grupos de bases de datos</a></p></li>
+<li><p><a class="reference internal" href="#espacios-de-nombres" id="id5">Espacios de nombres</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#herramientas-de-linea-de-comandos" id="id6">Herramientas de línea de comandos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#emigrar" id="id7">emigrar</a></p></li>
+<li><p><a class="reference internal" href="#retroceder" id="id8">Retroceder</a></p></li>
+<li><p><a class="reference internal" href="#actualizar" id="id9">actualizar</a></p></li>
+<li><p><a class="reference internal" href="#estado" id="id10">estado</a></p></li>
+<li><p><a class="reference internal" href="#hacer-migracion" id="id11">hacer:migración</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#preferencias-de-migracion" id="id12">Preferencias de migración</a></p></li>
+<li><p><a class="reference internal" href="#referencia-de-clase" id="id13">Referencia de clase</a></p></li>
+</ul>
+</nav>
+<section id="nombres-de-archivos-de-migracion">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Nombres de archivos de migración</a><a class="headerlink" href="#nombres-de-archivos-de-migracion" title="Link to this heading"></a></h2>
+<p>Cada migración se ejecuta en orden numérico hacia adelante o hacia atrás dependiendo del
+método adoptado. Cada migración se numera utilizando la marca de tiempo en la que se realizó la migración.
+se creó, en formato <strong>AAAA-MM-DD-HHIISS</strong> (por ejemplo, <strong>2012-10-31-100537</strong>). Este ayuda a prevenir
+conflictos de numeración cuando se trabaja en un entorno de equipo.</p>
+<p>Anteponga a sus archivos de migración el número de migración seguido de un guión bajo.
+y un nombre descriptivo para la migración. El año, mes y fecha se pueden separar.
+entre sí mediante guiones, guiones bajos o ninguno. Por ejemplo:</p>
+<ul class="simple">
+<li><p>2012-10-31-100538_AlterBlogTrackViews.php</p></li>
+<li><p>2012_10_31_100539_AlterBlogAddTranslations.php</p></li>
+<li><p>20121031100537_AddBlog.php</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>En Higgs, las migraciones siguen un formato específico para garantizar que se apliquen en el orden correcto. Aunque Higgs es un framework bastante flexible, es importante seguir las convenciones establecidas para evitar problemas. Por ejemplo si no se usa el guión bajo en el nombre del archivo no se considerara una migracion valida por lo tanto simplemente no se ejecutara.</p>
+</div>
+</section>
+<section id="crear-una-migracion">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Crear una migración</a><a class="headerlink" href="#crear-una-migracion" title="Link to this heading"></a></h2>
+<p>Esta será la primera migración para un nuevo sitio que tiene un blog. Todo
+Las migraciones van en el directorio <strong>app/Database/Migrations/</strong> y tienen nombres como
+como <strong>2022-01-31-013057_AddBlog.php</strong>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Database\Migrations</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Database\Migration</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AddBlog</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">([</span>
+            <span class="s1">&#39;blog_id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;type&#39;</span>           <span class="o">=&gt;</span> <span class="s1">&#39;INT&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;constraint&#39;</span>     <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+                <span class="s1">&#39;unsigned&#39;</span>       <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+                <span class="s1">&#39;auto_increment&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;blog_title&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;type&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;100&#39;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="s1">&#39;blog_description&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;null&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">]);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">dropTable</span><span class="p">(</span><span class="s1">&#39;blog&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La conexión de la base de datos y la clase Forge de la base de datos están disponibles a través de
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;db</span></code> y <code class="docutils literal notranslate"><span class="pre">$this-&gt;forge</span></code>, respectivamente.</p>
+<p>Alternativamente, puede utilizar una llamada de línea de comandos para generar un archivo de migración esqueleto.
+Consulte <strong>make:migration</strong> en <a class="reference internal" href="#command-line-tools"><span class="std std-ref">Herramientas de línea de comandos</span></a> para obtener más detalles.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since the migration class is a PHP class, the classname must be unique in every migration file.</p>
+</div>
+<section id="llaves-extranjeras">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Llaves extranjeras</a><a class="headerlink" href="#llaves-extranjeras" title="Link to this heading"></a></h3>
+<p>Cuando sus tablas incluyen claves externas, las migraciones a menudo pueden causar problemas al intentar eliminar tablas y columnas.
+Para omitir temporalmente las comprobaciones de clave externa mientras ejecuta migraciones, use <code class="docutils literal notranslate"><span class="pre">disableForeignKeyChecks()</span></code> y
+Métodos <code class="docutils literal notranslate"><span class="pre">enableForeignKeyChecks()</span></code> en la conexión de la base de datos.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Database\Migrations</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Database\Migration</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AddBlog</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">disableForeignKeyChecks</span><span class="p">();</span>
+
+        <span class="c1">// Migration rules would go here..</span>
+
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span><span class="o">-&gt;</span><span class="na">enableForeignKeyChecks</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="grupos-de-bases-de-datos">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Grupos de bases de datos</a><a class="headerlink" href="#grupos-de-bases-de-datos" title="Link to this heading"></a></h3>
+<p>Una migración solo se ejecutará en un único grupo de bases de datos. Si tiene varios grupos definidos en
+<strong>app/Config/Database.php</strong>, luego, de forma predeterminada, se ejecutará en el <code class="docutils literal notranslate"><span class="pre">$defaultGroup</span></code> como se especifica
+en ese mismo archivo de configuración.</p>
+<p>Puede haber ocasiones en las que necesite diferentes esquemas para diferentes
+grupos de bases de datos. Quizás tenga una base de datos que se utilice para toda la información general del sitio, mientras
+Se utiliza otra base de datos para datos de misión crítica.</p>
+<p>Puede asegurarse de que las migraciones se ejecuten únicamente
+contra el grupo adecuado configurando la propiedad <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> en su migración. Este nombre debe
+coincidir exactamente con el nombre del grupo de bases de datos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Database\Migrations</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Database\Migration</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AddBlog</span> <span class="k">extends</span> <span class="nx">Migration</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$DBGroup</span> <span class="o">=</span> <span class="s1">&#39;alternate_db_group&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">up</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">down</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <strong>migrations</strong> table that tracks which migrations have already been
+run siempre se creará en el grupo de base de datos predeterminado.</p>
+</div>
+</section>
+<section id="espacios-de-nombres">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Espacios de nombres</a><a class="headerlink" href="#espacios-de-nombres" title="Link to this heading"></a></h3>
+<p>La biblioteca de migración puede escanear automáticamente todos los espacios de nombres que haya definido dentro
+<strong>app/Config/Autoload.php</strong> o cargado desde una fuente externa como Composer, usando
+la propiedad <code class="docutils literal notranslate"><span class="pre">$psr4</span></code> para hacer coincidir nombres de directorio. Incluirá todas las migraciones.
+se encuentra en <strong>Base de datos/Migraciones</strong>.</p>
+<p>Cada espacio de nombres tiene su propia secuencia de versiones, esto le ayudará a actualizar y degradar cada módulo (espacio de nombres) sin afectar otros espacios de nombres.</p>
+<p>Por ejemplo, supongamos que tenemos los siguientes espacios de nombres definidos en nuestro Autoload
+archivo de configuración:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$psr4</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;App&#39;</span>       <span class="o">=&gt;</span> <span class="nx">APPPATH</span><span class="p">,</span>
+    <span class="s1">&#39;MyCompany&#39;</span> <span class="o">=&gt;</span> <span class="nx">ROOTPATH</span> <span class="o">.</span> <span class="s1">&#39;MyCompany&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>Esto buscará cualquier migración ubicada tanto en <strong>APPPATH/Database/Migrations</strong> como en
+<strong>ROOTPATH/MiEmpresa/Base de datos/Migraciones</strong>. Esto simplifica la inclusión de migraciones en su
+conjuntos de códigos modulares y reutilizables.</p>
+</section>
+</section>
+<section id="herramientas-de-linea-de-comandos">
+<span id="command-line-tools"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Herramientas de línea de comandos</a><a class="headerlink" href="#herramientas-de-linea-de-comandos" title="Link to this heading"></a></h2>
+<p>Higgs se envía con varios <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">comandos</span></a>  que están disponibles desde la línea de comando para ayudar
+trabajas con migraciones. Estas herramientas facilitan las cosas para aquellos de ustedes
+que deseen utilizarlos. Las herramientas brindan principalmente acceso a los mismos métodos que están disponibles dentro de la clase MigrationRunner.</p>
+<section id="emigrar">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">emigrar</a><a class="headerlink" href="#emigrar" title="Link to this heading"></a></h3>
+<p>Migra un grupo de bases de datos con todas las migraciones disponibles:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">migración de chispa php</span>
+</pre></div>
+</div>
+<p>Puede utilizar (migrar) con las siguientes opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - para especificar el grupo de base de datos. Si se especifica, solo se ejecutarán las migraciones para el grupo de bases de datos especificado. Si no se especifica, se ejecutarán todas las migraciones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> - para elegir el espacio de nombres; de lo contrario, se utilizará el espacio de nombres <code class="docutils literal notranslate"><span class="pre">App</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code> - para migrar todos los espacios de nombres a la última migración.</p></li>
+</ul>
+<p>Este ejemplo migrará el espacio de nombres <code class="docutils literal notranslate"><span class="pre">Acme\Blog</span></code> con cualquier nueva migración en el grupo de bases de datos de prueba:</p>
+<p>Para Unix:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrar -g prueba -n Acme\\Blog</span>
+</pre></div>
+</div>
+<p>Para ventanas:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrar -g prueba -n Acme\Blog</span>
+</pre></div>
+</div>
+<p>Al usar la opción <code class="docutils literal notranslate"><span class="pre">--all</span></code>, escaneará todos los espacios de nombres intentando encontrar cualquier migración que tenga
+no se ha ejecutado. Todos estos se recopilarán y luego se ordenarán como un grupo por fecha de creación. esto debería ayudar
+para minimizar cualquier conflicto potencial entre la aplicación principal y cualquier módulo.</p>
+</section>
+<section id="retroceder">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Retroceder</a><a class="headerlink" href="#retroceder" title="Link to this heading"></a></h3>
+<p>Revierte todas las migraciones a una pizarra en blanco, efectivamente migración 0:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrar: revertir</span>
+</pre></div>
+</div>
+<p>Puede utilizar (revertir) con las siguientes opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-b</span></code> - para elegir un lote: los números naturales especifican el lote.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code>: para forzar una pregunta de confirmación de omisión, solo se hace en un entorno de producción.</p></li>
+</ul>
+</section>
+<section id="actualizar">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">actualizar</a><a class="headerlink" href="#actualizar" title="Link to this heading"></a></h3>
+<p>Actualiza el estado de la base de datos deshaciendo primero todas las migraciones y luego migrando todas:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrar: actualizar</span>
+</pre></div>
+</div>
+<p>Puede usar (actualizar) con las siguientes opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - para especificar el grupo de base de datos. Si se especifica, solo se ejecutarán las migraciones para el grupo de bases de datos especificado. Si no se especifica, se ejecutarán todas las migraciones.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span></code> - para elegir el espacio de nombres; de lo contrario, se utilizará el espacio de nombres <code class="docutils literal notranslate"><span class="pre">App</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all</span></code> - para actualizar todos los espacios de nombres.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code>: para forzar una pregunta de confirmación de omisión, solo se hace en un entorno de producción.</p></li>
+</ul>
+</section>
+<section id="estado">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">estado</a><a class="headerlink" href="#estado" title="Link to this heading"></a></h3>
+<p>Muestra una lista de todas las migraciones y la fecha y hora en que se ejecutaron, o “–” si no se ejecutaron:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark migrar: estado</span>
+
+<span class="go">...</span>
+
+<span class="go">+----------------------+-------------------+-----------------------+---------+---------------------+-------+</span>
+<span class="go">| Namespace            | Version           | Filename              | Group   | Migrated On         | Batch |</span>
+<span class="go">+----------------------+-------------------+-----------------------+---------+---------------------+-------+</span>
+<span class="go">| App                  | 2022-04-06-234508 | CreateCiSessionsTable | default | 2022-04-06 18:45:14 | 2     |</span>
+<span class="go">| CodeIgniter\Settings | 2021-07-04-041948 | CreateSettingsTable   | default | 2022-04-06 01:23:08 | 1     |</span>
+<span class="go">| CodeIgniter\Settings | 2021-11-14-143905 | AddContextColumn      | default | 2022-04-06 01:23:08 | 1     |</span>
+<span class="go">+----------------------+-------------------+-----------------------+---------+---------------------+-------+</span>
+</pre></div>
+</div>
+<p>Puede utilizar (estado) con las siguientes opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-g</span></code> - para especificar el grupo de base de datos. Si se especifica, solo se verificarán las migraciones para el grupo de bases de datos especificado. Si no se especifica, se verificarán todas las migraciones.</p></li>
+</ul>
+</section>
+<section id="hacer-migracion">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">hacer:migración</a><a class="headerlink" href="#hacer-migracion" title="Link to this heading"></a></h3>
+<p>Crea un archivo de migración esqueleto en <strong>app/Database/Migrations</strong>.
+Automáticamente antepone la marca de tiempo actual. La clase lo nombra
+create es la versión en caso Pascal del nombre del archivo.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark hacer:migración&lt;class&gt; [opciones]</span>
+</pre></div>
+</div>
+<p>Puede utilizar (<code class="docutils literal notranslate"><span class="pre">make:migration</span></code>) con las siguientes opciones:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code> - Establece el espacio de nombres raíz. Valor predeterminado: <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agrega el título del componente al nombre de la clase.</p></li>
+</ul>
+<p>Las siguientes opciones también están disponibles para generar el archivo de migración para
+sesiones de base de datos:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--session</span></code> - Genera el archivo de migración para las sesiones de la base de datos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>: nombre de la tabla que se utilizará en las sesiones de la base de datos. Predeterminado: <code class="docutils literal notranslate"><span class="pre">HIGGS_sessions</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code> - Grupo de base de datos que se utilizará para las sesiones de base de datos. Predeterminado: <code class="docutils literal notranslate"><span class="pre">predeterminado</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="preferencias-de-migracion">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Preferencias de migración</a><a class="headerlink" href="#preferencias-de-migracion" title="Link to this heading"></a></h2>
+<p>La siguiente es una tabla de todas las opciones de configuración para migraciones, disponible en <strong>app/Config/Migrations.php</strong>.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Preferencia</p></th>
+<th class="head"><p>Predeterminado</p></th>
+<th class="head"><p>Opciones</p></th>
+<th class="head"><p>Descripción</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>enabled</strong></p></td>
+<td><p>true</p></td>
+<td><p>true / false</p></td>
+<td><p>Habilitar o deshabilitar las migraciones.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>table</strong></p></td>
+<td><p>migrations</p></td>
+<td><p>None</p></td>
+<td><p>El nombre de la tabla para almacenar el número de versión del esquema.
+Esta tabla siempre se crea en el grupo de base de datos predeterminado
+(<code class="docutils literal notranslate"><span class="pre">$defaultGroup</span></code>).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>timestampFormat</strong></p></td>
+<td><p>Y-m-d-His_</p></td>
+<td></td>
+<td><p>El formato a usar para las marcas de tiempo al crear una migración.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="referencia-de-clase">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Referencia de clase</a><a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\Database">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\Database\</span></span><span class="sig-name descname"><span class="pre">MigrationRunner</span></span><a class="headerlink" href="#Higgs\Database\MigrationRunner" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner::findMigrations">
+<span class="sig-name descname"><span class="pre">findMigrations</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\MigrationRunner::findMigrations" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>una serie de archivos de migración</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Se devuelve una serie de nombres de archivos de migración que se encuentran en la propiedad <code class="docutils literal notranslate"><span class="pre">path</span></code>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner::latest">
+<span class="sig-name descname"><span class="pre">latest</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$group</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\MigrationRunner::latest" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$grupo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – nombre del grupo de base de datos, si es nulo se utilizará el grupo de base de datos predeterminado.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Esto localiza las migraciones para un espacio de nombres (o todos los espacios de nombres), determina qué migraciones
+aún no se han ejecutado y los ejecuta en orden de versión (espacios de nombres entremezclados).</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner::regress">
+<span class="sig-name descname"><span class="pre">regress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$targetBatch</span></em>, <em class="sig-param"><span class="pre">$group</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\MigrationRunner::regress" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$targetBatch</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – lote anterior al que migrar; 1+ especifica el lote, 0 revierte todo, negativo se refiere al lote relativo (por ejemplo, -3 significa «tres lotes atrás»)</p></li>
+<li><p><strong>$group</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">?string</span></code></span>) – nombre del grupo de base de datos, si es nulo se utilizará el grupo de base de datos predeterminado.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error o si no se encuentran migraciones</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>La regresión se puede utilizar para revertir los cambios a un estado anterior, lote por lote.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">regress</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">regress</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner::force">
+<span class="sig-name descname"><span class="pre">force</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$path</span></em>, <em class="sig-param"><span class="pre">$namespace</span></em>, <em class="sig-param"><span class="pre">$group</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\MigrationRunner::force" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Mixed</span></code></span>) – ruta a un archivo de migración válido.</p></li>
+<li><p><strong>$namespace</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – espacio de nombres de la migración proporcionada.</p></li>
+<li><p><strong>$grupo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – nombre del grupo de base de datos, si es nulo se utilizará el grupo de base de datos predeterminado.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Esto obliga a migrar un único archivo independientemente del orden o los lotes. El método <code class="docutils literal notranslate"><span class="pre">up()</span></code> o <code class="docutils literal notranslate"><span class="pre">down()</span></code> se detecta en función de si ya se ha migrado.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This method is recommended only for testing and could cause data consistency issues.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner::setNamespace">
+<span class="sig-name descname"><span class="pre">setNamespace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$namespace</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\MigrationRunner::setNamespace" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$namespace</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|null</span></code></span>) – espacio de nombres de la aplicación. <code class="docutils literal notranslate"><span class="pre">null</span></code> son todos espacios de nombres.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La instancia actual de MigrationRunner</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Base</span> <span class="pre">de</span> <span class="pre">datos\MigrationRunner</span></code></span></p>
+</dd>
+</dl>
+<p>Establece el espacio de nombres que la biblioteca debe buscar en los archivos de migración:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">setNamespace</span><span class="p">(</span><span class="nv">$namespace</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">latest</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you set <code class="docutils literal notranslate"><span class="pre">null</span></code>, it looks for migration files in all namespaces.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\MigrationRunner::setGroup">
+<span class="sig-name descname"><span class="pre">setGroup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$group</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\MigrationRunner::setGroup" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$grupo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del grupo de base de datos.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La instancia actual de MigrationRunner</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Base</span> <span class="pre">de</span> <span class="pre">datos\MigrationRunner</span></code></span></p>
+</dd>
+</dl>
+<p>Establece el grupo en el que la biblioteca debe buscar archivos de migración:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$migration</span><span class="o">-&gt;</span><span class="na">setGroup</span><span class="p">(</span><span class="nv">$group</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">latest</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="forge.html" class="btn btn-neutral float-left" title="Clase de forja de base de datos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="seeds.html" class="btn btn-neutral float-right" title="Database Seeding" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

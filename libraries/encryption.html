@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Servicio de cifrado &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/encryption.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Trabajar con archivos" href="files.html" />
+    <link rel="prev" title="Clase de correo electrónico" href="email.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Servicio de cifrado</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="servicio-de-cifrado">
+<h1>Servicio de cifrado<a class="headerlink" href="#servicio-de-cifrado" title="Link to this heading"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>DO NOT use this or any other <em>encryption</em> library for
+almacenamiento de contraseña! Las contraseñas deben tener <em>hash</em> en su lugar, y usted
+debería hacerlo a través de la extensión <a class="reference external" href="https://www.php.net/password">Password Hashing de PHP</a>.</p>
+</div>
+<p>El Servicio de cifrado proporciona cifrado de datos simétrico (clave secreta) bidireccional.
+El servicio creará una instancia y/o inicializará un
+<strong>controlador de cifrado</strong> para adaptarlo a sus parámetros como se explica a continuación.</p>
+<p>Los controladores del servicio de cifrado deben implementar la sencilla <code class="docutils literal notranslate"><span class="pre">EncrypterInterface</span></code> de Higgs.
+Es posible que sea necesario utilizar una extensión criptográfica PHP adecuada o una biblioteca de terceros.
+software adicional que se instalará en su servidor y/o podría necesitar ser explícitamente
+habilitado en su instancia de PHP.</p>
+<p>Actualmente se admiten las siguientes extensiones de PHP:</p>
+<ul class="simple">
+<li><p><cite>OpenSSL&lt;https://www.php.net/openssl&gt;</cite> _</p></li>
+<li><p><cite>Sodio&lt;https://www.php.net/manual/en/book.sodium&gt;</cite> _</p></li>
+</ul>
+<p>Esta no es una solución criptográfica completa. Si necesita más capacidades, por ejemplo,
+cifrado de clave pública, le sugerimos que considere el uso directo de OpenSSL o
+una de las otras <cite>Extensiones de criptografía&lt;https://www.php.net/manual/en/refs.crypto.php&gt;</cite> _.
+Un paquete más completo como <cite>Halite&lt;https://github.com/paragonie/halite&gt;</cite> _
+(un paquete OO construido sobre libsodium) es otra posibilidad.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Support for the <code class="docutils literal notranslate"><span class="pre">MCrypt</span></code> extension has been dropped, as that has
+ha quedado obsoleto a partir de PHP 7.2.</p>
+</div>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#usando-la-biblioteca-de-cifrado" id="id5">Usando la biblioteca de cifrado</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configurando-la-biblioteca" id="id6">Configurando la biblioteca</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuracion-para-mantener-la-compatibilidad-con-h3" id="id7">Configuración para mantener la compatibilidad con H3</a></p></li>
+<li><p><a class="reference internal" href="#algoritmos-de-autenticacion-hmac-compatibles" id="id8">Algoritmos de autenticación HMAC compatibles</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#comportamiento-por-defecto" id="id9">Comportamiento por defecto</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-su-clave-de-cifrado" id="id10">Configuración de su clave de cifrado</a></p>
+<ul>
+<li><p><a class="reference internal" href="#claves-de-codificacion-o-resultados" id="id11">Claves de codificación o resultados</a></p></li>
+<li><p><a class="reference internal" href="#uso-de-prefijos-al-almacenar-claves" id="id12">Uso de prefijos al almacenar claves</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#relleno" id="id13">Relleno</a></p></li>
+<li><p><a class="reference internal" href="#notas-del-controlador-de-cifrado" id="id14">Notas del controlador de cifrado</a></p>
+<ul>
+<li><p><a class="reference internal" href="#notas-de-openssl" id="id15">Notas de OpenSSL</a></p></li>
+<li><p><a class="reference internal" href="#notas-de-sodio" id="id16">Notas de sodio</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#longitud-del-mensaje" id="id17">Longitud del mensaje</a></p></li>
+<li><p><a class="reference internal" href="#usar-el-servicio-de-cifrado-directamente" id="id18">Usar el servicio de cifrado directamente</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencia-de-clase" id="id19">Referencia de clase</a></p></li>
+</ul>
+</nav>
+<section id="usando-la-biblioteca-de-cifrado">
+<span id="usage"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink">Usando la biblioteca de cifrado</a><a class="headerlink" href="#usando-la-biblioteca-de-cifrado" title="Link to this heading"></a></h2>
+<p>Como todos los servicios en Higgs, se puede cargar a través de <code class="docutils literal notranslate"><span class="pre">Config\Services</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">encrypter</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Suponiendo que haya configurado su clave de inicio (ver <span class="xref std std-ref">configuración</span>),
+cifrar y descifrar datos es simple: pase la cadena apropiada a <code class="docutils literal notranslate"><span class="pre">encrypt()</span></code>
+y/o métodos <code class="docutils literal notranslate"><span class="pre">decrypt()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$plainText</span>  <span class="o">=</span> <span class="s1">&#39;This is a plain-text message!&#39;</span><span class="p">;</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nv">$plainText</span><span class="p">);</span>
+
+<span class="c1">// Outputs: This is a plain-text message!</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>¡Y eso es! La biblioteca de cifrado hará todo lo necesario.
+para que todo el proceso sea criptográficamente seguro desde el primer momento.
+No necesitas preocuparte por eso.</p>
+<section id="configurando-la-biblioteca">
+<span id="configuration"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Configurando la biblioteca</a><a class="headerlink" href="#configurando-la-biblioteca" title="Link to this heading"></a></h3>
+<p>El ejemplo anterior utiliza los ajustes de configuración que se encuentran en <strong>app/Config/Encryption.php</strong>.</p>
+<p>Puede reemplazar la configuración del archivo de configuración pasando una configuración
+objeto propio a la llamada <code class="docutils literal notranslate"><span class="pre">Servicios</span></code>. La variable <code class="docutils literal notranslate"><span class="pre">$config</span></code> debe ser
+una instancia de la clase <code class="docutils literal notranslate"><span class="pre">Config\Encryption</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$config</span>         <span class="o">=</span> <span class="k">new</span> <span class="nx">\Config\Encryption</span><span class="p">();</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">key</span>    <span class="o">=</span> <span class="s1">&#39;aBigsecret_ofAtleast32Characters&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">driver</span> <span class="o">=</span> <span class="s1">&#39;OpenSSL&#39;</span><span class="p">;</span>
+
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">encrypter</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="configuracion-para-mantener-la-compatibilidad-con-h3">
+<span id="encryption-compatible-with-h3"></span><h4><a class="toc-backref" href="#id7" role="doc-backlink">Configuración para mantener la compatibilidad con H3</a><a class="headerlink" href="#configuracion-para-mantener-la-compatibilidad-con-h3" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Desde v7.3.0, puede descifrar datos cifrados con el cifrado de H3.
+Si necesita descifrar dichos datos, utilice la siguiente configuración para mantener la compatibilidad.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Config\Encryption</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Config\Services</span><span class="p">;</span>
+
+<span class="nv">$config</span>         <span class="o">=</span> <span class="k">new</span> <span class="nx">Encryption</span><span class="p">();</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">driver</span> <span class="o">=</span> <span class="s1">&#39;OpenSSL&#39;</span><span class="p">;</span>
+
+<span class="c1">// Your H3&#39;s &#39;encryption_key&#39;</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">key</span> <span class="o">=</span> <span class="nb">hex2bin</span><span class="p">(</span><span class="s1">&#39;64c70b0b8d45b80b9eba60b8b3c8a34d0193223d20fea46f8644b848bf7ce67f&#39;</span><span class="p">);</span>
+<span class="c1">// Your H3&#39;s &#39;cipher&#39; and &#39;mode&#39;</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">cipher</span> <span class="o">=</span> <span class="s1">&#39;AES-128-CBC&#39;</span><span class="p">;</span>
+
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">rawData</span>        <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">encryptKeyInfo</span> <span class="o">=</span> <span class="s1">&#39;encryption&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="o">-&gt;</span><span class="na">authKeyInfo</span>    <span class="o">=</span> <span class="s1">&#39;authentication&#39;</span><span class="p">;</span>
+
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nx">Services</span><span class="o">::</span><span class="na">encrypter</span><span class="p">(</span><span class="nv">$config</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="algoritmos-de-autenticacion-hmac-compatibles">
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Algoritmos de autenticación HMAC compatibles</a><a class="headerlink" href="#algoritmos-de-autenticacion-hmac-compatibles" title="Link to this heading"></a></h4>
+<p>Para la autenticación de mensajes HMAC, la biblioteca de cifrado admite
+uso de la familia de algoritmos SHA-2:
+=========== ==================== ==================== =========
+Algoritmo Longitud bruta (bytes) Longitud codificada en hexadecimal (bytes)
+=========== ==================== ==================== =========
+SHA512 64 128
+SHA384 48 96
+SHA256 32 64
+SHA224 28 56
+=========== ==================== ==================== =========</p>
+<p>La razón para no incluir otros algoritmos populares, como
+MD5 o SHA1 es que ya no se consideran lo suficientemente seguros
+y como tal, no queremos fomentar su uso.
+Si es absolutamente necesario utilizarlos, es fácil hacerlo a través de PHP.
+nativo <cite>hash_hmac()&lt;http://php.net/manual/en/function.hash-hmac.php&gt;</cite> _ función.</p>
+<p>Por supuesto, en el futuro se añadirán algoritmos más potentes a medida que
+aparecen y se vuelven ampliamente disponibles.</p>
+</section>
+</section>
+<section id="comportamiento-por-defecto">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Comportamiento por defecto</a><a class="headerlink" href="#comportamiento-por-defecto" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, la biblioteca de cifrado utiliza el controlador OpenSSL. Ese controlador cifra usando
+el algoritmo AES-256-CTR, su <em>clave</em> configurada y la autenticación SHA512 HMAC.</p>
+</section>
+<section id="configuracion-de-su-clave-de-cifrado">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Configuración de su clave de cifrado</a><a class="headerlink" href="#configuracion-de-su-clave-de-cifrado" title="Link to this heading"></a></h3>
+<p>Su clave de cifrado <strong>debe</strong> ser tan larga como lo permita el algoritmo de cifrado en uso.
+Para AES-256, tiene una longitud de 256 bits o 32 bytes (caracteres).</p>
+<p>La clave debe ser lo más aleatoria posible y <strong>no</strong> debe ser una cadena de texto normal.
+ni la salida de una función hash, etc. Para crear una clave adecuada,
+puede utilizar el método <code class="docutils literal notranslate"><span class="pre">createKey()</span></code> de la biblioteca Encryption.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// $key will be assigned a 32-byte (256-bit) random key</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nx">\Higgs\Encryption\Encryption</span><span class="o">::</span><span class="na">createKey</span><span class="p">();</span>
+
+<span class="c1">// for the SodiumHandler, you can use either:</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nb">sodium_crypto_secretbox_keygen</span><span class="p">();</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nx">\Higgs\Encryption\Encryption</span><span class="o">::</span><span class="na">createKey</span><span class="p">(</span><span class="nx">SODIUM_CRYPTO_SECRETBOX_KEYBYTES</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La clave se puede almacenar en <strong>app/Config/Encryption.php</strong>, o puede diseñar
+un mecanismo de almacenamiento propio y pasar la clave dinámicamente al cifrar/descifrar.</p>
+<p>Para guardar su clave en su <strong>app/Config/Encryption.php</strong>, abra el archivo
+y establecer:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Encryption</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;YOUR KEY&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="claves-de-codificacion-o-resultados">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">Claves de codificación o resultados</a><a class="headerlink" href="#claves-de-codificacion-o-resultados" title="Link to this heading"></a></h4>
+<p>Notarás que el método <code class="docutils literal notranslate"><span class="pre">createKey()</span></code> genera datos binarios, que
+es difícil de manejar (es decir, copiar y pegar puede dañarlo), por lo que puede usar
+<code class="docutils literal notranslate"><span class="pre">bin2hex()</span></code> o <code class="docutils literal notranslate"><span class="pre">base64_encode</span></code> para trabajar con la clave en
+una manera más amigable. Por ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Get a hex-encoded representation of the key:</span>
+<span class="nv">$encoded</span> <span class="o">=</span> <span class="nb">bin2hex</span><span class="p">(</span><span class="nx">\Higgs\Encryption\Encryption</span><span class="o">::</span><span class="na">createKey</span><span class="p">(</span><span class="mi">32</span><span class="p">));</span>
+
+<span class="c1">// Put the same value with hex2bin(),</span>
+<span class="c1">// so that it is still passed as binary to the library:</span>
+<span class="nv">$key</span> <span class="o">=</span> <span class="nb">hex2bin</span><span class="p">(</span><span class="s1">&#39;your-hex-encoded-key&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Es posible que la misma técnica le resulte útil para los resultados.
+de cifrado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Encrypt some text &amp; make the results text</span>
+<span class="nv">$encoded</span> <span class="o">=</span> <span class="nb">base64_encode</span><span class="p">(</span><span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="nv">$plaintext</span><span class="p">));</span>
+</pre></div>
+</div>
+</section>
+<section id="uso-de-prefijos-al-almacenar-claves">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">Uso de prefijos al almacenar claves</a><a class="headerlink" href="#uso-de-prefijos-al-almacenar-claves" title="Link to this heading"></a></h4>
+<p>Puede aprovechar dos prefijos especiales para almacenar su
+claves de cifrado: <code class="docutils literal notranslate"><span class="pre">hex2bin:</span></code> y <code class="docutils literal notranslate"><span class="pre">base64:</span></code>. Cuando estos prefijos
+precede inmediatamente al valor de su clave, <code class="docutils literal notranslate"><span class="pre">Encryption</span></code>
+analizar inteligentemente la clave y aún así pasar una cadena binaria a
+la biblioteca.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Encryption</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// In Encryption, you may use</span>
+    <span class="k">public</span> <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;hex2bin:&lt;your-hex-encoded-key&gt;&#39;</span><span class="p">;</span>
+    <span class="c1">// or</span>
+    <span class="k">public</span> <span class="nv">$key</span> <span class="o">=</span> <span class="s1">&#39;base64:&lt;your-base64-encoded-key&gt;&#39;</span><span class="p">;</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>De manera similar, ¡también puedes usar estos prefijos en tu archivo <strong>.env</strong>!</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Para hex2bin</span>
+<span class="nx">cifrado</span><span class="o">.</span><span class="nx">clave</span> <span class="o">=</span> <span class="nb">hex2bin</span><span class="o">:&lt;</span><span class="nx">your</span><span class="o">-</span><span class="nx">hex</span><span class="o">-</span><span class="nx">encoded</span><span class="o">-</span><span class="nb">key</span><span class="o">&gt;</span>
+
+<span class="c1">// o</span>
+<span class="nx">cifrado</span><span class="o">.</span><span class="nx">clave</span> <span class="o">=</span> <span class="nx">base64</span><span class="o">:&lt;</span><span class="nx">your</span><span class="o">-</span><span class="nx">base64</span><span class="o">-</span><span class="nx">encoded</span><span class="o">-</span><span class="nb">key</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="relleno">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Relleno</a><a class="headerlink" href="#relleno" title="Link to this heading"></a></h3>
+<p>A veces, la longitud de un mensaje puede proporcionar mucha información sobre su naturaleza. Si
+un mensaje es de «sí», «no» y «tal vez», cifrar el mensaje no ayuda: saber
+la longitud es suficiente para saber cuál es el mensaje.</p>
+<p>El relleno es una técnica para mitigar esto, haciendo que la longitud sea un múltiplo de un tamaño de bloque determinado.</p>
+<p>El relleno se implementa en <code class="docutils literal notranslate"><span class="pre">SodiumHandler</span></code> usando <code class="docutils literal notranslate"><span class="pre">sodium_pad</span></code> y <code class="docutils literal notranslate"><span class="pre">sodium_unpad</span></code> nativos de libsodium.
+funciones. Esto requiere el uso de una longitud de relleno (en bytes) que se agrega al texto sin formato.
+mensaje antes del cifrado y eliminado después del descifrado. El relleno es configurable a través del
+Propiedad <code class="docutils literal notranslate"><span class="pre">$blockSize</span></code> de <code class="docutils literal notranslate"><span class="pre">Config\Encryption</span></code>. Este valor debe ser mayor que cero.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>You are advised not to devise your own padding implementation. You must always use
+la implementación más segura de una biblioteca. Además, las contraseñas no deben rellenarse. Uso de
+No se recomienda el relleno para ocultar la longitud de una contraseña. Un cliente dispuesto a enviar
+en su lugar, una contraseña de un servidor debería tener un hash (incluso con una sola iteración de la función hash).
+Esto garantiza que la longitud de los datos transmitidos sea constante y que el servidor no
+obtenga fácilmente una copia de la contraseña.</p>
+</div>
+</section>
+<section id="notas-del-controlador-de-cifrado">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Notas del controlador de cifrado</a><a class="headerlink" href="#notas-del-controlador-de-cifrado" title="Link to this heading"></a></h3>
+<section id="notas-de-openssl">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">Notas de OpenSSL</a><a class="headerlink" href="#notas-de-openssl" title="Link to this heading"></a></h4>
+<p>El <a href="#id1"><span class="problematic" id="id2">`</span></a>OpenSSL&lt;<a class="reference external" href="https://www.php.net/openssl">https://www.php.net/openssl</a>&gt; La extensión <a href="#id3"><span class="problematic" id="id4">`</span></a>_ ha sido una parte estándar de PHP durante mucho tiempo.</p>
+<p>El controlador OpenSSL de Higgs utiliza el cifrado AES-256-CTR.</p>
+<p>La <em>clave</em> que proporciona su configuración se utiliza para derivar otras dos claves, una para
+cifrado y otro para autenticación. Esto se consigue mediante una técnica conocida
+como una función de derivación de claves basada en HMAC&lt;<a class="reference external" href="https://en.wikipedia.org/wiki/HKDF">https://en.wikipedia.org/wiki/HKDF</a>&gt;` _ (HKDF).</p>
+</section>
+<section id="notas-de-sodio">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">Notas de sodio</a><a class="headerlink" href="#notas-de-sodio" title="Link to this heading"></a></h4>
+<p>El <cite>sodio&lt;https://www.php.net/manual/en/book.sodium&gt;</cite> _ la extensión está incluida de forma predeterminada en PHP como
+de PHP 7.2.0.</p>
+<p>Sodium utiliza los algoritmos XSalsa20 para cifrar, Poly1305 para MAC y XS25519 para el intercambio de claves en
+enviar mensajes secretos en un escenario de extremo a extremo. Para cifrar y/o autenticar una cadena usando
+una clave compartida, como el cifrado simétrico, Sodium utiliza el algoritmo XSalsa20 para cifrar y
+HMAC-SHA512 para la autenticación.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Higgs’s <code class="docutils literal notranslate"><span class="pre">SodiumHandler</span></code> uses <code class="docutils literal notranslate"><span class="pre">sodium_memzero</span></code> in every encryption or decryption
+sesión. Después de cada sesión, el mensaje (ya sea en texto plano o cifrado) y la clave de inicio son
+eliminado de los amortiguadores. Es posible que tengas que volver a proporcionar la clave antes de iniciar una nueva sesión.</p>
+</div>
+</section>
+</section>
+<section id="longitud-del-mensaje">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Longitud del mensaje</a><a class="headerlink" href="#longitud-del-mensaje" title="Link to this heading"></a></h3>
+<p>Una cadena cifrada suele ser más larga que la cadena de texto sin formato original (según el cifrado).</p>
+<p>Esto está influenciado por el propio algoritmo de cifrado, el vector de inicialización (IV)
+antepuesto al texto cifrado y el mensaje de autenticación HMAC que también se antepone.
+Además, el mensaje cifrado también está codificado en Base64 para que sea seguro.
+para almacenamiento y transmisión independientemente del juego de caracteres en uso.</p>
+<p>Tenga en cuenta esta información al seleccionar su mecanismo de almacenamiento de datos.
+Las cookies, por ejemplo, sólo pueden contener 4K de información.</p>
+</section>
+<section id="usar-el-servicio-de-cifrado-directamente">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Usar el servicio de cifrado directamente</a><a class="headerlink" href="#usar-el-servicio-de-cifrado-directamente" title="Link to this heading"></a></h3>
+<p>En lugar de (o además de) usar <code class="docutils literal notranslate"><span class="pre">Servicios</span></code> como se describe en <a class="reference internal" href="#usage"><span class="std std-ref">Usando la biblioteca de cifrado</span></a>,
+puede crear un «Encriptador» directamente o cambiar la configuración de una instancia existente.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// create an Encryption instance</span>
+<span class="nv">$encryption</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\Encryption\Encryption</span><span class="p">();</span>
+
+<span class="c1">// reconfigure an instance with different settings</span>
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nv">$encryption</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Recuerde que <code class="docutils literal notranslate"><span class="pre">$config</span></code> debe ser una instancia de la clase <code class="docutils literal notranslate"><span class="pre">Config\Encryption</span></code>.</p>
+</section>
+</section>
+<section id="referencia-de-clase">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Referencia de clase</a><a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\Encryption">
+<dt class="sig sig-object php" id="Higgs\Encryption\Encryption">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\Encryption\</span></span><span class="sig-name descname"><span class="pre">Encryption</span></span><a class="headerlink" href="#Higgs\Encryption\Encryption" title="Link to this definition"></a></dt>
+<dd><dl class="php staticmethod">
+<dt class="sig sig-object php" id="Higgs\Encryption\Encryption::createKey">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">createKey</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$length</span> <span class="pre">=</span> <span class="pre">32</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Encryption\Encryption::createKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$longitud</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Longitud de salida</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>una clave criptográfica pseudoaleatoria con la longitud especificada, o «falsa» en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Crea una clave criptográfica obteniendo datos aleatorios de
+las fuentes del sistema operativo (<em>es decir</em> <code class="docutils literal notranslate"><span class="pre">/dev/urandom</span></code>).</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Encryption\Encryption::initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">Encryption</span> <span class="pre">$config</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Encryption\Encryption::initialize" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$config</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Config\Encryption</span></code></span>) – Parámetros de configuración</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>instancia <code class="docutils literal notranslate"><span class="pre">Higgs\Encryption\EncrypterInterface</span></code></p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">Higgs\Encryption\EncrypterInterface</span></code></p>
+</dd>
+<dt class="field-even">Lanza<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Higgs\Encryption\Exceptions\EncryptionException</span></code></p>
+</dd>
+</dl>
+<p>Inicializa (configura) la biblioteca para usar diferentes configuraciones.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$encrypter</span> <span class="o">=</span> <span class="nv">$encryption</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">([</span><span class="s1">&#39;cipher&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;AES-256-CTR&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Consulte la sección <span class="xref std std-ref">configuración</span> para obtener información detallada.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="php interface">
+<dt class="sig sig-object php">
+<span class="sig-name descname"><span class="pre">Higgs\Encryption\EncrypterInterface</span></span></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Encryption\Encryption::encrypt">
+<span class="sig-name descname"><span class="pre">encrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$data</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$params</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Encryption\Encryption::encrypt" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – datos para cifrar</p></li>
+<li><p><strong>$params</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string|null</span></code></span>) – Parámetros de configuración (clave)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>datos cifrados</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+<dt class="field-even">Lanza<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Higgs\Encryption\Exceptions\EncryptionException</span></code></p>
+</dd>
+</dl>
+<p>Cifra los datos de entrada y devuelve su texto cifrado.</p>
+<p>Si pasa parámetros como segundo argumento, el elemento <code class="docutils literal notranslate"><span class="pre">key</span></code>
+se utilizará como clave inicial para esta operación si <code class="docutils literal notranslate"><span class="pre">$params</span></code>
+es una matriz; o la clave inicial se puede pasar como una cadena.</p>
+<p>Si está utilizando SodiumHandler y desea pasar un <code class="docutils literal notranslate"><span class="pre">blockSize</span></code> diferente
+en tiempo de ejecución, pase la clave <code class="docutils literal notranslate"><span class="pre">blockSize</span></code> en la matriz <code class="docutils literal notranslate"><span class="pre">$params</span></code>.</p>
+<p>Ejemplos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">]);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">,</span> <span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">);</span>
+<span class="nv">$ciphertext</span> <span class="o">=</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">encrypt</span><span class="p">(</span><span class="s1">&#39;My secret message&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Encryption\Encryption::decrypt">
+<span class="sig-name descname"><span class="pre">decrypt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$data</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$params</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Encryption\Encryption::decrypt" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – datos para descifrar</p></li>
+<li><p><strong>$params</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string|null</span></code></span>) – Parámetros de configuración (clave)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>datos descifrados</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+<dt class="field-even">Lanza<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">Higgs\Encryption\Exceptions\EncryptionException</span></code></p>
+</dd>
+</dl>
+<p>Descifra los datos de entrada y los devuelve en texto sin formato.</p>
+<p>Si pasa parámetros como segundo argumento, el elemento <code class="docutils literal notranslate"><span class="pre">key</span></code>
+se utilizará como clave inicial para esta operación si <code class="docutils literal notranslate"><span class="pre">$params</span></code>
+es una matriz; o la clave inicial se puede pasar como una cadena.</p>
+<p>Si está utilizando SodiumHandler y desea pasar un <code class="docutils literal notranslate"><span class="pre">blockSize</span></code> diferente
+en tiempo de ejecución, pase la clave <code class="docutils literal notranslate"><span class="pre">blockSize</span></code> en la matriz <code class="docutils literal notranslate"><span class="pre">$params</span></code>.</p>
+<p>Ejemplos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">,</span> <span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="s1">&#39;New secret key&#39;</span><span class="p">);</span>
+<span class="k">echo</span> <span class="nv">$encrypter</span><span class="o">-&gt;</span><span class="na">decrypt</span><span class="p">(</span><span class="nv">$ciphertext</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;blockSize&#39;</span> <span class="o">=&gt;</span> <span class="mi">32</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="email.html" class="btn btn-neutral float-left" title="Clase de correo electrónico" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="files.html" class="btn btn-neutral float-right" title="Trabajar con archivos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

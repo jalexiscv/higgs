@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pautas de seguridad &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/concepts/security.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Temas generales" href="../general/index.html" />
+    <link rel="prev" title="Trabajar con solicitudes HTTP" href="http.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Descripción general del Higgs (AI)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Descripción general del Higgs (AI)</a></li>
+      <li class="breadcrumb-item active">Pautas de seguridad</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pautas-de-seguridad">
+<h1>Pautas de seguridad<a class="headerlink" href="#pautas-de-seguridad" title="Link to this heading"></a></h1>
+<p>Nos tomamos la seguridad en serio.
+Higgs incorpora una serie de características y técnicas para hacer cumplir
+buenas prácticas de seguridad, o para permitirle hacerlo fácilmente.</p>
+<p>Respetamos el <cite>Proyecto Abierto de Seguridad de Aplicaciones Web (OWASP)&lt;https://owasp.org&gt;</cite> _
+y seguir sus recomendaciones tanto como sea posible.</p>
+<p>Lo siguiente proviene de
+<cite>Hoja de referencia de los diez mejores de OWASP&lt;https://owasp.org/www-project-top-ten/&gt;</cite> _,
+Identificar las principales vulnerabilidades de las aplicaciones web.
+Para cada uno, proporcionamos una breve descripción, las recomendaciones de OWASP y luego
+las disposiciones sobre Higgs para abordar el problema.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#inyeccion-a1" id="id19">Inyección A1</a></p></li>
+<li><p><a class="reference internal" href="#a2-autenticacion-y-gestion-de-sesiones-debiles" id="id20">A2 Autenticación y gestión de sesiones débiles</a></p></li>
+<li><p><a class="reference internal" href="#secuencias-de-comandos-entre-sitios-a3-xss" id="id21">Secuencias de comandos entre sitios A3 (XSS)</a></p></li>
+<li><p><a class="reference internal" href="#referencia-de-objeto-directo-inseguro-a4" id="id22">Referencia de objeto directo inseguro A4</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-incorrecta-de-seguridad-a5" id="id23">Configuración incorrecta de seguridad A5</a></p></li>
+<li><p><a class="reference internal" href="#a6-exposicion-de-datos-confidenciales" id="id24">A6 Exposición de datos confidenciales</a></p></li>
+<li><p><a class="reference internal" href="#a7-falta-control-de-acceso-a-nivel-de-funcion" id="id25">A7 Falta control de acceso a nivel de función</a></p></li>
+<li><p><a class="reference internal" href="#a8-falsificacion-de-solicitud-entre-sitios-csrf" id="id26">A8 Falsificación de solicitud entre sitios (CSRF)</a></p></li>
+<li><p><a class="reference internal" href="#a9-uso-de-componentes-con-vulnerabilidades-conocidas" id="id27">A9 Uso de componentes con vulnerabilidades conocidas</a></p></li>
+<li><p><a class="reference internal" href="#a10-redirecciones-y-reenvios-no-validados" id="id28">A10 Redirecciones y reenvíos no validados</a></p></li>
+</ul>
+</nav>
+<section id="inyeccion-a1">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Inyección A1</a><a class="headerlink" href="#inyeccion-a1" title="Link to this heading"></a></h2>
+<p>Una inyección es la inserción inapropiada de datos parciales o completos a través de
+los datos de entrada del cliente a la aplicación. Los vectores de ataque incluyen SQL,
+XML, ORM, código y desbordamientos de búfer.</p>
+<section id="recomendaciones-owasp">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#recomendaciones-owasp" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: establezca el tipo de contenido, el juego de caracteres y la configuración regional correctos</p></li>
+<li><p>Envío: validar campos y proporcionar comentarios</p></li>
+<li><p>Controlador: desinfectar la entrada; validación de entrada positiva usando el juego de caracteres correcto</p></li>
+<li><p>Modelo: consultas parametrizadas</p></li>
+</ul>
+</section>
+<section id="disposiciones-de-higgs">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#disposiciones-de-higgs" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>:ref:filtro <cite>caracteres no válidos</cite></p></li>
+<li><p><a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a> biblioteca</p></li>
+<li><p><a class="reference internal" href="../incoming/incomingrequest.html"><span class="doc">Biblioteca HTTP</span></a> proporciona <a class="reference internal" href="../incoming/incomingrequest.html#incomingrequest-filtering-input-data"><span class="std std-ref">filtrado de campos de entrada</span></a> y metadatos de contenido</p></li>
+</ul>
+</section>
+</section>
+<section id="a2-autenticacion-y-gestion-de-sesiones-debiles">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">A2 Autenticación y gestión de sesiones débiles</a><a class="headerlink" href="#a2-autenticacion-y-gestion-de-sesiones-debiles" title="Link to this heading"></a></h2>
+<p>Una autenticación inadecuada o una gestión inadecuada de la sesión pueden provocar que un usuario
+obtener más privilegios de los que tienen derecho.</p>
+<section id="id1">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: validar autenticación y rol; enviar token CSRF con formularios</p></li>
+<li><p>Diseño: utilice únicamente la gestión de sesiones integrada</p></li>
+<li><p>Controlador: validar usuario, rol, token CSRF</p></li>
+<li><p>Modelo: validar rol</p></li>
+<li><p>Consejo: considere el uso de un gobernador de solicitudes</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../libraries/sessions.html"><span class="doc">Biblioteca Sesión</span></a></p></li>
+<li><p><a class="reference internal" href="../libraries/security.html"><span class="doc">Seguridad</span></a> la biblioteca proporciona validación CSRF</p></li>
+<li><p>Un marco oficial de autenticación y autorización <a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">Higgs Shield</span></a></p></li>
+<li><p>Fácil de agregar autenticación de terceros</p></li>
+</ul>
+</section>
+</section>
+<section id="secuencias-de-comandos-entre-sitios-a3-xss">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Secuencias de comandos entre sitios A3 (XSS)</a><a class="headerlink" href="#secuencias-de-comandos-entre-sitios-a3-xss" title="Link to this heading"></a></h2>
+<p>Validación de entrada insuficiente donde un usuario puede agregar contenido a un sitio web
+que pueden ser maliciosos cuando son vistos por otros usuarios del sitio web.</p>
+<section id="id3">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: la salida codifica todos los datos del usuario según el contexto de salida; establecer restricciones de entrada</p></li>
+<li><p>Controlador: validación de entrada positiva</p></li>
+<li><p>Consejos: procese únicamente datos confiables; no almacenar datos HTML codificados en DB</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Función <a class="reference internal" href="../general/common_functions.html#esc" title="esc"><code class="xref php php-func docutils literal notranslate"><span class="pre">esc()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a> biblioteca</p></li>
+<li><p>Soporte para <a class="reference internal" href="../outgoing/csp.html#content-security-policy"><span class="std std-ref">Política de seguridad de contenidos</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="referencia-de-objeto-directo-inseguro-a4">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Referencia de objeto directo inseguro A4</a><a class="headerlink" href="#referencia-de-objeto-directo-inseguro-a4" title="Link to this heading"></a></h2>
+<p>Las referencias directas a objetos inseguras ocurren cuando una aplicación proporciona
+acceso a objetos basado en la entrada proporcionada por el usuario. Como resultado de esta vulnerabilidad
+los atacantes pueden eludir la autorización y acceder a los recursos del sistema directamente,
+por ejemplo, registros o archivos de bases de datos.</p>
+<section id="id5">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: no exponer datos internos; utilizar mapas de referencia aleatorios</p></li>
+<li><p>Controlador: obtenga datos de fuentes confiables o mapas de referencia aleatorios</p></li>
+<li><p>Modelo: validar roles de usuario antes de actualizar datos</p></li>
+</ul>
+</section>
+<section id="id6">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../libraries/validation.html"><span class="doc">Validation</span></a> biblioteca</p></li>
+<li><p>Un marco oficial de autenticación y autorización <a class="reference internal" href="../libraries/official_packages.html#shield"><span class="std std-ref">Higgs Shield</span></a></p></li>
+<li><p>Fácil de agregar autenticación de terceros</p></li>
+</ul>
+</section>
+</section>
+<section id="configuracion-incorrecta-de-seguridad-a5">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Configuración incorrecta de seguridad A5</a><a class="headerlink" href="#configuracion-incorrecta-de-seguridad-a5" title="Link to this heading"></a></h2>
+<p>La configuración inadecuada de la arquitectura de una aplicación puede provocar errores
+que podría comprometer la seguridad de toda la arquitectura.</p>
+<section id="id7">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: reforzar los servidores web y de aplicaciones; utilizar seguridad de transporte estricta HTTP</p></li>
+<li><p>Controlador: reforzar los servidores web y de aplicaciones; proteja su pila XML</p></li>
+<li><p>Modelo: reforzar los servidores de bases de datos.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Comprobaciones de cordura durante el arranque.</p></li>
+</ul>
+</section>
+</section>
+<section id="a6-exposicion-de-datos-confidenciales">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">A6 Exposición de datos confidenciales</a><a class="headerlink" href="#a6-exposicion-de-datos-confidenciales" title="Link to this heading"></a></h2>
+<p>Los datos sensibles deben ser protegidos cuando se transmiten a través de la red.
+Dichos datos pueden incluir credenciales de usuario y tarjetas de crédito. Como una regla de oro,
+Si los datos deben protegerse cuando se almacenan, también deben protegerse durante
+transmisión.</p>
+<section id="id9">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: utilice TLS1.2; utilice cifrados y hashes sólidos; no envíe claves o hashes al navegador</p></li>
+<li><p>Controlador: use cifrados y hashes fuertes</p></li>
+<li><p>Modelo: exigir comunicaciones cifradas sólidas con los servidores</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>La configuración para el acceso seguro global (<code class="docutils literal notranslate"><span class="pre">Config\App::$forceGlobalSecureRequests</span></code>)</p></li>
+<li><p>Función <a class="reference internal" href="../general/common_functions.html#force_https" title="force_https"><code class="xref php php-func docutils literal notranslate"><span class="pre">force_https()</span></code></a></p></li>
+<li><p><span class="xref std std-doc">../bibliotecas/encriptación</span></p></li>
+<li><p>La <a class="reference internal" href="../database/configuration.html#database-config-explanation-of-values"><span class="std std-ref">configuración de la base de datos</span></a>  (<code class="docutils literal notranslate"><span class="pre">cifrar</span></code>)</p></li>
+</ul>
+</section>
+</section>
+<section id="a7-falta-control-de-acceso-a-nivel-de-funcion">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">A7 Falta control de acceso a nivel de función</a><a class="headerlink" href="#a7-falta-control-de-acceso-a-nivel-de-funcion" title="Link to this heading"></a></h2>
+<p>Los datos sensibles deben ser protegidos cuando se transmiten a través de la red.
+Dichos datos pueden incluir credenciales de usuario y tarjetas de crédito. Como una regla de oro,
+Si los datos deben protegerse cuando se almacenan, también deben protegerse durante
+transmisión.</p>
+<section id="id11">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: asegúrese de que los datos no web estén fuera de la raíz web; validar usuarios y roles; enviar tokens CSRF</p></li>
+<li><p>Controlador: validar usuarios y roles; validar tokens CSRF</p></li>
+<li><p>Modelo: validar roles</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id12" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="structure.html#application-structure-public"><span class="std std-ref">Público</span></a> carpeta, con la aplicación y el sistema fuera</p></li>
+<li><p><a class="reference internal" href="../libraries/security.html"><span class="doc">Seguridad</span></a>  la biblioteca proporciona <a class="reference internal" href="../libraries/security.html#cross-site-request-forgery"><span class="std std-ref">validación CSRF</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a8-falsificacion-de-solicitud-entre-sitios-csrf">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">A8 Falsificación de solicitud entre sitios (CSRF)</a><a class="headerlink" href="#a8-falsificacion-de-solicitud-entre-sitios-csrf" title="Link to this heading"></a></h2>
+<p>CSRF es un ataque que obliga a un usuario final a ejecutar acciones no deseadas en una web
+aplicación en la que se encuentra actualmente autenticado.</p>
+<section id="id13">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id13" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: validar usuarios y roles; enviar tokens CSRF</p></li>
+<li><p>Controlador: validar usuarios y roles; validar tokens CSRF</p></li>
+<li><p>Modelo: validar roles</p></li>
+</ul>
+</section>
+<section id="id14">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id14" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../libraries/security.html"><span class="doc">Seguridad</span></a>  la biblioteca proporciona <a class="reference internal" href="../libraries/security.html#cross-site-request-forgery"><span class="std std-ref">validación CSRF</span></a></p></li>
+</ul>
+</section>
+</section>
+<section id="a9-uso-de-componentes-con-vulnerabilidades-conocidas">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">A9 Uso de componentes con vulnerabilidades conocidas</a><a class="headerlink" href="#a9-uso-de-componentes-con-vulnerabilidades-conocidas" title="Link to this heading"></a></h2>
+<p>Muchas aplicaciones tienen vulnerabilidades conocidas y estrategias de ataque conocidas que
+pueden explotarse para obtener control remoto o explotar datos.</p>
+<section id="id15">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id15" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>No uses ninguno de estos</p></li>
+</ul>
+</section>
+<section id="id16">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Las bibliotecas de terceros incorporadas deben ser examinadas</p></li>
+</ul>
+</section>
+</section>
+<section id="a10-redirecciones-y-reenvios-no-validados">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">A10 Redirecciones y reenvíos no validados</a><a class="headerlink" href="#a10-redirecciones-y-reenvios-no-validados" title="Link to this heading"></a></h2>
+<p>Una lógica empresarial defectuosa o un código procesable inyectado podrían redirigir al usuario
+inapropiadamente.</p>
+<section id="id17">
+<h3>Recomendaciones OWASP<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p>Presentación: no utilice la redirección de URL; utilizar referencias indirectas aleatorias</p></li>
+<li><p>Controlador: no utilice la redirección de URL; utilizar referencias indirectas aleatorias</p></li>
+<li><p>Modelo: validar roles</p></li>
+</ul>
+</section>
+<section id="id18">
+<h3>Disposiciones de Higgs<a class="headerlink" href="#id18" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="../incoming/incomingrequest.html"><span class="doc">Biblioteca HTTP</span></a> proporciona…</p></li>
+<li><p><a class="reference internal" href="../libraries/sessions.html"><span class="doc">La biblioteca Session</span></a> proporciona <a class="reference internal" href="../libraries/sessions.html#sessions-flashdata"><span class="std std-ref">datos flash</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="http.html" class="btn btn-neutral float-left" title="Trabajar con solicitudes HTTP" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="../general/index.html" class="btn btn-neutral float-right" title="Temas generales" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Páginas estáticas &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/tutorial/static_pages.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Sección de noticias" href="news_section.html" />
+    <link rel="prev" title="Cree su primera aplicación" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cree su primera aplicación</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Cree su primera aplicación</a></li>
+      <li class="breadcrumb-item active">Páginas estáticas</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="paginas-estaticas">
+<h1>Páginas estáticas<a class="headerlink" href="#paginas-estaticas" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#establecer-reglas-de-enrutamiento" id="id1">Establecer reglas de enrutamiento</a></p></li>
+<li><p><a class="reference internal" href="#hagamos-nuestro-primer-controlador" id="id2">Hagamos nuestro primer controlador</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crear-controlador-de-paginas" id="id3">Crear controlador de páginas</a></p></li>
+<li><p><a class="reference internal" href="#crear-vistas" id="id4">Crear vistas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#agregar-logica-al-controlador" id="id5">Agregar lógica al controlador</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crea-home-php-y-about-php" id="id6">Crea home.php y about.php</a></p></li>
+<li><p><a class="reference internal" href="#paginas-completas-view-metodo" id="id7">Páginas completas::view() Método</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ejecutando-la-aplicacion" id="id8">Ejecutando la aplicación</a></p></li>
+</ul>
+</nav>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This tutorial assumes you’ve downloaded Higgs and
+<a class="reference internal" href="../installation/index.html"><span class="doc">instaló el marco</span></a> en su
+entorno de desarrollo.</p>
+</div>
+<p>Lo primero que hará es configurar reglas de enrutamiento para manejar páginas estáticas.</p>
+<section id="establecer-reglas-de-enrutamiento">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Establecer reglas de enrutamiento</a><a class="headerlink" href="#establecer-reglas-de-enrutamiento" title="Link to this heading"></a></h2>
+<p>El enrutamiento asocia un URI con el método de un controlador. Un controlador es simplemente un
+Clase que ayuda a delegar el trabajo. Crearemos un controlador más tarde.</p>
+<p>Configuremos reglas de enrutamiento. Abra el archivo de rutas ubicado en <strong>app/Config/Routes.php</strong>.</p>
+<p>La única directiva de ruta para empezar debería ser:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Router\RouteCollection</span><span class="p">;</span>
+
+<span class="sd">/**</span>
+<span class="sd"> * @var RouteCollection $routes</span>
+<span class="sd"> */</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Esta directiva dice que cualquier solicitud entrante sin ningún contenido
+especificado debe ser manejado por el método <code class="docutils literal notranslate"><span class="pre">index()</span></code> dentro del controlador <code class="docutils literal notranslate"><span class="pre">Home</span></code>.</p>
+<p>Agregue las siguientes líneas, <strong>después</strong> de la directiva de ruta para <code class="docutils literal notranslate"><span class="pre">'/'</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">App\Controllers\Pages</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;pages&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pages</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;(:segment)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pages</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;view&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Higgs lee sus reglas de enrutamiento de arriba a abajo y enruta el
+solicitud a la primera regla coincidente. Cada regla es una expresión regular.
+(lado izquierdo) asignado a un controlador y nombre de método
+(lado derecho). Cuando llega una solicitud, Higgs busca la primera
+coincide y llama al controlador y método apropiados, posiblemente con
+argumentos.</p>
+<p>Puede encontrar más información sobre el enrutamiento en <a class="reference internal" href="../incoming/routing.html"><span class="doc">Enrutamiento URI</span></a>.</p>
+<p>Aquí, la segunda regla en el objeto <code class="docutils literal notranslate"><span class="pre">$routes</span></code> coincide con una solicitud GET
+a la ruta URI <strong>/pages</strong>, y se asigna al método <code class="docutils literal notranslate"><span class="pre">index()</span></code> de la clase <code class="docutils literal notranslate"><span class="pre">Pages</span></code>.</p>
+<p>La tercera regla en el objeto <code class="docutils literal notranslate"><span class="pre">$routes</span></code> hace coincidir una solicitud GET con un segmento URI
+usando el marcador de posición <code class="docutils literal notranslate"><span class="pre">(:segmento)</span></code>, y pasa el parámetro al
+Método <code class="docutils literal notranslate"><span class="pre">view()</span></code> de la clase <code class="docutils literal notranslate"><span class="pre">Pages</span></code>.</p>
+</section>
+<section id="hagamos-nuestro-primer-controlador">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Hagamos nuestro primer controlador</a><a class="headerlink" href="#hagamos-nuestro-primer-controlador" title="Link to this heading"></a></h2>
+<p>Lo siguiente que vas a hacer es configurar un <strong>controlador</strong> para manejar
+páginas estáticas. Un controlador es simplemente una clase que ayuda a delegar el trabajo.
+Es el pegamento de su aplicación web.</p>
+<section id="crear-controlador-de-paginas">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Crear controlador de páginas</a><a class="headerlink" href="#crear-controlador-de-paginas" title="Link to this heading"></a></h3>
+<p>Cree un archivo en <strong>app/Controllers/Pages.php</strong> con lo siguiente
+código.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>You should always be careful about the case of filenames. Many
+los desarrolladores desarrollan en sistemas de archivos que no distinguen entre mayúsculas y minúsculas en Windows o macOS.
+Sin embargo, la mayoría de los entornos de servidores utilizan sistemas de archivos que distinguen entre mayúsculas y minúsculas. Si el
+El caso del nombre del archivo es incorrecto, el código que funciona localmente no funcionará en el
+servidor.</p>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Pages</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;welcome_message&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">view</span><span class="p">(</span><span class="nv">$page</span> <span class="o">=</span> <span class="s1">&#39;home&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ha creado una clase llamada <code class="docutils literal notranslate"><span class="pre">Pages</span></code>, con un método <code class="docutils literal notranslate"><span class="pre">view()</span></code> que acepta
+un argumento llamado <code class="docutils literal notranslate"><span class="pre">$página</span></code>. También tiene un método <code class="docutils literal notranslate"><span class="pre">index()</span></code>, el mismo
+como controlador predeterminado que se encuentra en <strong>app/Controllers/Home.php</strong>; ese método
+muestra la página de bienvenida de Higgs.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>There are two <code class="docutils literal notranslate"><span class="pre">view()</span></code> functions referred to in this tutorial.
+Uno es el método de clase creado con <code class="docutils literal notranslate"><span class="pre">vista</span> <span class="pre">de</span> <span class="pre">función</span> <span class="pre">pública</span> <span class="pre">($page</span> <span class="pre">=</span> <span class="pre">'home')</span></code>
+y <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">view('welcome_message')</span></code> para mostrar una vista.
+Ambos son <em>técnicamente</em> una función. Pero cuando creas una función en una clase,
+se llama método.</p>
+</div>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">Pages</span></code> está extendiendo la clase <code class="docutils literal notranslate"><span class="pre">BaseController</span></code> que extiende el
+Clase <code class="docutils literal notranslate"><span class="pre">Higgs\Controller</span></code>. Esto significa que la nueva clase Páginas puede acceder al
+métodos y propiedades definidos en la clase <code class="docutils literal notranslate"><span class="pre">Higgs\Controller</span></code>
+(<strong>sistema/Controlador.php</strong>).</p>
+<p>El <strong>controlador es lo que se convertirá en el centro de cada solicitud</strong> para
+su aplicación web. Como cualquier clase de PHP, te refieres a
+dentro de sus controladores como <code class="docutils literal notranslate"><span class="pre">$this</span></code>.</p>
+</section>
+<section id="crear-vistas">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Crear vistas</a><a class="headerlink" href="#crear-vistas" title="Link to this heading"></a></h3>
+<p>Ahora que ha creado su primer método, es hora de crear una página básica.
+plantillas. Crearemos dos «vistas» (plantillas de página) que actúan como
+pie de página y encabezado de nuestra página.</p>
+<p>Cree el encabezado en <strong>app/Views/templates/header.php</strong> y agregue
+el siguiente código:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;!</span><span class="nx">doctype</span> <span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">head</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nx">title</span><span class="o">&gt;</span><span class="nx">Tutorial</span> <span class="nx">de</span> <span class="nx">Higgs</span><span class="o">&lt;/</span><span class="nx">title</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nx">body</span><span class="o">&gt;</span>
+
+    <span class="o">&lt;</span><span class="nx">h1</span><span class="o">&gt;&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>El encabezado contiene el código HTML básico que querrás mostrar.
+antes de cargar la vista principal, junto con un título. También lo hará
+genera la variable <code class="docutils literal notranslate"><span class="pre">$title</span></code>, que definiremos más adelante en el controlador.
+Ahora, cree un pie de página en <strong>app/Views/templates/footer.php</strong> que
+incluye el siguiente código:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span>    <span class="o">&lt;</span><span class="nx">em</span><span class="o">&gt;</span><span class="nx">©</span> <span class="mi">2022</span><span class="o">&lt;/</span><span class="nx">em</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">html</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you look closely in <strong>header.php</strong> template we are using an <a class="reference internal" href="../general/common_functions.html#esc" title="esc"><code class="xref php php-func docutils literal notranslate"><span class="pre">esc()</span></code></a>
+función. Es una función global proporcionada por Higgs para ayudar a prevenir
+Ataques XSS. Puede leer más sobre esto en <a class="reference internal" href="../general/common_functions.html"><span class="doc">Funciones y constantes globales</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="agregar-logica-al-controlador">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Agregar lógica al controlador</a><a class="headerlink" href="#agregar-logica-al-controlador" title="Link to this heading"></a></h2>
+<section id="crea-home-php-y-about-php">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Crea home.php y about.php</a><a class="headerlink" href="#crea-home-php-y-about-php" title="Link to this heading"></a></h3>
+<p>Anteriormente configuró un controlador con un método <code class="docutils literal notranslate"><span class="pre">view()</span></code>. El método
+acepta un parámetro, que es el nombre de la página que se va a cargar.</p>
+<p>Los cuerpos de las páginas estáticas se ubicarán en el directorio <strong>app/Views/pages</strong>.</p>
+<p>En ese directorio, cree dos archivos llamados <strong>home.php</strong> y <strong>about.php</strong>.
+Dentro de esos archivos, escriba algo de texto (lo que desee) y guárdelo.
+Si te gusta ser particularmente poco original, prueba «¡Hola mundo!».</p>
+</section>
+<section id="paginas-completas-view-metodo">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Páginas completas::view() Método</a><a class="headerlink" href="#paginas-completas-view-metodo" title="Link to this heading"></a></h3>
+<p>Para cargar esas páginas, deberá verificar si las solicitadas
+La página realmente existe. Este será el cuerpo del método <code class="docutils literal notranslate"><span class="pre">view()</span></code>
+en el controlador <code class="docutils literal notranslate"><span class="pre">Pages</span></code> creado anteriormente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Exceptions\PageNotFoundException</span><span class="p">;</span> <span class="c1">// Add this line</span>
+
+<span class="k">class</span> <span class="nc">Pages</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">view</span><span class="p">(</span><span class="nv">$page</span> <span class="o">=</span> <span class="s1">&#39;home&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">is_file</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Views/pages/&#39;</span> <span class="o">.</span> <span class="nv">$page</span> <span class="o">.</span> <span class="s1">&#39;.php&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// Whoops, we don&#39;t have a page for that!</span>
+            <span class="k">throw</span> <span class="k">new</span> <span class="nx">PageNotFoundException</span><span class="p">(</span><span class="nv">$page</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">ucfirst</span><span class="p">(</span><span class="nv">$page</span><span class="p">);</span> <span class="c1">// Capitalize the first letter</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/header&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;pages/&#39;</span> <span class="o">.</span> <span class="nv">$page</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/footer&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Y agregue <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">Higgs\Exceptions\PageNotFoundException;</span></code> después de la línea <code class="docutils literal notranslate"><span class="pre">namespace</span></code>
+para importar la clase <code class="docutils literal notranslate"><span class="pre">PageNotFoundException</span></code>.</p>
+<p>Ahora, cuando la página solicitada existe, se carga, incluido el encabezado y
+pie de página y se devuelve al usuario. Si un controlador devuelve una cadena, es
+mostrado al usuario.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Controllers must return a string or a <a class="reference internal" href="../outgoing/response.html"><span class="doc">Response</span></a> object.</p>
+</div>
+<p>Si la página solicitada no existe, se muestra el error «Página 404 no encontrada».</p>
+<p>La primera línea de este método comprueba si la página realmente existe.
+La función nativa <code class="docutils literal notranslate"><span class="pre">is_file()</span></code> de PHP se utiliza para comprobar si el archivo
+es donde se espera que esté. La <code class="docutils literal notranslate"><span class="pre">PageNotFoundException</span></code> es una Higgs
+excepción que hace que se muestre la página de error predeterminada.</p>
+<p>En la plantilla de encabezado, se usó la variable <code class="docutils literal notranslate"><span class="pre">$title</span></code> para personalizar el
+Título de la página. El valor del título se define en este método, pero en lugar de
+Al asignar el valor a una variable, se asigna al elemento del título.
+en la matriz <code class="docutils literal notranslate"><span class="pre">$data</span></code>.</p>
+<p>Lo último que hay que hacer es cargar las vistas en el orden
+deberían mostrarse. La función <a class="reference internal" href="../general/common_functions.html#view" title="view"><code class="xref php php-func docutils literal notranslate"><span class="pre">view()</span></code></a> integrada en
+Para ello se utilizará Higgs. El segundo parámetro en <code class="docutils literal notranslate"><span class="pre">view()</span></code>
+La función se utiliza para pasar valores a la vista. Cada valor en la matriz <code class="docutils literal notranslate"><span class="pre">$data</span></code>
+se asigna a una variable con el nombre de su clave. Entonces el valor de
+<code class="docutils literal notranslate"><span class="pre">$data['title']</span></code> en el controlador es equivalente a <code class="docutils literal notranslate"><span class="pre">$title</span></code> en el
+vista.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Any files and directory names passed into the <a class="reference internal" href="../general/common_functions.html#view" title="view"><code class="xref php php-func docutils literal notranslate"><span class="pre">view()</span></code></a> function MUST
+coincida con el caso del directorio real y el archivo en sí o el sistema
+arrojar errores en plataformas que distinguen entre mayúsculas y minúsculas. Puedes leer más sobre esto en
+<span class="xref std std-doc">../salientes/vistas</span>.</p>
+</div>
+</section>
+</section>
+<section id="ejecutando-la-aplicacion">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Ejecutando la aplicación</a><a class="headerlink" href="#ejecutando-la-aplicacion" title="Link to this heading"></a></h2>
+<p>¿Listo para probar? No puede ejecutar la aplicación utilizando el servidor integrado de PHP,
+ya que no procesará adecuadamente las reglas <strong>.htaccess</strong> que se proporcionan en
+<strong>público</strong>, y que eliminan la necesidad de especificar «<strong>index.php/</strong>»
+como parte de una URL. Higgs tiene su propio comando que puedes usar.</p>
+<p>Desde la línea de comando, en la raíz de tu proyecto:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">servicio de chispa php</span>
+</pre></div>
+</div>
+<p>iniciará un servidor web, accesible en el puerto 8080. Si configura el campo de ubicación
+en su navegador a <strong>localhost:8080</strong>, debería ver la página de bienvenida de Higgs.</p>
+<p>Ahora visite <strong>localhost:8080/home</strong>. ¿Se dirigió correctamente a <code class="docutils literal notranslate"><span class="pre">view()</span></code>?
+método en el controlador <code class="docutils literal notranslate"><span class="pre">Pages</span></code>? ¡Impresionante!</p>
+<p>Deberías ver algo como lo siguiente:</p>
+<img alt="../_images/tutorial1.png" class="align-center" src="../_images/tutorial1.png" />
+<p>Ahora puede probar varias URL en el campo de ubicación del navegador para ver cuáles son las <code class="docutils literal notranslate"><span class="pre">Páginas</span></code>.
+El controlador que hiciste arriba produce…</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>URL</p></th>
+<th class="head"><p>Will show</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>localhost:8080/</p></td>
+<td><p>la página de «bienvenida» del Higgs. los resultados del
+<code class="docutils literal notranslate"><span class="pre">index()</span></code> método en el controlador <code class="docutils literal notranslate"><span class="pre">Home</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>localhost:8080/pages</p></td>
+<td><p>los resultados del método <code class="docutils literal notranslate"><span class="pre">index()</span></code> dentro de nuestras
+<code class="docutils literal notranslate"><span class="pre">Páginas</span></code> controlador, que debe mostrar la página de
+«bienvenida» de Higgs.</p></td>
+</tr>
+<tr class="row-even"><td><p>localhost:8080/home</p></td>
+<td><p>muestre la página de «inicio» que creó anteriormente, porque
+explícitamentelo pedí. los resultados del método <code class="docutils literal notranslate"><span class="pre">view()</span></code>
+dentro de nuestro Controlador <code class="docutils literal notranslate"><span class="pre">Páginas</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>localhost:8080/about</p></td>
+<td><p>la página «acerca de» que creó anteriormente, porque
+explícitamente lo pedí.</p></td>
+</tr>
+<tr class="row-even"><td><p>localhost:8080/shop</p></td>
+<td><p>aparece una página de error «404 - Archivo no encontrado»,
+porque no hay <strong>aplicación/Views/pages/shop.php</strong>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Cree su primera aplicación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="news_section.html" class="btn btn-neutral float-right" title="Sección de noticias" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

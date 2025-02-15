@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colecciones de archivos &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/file_collections.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="clase de miel" href="honeypot.html" />
+    <link rel="prev" title="Trabajar con archivos" href="files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Colecciones de archivos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="colecciones-de-archivos">
+<h1>Colecciones de archivos<a class="headerlink" href="#colecciones-de-archivos" title="Link to this heading"></a></h1>
+<p>Trabajar con grupos de archivos puede ser engorroso, por lo que el marco proporciona la clase <code class="docutils literal notranslate"><span class="pre">FileCollection</span></code> para facilitar
+localizar y trabajar con grupos de archivos en todo el sistema de archivos.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#uso-basico" id="id1">Uso básico</a></p></li>
+<li><p><a class="reference internal" href="#comenzar-una-coleccion" id="id2">Comenzar una colección</a></p>
+<ul>
+<li><p><a class="reference internal" href="#construct-cadena-archivos" id="id3">__construct(cadena[] $archivos = [])</a></p></li>
+<li><p><a class="reference internal" href="#definir" id="id4">definir()</a></p></li>
+<li><p><a class="reference internal" href="#establecer-matriz-archivos" id="id5">establecer(matriz $archivos)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ingresando-archivos" id="id6">Ingresando archivos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#agregararchivo-cadena-archivo-agregararchivos-matriz-archivos" id="id7">agregarArchivo(cadena $archivo) / agregarArchivos(matriz $archivos)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#filtrar-archivos" id="id8">Filtrar archivos</a></p></li>
+<li><p><a class="reference internal" href="#recuperar-archivos" id="id9">Recuperar archivos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obtener-cadena" id="id10">obtener(): cadena[]</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="uso-basico">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Uso básico</a><a class="headerlink" href="#uso-basico" title="Link to this heading"></a></h2>
+<p>En su forma más básica, <code class="docutils literal notranslate"><span class="pre">FileCollection</span></code> es un índice
+de archivos que configuras o construyes:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Files\FileCollection</span><span class="p">;</span>
+
+<span class="nv">$files</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileCollection</span><span class="p">([</span>
+    <span class="nx">FCPATH</span> <span class="o">.</span> <span class="s1">&#39;index.php&#39;</span><span class="p">,</span>
+    <span class="nx">ROOTPATH</span> <span class="o">.</span> <span class="s1">&#39;spark&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">addDirectory</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Filters&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Después de haber ingresado los archivos con los que le gustaría trabajar, puede eliminar archivos o usar los comandos de filtrado para eliminarlos.
+o conservar archivos que coincidan con una determinada expresión regular o patrón de estilo global:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">removeFile</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Filters/DevelopToolbar&#39;</span><span class="p">);</span>
+
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">removePattern</span><span class="p">(</span><span class="s1">&#39;#\.gitkeep#&#39;</span><span class="p">);</span>
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">retainPattern</span><span class="p">(</span><span class="s1">&#39;*.php&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Cuando su colección esté completa, puede usar <code class="docutils literal notranslate"><span class="pre">get()</span></code> para recuperar la lista final de rutas de archivos, o aprovechar
+<code class="docutils literal notranslate"><span class="pre">FileCollection</span></code> es contable e iterable para trabajar directamente con cada <code class="docutils literal notranslate"><span class="pre">File</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="s1">&#39;My files: &#39;</span> <span class="o">.</span> <span class="nb">implode</span><span class="p">(</span><span class="nx">PHP_EOL</span><span class="p">,</span> <span class="nv">$files</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">());</span>
+<span class="k">echo</span> <span class="s1">&#39;I have &#39;</span> <span class="o">.</span> <span class="nb">count</span><span class="p">(</span><span class="nv">$files</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; files!&#39;</span><span class="p">;</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$files</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;Moving &#39;</span> <span class="o">.</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getBasename</span><span class="p">()</span> <span class="o">.</span> <span class="s1">&#39;, &#39;</span> <span class="o">.</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getSizeByUnit</span><span class="p">(</span><span class="s1">&#39;mb&#39;</span><span class="p">);</span>
+    <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">move</span><span class="p">(</span><span class="nx">WRITABLE</span> <span class="o">.</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">getRandomName</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>A continuación se detallan los métodos específicos para trabajar con una <code class="docutils literal notranslate"><span class="pre">FileCollection</span></code>.</p>
+</section>
+<section id="comenzar-una-coleccion">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Comenzar una colección</a><a class="headerlink" href="#comenzar-una-coleccion" title="Link to this heading"></a></h2>
+<section id="construct-cadena-archivos">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">__construct(cadena[] $archivos = [])</a><a class="headerlink" href="#construct-cadena-archivos" title="Link to this heading"></a></h3>
+<p>El constructor acepta una matriz opcional de rutas de archivos para usar como colección inicial. Estos se pasan a
+<code class="docutils literal notranslate"><span class="pre">add()</span></code> para que todos los archivos proporcionados por las clases secundarias en <code class="docutils literal notranslate"><span class="pre">$files</span></code> permanezcan.</p>
+</section>
+<section id="definir">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">definir()</a><a class="headerlink" href="#definir" title="Link to this heading"></a></h3>
+<p>Permite que las clases secundarias definan sus propios archivos iniciales. Este método es llamado por el constructor y permite
+colecciones predefinidas sin tener que utilizar sus métodos. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Files\FileCollection</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">ConfigCollection</span> <span class="k">extends</span> <span class="nx">FileCollection</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">define</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">retainPattern</span><span class="p">(</span><span class="s1">&#39;*.php&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora puede usar <code class="docutils literal notranslate"><span class="pre">ConfigCollection</span></code> en cualquier parte de su proyecto para acceder a todos los archivos de App Config sin
+tener que volver a llamar los métodos de recopilación cada vez.</p>
+</section>
+<section id="establecer-matriz-archivos">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">establecer(matriz $archivos)</a><a class="headerlink" href="#establecer-matriz-archivos" title="Link to this heading"></a></h3>
+<p>Establece la lista de archivos de entrada en la matriz de cadenas de rutas de archivos proporcionada. Esto eliminará cualquier existente
+archivos de la colección, por lo que <code class="docutils literal notranslate"><span class="pre">$collection-&gt;set([])</span></code> es esencialmente un restablecimiento completo.</p>
+</section>
+</section>
+<section id="ingresando-archivos">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Ingresando archivos</a><a class="headerlink" href="#ingresando-archivos" title="Link to this heading"></a></h2>
+<p>agregar(cadena[]|cadena $rutas, bool $recursivo = verdadero)
+==================================================== =</p>
+<p>Agrega todos los archivos indicados por la ruta o conjunto de rutas. Si la ruta se resuelve en un directorio, entonces <code class="docutils literal notranslate"><span class="pre">$recursivo</span></code>
+incluirá subdirectorios.</p>
+<section id="agregararchivo-cadena-archivo-agregararchivos-matriz-archivos">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">agregarArchivo(cadena $archivo) / agregarArchivos(matriz $archivos)</a><a class="headerlink" href="#agregararchivo-cadena-archivo-agregararchivos-matriz-archivos" title="Link to this heading"></a></h3>
+<p>Agrega el archivo o archivos a la lista actual de archivos de entrada. Los archivos son rutas absolutas a archivos reales.</p>
+<p>eliminarArchivo(cadena $archivo) / eliminarArchivos(matriz $archivos)
+==================================================== ==</p>
+<p>Elimina el archivo o archivos de la lista actual de archivos de entrada.</p>
+<p>addDirectory(cadena $directorio, bool $recursivo = falso)
+==================================================== ======
+addDirectories(matriz $directorios, bool $recursivo = falso)
+==================================================== =========</p>
+<p>Agrega todos los archivos del directorio o directorios, opcionalmente recurriendo a subdirectorios. Los directorios son
+rutas absolutas a directorios reales.</p>
+</section>
+</section>
+<section id="filtrar-archivos">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Filtrar archivos</a><a class="headerlink" href="#filtrar-archivos" title="Link to this heading"></a></h2>
+<p>removePattern(cadena $patrón, cadena $alcance = nulo)
+==================================================== ==
+retenerPatrón(cadena $patrón, cadena $alcance = nulo)
+==================================================== ==</p>
+<p>Filtra la lista de archivos actual a través del patrón (y el alcance opcional), eliminando o reteniendo los coincidentes.
+archivos. <code class="docutils literal notranslate"><span class="pre">$pattern</span></code> puede ser una expresión regular completa (como <code class="docutils literal notranslate"><span class="pre">'#[A-Za-z]+\.php#'</span></code>) o una pseudo-expresión regular similar
+a <code class="docutils literal notranslate"><span class="pre">glob()</span></code> (como <code class="docutils literal notranslate"><span class="pre">*.css</span></code>).
+Si se proporciona un <code class="docutils literal notranslate"><span class="pre">$scope</span></code> entonces sólo se considerarán los archivos dentro o debajo de ese directorio (es decir, archivos
+fuera de <code class="docutils literal notranslate"><span class="pre">$scope</span></code> siempre se conservan). Cuando no se proporciona ningún alcance, todos los archivos están sujetos.</p>
+<p>Ejemplos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Files\FileCollection</span><span class="p">;</span>
+
+<span class="nv">$files</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FileCollection</span><span class="p">();</span>
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// Adds all Config files and directories</span>
+
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">removePattern</span><span class="p">(</span><span class="s1">&#39;*tion.php&#39;</span><span class="p">);</span> <span class="c1">// Would remove Encryption.php, Validation.php, and boot/production.php</span>
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">removePattern</span><span class="p">(</span><span class="s1">&#39;*tion.php&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config/boot&#39;</span><span class="p">);</span> <span class="c1">// Would only remove boot/production.php</span>
+
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">retainPattern</span><span class="p">(</span><span class="s1">&#39;#A.+php$#&#39;</span><span class="p">);</span> <span class="c1">// Would keep only Autoload.php</span>
+<span class="nv">$files</span><span class="o">-&gt;</span><span class="na">retainPattern</span><span class="p">(</span><span class="s1">&#39;#d.+php$#&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config/boot&#39;</span><span class="p">);</span> <span class="c1">// Would keep everything but boot/production.php and boot/testing.php</span>
+</pre></div>
+</div>
+</section>
+<section id="recuperar-archivos">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Recuperar archivos</a><a class="headerlink" href="#recuperar-archivos" title="Link to this heading"></a></h2>
+<section id="obtener-cadena">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">obtener(): cadena[]</a><a class="headerlink" href="#obtener-cadena" title="Link to this heading"></a></h3>
+<p>Devuelve una matriz de todos los archivos de entrada cargados.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">FileCollection</span></code> is an <code class="docutils literal notranslate"><span class="pre">IteratorAggregate</span></code> so you can work with it directly (e.g. <code class="docutils literal notranslate"><span class="pre">foreach</span> <span class="pre">($collection</span> <span class="pre">as</span> <span class="pre">$file)</span></code>).</p>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="files.html" class="btn btn-neutral float-left" title="Trabajar con archivos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="honeypot.html" class="btn btn-neutral float-right" title="clase de miel" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

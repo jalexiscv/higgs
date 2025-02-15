@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear comandos Spark &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/cli/cli_commands.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Generadores CLI" href="cli_generators.html" />
+    <link rel="prev" title="Comandos de chispa" href="spark_commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Uso de la línea de comando</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Uso de la línea de comando</a></li>
+      <li class="breadcrumb-item active">Crear comandos Spark</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crear-comandos-spark">
+<h1>Crear comandos Spark<a class="headerlink" href="#crear-comandos-spark" title="Link to this heading"></a></h1>
+<p>Si bien la capacidad de utilizar controladores a través de CLI como cualquier otra ruta es conveniente, es posible que encuentres ocasiones en las que
+Necesito algo diferente. Ahí es donde entran los comandos de Spark. Son clases simples que no
+Es necesario tener rutas definidas, lo que las hace perfectas para crear herramientas que los desarrolladores puedan usar para crear
+simplificar sus trabajos, ya sea manejando migraciones o inicialización de bases de datos, verificando el estado de cronjobs o incluso
+Creación de generadores de códigos personalizados para su empresa.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#crear-nuevos-comandos" id="id3">Crear nuevos comandos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ubicacion-del-archivo" id="id4">Ubicación del archivo</a></p></li>
+<li><p><a class="reference internal" href="#un-comando-de-ejemplo" id="id5">Un comando de ejemplo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#namespace-Higgs\CLI" id="id6">Comando base</a></p></li>
+</ul>
+</nav>
+<section id="crear-nuevos-comandos">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Crear nuevos comandos</a><a class="headerlink" href="#crear-nuevos-comandos" title="Link to this heading"></a></h2>
+<p>Puede crear muy fácilmente nuevos comandos para utilizarlos en su propio desarrollo. Cada clase debe estar en su propio archivo,
+y debe extender <code class="docutils literal notranslate"><span class="pre">Higgs\CLI\BaseCommand</span></code> e implementar el método <code class="docutils literal notranslate"><span class="pre">run()</span></code>.</p>
+<p>Se deben utilizar las siguientes propiedades para aparecer en los comandos CLI y agregar funcionalidad de ayuda a su comando:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$group</span></code>: una cadena para describir el grupo en el que se agrupa el comando al enumerar comandos. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">Base</span> <span class="pre">de</span> <span class="pre">datos</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$name</span></code>: una cadena para describir el nombre del comando. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">hacer:controlador</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$descripción</span></code>: una cadena para describir el comando. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">Genera</span> <span class="pre">un</span> <span class="pre">nuevo</span> <span class="pre">archivo</span> <span class="pre">de</span> <span class="pre">controlador.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$usage</span></code>: una cadena para describir el uso del comando. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">hacer:controlador&lt;name&gt;</span> <span class="pre">[opciones]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$argumentos</span></code>: una matriz de cadenas para describir cada argumento del comando. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">'nombre'</span> <span class="pre">=&gt;</span> <span class="pre">'El</span> <span class="pre">nombre</span> <span class="pre">de</span> <span class="pre">la</span> <span class="pre">clase</span> <span class="pre">del</span> <span class="pre">controlador.'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$opciones</span></code>: una matriz de cadenas para describir cada opción de comando. Por ejemplo: <code class="docutils literal notranslate"><span class="pre">'--force'</span> <span class="pre">=&gt;</span> <span class="pre">'Forzar</span> <span class="pre">sobrescritura</span> <span class="pre">de</span> <span class="pre">archivo</span> <span class="pre">existente.'</span></code></p></li>
+</ul>
+<p><strong>La descripción de ayuda se generará automáticamente según los parámetros anteriores.</strong></p>
+<section id="ubicacion-del-archivo">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Ubicación del archivo</a><a class="headerlink" href="#ubicacion-del-archivo" title="Link to this heading"></a></h3>
+<p>Los comandos deben almacenarse dentro de un directorio llamado <strong>Comandos</strong>. Sin embargo, ese directorio debe estar ubicado en los espacios de nombres PSR-4.
+para que el <a class="reference internal" href="../concepts/autoloader.html"><span class="doc">Autocargador</span></a> puede localizarlo. Esto podría estar en <strong>aplicación/Comandos</strong>, o
+un directorio en el que guarda los comandos para utilizarlos en todo el desarrollo de su proyecto, como <strong>Acme/Commands</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When the commands are executed, the full Higgs CLI environment has been loaded, making it
+Es posible obtener información del entorno, información de ruta y utilizar cualquiera de las herramientas que utilizaría al crear un controlador.</p>
+</div>
+</section>
+<section id="un-comando-de-ejemplo">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Un comando de ejemplo</a><a class="headerlink" href="#un-comando-de-ejemplo" title="Link to this heading"></a></h3>
+<p>Veamos un comando de ejemplo cuya única función es informar información básica sobre la aplicación.
+en sí, con fines de demostración. Comience creando un nuevo archivo en <strong>app/Commands/AppInfo.php</strong>. Él
+debe contener el siguiente código:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\CLI\BaseCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\CLI\CLI</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AppInfo</span> <span class="k">extends</span> <span class="nx">BaseCommand</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$group</span>       <span class="o">=</span> <span class="s1">&#39;Demo&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span>        <span class="o">=</span> <span class="s1">&#39;app:info&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$description</span> <span class="o">=</span> <span class="s1">&#39;Displays basic application information.&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si ejecuta el comando <strong>list</strong>, verá el nuevo comando listado en su propio grupo <code class="docutils literal notranslate"><span class="pre">Demo</span></code>. Si lo tomas
+Si lo miras de cerca, deberías ver cómo esto funciona con bastante facilidad. La propiedad <code class="docutils literal notranslate"><span class="pre">$group</span></code> simplemente le dice cómo organizar
+este comando con todos los demás comandos que existen, indicándole en qué título incluirlo.</p>
+<p>La propiedad <code class="docutils literal notranslate"><span class="pre">$name</span></code> es el nombre con el que se puede llamar a este comando. El único requisito es que no contenga
+un espacio y todos los caracteres deben ser válidos en la propia línea de comando. Sin embargo, por convención, los comandos están en minúsculas,
+y la agrupación adicional de comandos se realiza mediante el uso de dos puntos con el nombre del comando en sí. Esto ayuda a mantener
+múltiples comandos tengan colisiones de nombres.</p>
+<p>La propiedad final, <code class="docutils literal notranslate"><span class="pre">$description</span></code> es una cadena corta que se muestra en el comando <strong>list</strong> y debe describir
+lo que hace el comando.</p>
+<section id="correr">
+<h4>correr()<a class="headerlink" href="#correr" title="Link to this heading"></a></h4>
+<p>El método <code class="docutils literal notranslate"><span class="pre">run()</span></code> es el método que se llama cuando se ejecuta el comando. La matriz <code class="docutils literal notranslate"><span class="pre">$params</span></code> es una lista de
+cualquier argumento de CLI después del nombre del comando para su uso. Si la cadena CLI fuera:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php chispa foo bar baz</span>
+</pre></div>
+</div>
+<p>Entonces <strong>foo</strong> es el nombre del comando, y la matriz <code class="docutils literal notranslate"><span class="pre">$params</span></code> sería:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$params</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">];</span>
+</pre></div>
+</div>
+<p>También se puede acceder a esto a través de :doc:<a href="#id1"><span class="problematic" id="id2">`</span></a>CLI &lt;/cli/cli_library&gt;`biblioteca, pero ya se ha eliminado su comando
+de la cuerda. Estos parámetros se pueden utilizar para personalizar el comportamiento de sus scripts.</p>
+<p>Nuestro comando de demostración podría tener un método <code class="docutils literal notranslate"><span class="pre">run()</span></code> similar a:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\CLI\BaseCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\CLI\CLI</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AppInfo</span> <span class="k">extends</span> <span class="nx">BaseCommand</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;PHP Version: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="k">PHP_VERSION</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;CI Version: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">\Higgs\Higgs</span><span class="o">::</span><span class="na">HIGGS_VERSION</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;APPPATH: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">APPPATH</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;SYSTEMPATH: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">SYSTEMPATH</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;ROOTPATH: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nx">ROOTPATH</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="s1">&#39;Included files: &#39;</span> <span class="o">.</span> <span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nb">count</span><span class="p">(</span><span class="nb">get_included_files</span><span class="p">()),</span> <span class="s1">&#39;yellow&#39;</span><span class="p">));</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Consulte la <a class="reference internal" href="cli_library.html"><span class="doc">Biblioteca CLI</span></a>  página para obtener información detallada.</p>
+</section>
+<section id="terminacion-del-comando">
+<h4>Terminación del comando<a class="headerlink" href="#terminacion-del-comando" title="Link to this heading"></a></h4>
+<p>De forma predeterminada, el comando sale con un código de éxito de <code class="docutils literal notranslate"><span class="pre">0</span></code>. Si se encuentra un error al ejecutar un comando,
+puedes terminar el comando usando la construcción del lenguaje <code class="docutils literal notranslate"><span class="pre">return</span></code> con un código de salida en el método <code class="docutils literal notranslate"><span class="pre">run()</span></code>.</p>
+<p>Por ejemplo, <code class="docutils literal notranslate"><span class="pre">devuelve</span> <span class="pre">EXIT_ERROR;</span></code></p>
+<p>Este enfoque puede ayudar con la depuración a nivel del sistema, si el comando, por ejemplo, se ejecuta mediante crontab.</p>
+<p>Puede utilizar las constantes del código de salida <code class="docutils literal notranslate"><span class="pre">EXIT_*</span></code> definidas en el archivo <strong>app/Config/Constants.php</strong>.</p>
+</section>
+</section>
+</section>
+<section id="namespace-Higgs\CLI">
+<span id="comando-base"></span><h2><a class="toc-backref" href="#id6" role="doc-backlink">Comando base</a><a class="headerlink" href="#namespace-Higgs\CLI" title="Link to this heading"></a></h2>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">BaseCommand</span></code> que todos los comandos deben extender tiene un par de métodos de utilidad útiles que usted debe
+familiarícese al crear sus propios comandos. También tiene un <a class="reference internal" href="../general/logging.html"><span class="doc">Logger</span></a> disponible en
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;logger</span></code>.</p>
+<dl class="php class">
+<dt class="sig sig-object php" id="Higgs\CLI\BaseCommand">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\CLI\</span></span><span class="sig-name descname"><span class="pre">BaseCommand</span></span><a class="headerlink" href="#Higgs\CLI\BaseCommand" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\CLI\BaseCommand::call">
+<span class="sig-name descname"><span class="pre">call</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$command</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">array</span> <span class="pre">$params</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\CLI\BaseCommand::call" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$comando</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – el nombre de otro comando al que llamar.</p></li>
+<li><p><strong>$params</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – Argumentos CLI adicionales para poner a disposición de ese comando.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Este método le permite ejecutar otros comandos durante la ejecución de su comando actual:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">&#39;command_one&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">call</span><span class="p">(</span><span class="s1">&#39;command_two&#39;</span><span class="p">,</span> <span class="nv">$params</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\CLI\BaseCommand::showError">
+<span class="sig-name descname"><span class="pre">showError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">Throwable</span> <span class="pre">$e</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\CLI\BaseCommand::showError" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$e</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Throwable</span></code></span>) – la excepción que se utilizará para informar errores.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Un método conveniente para mantener una salida de error clara y consistente a la CLI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">\Exception</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">showError</span><span class="p">(</span><span class="nv">$e</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\CLI\BaseCommand::showHelp">
+<span class="sig-name descname"><span class="pre">showHelp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\CLI\BaseCommand::showHelp" title="Link to this definition"></a></dt>
+<dd><p>Un método para mostrar la ayuda del comando: (uso, argumentos, descripción, opciones)</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\CLI\BaseCommand::setPad">
+<span class="sig-name descname"><span class="pre">setPad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$item</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">$max</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">$extra</span> <span class="pre">=</span> <span class="pre">2</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">$indent</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">string</span></span></span><a class="headerlink" href="#Higgs\CLI\BaseCommand::setPad" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$item</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – el elemento de cadena.</p></li>
+<li><p><strong>$max</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">entero</span></code></span>) – El tamaño máximo.</p></li>
+<li><p><strong>$extra</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">integer</span></code></span>) – cuántos espacios adicionales agregar al final.</p></li>
+<li><p><strong>$indent</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">entero</span></code></span>) – Los espacios de sangría.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Rellena nuestra cadena para que todos los títulos tengan la misma longitud para alinear bien
+descripciones arriba:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">use</span> <span class="nx">Higgs\CLI\CLI</span><span class="p">;</span>
+
+<span class="nv">$length</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">array_map</span><span class="p">(</span><span class="s1">&#39;strlen&#39;</span><span class="p">,</span> <span class="nb">array_keys</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">)));</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">options</span> <span class="k">as</span> <span class="nv">$option</span> <span class="o">=&gt;</span> <span class="nv">$description</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">CLI</span><span class="o">::</span><span class="na">write</span><span class="p">(</span><span class="nx">CLI</span><span class="o">::</span><span class="na">color</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">setPad</span><span class="p">(</span><span class="nv">$option</span><span class="p">,</span> <span class="nv">$length</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s1">&#39;green&#39;</span><span class="p">)</span> <span class="o">.</span> <span class="nv">$description</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="cm">/*</span>
+<span class="cm"> * Output will be:</span>
+<span class="cm"> *  -n     Set migration namespace</span>
+<span class="cm"> *  -g     Set database group</span>
+<span class="cm"> *  --all  Set for all namespaces, will ignore (-n) option</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\CLI\BaseCommand::getPad">
+<span class="sig-name descname"><span class="pre">getPad</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$array</span></em>, <em class="sig-param"><span class="pre">$pad</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\CLI\BaseCommand::getPad" title="Link to this definition"></a></dt>
+<dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Obsoleto desde la versión 7.0.5: </span>Utilice <a class="reference internal" href="#Higgs\CLI\BaseCommand::setPad" title="Higgs\CLI\BaseCommand::setPad"><code class="xref php php-meth docutils literal notranslate"><span class="pre">Higgs\CLI\BaseCommand::setPad()</span></code></a> en su lugar.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$array</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – La matriz $key =&gt; $value.</p></li>
+<li><p><strong>$pad</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">entero</span></code></span>) – Los espacios del pad.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Un método para calcular el relleno para la salida de la matriz <code class="docutils literal notranslate"><span class="pre">$key</span> <span class="pre">=&gt;</span> <span class="pre">$value</span></code>. El relleno se puede utilizar para generar una tabla formateada en CLI.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="spark_commands.html" class="btn btn-neutral float-left" title="Comandos de chispa" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="cli_generators.html" class="btn btn-neutral float-right" title="Generadores CLI" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

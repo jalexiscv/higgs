@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de seguridad de contenidos &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/outgoing/csp.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Localización" href="localization.html" />
+    <link rel="prev" title="Rasgo de respuesta API" href="api_responses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Construyendo respuestas</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Construyendo respuestas</a></li>
+      <li class="breadcrumb-item active">Política de seguridad de contenidos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="politica-de-seguridad-de-contenidos">
+<span id="content-security-policy"></span><h1>Política de seguridad de contenidos<a class="headerlink" href="#politica-de-seguridad-de-contenidos" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#que-es-la-politica-de-seguridad-de-contenidos" id="id1">¿Qué es la política de seguridad de contenidos?</a></p></li>
+<li><p><a class="reference internal" href="#activar-csp" id="id2">Activar CSP</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-tiempo-de-ejecucion" id="id3">Configuración de tiempo de ejecución</a></p></li>
+<li><p><a class="reference internal" href="#contenido-en-linea" id="id4">Contenido en línea</a></p>
+<ul>
+<li><p><a class="reference internal" href="#usar-marcadores-de-posicion" id="id5">Usar marcadores de posición</a></p></li>
+<li><p><a class="reference internal" href="#usando-funciones" id="id6">Usando funciones</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="que-es-la-politica-de-seguridad-de-contenidos">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">¿Qué es la política de seguridad de contenidos?</a><a class="headerlink" href="#que-es-la-politica-de-seguridad-de-contenidos" title="Link to this heading"></a></h2>
+<p>Una de las mejores protecciones que tienes contra los ataques XSS es implementar un Content
+Política de seguridad (CSP) en el sitio. Esto requiere que usted especifique y autorice cada
+fuente de contenido que se incluye en el HTML de su sitio, incluidas imágenes,
+hojas de estilo, archivos JavaScript, etc. El navegador rechazará el contenido de
+fuentes que no están explícitamente aprobadas. Esta autorización se define dentro
+encabezado <code class="docutils literal notranslate"><span class="pre">Content-Security-Policy</span></code> de la respuesta y ofrece varias configuraciones
+opciones.</p>
+<p>Esto suena complejo y, en algunos sitios, definitivamente puede resultar un desafío. Sin embargo, en el caso de muchos sitios sencillos, donde todo el contenido
+es atendido por el mismo dominio (por ejemplo, <strong>http://example.com</strong>), es muy sencillo de integrar.</p>
+<p>Como se trata de un tema complejo, esta guía del usuario no abordará todos los detalles. Para obtener más información, debe
+visite los siguientes sitios:</p>
+<ul class="simple">
+<li><p><cite>Sitio principal de la Política de seguridad de contenido&lt;https://content-security-policy.com/&gt;</cite> _</p></li>
+<li><p><cite>Especificación W3C&lt;https://www.w3.org/TR/CSP&gt;</cite> _</p></li>
+<li><p><cite>Introducción en HTML5Rocks&lt;https://www.html5rocks.com/en/tutorials/security/content-security-policy/&gt;</cite> _</p></li>
+<li><p><cite>Artículo en SitePoint&lt;https://www.sitepoint.com/improving-web-security-with-the-content-security-policy/&gt;</cite> _</p></li>
+</ul>
+</section>
+<section id="activar-csp">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Activar CSP</a><a class="headerlink" href="#activar-csp" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The <a class="reference internal" href="../testing/debugging.html#the-debug-toolbar"><span class="std std-ref">Debug Toolbar</span></a> may use Kint, which
+genera scripts en línea. Por lo tanto, cuando CSP está activado, CSP nonce es
+salida automática para la barra de herramientas de depuración. Sin embargo, si no estás usando
+CSP nonce, esto cambiará el encabezado de CSP a algo que no desea,
+y se comportará diferente que en producción; si desea verificar CSP
+comportamiento, apague la barra de herramientas de depuración.</p>
+</div>
+<p>De forma predeterminada, la compatibilidad con esto está desactivada. Para habilitar el soporte en su aplicación, edite el valor <code class="docutils literal notranslate"><span class="pre">CSPEnabled</span></code> en
+<strong>aplicación/Config/App.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">App</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="nx">bool</span> <span class="nv">$CSPEnabled</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cuando está habilitado, el objeto de respuesta contendrá una instancia de <code class="docutils literal notranslate"><span class="pre">Higgs\HTTP\ContentSecurityPolicy</span></code>. El
+Los valores establecidos en <strong>app/Config/ContentSecurityPolicy.php</strong> se aplican a esa instancia y, si no se realizan cambios,
+necesario durante el tiempo de ejecución, luego se envía el encabezado con el formato correcto y listo.</p>
+<p>Con CSP habilitado, se agregan dos líneas de encabezado a la respuesta HTTP: un encabezado <strong>Content-Security-Policy</strong>, con
+políticas que identifican tipos de contenido u orígenes que están explícitamente permitidos para diferentes
+contextos y un encabezado <strong>Content-Security-Policy-Report-Only</strong>, que identifica los tipos de contenido
+u orígenes que estarán permitidos pero que también serán reportados al destino
+de su elección.</p>
+<p>Nuestra implementación proporciona un tratamiento predeterminado, modificable mediante el método <code class="docutils literal notranslate"><span class="pre">reportOnly()</span></code>.
+Cuando se agrega una entrada adicional a una directiva CSP, como se muestra a continuación, se agregará
+al encabezado CSP apropiado para bloquear o prevenir. Eso se puede anular por cada
+base de llamada, proporcionando un segundo parámetro opcional a la llamada al método de adición.</p>
+</section>
+<section id="configuracion-de-tiempo-de-ejecucion">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Configuración de tiempo de ejecución</a><a class="headerlink" href="#configuracion-de-tiempo-de-ejecucion" title="Link to this heading"></a></h2>
+<p>Si su aplicación necesita realizar cambios en tiempo de ejecución, puede acceder a la instancia en <code class="docutils literal notranslate"><span class="pre">$this-&gt;response-&gt;getCSP()</span></code> en sus controladores. El
+La clase contiene una serie de métodos que se asignan con bastante claridad al valor de encabezado apropiado que necesita configurar.
+A continuación se muestran ejemplos, con diferentes combinaciones de parámetros, aunque todos aceptan una directiva
+nombre o una serie de ellos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the CSP instance</span>
+<span class="nv">$csp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">getCSP</span><span class="p">();</span>
+
+<span class="c1">// specify the default directive treatment</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">reportOnly</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// specify the origin to use if none provided for a directive</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">setDefaultSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+
+<span class="c1">// specify the URL that &quot;report-only&quot; reports get sent to</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">setReportURI</span><span class="p">(</span><span class="s1">&#39;http://example.com/csp/reports&#39;</span><span class="p">);</span>
+
+<span class="c1">// specify that HTTP requests be upgraded to HTTPS</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">upgradeInsecureRequests</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// add types or origins to CSP directives</span>
+<span class="c1">// assuming that the default treatment is to block rather than just report</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addBaseURI</span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// report only</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://youtube.com&#39;</span><span class="p">);</span> <span class="c1">// blocked</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addConnectSrc</span><span class="p">(</span><span class="s1">&#39;https://*.facebook.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// blocked</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addFontSrc</span><span class="p">(</span><span class="s1">&#39;fonts.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addFormAction</span><span class="p">(</span><span class="s1">&#39;self&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addFrameAncestor</span><span class="p">(</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// report this one</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addImageSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addMediaSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addManifestSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addObjectSrc</span><span class="p">(</span><span class="s1">&#39;cdn.example.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// reject from here</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addPluginType</span><span class="p">(</span><span class="s1">&#39;application/pdf&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// reject this media type</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addScriptSrc</span><span class="p">(</span><span class="s1">&#39;scripts.example.com&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span> <span class="c1">// allow but report requests from here</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addStyleSrc</span><span class="p">(</span><span class="s1">&#39;css.example.com&#39;</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addSandbox</span><span class="p">([</span><span class="s1">&#39;allow-forms&#39;</span><span class="p">,</span> <span class="s1">&#39;allow-scripts&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>El primer parámetro de cada uno de los métodos «agregar» es un valor de cadena apropiado,
+o una serie de ellos.</p>
+<p>El método <code class="docutils literal notranslate"><span class="pre">reportOnly()</span></code> le permite especificar el tratamiento de informes predeterminado
+para fuentes posteriores, a menos que se anule. Por ejemplo, podría especificar
+que youtube.com estaba permitido y luego proporciona varias fuentes permitidas pero reportadas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the CSP instance</span>
+<span class="nv">$csp</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">response</span><span class="o">-&gt;</span><span class="na">getCSP</span><span class="p">();</span>
+
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://youtube.com&#39;</span><span class="p">);</span> <span class="c1">// allowed</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">reportOnly</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://metube.com&#39;</span><span class="p">);</span> <span class="c1">// allowed but reported</span>
+<span class="nv">$csp</span><span class="o">-&gt;</span><span class="na">addChildSrc</span><span class="p">(</span><span class="s1">&#39;https://ourtube.com&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span> <span class="c1">// allowed</span>
+</pre></div>
+</div>
+</section>
+<section id="contenido-en-linea">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Contenido en línea</a><a class="headerlink" href="#contenido-en-linea" title="Link to this heading"></a></h2>
+<p>Es posible configurar un sitio web para que no proteja ni siquiera los scripts y estilos en línea en sus propias páginas, ya que esto podría tener
+sido el resultado del contenido generado por el usuario. Para protegerse contra esto, CSP le permite especificar un nonce dentro del
+`` &lt;style&gt;`` and <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> tags, and to add those values to the response’s header.</p>
+<section id="usar-marcadores-de-posicion">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Usar marcadores de posición</a><a class="headerlink" href="#usar-marcadores-de-posicion" title="Link to this heading"></a></h3>
+<p>Esto es un dolor de manejar en realidad.
+vida, y es más seguro cuando se genera sobre la marcha. Para simplificar esto, puede incluir un <code class="docutils literal notranslate"><span class="pre">{csp-style-nonce}</span></code> o
+<code class="docutils literal notranslate"><span class="pre">{csp-script-nonce}</span></code> marcador de posición en la etiqueta y será manejado automáticamente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Original</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="p">{</span><span class="nx">csp</span><span class="o">-</span><span class="nx">script</span><span class="o">-</span><span class="nx">nonce</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="nx">console</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="s2">&quot;El script no se ejecutará porque no contiene un atributo nonce&quot;</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="c1">// se convierte</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">nonce</span><span class="o">=</span><span class="s2">&quot;Eskdikejidojdk978Ad8jf&quot;</span><span class="o">&gt;</span>
+    <span class="nx">console</span><span class="o">.</span><span class="nb">log</span><span class="p">(</span><span class="s2">&quot;El script no se ejecutará porque no contiene un atributo nonce&quot;</span><span class="p">);</span>
+<span class="o">&lt;/</span><span class="nx">script</span><span class="o">&gt;</span>
+
+<span class="c1">// O</span>
+<span class="o">&lt;</span><span class="nx">style</span> <span class="p">{</span><span class="nx">csp</span><span class="o">-</span><span class="nx">style</span><span class="o">-</span><span class="nx">nonce</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">.</span> <span class="o">.</span> <span class="o">.</span>
+<span class="o">&lt;/</span><span class="nx">style</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If an attacker injects a string like <code class="docutils literal notranslate"><span class="pre">&lt;script</span> <span class="pre">{csp-script-nonce}&gt;</span></code>, it might become the real nonce attribute with this functionality. You can customize the placeholder string with the <code class="docutils literal notranslate"><span class="pre">$scriptNonceTag</span></code> and <code class="docutils literal notranslate"><span class="pre">$styleNonceTag</span></code> properties in <strong>app/Config/ContentSecurityPolicy.php</strong>.</p>
+</div>
+</section>
+<section id="usando-funciones">
+<span id="csp-using-functions"></span><h3><a class="toc-backref" href="#id6" role="doc-backlink">Usando funciones</a><a class="headerlink" href="#usando-funciones" title="Link to this heading"></a></h3>
+<p>Si no te gusta la función de reemplazo automático anterior, puedes desactivarla
+con la configuración <code class="docutils literal notranslate"><span class="pre">$autoNonce</span> <span class="pre">=</span> <span class="pre">false</span></code> en <strong>app/Config/ContentSecurityPolicy.php</strong>.</p>
+<p>En este caso, puede utilizar las funciones <a class="reference internal" href="../general/common_functions.html#csp_script_nonce" title="csp_script_nonce"><code class="xref php php-func docutils literal notranslate"><span class="pre">csp_script_nonce()</span></code></a> y <a class="reference internal" href="../general/common_functions.html#csp_style_nonce" title="csp_style_nonce"><code class="xref php php-func docutils literal notranslate"><span class="pre">csp_style_nonce()</span></code></a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="c1">// Original</span>
+<span class="o">&lt;</span><span class="nx">script</span> <span class="o">&lt;?=</span> <span class="nx">csp_script_nonce</span><span class="p">()</span> <span class="cp">?&gt;</span>&gt;
+    console.log(&quot;El script no se ejecutará porque no contiene un atributo nonce&quot;);
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+// se convierte
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">nonce</span><span class="o">=</span><span class="s">&quot;Eskdikejidojdk978Ad8jf&quot;</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;El script no se ejecutará porque no contiene un atributo nonce&quot;</span><span class="p">);</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+// O
+<span class="p">&lt;</span><span class="nt">style</span> <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">csp_style_nonce</span><span class="p">()</span> <span class="cp">?&gt;</span><span class="p">&gt;</span>
+<span class="w">    </span><span class="o">.</span><span class="w"> </span><span class="o">.</span><span class="w"> </span><span class="o">.</span>
+<span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="api_responses.html" class="btn btn-neutral float-left" title="Rasgo de respuesta API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="localization.html" class="btn btn-neutral float-right" title="Localización" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

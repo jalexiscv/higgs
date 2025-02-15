@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generando resultados de consulta &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/database/results.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Métodos de ayuda de consulta" href="helpers.html" />
+    <link rel="prev" title="Queries" href="queries.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Trabajar con bases de datos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Trabajar con bases de datos</a></li>
+      <li class="breadcrumb-item active">Generando resultados de consulta</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generando-resultados-de-consulta">
+<h1>Generando resultados de consulta<a class="headerlink" href="#generando-resultados-de-consulta" title="Link to this heading"></a></h1>
+<p>Hay varias formas de generar resultados de consultas:</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#matrices-de-resultados" id="id1">Matrices de resultados</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obtenerresultado" id="id2">obtenerResultado()</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obtener-una-matriz-de-stdclass" id="id3">Obtener una matriz de stdClass</a></p></li>
+<li><p><a class="reference internal" href="#obtener-una-matriz-de-matriz" id="id4">Obtener una matriz de matriz</a></p></li>
+<li><p><a class="reference internal" href="#obtener-una-matriz-de-objetos-personalizados" id="id5">Obtener una matriz de objetos personalizados</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#obtenerarrayresultados" id="id6">obtenerArrayResultados()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#filas-de-resultados" id="id7">Filas de resultados</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obtener-fila" id="id8">obtener fila()</a></p></li>
+<li><p><a class="reference internal" href="#getrowarray" id="id9">getRowArray()</a></p></li>
+<li><p><a class="reference internal" href="#getunbufferedrow" id="id10">getUnbufferedRow()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#objetos-de-resultados-personalizados" id="id11">Objetos de resultados personalizados</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obtenerobjetoresultadopersonalizado" id="id12">obtenerObjetoResultadoPersonalizado()</a></p></li>
+<li><p><a class="reference internal" href="#getcustomrowobject" id="id13">getCustomRowObject()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#metodos-auxiliares-de-resultados" id="id14">Métodos auxiliares de resultados</a></p>
+<ul>
+<li><p><a class="reference internal" href="#getfieldcount" id="id15">getFieldCount()</a></p></li>
+<li><p><a class="reference internal" href="#obtener-nombres-de-campo" id="id16">obtener nombres de campo()</a></p></li>
+<li><p><a class="reference internal" href="#obtenernumrows" id="id17">obtenerNumRows()</a></p></li>
+<li><p><a class="reference internal" href="#resultado-libre" id="id18">resultado libre()</a></p></li>
+<li><p><a class="reference internal" href="#busqueda-de-datos" id="id19">búsqueda de datos()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencia-de-clase" id="id20">Referencia de clase</a></p></li>
+</ul>
+</nav>
+<section id="matrices-de-resultados">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Matrices de resultados</a><a class="headerlink" href="#matrices-de-resultados" title="Link to this heading"></a></h2>
+<section id="obtenerresultado">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">obtenerResultado()</a><a class="headerlink" href="#obtenerresultado" title="Link to this heading"></a></h3>
+<p>Este método devuelve el resultado de la consulta como una matriz de <strong>objetos</strong>, o
+<strong>una matriz vacía</strong> en caso de error.</p>
+<section id="obtener-una-matriz-de-stdclass">
+<h4><a class="toc-backref" href="#id3" role="doc-backlink">Obtener una matriz de stdClass</a><a class="headerlink" href="#obtener-una-matriz-de-stdclass" title="Link to this heading"></a></h4>
+<p>Normalmente usarás esto en un foreach
+bucle, así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El método anterior es un alias de <a class="reference internal" href="#Higgs\Database\BaseResult::getResultObject" title="Higgs\Database\BaseResult::getResultObject"><code class="xref php php-meth docutils literal notranslate"><span class="pre">Higgs\Database\BaseResult::getResultObject()</span></code></a>.</p>
+</section>
+<section id="obtener-una-matriz-de-matriz">
+<h4><a class="toc-backref" href="#id4" role="doc-backlink">Obtener una matriz de matriz</a><a class="headerlink" href="#obtener-una-matriz-de-matriz" title="Link to this heading"></a></h4>
+<p>Puede pasar la cadena “matriz” si desea obtener sus resultados
+como una matriz de matrices:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El uso anterior es un alias de <a href="#id21"><span class="problematic" id="id22">`getResultArray()`_</span></a>.</p>
+</section>
+<section id="obtener-una-matriz-de-objetos-personalizados">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Obtener una matriz de objetos personalizados</a><a class="headerlink" href="#obtener-una-matriz-de-objetos-personalizados" title="Link to this heading"></a></h4>
+<p>También puedes pasar una cadena a <code class="docutils literal notranslate"><span class="pre">getResult()</span></code> que representa una clase para
+crear una instancia para cada objeto de resultado</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM users;&#39;</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">(</span><span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">)</span> <span class="k">as</span> <span class="nv">$user</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>          <span class="c1">// access attributes</span>
+    <span class="k">echo</span> <span class="nv">$user</span><span class="o">-&gt;</span><span class="na">reverseName</span><span class="p">();</span> <span class="c1">// or methods defined on the &#39;User&#39; class</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El método anterior es un alias de <a href="#id23"><span class="problematic" id="id24">`getCustomResultObject()`_</span></a>.</p>
+</section>
+</section>
+<section id="obtenerarrayresultados">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">obtenerArrayResultados()</a><a class="headerlink" href="#obtenerarrayresultados" title="Link to this heading"></a></h3>
+<p>Este método devuelve el resultado de la consulta como una matriz pura o vacía.
+matriz cuando no se produce ningún resultado. Normalmente usarás esto en un foreach
+bucle, así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResultArray</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="filas-de-resultados">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Filas de resultados</a><a class="headerlink" href="#filas-de-resultados" title="Link to this heading"></a></h2>
+<section id="obtener-fila">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">obtener fila()</a><a class="headerlink" href="#obtener-fila" title="Link to this heading"></a></h3>
+<p>Este método devuelve una única fila de resultados. Si su consulta tiene más de
+una fila, devuelve solo la primera fila. El resultado se devuelve como un
+<strong>objeto</strong>. Aquí hay un ejemplo de uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getRow</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$row</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si desea que se devuelva una fila específica, puede enviar el número de fila como un
+dígito en el primer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getRow</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puedes agregar un segundo parámetro String, que es el nombre de una clase.
+para crear una instancia de la fila con:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM users LIMIT 1;&#39;</span><span class="p">);</span>
+<span class="nv">$row</span>   <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getRow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>           <span class="c1">// access attributes</span>
+<span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">reverse_name</span><span class="p">();</span> <span class="c1">// or methods defined on the &#39;User&#39; class</span>
+</pre></div>
+</div>
+</section>
+<section id="getrowarray">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">getRowArray()</a><a class="headerlink" href="#getrowarray" title="Link to this heading"></a></h3>
+<p>Idéntico al método <code class="docutils literal notranslate"><span class="pre">row()</span></code> anterior, excepto que devuelve una matriz.
+Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getRowArray</span><span class="p">();</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$row</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">];</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si desea que se devuelva una fila específica, puede enviar el número de fila como un
+dígito en el primer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getRowArray</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Además, puedes caminar hacia adelante/atrás/primero/último a través de tu
+resultados usando estas variaciones:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getFirstRow()</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getLastRow()</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getNextRow()</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getPreviousRow()</span></code></div>
+</div>
+</div></blockquote>
+<p>Por defecto devuelven un objeto a menos que pongas la palabra «matriz» en el
+parámetro:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getFirstRow('matriz')</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getLastRow('matriz')</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getNextRow('matriz')</span></code></div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">$fila</span> <span class="pre">=</span> <span class="pre">$consulta-&gt;getPreviousRow('matriz')</span></code></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>All the methods above will load the whole result into memory
+(captación previa). Utilice <code class="docutils literal notranslate"><span class="pre">getUnbufferedRow()</span></code> para procesar archivos grandes
+conjuntos de resultados.</p>
+</div>
+</section>
+<section id="getunbufferedrow">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">getUnbufferedRow()</a><a class="headerlink" href="#getunbufferedrow" title="Link to this heading"></a></h3>
+<p>Este método devuelve una única fila de resultados sin precargar el conjunto
+resulta en la memoria como lo hace <code class="docutils literal notranslate"><span class="pre">row()</span></code>. Si su consulta tiene más de una fila,
+devuelve la fila actual y mueve el puntero de datos internos hacia adelante.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getUnbufferedRow</span><span class="p">())</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">body</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Para usar con MySQLi, puede configurar el modo de resultado de MySQLi en
+<code class="docutils literal notranslate"><span class="pre">MYSQLI_USE_RESULT</span></code> para ahorrar el máximo de memoria. El uso de esto no es
+Generalmente se recomienda, pero puede ser beneficioso en algunas circunstancias.
+como escribir consultas grandes en csv. Si cambia el modo de resultado
+ser consciente de las compensaciones asociadas con ello.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$db</span><span class="o">-&gt;</span><span class="na">resultMode</span> <span class="o">=</span> <span class="nx">MYSQLI_USE_RESULT</span><span class="p">;</span> <span class="c1">// for unbuffered results</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\Files\File</span><span class="p">(</span><span class="nx">WRITEPATH</span> <span class="o">.</span> <span class="s1">&#39;data.csv&#39;</span><span class="p">);</span>
+
+<span class="nv">$csv</span> <span class="o">=</span> <span class="nv">$file</span><span class="o">-&gt;</span><span class="na">openFile</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">);</span>
+
+<span class="k">while</span> <span class="p">(</span><span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getUnbufferedRow</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nv">$csv</span><span class="o">-&gt;</span><span class="na">fputcsv</span><span class="p">(</span><span class="nv">$row</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nv">$db</span><span class="o">-&gt;</span><span class="na">resultMode</span> <span class="o">=</span> <span class="nx">MYSQLI_STORE_RESULT</span><span class="p">;</span> <span class="c1">// return to default mode</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When using <code class="docutils literal notranslate"><span class="pre">MYSQLI_USE_RESULT</span></code> all subsequent calls on the same
+La conexión generará un error hasta que se hayan obtenido todos los registros o
+Se ha realizado una llamada <code class="docutils literal notranslate"><span class="pre">freeResult()</span></code>. El método <code class="docutils literal notranslate"><span class="pre">getNumRows()</span></code> sólo
+Devuelve el número de filas según la posición actual del puntero de datos.
+Las tablas MyISAM permanecerán bloqueadas hasta que se hayan recuperado todos los registros
+o se ha realizado una llamada <code class="docutils literal notranslate"><span class="pre">freeResult()</span></code>.</p>
+</div>
+<p>Opcionalmente, puede pasar “objeto” (predeterminado) o “matriz” para especificar
+el tipo del valor devuelto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getUnbufferedRow</span><span class="p">();</span>         <span class="c1">// object</span>
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getUnbufferedRow</span><span class="p">(</span><span class="s1">&#39;object&#39;</span><span class="p">);</span> <span class="c1">// object</span>
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getUnbufferedRow</span><span class="p">(</span><span class="s1">&#39;array&#39;</span><span class="p">);</span>  <span class="c1">// associative array</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="objetos-de-resultados-personalizados">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Objetos de resultados personalizados</a><a class="headerlink" href="#objetos-de-resultados-personalizados" title="Link to this heading"></a></h2>
+<p>En su lugar, puede obtener los resultados como una instancia de una clase personalizada.
+de una <code class="docutils literal notranslate"><span class="pre">stdClass</span></code> o matriz, como <code class="docutils literal notranslate"><span class="pre">getResult()</span></code> y <code class="docutils literal notranslate"><span class="pre">getResultArray()</span></code>
+los métodos lo permiten. Si la clase aún no está cargada en la memoria, el Autocargador
+intentará cargarlo. El objeto tendrá todos los valores devueltos desde el
+base de datos establecida como propiedades. Si estos han sido declarados y no son públicos
+entonces deberías proporcionar un método <code class="docutils literal notranslate"><span class="pre">__set()</span></code> para permitir su configuración.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">User</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$email</span><span class="p">;</span>
+    <span class="k">public</span> <span class="nv">$username</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$lastLogin</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">lastLogin</span><span class="p">(</span><span class="nv">$format</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastLogin</span><span class="o">-&gt;</span><span class="na">format</span><span class="p">(</span><span class="nv">$format</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$name</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$name</span> <span class="o">===</span> <span class="s1">&#39;lastLogin&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">lastLogin</span> <span class="o">=</span> <span class="nx">DateTime</span><span class="o">::</span><span class="na">createFromFormat</span><span class="p">(</span><span class="s1">&#39;!U&#39;</span><span class="p">,</span> <span class="nv">$value</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$name</span><span class="p">}))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$name</span><span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Además de los dos métodos enumerados a continuación, los siguientes métodos también pueden
+tome un nombre de clase para devolver los resultados como: <code class="docutils literal notranslate"><span class="pre">getFirstRow()</span></code>, <code class="docutils literal notranslate"><span class="pre">getLastRow()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">getNextRow()</span></code> y <code class="docutils literal notranslate"><span class="pre">getPreviousRow()</span></code>.</p>
+<section id="obtenerobjetoresultadopersonalizado">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">obtenerObjetoResultadoPersonalizado()</a><a class="headerlink" href="#obtenerobjetoresultadopersonalizado" title="Link to this heading"></a></h3>
+<p>Devuelve el conjunto de resultados completo como una matriz de instancias de la clase solicitada.
+El único parámetro es el nombre de la clase a crear una instancia.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="nv">$rows</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getCustomResultObject</span><span class="p">(</span><span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$rows</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">id</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">lastLogin</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="getcustomrowobject">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">getCustomRowObject()</a><a class="headerlink" href="#getcustomrowobject" title="Link to this heading"></a></h3>
+<p>Devuelve una sola fila de los resultados de su consulta. El primer parámetro es la fila.
+número de los resultados. El segundo parámetro es el nombre de la clase para crear una instancia.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;YOUR QUERY&#39;</span><span class="p">);</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getCustomRowObject</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$row</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">email</span><span class="p">;</span>              <span class="c1">// access attributes</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">lastLogin</span><span class="p">(</span><span class="s1">&#39;Y-m-d&#39;</span><span class="p">);</span> <span class="c1">// access class methods</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>También puedes usar el método <code class="docutils literal notranslate"><span class="pre">getRow()</span></code> exactamente de la misma manera.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getRow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nx">\App\Entities\User</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="metodos-auxiliares-de-resultados">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Métodos auxiliares de resultados</a><a class="headerlink" href="#metodos-auxiliares-de-resultados" title="Link to this heading"></a></h2>
+<section id="getfieldcount">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">getFieldCount()</a><a class="headerlink" href="#getfieldcount" title="Link to this heading"></a></h3>
+<p>El número de CAMPOS (columnas) devueltos por la consulta. Asegúrate de llamar
+el método que utiliza el objeto de resultado de su consulta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM my_table&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getFieldCount</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="obtener-nombres-de-campo">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">obtener nombres de campo()</a><a class="headerlink" href="#obtener-nombres-de-campo" title="Link to this heading"></a></h3>
+<p>Devuelve una matriz con los nombres de los CAMPOS (columnas) devueltos por la consulta.
+Asegúrese de llamar al método utilizando el objeto de resultado de su consulta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM my_table&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getFieldNames</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="obtenernumrows">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">obtenerNumRows()</a><a class="headerlink" href="#obtenernumrows" title="Link to this heading"></a></h3>
+<p>El número de registros devueltos por la consulta. Asegúrate de llamar
+el método que utiliza el objeto de resultado de su consulta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM my_table&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getNumRows</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Because SQLite3 lacks an efficient method returning a record count,
+Higgs buscará y almacenará en buffer los registros de resultados de la consulta internamente y
+devuelve un recuento de la matriz de registros resultante, lo que puede resultar ineficiente.</p>
+</div>
+</section>
+<section id="resultado-libre">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">resultado libre()</a><a class="headerlink" href="#resultado-libre" title="Link to this heading"></a></h3>
+<p>Libera la memoria asociada al resultado y elimina el resultado.
+ID de recurso. Normalmente PHP libera su memoria automáticamente al final de
+ejecución del script. Sin embargo, si está ejecutando muchas consultas en un
+script particular es posible que desee liberar el resultado después de cada consulta
+El resultado se ha generado para reducir el consumo de memoria.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$thisdb</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT title FROM my_table&#39;</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getResult</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$row</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">title</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">freeResult</span><span class="p">();</span> <span class="c1">// The $query result object will no longer be available</span>
+
+<span class="nv">$query2</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT name FROM some_table&#39;</span><span class="p">);</span>
+
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query2</span><span class="o">-&gt;</span><span class="na">getRow</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$row</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+<span class="nv">$query2</span><span class="o">-&gt;</span><span class="na">freeResult</span><span class="p">();</span> <span class="c1">// The $query2 result object will no longer be available</span>
+</pre></div>
+</div>
+</section>
+<section id="busqueda-de-datos">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">búsqueda de datos()</a><a class="headerlink" href="#busqueda-de-datos" title="Link to this heading"></a></h3>
+<p>Este método establece el puntero interno para que la siguiente fila de resultados sea
+traído. Sólo es útil en combinación con <code class="docutils literal notranslate"><span class="pre">getUnbufferedRow()</span></code>.</p>
+<p>Acepta un valor entero positivo, que por defecto es 0 y devuelve
+verdadero en caso de éxito o falso en caso de fracaso.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$query</span> <span class="o">=</span> <span class="nv">$db</span><span class="o">-&gt;</span><span class="na">query</span><span class="p">(</span><span class="s1">&#39;SELECT `field_name` FROM `table_name`&#39;</span><span class="p">);</span>
+<span class="nv">$query</span><span class="o">-&gt;</span><span class="na">dataSeek</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span> <span class="c1">// Skip the first 5 rows</span>
+<span class="nv">$row</span> <span class="o">=</span> <span class="nv">$query</span><span class="o">-&gt;</span><span class="na">getUnbufferedRow</span><span class="p">();</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Not all database drivers support this feature and will return false.
+Lo más notable es que no podrás usarlo con PDO.</p>
+</div>
+</section>
+</section>
+<section id="referencia-de-clase">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Referencia de clase</a><a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\Database">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\Database\</span></span><span class="sig-name descname"><span class="pre">BaseResult</span></span><a class="headerlink" href="#Higgs\Database\BaseResult" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getResult">
+<span class="sig-name descname"><span class="pre">getResult</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getResult" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultados solicitados: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>matriz que contiene las filas recuperadas</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Un contenedor para <code class="docutils literal notranslate"><span class="pre">getResultArray()</span></code>, <code class="docutils literal notranslate"><span class="pre">getResultObject()</span></code>
+y métodos <code class="docutils literal notranslate"><span class="pre">getCustomResultObject()</span></code>.</p>
+<p>Uso: consulte <a class="reference internal" href="#matrices-de-resultados">Matrices de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getResultArray">
+<span class="sig-name descname"><span class="pre">getResultArray</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getResultArray" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matriz que contiene las filas recuperadas</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve los resultados de la consulta como una matriz de filas, donde cada
+La fila es en sí misma una matriz asociativa.</p>
+<p>Uso: consulte <a class="reference internal" href="#matrices-de-resultados">Matrices de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getResultObject">
+<span class="sig-name descname"><span class="pre">getResultObject</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getResultObject" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matriz que contiene las filas recuperadas</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve los resultados de la consulta como una matriz de filas, donde cada
+fila es un objeto de tipo <code class="docutils literal notranslate"><span class="pre">stdClass</span></code>.</p>
+<p>Uso: consulte <a class="reference internal" href="#obtener-una-matriz-de-stdclass">Obtener una matriz de stdClass</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getCustomResultObject">
+<span class="sig-name descname"><span class="pre">getCustomResultObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$class_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getCustomResultObject" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$class_name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de clase para las filas resultantes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>matriz que contiene las filas recuperadas</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve los resultados de la consulta como una matriz de filas, donde cada
+fila es una instancia de la clase especificada.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getRow">
+<span class="sig-name descname"><span class="pre">getRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$n</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$n</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – índice de la fila de resultados de la consulta que se devolverá</p></li>
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultado solicitado: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>la fila solicitada o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Un contenedor para <code class="docutils literal notranslate"><span class="pre">getRowArray()</span></code>, <code class="docutils literal notranslate"><span class="pre">getRowObject()</span></code> y
+Métodos <code class="docutils literal notranslate"><span class="pre">getCustomRowObject()</span></code>.</p>
+<p>Uso: consulte <a class="reference internal" href="#filas-de-resultados">Filas de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getUnbufferedRow">
+<span class="sig-name descname"><span class="pre">getUnbufferedRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getUnbufferedRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultado solicitado: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>siguiente fila del conjunto de resultados o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Obtiene la siguiente fila de resultados y la devuelve en el
+formulario solicitado.</p>
+<p>Uso: consulte <a class="reference internal" href="#filas-de-resultados">Filas de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getRowArray">
+<span class="sig-name descname"><span class="pre">getRowArray</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$n</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getRowArray" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$n</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – índice de la fila de resultados de la consulta que se devolverá</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>la fila solicitada o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la fila del resultado solicitado como una matriz asociativa.</p>
+<p>Uso: consulte <a class="reference internal" href="#filas-de-resultados">Filas de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getRowObject">
+<span class="sig-name descname"><span class="pre">getRowObject</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$n</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getRowObject" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$n</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – índice de la fila de resultados de la consulta que se devolverá
+:returns: la fila solicitada o nula si no existe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">clase</span> <span class="pre">estándar</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la fila de resultados solicitada como un objeto de tipo
+<code class="docutils literal notranslate"><span class="pre">clase</span> <span class="pre">estándar</span></code>.</p>
+<p>Uso: consulte <a class="reference internal" href="#filas-de-resultados">Filas de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getCustomRowObject">
+<span class="sig-name descname"><span class="pre">getCustomRowObject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$n</span></em>, <em class="sig-param"><span class="pre">$type</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getCustomRowObject" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$n</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Índice de la fila de resultados a devolver</p></li>
+<li><p><strong>$class_name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de clase para la fila resultante</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>la fila solicitada o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">$tipo</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la fila del resultado solicitado como una instancia del
+clase solicitada.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::dataSeek">
+<span class="sig-name descname"><span class="pre">dataSeek</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$n</span> <span class="pre">=</span> <span class="pre">0</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::dataSeek" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$n</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – índice de la fila de resultados que se devolverá a continuación</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Mueve el puntero de la fila de resultados internos al desplazamiento deseado.</p>
+<p>Uso: consulte <a class="reference internal" href="#metodos-auxiliares-de-resultados">Métodos auxiliares de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::setRow">
+<span class="sig-name descname"><span class="pre">setRow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$value</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::setRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – nombre de columna o matriz de pares clave/valor</p></li>
+<li><p><strong>$valor</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – valor para asignar a la columna, $key es un nombre de campo único</p></li>
+</ul>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">nulo</span></code></span></p>
+</dd>
+</dl>
+<p>Asigna un valor a una columna en particular.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getNextRow">
+<span class="sig-name descname"><span class="pre">getNextRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getNextRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultado solicitado: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>siguiente fila del conjunto de resultados, o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la siguiente fila del conjunto de resultados.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getPreviousRow">
+<span class="sig-name descname"><span class="pre">getPreviousRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getPreviousRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultado solicitado: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>fila anterior del conjunto de resultados, o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la fila anterior del conjunto de resultados.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getFirstRow">
+<span class="sig-name descname"><span class="pre">getFirstRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getFirstRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultado solicitado: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Primera fila del conjunto de resultados, o nulo si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la primera fila del conjunto de resultados.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getLastRow">
+<span class="sig-name descname"><span class="pre">getLastRow</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'object'</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getLastRow" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de resultado solicitado: matriz, objeto o nombre de clase</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>última fila del conjunto de resultados, o nula si no existe</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la última fila del conjunto de resultados.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getFieldCount">
+<span class="sig-name descname"><span class="pre">getFieldCount</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getFieldCount" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Número de campos en el conjunto de resultados</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve el número de campos del conjunto de resultados.</p>
+<p>Uso: consulte <a class="reference internal" href="#metodos-auxiliares-de-resultados">Métodos auxiliares de resultados</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getFieldNames">
+<span class="sig-name descname"><span class="pre">getFieldNames</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getFieldNames" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Matriz de nombres de columnas</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve una matriz que contiene los nombres de los campos en el
+conjunto resultante.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getFieldData">
+<span class="sig-name descname"><span class="pre">getFieldData</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getFieldData" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>matriz que contiene metadatos de campo</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span></p>
+</dd>
+</dl>
+<p>Genera una matriz de objetos <code class="docutils literal notranslate"><span class="pre">stdClass</span></code> que contienen
+metadatos de campo.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::getNumRows">
+<span class="sig-name descname"><span class="pre">getNumRows</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::getNumRows" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Número de filas en el conjunto de resultados</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve el número de filas devueltas por la consulta.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\BaseResult::freeResult">
+<span class="sig-name descname"><span class="pre">freeResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\BaseResult::freeResult" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">nulo</span></code></span></p>
+</dd>
+</dl>
+<p>Libera un conjunto de resultados.</p>
+<p>Uso: consulte <a class="reference internal" href="#metodos-auxiliares-de-resultados">Métodos auxiliares de resultados</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="queries.html" class="btn btn-neutral float-left" title="Queries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="helpers.html" class="btn btn-neutral float-right" title="Métodos de ayuda de consulta" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

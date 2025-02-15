@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clase de correo electrónico &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/email.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Servicio de cifrado" href="encryption.html" />
+    <link rel="prev" title="Clase de solicitud CURL" href="curlrequest.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Clase de correo electrónico</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="clase-de-correo-electronico">
+<h1>Clase de correo electrónico<a class="headerlink" href="#clase-de-correo-electronico" title="Link to this heading"></a></h1>
+<p>La sólida clase de correo electrónico de Higgs admite las siguientes características:</p>
+<ul class="simple">
+<li><p>Múltiples protocolos: correo, sendmail y SMTP</p></li>
+<li><p>Cifrado TLS y SSL para SMTP</p></li>
+<li><p>Múltiples destinatarios</p></li>
+<li><p>CC y BCC</p></li>
+<li><p>Correo electrónico HTML o texto sin formato</p></li>
+<li><p>Archivos adjuntos</p></li>
+<li><p>Ajuste de palabras</p></li>
+<li><p>Prioridades</p></li>
+<li><dl class="simple">
+<dt>Modo por lotes BCC, que permite dividir listas de correo electrónico grandes en pequeñas</dt><dd><p>Lotes BCC.</p>
+</dd>
+</dl>
+</li>
+<li><p>Herramientas de depuración de correo electrónico</p></li>
+</ul>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#usando-la-biblioteca-de-correo-electronico" id="id1">Usando la biblioteca de correo electrónico</a></p>
+<ul>
+<li><p><a class="reference internal" href="#envio-de-correo-electronico" id="id2">Envío de correo electrónico</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-preferencias-de-correo-electronico" id="id3">Configuración de preferencias de correo electrónico</a></p>
+<ul>
+<li><p><a class="reference internal" href="#configuracion-de-preferencias-de-correo-electronico-pasando-una-matriz" id="id4">Configuración de preferencias de correo electrónico pasando una matriz</a></p></li>
+<li><p><a class="reference internal" href="#configuracion-de-preferencias-de-correo-electronico-en-un-archivo-de-configuracion" id="id5">Configuración de preferencias de correo electrónico en un archivo de configuración</a></p></li>
+<li><p><a class="reference internal" href="#ssl-versus-tls-para-protocolo-smtp" id="id6">SSL versus TLS para protocolo SMTP</a></p></li>
+<li><p><a class="reference internal" href="#revisar-preferencias" id="id7">Revisar preferencias</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#preferencias-de-correo-electronico" id="id8">Preferencias de correo electrónico</a></p></li>
+<li><p><a class="reference internal" href="#anular-el-ajuste-de-palabras" id="id9">Anular el ajuste de palabras</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencia-de-clase" id="id10">Referencia de clase</a></p></li>
+</ul>
+</nav>
+<section id="usando-la-biblioteca-de-correo-electronico">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Usando la biblioteca de correo electrónico</a><a class="headerlink" href="#usando-la-biblioteca-de-correo-electronico" title="Link to this heading"></a></h2>
+<section id="envio-de-correo-electronico">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Envío de correo electrónico</a><a class="headerlink" href="#envio-de-correo-electronico" title="Link to this heading"></a></h3>
+<p>Enviar correo electrónico no sólo es sencillo, sino que también puedes configurarlo sobre la marcha o
+establezca sus preferencias en el archivo <strong>app/Config/Email.php</strong>.</p>
+<p>A continuación se muestra un ejemplo básico que demuestra cómo se puede enviar un correo electrónico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">email</span><span class="p">();</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="s1">&#39;your@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Name&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="s1">&#39;someone@example.com&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setCC</span><span class="p">(</span><span class="s1">&#39;another@another-example.com&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setBCC</span><span class="p">(</span><span class="s1">&#39;them@their-example.com&#39;</span><span class="p">);</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setSubject</span><span class="p">(</span><span class="s1">&#39;Email Test&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;Testing the email class.&#39;</span><span class="p">);</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="configuracion-de-preferencias-de-correo-electronico">
+<span id="setting-email-preferences"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Configuración de preferencias de correo electrónico</a><a class="headerlink" href="#configuracion-de-preferencias-de-correo-electronico" title="Link to this heading"></a></h3>
+<p>Hay 21 preferencias diferentes disponibles para personalizar la forma en que su correo electrónico
+se envían mensajes. Puede configurarlos manualmente como se describe aquí,
+o automáticamente a través de las preferencias almacenadas en su archivo de configuración, descritas
+en <a class="reference internal" href="#preferencias-de-correo-electronico">Preferencias de correo electrónico</a>.</p>
+<section id="configuracion-de-preferencias-de-correo-electronico-pasando-una-matriz">
+<h4><a class="toc-backref" href="#id4" role="doc-backlink">Configuración de preferencias de correo electrónico pasando una matriz</a><a class="headerlink" href="#configuracion-de-preferencias-de-correo-electronico-pasando-una-matriz" title="Link to this heading"></a></h4>
+<p>Las preferencias se establecen pasando una serie de valores de preferencia al
+método de inicialización de correo electrónico. A continuación se muestra un ejemplo de cómo podría configurar algunos
+preferencias:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;protocol&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;sendmail&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;mailPath&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;/usr/sbin/sendmail&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;charset&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="s1">&#39;iso-8859-1&#39;</span><span class="p">;</span>
+<span class="nv">$config</span><span class="p">[</span><span class="s1">&#39;wordWrap&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">initialize</span><span class="p">(</span><span class="nv">$config</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Most of the preferences have default values that will be used
+si no los configura.</p>
+</div>
+</section>
+<section id="configuracion-de-preferencias-de-correo-electronico-en-un-archivo-de-configuracion">
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Configuración de preferencias de correo electrónico en un archivo de configuración</a><a class="headerlink" href="#configuracion-de-preferencias-de-correo-electronico-en-un-archivo-de-configuracion" title="Link to this heading"></a></h4>
+<p>Si prefiere no establecer preferencias utilizando el método anterior, puede
+en su lugar, colóquelos en el archivo de configuración. Simplemente abre el
+<strong>app/Config/Email.php</strong> y establezca sus configuraciones en el
+Propiedades del correo electrónico. Luego guarde el archivo y se utilizará automáticamente.
+NO necesitarás usar el método <code class="docutils literal notranslate"><span class="pre">$email-&gt;initialize()</span></code> si
+usted establece sus preferencias en el archivo de configuración.</p>
+</section>
+<section id="ssl-versus-tls-para-protocolo-smtp">
+<span id="email-ssl-tls-for-smtp"></span><h4><a class="toc-backref" href="#id6" role="doc-backlink">SSL versus TLS para protocolo SMTP</a><a class="headerlink" href="#ssl-versus-tls-para-protocolo-smtp" title="Link to this heading"></a></h4>
+<p>Para proteger el nombre de usuario, la contraseña y el contenido del correo electrónico mientras se comunica con el servidor SMTP,
+Se debe utilizar cifrado en el canal. Se utilizan ampliamente dos estándares diferentes y
+Es importante comprender las diferencias al intentar solucionar problemas de envío de correo electrónico.
+asuntos.</p>
+<p>La mayoría de los servidores SMTP permiten conexiones en los puertos 465 o 587 al enviar correos electrónicos. (El
+El puerto original 25 rara vez se usa debido a que muchos ISP tienen reglas de bloqueo implementadas y
+ya que la comunicación está enteramente en texto claro).</p>
+<p>La diferencia clave es que el puerto 465 espera que el canal de comunicación esté protegido mediante TLS.
+desde el principio según <cite>RFC 8314&lt;https://tools.ietf.org/html/rfc8314&gt;</cite> _.
+Una conexión al puerto 587 permite la conexión de texto sin cifrar y posteriores
+actualizará el canal para usar cifrado usando el comando SMTP <code class="docutils literal notranslate"><span class="pre">STARTTLS</span></code>.</p>
+<p>La actualización de una conexión en el puerto 465 puede ser compatible o no con el servidor, por lo que el
+El comando SMTP <code class="docutils literal notranslate"><span class="pre">STARTTLS</span></code> puede fallar si el servidor no lo permite. Si configura el puerto en 465,
+debería intentar configurar <code class="docutils literal notranslate"><span class="pre">SMTPCrypto</span></code> en una cadena vacía (<code class="docutils literal notranslate"><span class="pre">''</span></code>) ya que la comunicación es
+asegurado usando TLS desde el principio y el <code class="docutils literal notranslate"><span class="pre">STARTTLS</span></code> no es necesario.</p>
+<p>Si su configuración requiere que se conecte al puerto 587, lo más probable es que deba configurar
+<code class="docutils literal notranslate"><span class="pre">SMTPCrypto</span></code> a <code class="docutils literal notranslate"><span class="pre">tls</span></code> ya que esto implementará el comando <code class="docutils literal notranslate"><span class="pre">STARTTLS</span></code> mientras se comunica
+con el servidor SMTP para cambiar de texto sin cifrar a un canal cifrado. La comunicación inicial
+se realizará en texto claro y el canal se actualizará a TLS con el comando <code class="docutils literal notranslate"><span class="pre">STARTTLS</span></code>.</p>
+</section>
+<section id="revisar-preferencias">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Revisar preferencias</a><a class="headerlink" href="#revisar-preferencias" title="Link to this heading"></a></h4>
+<p>La configuración utilizada para el último envío exitoso está disponible en el
+propiedad de instancia <code class="docutils literal notranslate"><span class="pre">$archivo</span></code>. Esto es útil para probar y depurar.
+para determinar los valores reales en el momento de la llamada <code class="docutils literal notranslate"><span class="pre">send()</span></code>.</p>
+</section>
+</section>
+<section id="preferencias-de-correo-electronico">
+<span id="email-preferences"></span><h3><a class="toc-backref" href="#id8" role="doc-backlink">Preferencias de correo electrónico</a><a class="headerlink" href="#preferencias-de-correo-electronico" title="Link to this heading"></a></h3>
+<p>La siguiente es una lista de todas las preferencias que se pueden configurar cuando
+enviando correo electrónico.</p>
+</section>
+<section id="anular-el-ajuste-de-palabras">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Anular el ajuste de palabras</a><a class="headerlink" href="#anular-el-ajuste-de-palabras" title="Link to this heading"></a></h3>
+<p>Si tiene habilitado el ajuste de palabras (recomendado para cumplir con RFC 822)
+y tienes un enlace muy largo en tu correo electrónico que también puede incluirse,
+haciendo que la persona que lo recibe no pueda hacer clic en él.
+Higgs le permite anular manualmente el ajuste de palabras dentro de parte de su
+mensaje como este:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">El</span> <span class="nx">texto</span> <span class="nx">de</span> <span class="nx">su</span> <span class="nx">correo</span> <span class="nx">electrónico</span> <span class="nx">que</span>
+<span class="nx">se</span> <span class="nx">envuelve</span> <span class="nx">normalmente</span><span class="o">.</span>
+
+<span class="p">{</span><span class="nx">desenvolver</span><span class="p">}</span><span class="nx">http</span><span class="o">://</span><span class="nx">example</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">a_long_link_that_should_not_be_wrapped</span><span class="o">.</span><span class="nx">html</span><span class="p">{</span><span class="o">/</span><span class="nx">unwrap</span><span class="p">}</span>
+
+<span class="nx">Más</span> <span class="nx">texto</span> <span class="nx">que</span> <span class="nx">será</span>
+<span class="nx">Envuelto</span> <span class="nx">normalmente</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Coloque el elemento entre el que no desea ajustar palabras: {unwrap} {/unwrap}</p>
+</section>
+</section>
+<section id="referencia-de-clase">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Referencia de clase</a><a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\Email">
+<dt class="sig sig-object php" id="Higgs\Email\Email">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\Email\</span></span><span class="sig-name descname"><span class="pre">Email</span></span><a class="headerlink" href="#Higgs\Email\Email" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setFrom">
+<span class="sig-name descname"><span class="pre">setFrom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$from</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$returnPath</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setFrom" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$from</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – dirección de correo electrónico «De»</p></li>
+<li><p><strong>$nombre</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre para mostrar «De»</p></li>
+<li><p><strong>$returnPath</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Dirección de correo electrónico opcional para redirigir el correo electrónico no entregado</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece la dirección de correo electrónico y el nombre de la persona que envía el correo electrónico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="s1">&#39;you@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puede establecer una ruta de retorno para ayudar a redirigir el correo no entregado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="s1">&#39;you@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Name&#39;</span><span class="p">,</span> <span class="s1">&#39;returned_emails@example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Return-Path can’t be used if you’ve configured “smtp” as
+su protocolo.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setReplyTo">
+<span class="sig-name descname"><span class="pre">setReplyTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$replyto</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$name</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setReplyTo" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$replyto</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – dirección de correo electrónico para respuestas</p></li>
+<li><p><strong>$nombre</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre para mostrar de la dirección de correo electrónico de respuesta</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece la dirección de respuesta. Si no se proporciona la información,
+Se utiliza la información del método <a class="reference external" href="#setFrom">setFrom</a>. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setReplyTo</span><span class="p">(</span><span class="s1">&#39;you@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Your Name&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setTo">
+<span class="sig-name descname"><span class="pre">setTo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$to</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setTo" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$to</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – cadena delimitada por comas o una matriz de direcciones de correo electrónico</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece las direcciones de correo electrónico de los destinatarios. Puede ser un solo correo electrónico,
+una lista delimitada por comas o una matriz:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="s1">&#39;someone@example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="s1">&#39;one@example.com, two@example.com, three@example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setTo</span><span class="p">([</span><span class="s1">&#39;one@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;two@example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;three@example.com&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setCC">
+<span class="sig-name descname"><span class="pre">setCC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$cc</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setCC" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$cc</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – cadena delimitada por comas o una matriz de direcciones de correo electrónico</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece las direcciones de correo electrónico CC. Al igual que el «para», puede ser un solo correo electrónico,
+una lista delimitada por comas o una matriz.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setBCC">
+<span class="sig-name descname"><span class="pre">setBCC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$bcc</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$limit</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setBCC" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$bcc</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – cadena delimitada por comas o una matriz de direcciones de correo electrónico</p></li>
+<li><p><strong>$limit</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Número máximo de correos electrónicos para enviar por lote</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece las direcciones de correo electrónico CCO. Al igual que el método <code class="docutils literal notranslate"><span class="pre">setTo()</span></code>, puede ser un único
+correo electrónico, una lista delimitada por comas o una matriz.</p>
+<p>Si se establece <code class="docutils literal notranslate"><span class="pre">$limit</span></code>, se habilitará el «modo por lotes», que enviará
+los correos electrónicos en lotes, y cada lote no exceda el especificado
+<code class="docutils literal notranslate"><span class="pre">$límite</span></code>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setSubject">
+<span class="sig-name descname"><span class="pre">setSubject</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$subject</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setSubject" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$asunto</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – línea de asunto del correo electrónico</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece el asunto del correo electrónico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setSubject</span><span class="p">(</span><span class="s1">&#39;This is my subject&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setMessage">
+<span class="sig-name descname"><span class="pre">setMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$body</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setMessage" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$body</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cuerpo del mensaje de correo electrónico</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece el cuerpo del mensaje de correo electrónico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;This is my message&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setAltMessage">
+<span class="sig-name descname"><span class="pre">setAltMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setAltMessage" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$str</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cuerpo del mensaje de correo electrónico alternativo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Establece el cuerpo del mensaje de correo electrónico alternativo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setAltMessage</span><span class="p">(</span><span class="s1">&#39;This is the alternative message&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Esta es una cadena de mensaje opcional que se puede utilizar si envía
+Correo electrónico con formato HTML. Te permite especificar un mensaje alternativo.
+sin formato HTML que se agrega a la cadena de encabezado para
+personas que no aceptan correo electrónico HTML. Si no estableces el tuyo
+mensaje Higgs extraerá el mensaje de su correo electrónico HTML
+y quitar las etiquetas.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setHeader">
+<span class="sig-name descname"><span class="pre">setHeader</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$header</span></em>, <em class="sig-param"><span class="pre">$value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setHeader" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$encabezado</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del encabezado</p></li>
+<li><p><strong>$valor</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – valor del encabezado</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Agrega encabezados adicionales al correo electrónico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Header1&#39;</span><span class="p">,</span> <span class="s1">&#39;Value1&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setHeader</span><span class="p">(</span><span class="s1">&#39;Header2&#39;</span><span class="p">,</span> <span class="s1">&#39;Value2&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::clear">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$clearAttachments</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::clear" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$clearAttachments</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se borran o no los archivos adjuntos</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Inicializa todas las variables de correo electrónico a un estado vacío. Este método
+está diseñado para usarse si ejecuta el método de envío de correo electrónico en un bucle,
+permitiendo que los datos se restablezcan entre ciclos.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$list</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$address</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">();</span>
+
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="nv">$address</span><span class="p">);</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setFrom</span><span class="p">(</span><span class="s1">&#39;your@example.com&#39;</span><span class="p">);</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setSubject</span><span class="p">(</span><span class="s1">&#39;Here is your info &#39;</span> <span class="o">.</span> <span class="nv">$name</span><span class="p">);</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;Hi &#39;</span> <span class="o">.</span> <span class="nv">$name</span> <span class="o">.</span> <span class="s1">&#39; Here is the info you requested.&#39;</span><span class="p">);</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si establece el parámetro en verdadero, todos los archivos adjuntos se borrarán como
+Bueno:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">clear</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::send">
+<span class="sig-name descname"><span class="pre">send</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$autoClear</span> <span class="pre">=</span> <span class="pre">true</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::send" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$autoClear</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se borran los datos del mensaje automáticamente</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>El método de envío de correo electrónico. Devuelve un valor booleano verdadero o falso según
+éxito o fracaso, lo que permite su uso condicional:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">())</span> <span class="p">{</span>
+    <span class="c1">// Generate error</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Este método borrará automáticamente todos los parámetros si la solicitud fue
+exitoso. Para detener este comportamiento, pase falso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="k">false</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// Parameters won&#39;t be cleared</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In order to use the <code class="docutils literal notranslate"><span class="pre">printDebugger()</span></code> method, you need
+para evitar borrar los parámetros del correo electrónico.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">BCCBatchMode</span></code> is enabled, and there are more than
+destinatarios <code class="docutils literal notranslate"><span class="pre">BCCBatchSize</span></code>, este método siempre devolverá
+booleano <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::attach">
+<span class="sig-name descname"><span class="pre">attach</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$filename</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$disposition</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$newname</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$mime</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::attach" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>archivo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">$nombre</span> <span class="pre">de</span></code></span>) – nombre de archivo</p></li>
+<li><p><strong>$disposición</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span>) – “disposición” del archivo adjunto. Mayoría
+Los clientes de correo electrónico toman su propia decisión independientemente del MIME.
+especificación utilizada aquí. <a class="reference external" href="https://www.iana.org/assignments/cont-disp/cont-disp.xhtml">https://www.iana.org/assignments/cont-disp/cont-disp.xhtml</a></p></li>
+<li><p><strong>$newname</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de archivo personalizado para usar en el correo electrónico</p></li>
+<li><p><strong>$mime</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo MIME a usar (útil para datos almacenados en buffer)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Higgs\Email\Email instancia (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Higgs\Correo</span> <span class="pre">electrónico\Correo</span> <span class="pre">electrónico</span></code></span></p>
+</dd>
+</dl>
+<p>Le permite enviar un archivo adjunto. Coloque la ruta/nombre del archivo en el primero
+parámetro. Para varios archivos adjuntos, utilice el método varias veces.
+Por ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;/path/to/photo1.jpg&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;/path/to/photo2.jpg&#39;</span><span class="p">);</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;/path/to/photo3.jpg&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Para utilizar la disposición predeterminada (adjunto), deje el segundo parámetro en blanco,
+de lo contrario, utilice una disposición personalizada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;image.jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>También puedes usar una URL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;http://example.com/filename.pdf&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si desea utilizar un nombre de archivo personalizado, puede utilizar el tercer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="s1">&#39;filename.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;attachment&#39;</span><span class="p">,</span> <span class="s1">&#39;report.pdf&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si necesita utilizar una cadena de búfer en lugar de un archivo físico real, puede
+use el primer parámetro como búfer, el tercer parámetro como nombre de archivo y el cuarto
+parámetro como tipo mime:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$buffer</span><span class="p">,</span> <span class="s1">&#39;attachment&#39;</span><span class="p">,</span> <span class="s1">&#39;report.pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;application/pdf&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::setAttachmentCID">
+<span class="sig-name descname"><span class="pre">setAttachmentCID</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$filename</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::setAttachmentCID" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$filename</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de archivo adjunto existente</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>ID de contenido del archivo adjunto o falso si no se encuentra</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Establece y devuelve el ID de contenido de un archivo adjunto, lo que le permite insertar un archivo en línea
+(imagen) adjunto en HTML. El primer parámetro debe ser el nombre del archivo ya adjunto.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$filename</span> <span class="o">=</span> <span class="s1">&#39;/img/photo1.jpg&#39;</span><span class="p">;</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">attach</span><span class="p">(</span><span class="nv">$filename</span><span class="p">);</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$list</span> <span class="k">as</span> <span class="nv">$address</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setTo</span><span class="p">(</span><span class="nv">$address</span><span class="p">);</span>
+    <span class="nv">$cid</span> <span class="o">=</span> <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setAttachmentCID</span><span class="p">(</span><span class="nv">$filename</span><span class="p">);</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">setMessage</span><span class="p">(</span><span class="s1">&#39;&lt;img src=&quot;cid:&#39;</span> <span class="o">.</span> <span class="nv">$cid</span> <span class="o">.</span> <span class="s1">&#39;&quot; alt=&quot;photo1&quot;&gt;&#39;</span><span class="p">);</span>
+    <span class="nv">$email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Content-ID for each e-mail must be re-created for it to be unique.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Email\Email::printDebugger">
+<span class="sig-name descname"><span class="pre">printDebugger</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$include</span> <span class="pre">=</span> <span class="pre">['headers',</span> <span class="pre">'subject',</span> <span class="pre">'body']</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Email\Email::printDebugger" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$include</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – qué partes del mensaje imprimir</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>datos de depuración formateados</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve una cadena que contiene los mensajes del servidor, los encabezados de correo electrónico y
+el mensaje de correo electrónico. Útil para depurar.</p>
+<p>Opcionalmente, puede especificar qué partes del mensaje deben imprimirse.
+Las opciones válidas son: <strong>encabezados</strong>, <strong>asunto</strong>, <strong>cuerpo</strong>.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// You need to pass false while sending in order for the email data</span>
+<span class="c1">// to not be cleared - if that happens, printDebugger() would have</span>
+<span class="c1">// nothing to output.</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">send</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Will only print the email headers, excluding the message subject and body</span>
+<span class="nv">$email</span><span class="o">-&gt;</span><span class="na">printDebugger</span><span class="p">([</span><span class="s1">&#39;headers&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>By default, all of the raw data will be printed.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="curlrequest.html" class="btn btn-neutral float-left" title="Clase de solicitud CURL" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="encryption.html" class="btn btn-neutral float-right" title="Servicio de cifrado" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

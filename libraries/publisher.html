@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Editor &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/publisher.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Seguridad" href="security.html" />
+    <link rel="prev" title="Paginación" href="pagination.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Editor</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="editor">
+<h1>Editor<a class="headerlink" href="#editor" title="Link to this heading"></a></h1>
+<p>La biblioteca de Publisher proporciona un medio para copiar archivos dentro de un proyecto mediante una sólida detección y comprobación de errores.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#cargando-la-biblioteca" id="id1">Cargando la biblioteca</a></p></li>
+<li><p><a class="reference internal" href="#concepto-y-uso" id="id2">Concepto y uso</a></p>
+<ul>
+<li><p><a class="reference internal" href="#bajo-demanda" id="id3">Bajo demanda</a></p></li>
+<li><p><a class="reference internal" href="#automatizacion-y-descubrimiento" id="id4">Automatización y descubrimiento</a></p></li>
+<li><p><a class="reference internal" href="#seguridad" id="id5">Seguridad</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#ejemplos" id="id6">Ejemplos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#ejemplo-de-sincronizacion-de-archivos" id="id7">Ejemplo de sincronización de archivos</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-de-dependencias-de-activos" id="id8">Ejemplo de dependencias de activos</a></p></li>
+<li><p><a class="reference internal" href="#ejemplo-de-implementacion-del-modulo" id="id9">Ejemplo de implementación del módulo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencia-de-la-biblioteca" id="id10">Referencia de la biblioteca</a></p>
+<ul>
+<li><p><a class="reference internal" href="#metodos-de-soporte" id="id11">Métodos de soporte</a></p></li>
+<li><p><a class="reference internal" href="#salida-de-archivos" id="id12">Salida de archivos</a></p></li>
+<li><p><a class="reference internal" href="#modificar-archivos" id="id13">Modificar archivos</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="cargando-la-biblioteca">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Cargando la biblioteca</a><a class="headerlink" href="#cargando-la-biblioteca" title="Link to this heading"></a></h2>
+<p>Debido a que las instancias de Publisher son específicas de su origen y destino, esta biblioteca no está disponible
+a través de <code class="docutils literal notranslate"><span class="pre">Servicios</span></code> pero debe crearse una instancia o extenderse directamente. P.ej:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\Publisher\Publisher</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="concepto-y-uso">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Concepto y uso</a><a class="headerlink" href="#concepto-y-uso" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">Publisher</span></code> resuelve algunos problemas comunes cuando se trabaja dentro de un marco backend:</p>
+<ul class="simple">
+<li><p>¿Cómo mantengo los activos del proyecto con dependencias de versión?</p></li>
+<li><p>¿Cómo administro las cargas y otros archivos «dinámicos» que deben ser accesibles desde la web?</p></li>
+<li><p>¿Cómo puedo actualizar mi proyecto cuando cambian el marco o los módulos?</p></li>
+<li><p>¿Cómo pueden los componentes inyectar contenido nuevo en proyectos existentes?</p></li>
+</ul>
+<p>En su forma más básica, publicar equivale a copiar un archivo o archivos en un proyecto. <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> extiende <code class="docutils literal notranslate"><span class="pre">FileCollection</span></code>
+para implementar un encadenamiento de comandos de estilo fluido para leer, filtrar y procesar archivos de entrada, luego copiarlos o fusionarlos en el destino de destino.
+Puede utilizar <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> a pedido en sus Controladores u otros componentes, o puede organizar publicaciones extendiendo
+la clase y aprovechar su descubrimiento con <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">Publish</span></code>.</p>
+<section id="bajo-demanda">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Bajo demanda</a><a class="headerlink" href="#bajo-demanda" title="Link to this heading"></a></h3>
+<p>Acceda a <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> directamente creando una instancia nueva de la clase:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\Publisher\Publisher</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>De forma predeterminada, el origen y el destino se establecerán en <code class="docutils literal notranslate"><span class="pre">ROOTPATH</span></code> y <code class="docutils literal notranslate"><span class="pre">FCPATH</span></code> respectivamente, lo que dará como resultado <code class="docutils literal notranslate"><span class="pre">Publisher</span></code>.
+Fácil acceso para tomar cualquier archivo de su proyecto y hacerlo accesible desde la web. Alternativamente, puedes pasar una nueva fuente.
+o origen y destino en el constructor:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$vendorPublisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="nx">ROOTPATH</span> <span class="o">.</span> <span class="s1">&#39;vendor&#39;</span><span class="p">);</span>
+<span class="nv">$filterPublisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="s1">&#39;/path/to/module/Filters&#39;</span><span class="p">,</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Filters&#39;</span><span class="p">);</span>
+
+<span class="c1">// Once the source and destination are set you may start adding relative input files</span>
+<span class="nv">$frameworkPublisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="nx">ROOTPATH</span> <span class="o">.</span> <span class="s1">&#39;vendor/Higgs(AI)/Higgs(AI)&#39;</span><span class="p">);</span>
+
+<span class="c1">// All &quot;path&quot; commands are relative to $source</span>
+<span class="nv">$frameworkPublisher</span><span class="o">-&gt;</span><span class="na">addPath</span><span class="p">(</span><span class="s1">&#39;app/Config/Cookie.php&#39;</span><span class="p">);</span>
+
+<span class="c1">// You may also add from outside the source, but the files will not be merged into subdirectories</span>
+<span class="nv">$frameworkPublisher</span><span class="o">-&gt;</span><span class="na">addFiles</span><span class="p">([</span>
+    <span class="s1">&#39;/opt/mail/susan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;/opt/mail/ubuntu&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+<span class="nv">$frameworkPublisher</span><span class="o">-&gt;</span><span class="na">addDirectory</span><span class="p">(</span><span class="nx">SUPPORTPATH</span> <span class="o">.</span> <span class="s1">&#39;Images&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Una vez que todos los archivos estén preparados, utilice uno de los comandos de salida (<strong>copiar()</strong> o <strong>merge()</strong>) para procesar los archivos preparados.
+a su(s) destino(s):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Place all files into $destination</span>
+<span class="nv">$frameworkPublisher</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">();</span>
+
+<span class="c1">// Place all files into $destination, overwriting existing files</span>
+<span class="nv">$frameworkPublisher</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+
+<span class="c1">// Place files into their relative $destination directories, overwriting and saving the boolean result</span>
+<span class="nv">$result</span> <span class="o">=</span> <span class="nv">$frameworkPublisher</span><span class="o">-&gt;</span><span class="na">merge</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Consulte la <span class="xref std std-ref">referencia</span> para obtener una descripción completa de los métodos disponibles.</p>
+</section>
+<section id="automatizacion-y-descubrimiento">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Automatización y descubrimiento</a><a class="headerlink" href="#automatizacion-y-descubrimiento" title="Link to this heading"></a></h3>
+<p>Es posible que tenga tareas de publicación periódicas integradas como parte de la implementación o el mantenimiento de su aplicación. <code class="docutils literal notranslate"><span class="pre">Editor</span></code> aprovecha
+el poderoso <code class="docutils literal notranslate"><span class="pre">Autoloader</span></code> para localizar cualquier clase secundaria preparada para su publicación:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\CLI\CLI</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="k">foreach</span> <span class="p">(</span><span class="nx">Publisher</span><span class="o">::</span><span class="na">discover</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$publisher</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$result</span> <span class="o">=</span> <span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">publish</span><span class="p">();</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$result</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">CLI</span><span class="o">::</span><span class="na">error</span><span class="p">(</span><span class="nb">get_class</span><span class="p">(</span><span class="nv">$publisher</span><span class="p">)</span> <span class="o">.</span> <span class="s1">&#39; failed to publish!&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Por defecto <code class="docutils literal notranslate"><span class="pre">discover()</span></code> buscará el directorio «Editores» en todos los espacios de nombres, pero puedes especificar un
+directorio diferente y devolverá cualquier clase secundaria encontrada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$memePublishers</span> <span class="o">=</span> <span class="nx">Publisher</span><span class="o">::</span><span class="na">discover</span><span class="p">(</span><span class="s1">&#39;CatGIFs&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>La mayoría de las veces no necesitarás manejar tu propio descubrimiento, simplemente usa el comando «publicar» proporcionado:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">publicación de chispa php</span>
+</pre></div>
+</div>
+<p>De forma predeterminada, en su extensión de clase <code class="docutils literal notranslate"><span class="pre">publish()</span></code> agregará todos los archivos de su <code class="docutils literal notranslate"><span class="pre">$source</span></code> y los fusionará.
+hacia su destino, sobrescribiendo en caso de colisión.</p>
+</section>
+<section id="seguridad">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Seguridad</a><a class="headerlink" href="#seguridad" title="Link to this heading"></a></h3>
+<p>Para evitar que los módulos inyecten código malicioso en sus proyectos, <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> contiene un archivo de configuración
+que define qué directorios y patrones de archivos están permitidos como destinos. De forma predeterminada, los archivos sólo se pueden publicar
+a su proyecto (para evitar el acceso al resto del sistema de archivos), y la carpeta <strong>public/</strong> (<code class="docutils literal notranslate"><span class="pre">FCPATH</span></code>) solo
+recibir archivos con las siguientes extensiones:</p>
+<ul class="simple">
+<li><p>Activos web: css, scss, js, mapa</p></li>
+<li><p>Archivos web no ejecutables: htm, html, xml, json, webmanifest</p></li>
+<li><p>Fuentes: ttf, eot, woff, woff2</p></li>
+<li><p>Imágenes: gif, jpg, jpeg, tif, tiff, png, webp, bmp, ico, svg</p></li>
+</ul>
+<p>Si necesita agregar o ajustar la seguridad de su proyecto, modifique la propiedad <code class="docutils literal notranslate"><span class="pre">$restrictions</span></code> de <code class="docutils literal notranslate"><span class="pre">Config\Publisher</span></code> en <strong>app/Config/Publisher.php</strong>.</p>
+</section>
+</section>
+<section id="ejemplos">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Ejemplos</a><a class="headerlink" href="#ejemplos" title="Link to this heading"></a></h2>
+<p>A continuación se muestran algunos casos de uso de ejemplo y sus implementaciones para ayudarle a comenzar a publicar.</p>
+<section id="ejemplo-de-sincronizacion-de-archivos">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Ejemplo de sincronización de archivos</a><a class="headerlink" href="#ejemplo-de-sincronizacion-de-archivos" title="Link to this heading"></a></h3>
+<p>Quiere mostrar una imagen de «foto del día» en su página de inicio. Tienes un feed de fotos diarias pero
+Debes colocar el archivo real en una ubicación navegable de tu proyecto en <strong>public/images/daily_photo.jpg</strong>.
+Puede configurar <a class="reference internal" href="../cli/cli_commands.html"><span class="doc">Comando personalizado</span></a>  para ejecutar diariamente que se encargará de esto por usted:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Commands</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\CLI\BaseCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Throwable</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">DailyPhoto</span> <span class="k">extends</span> <span class="nx">BaseCommand</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$group</span>       <span class="o">=</span> <span class="s1">&#39;Publication&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span>        <span class="o">=</span> <span class="s1">&#39;publish:daily&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$description</span> <span class="o">=</span> <span class="s1">&#39;Publishes the latest daily photo to the homepage.&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="s1">&#39;/path/to/photos/&#39;</span><span class="p">,</span> <span class="nx">FCPATH</span> <span class="o">.</span> <span class="s1">&#39;assets/images&#39;</span><span class="p">);</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addPath</span><span class="p">(</span><span class="s1">&#39;daily_photo.jpg&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">(</span><span class="k">true</span><span class="p">);</span> <span class="c1">// `true` to enable overwrites</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Throwable</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">showError</span><span class="p">(</span><span class="nv">$e</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora, ejecutar <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">Publish:daily</span></code> mantendrá actualizada la imagen de su página de inicio. ¿Y si la foto es?
+¿Viene de una API externa? Puede utilizar <code class="docutils literal notranslate"><span class="pre">addUri()</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">addPath()</span></code> para descargar el control remoto.
+recurso y publicarlo en su lugar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addUri</span><span class="p">(</span><span class="s1">&#39;https://example.com/feeds/daily_photo.jpg&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-de-dependencias-de-activos">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Ejemplo de dependencias de activos</a><a class="headerlink" href="#ejemplo-de-dependencias-de-activos" title="Link to this heading"></a></h3>
+<p>Quiere integrar la biblioteca frontend «Bootstrap» en su proyecto, pero las frecuentes actualizaciones lo convierten en una molestia.
+Mantén el paso. Puede crear una definición de publicación en su proyecto para sincronizar los activos de la interfaz extendiendo
+<code class="docutils literal notranslate"><span class="pre">Editor</span></code> en su proyecto. Entonces <strong>app/Publishers/BootstrapPublisher.php</strong> podría verse así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Publishers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">BootstrapPublisher</span> <span class="k">extends</span> <span class="nx">Publisher</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Tell Publisher where to get the files.</span>
+<span class="sd">     * Since we will use Composer to download</span>
+<span class="sd">     * them we point to the &quot;vendor&quot; directory.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$source</span> <span class="o">=</span> <span class="nx">VENDORPATH</span> <span class="o">.</span> <span class="s1">&#39;twbs/bootstrap/&#39;</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * FCPATH is always the default destination,</span>
+<span class="sd">     * but we may want them to go in a sub-folder</span>
+<span class="sd">     * to keep things organized.</span>
+<span class="sd">     *</span>
+<span class="sd">     * @var string</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="nv">$destination</span> <span class="o">=</span> <span class="nx">FCPATH</span> <span class="o">.</span> <span class="s1">&#39;bootstrap&#39;</span><span class="p">;</span>
+
+    <span class="sd">/**</span>
+<span class="sd">     * Use the &quot;publish&quot; method to indicate that this</span>
+<span class="sd">     * class is ready to be discovered and automated.</span>
+<span class="sd">     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">publish</span><span class="p">()</span><span class="o">:</span> <span class="nx">bool</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span>
+            <span class="c1">// Add all the files relative to $source</span>
+            <span class="o">-&gt;</span><span class="na">addPath</span><span class="p">(</span><span class="s1">&#39;dist&#39;</span><span class="p">)</span>
+
+            <span class="c1">// Indicate we only want the minimized versions</span>
+            <span class="o">-&gt;</span><span class="na">retainPattern</span><span class="p">(</span><span class="s1">&#39;*.min.*&#39;</span><span class="p">)</span>
+
+            <span class="c1">// Merge-and-replace to retain the original directory structure</span>
+            <span class="o">-&gt;</span><span class="na">merge</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Directory <code class="docutils literal notranslate"><span class="pre">$destination</span></code> must be created before executing the command.</p>
+</div>
+<p>Ahora agregue la dependencia a través de Composer y llame a <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">Publish</span></code> para ejecutar la publicación:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">el compositor requiere twbs/bootstrap</span>
+<span class="go">publicación de chispa php</span>
+</pre></div>
+</div>
+<p>… and you’ll end up with something like this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="k">public</span><span class="o">/.</span><span class="nx">htaccess</span>
+<span class="k">public</span><span class="o">/</span><span class="nx">favicon</span><span class="o">.</span><span class="nx">ico</span>
+<span class="k">public</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span>
+<span class="k">public</span><span class="o">/</span><span class="nx">robots</span><span class="o">.</span><span class="nx">txt</span>
+<span class="k">public</span><span class="o">/</span>
+    <span class="nx">oreja</span><span class="o">/</span>
+        <span class="nx">css</span><span class="o">/</span>
+            <span class="nx">arranque</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span>
+            <span class="nx">bootstrap</span><span class="o">-</span><span class="nx">utilities</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span><span class="o">.</span><span class="nx">map</span>
+            <span class="nx">bootstrap</span><span class="o">-</span><span class="nx">grid</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span>
+            <span class="nx">arranque</span><span class="o">.</span><span class="nx">rtl</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span>
+            <span class="nx">bootstrap</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span><span class="o">.</span><span class="nx">map</span>
+            <span class="nx">arranque</span><span class="o">-</span><span class="nx">reinicio</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span>
+            <span class="nx">bootstrap</span><span class="o">-</span><span class="nx">utilidades</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span>
+            <span class="nx">arranque</span><span class="o">-</span><span class="nx">reinicio</span><span class="o">.</span><span class="nx">rtl</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span>
+            <span class="nx">bootstrap</span><span class="o">-</span><span class="nx">grid</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">css</span><span class="o">.</span><span class="nx">map</span>
+        <span class="nx">js</span><span class="o">/</span>
+            <span class="nx">bootstrap</span><span class="o">.</span><span class="nx">esm</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">js</span>
+            <span class="nx">bootstrap</span><span class="o">.</span><span class="nx">bundle</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">js</span><span class="o">.</span><span class="nx">map</span>
+            <span class="nx">arranque</span><span class="o">.</span><span class="nx">paquete</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">js</span>
+            <span class="nx">arranque</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">js</span>
+            <span class="nx">bootstrap</span><span class="o">.</span><span class="nx">esm</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">js</span><span class="o">.</span><span class="nx">map</span>
+            <span class="nx">bootstrap</span><span class="o">.</span><span class="nb">min</span><span class="o">.</span><span class="nx">js</span><span class="o">.</span><span class="nx">map</span>
+</pre></div>
+</div>
+</section>
+<section id="ejemplo-de-implementacion-del-modulo">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">Ejemplo de implementación del módulo</a><a class="headerlink" href="#ejemplo-de-implementacion-del-modulo" title="Link to this heading"></a></h3>
+<p>Quiere permitir a los desarrolladores que utilizan su popular módulo de autenticación la capacidad de ampliar el comportamiento predeterminado
+de su Migración, Controlador y Modelo. Puede crear su propio comando de «publicación» de módulo para inyectar estos componentes
+en una aplicación para su uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Math\Auth\Commands</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\CLI\BaseCommand</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Throwable</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">AuthPublish</span> <span class="k">extends</span> <span class="nx">BaseCommand</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$group</span>       <span class="o">=</span> <span class="s1">&#39;Auth&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span>        <span class="o">=</span> <span class="s1">&#39;auth:publish&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$description</span> <span class="o">=</span> <span class="s1">&#39;Publish Auth components into the current application.&#39;</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="k">array</span> <span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Use the Autoloader to figure out the module path</span>
+        <span class="nv">$source</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;autoloader&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getNamespace</span><span class="p">(</span><span class="s1">&#39;Math\\Auth&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+
+        <span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="nv">$source</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="p">);</span>
+
+        <span class="k">try</span> <span class="p">{</span>
+            <span class="c1">// Add only the desired components</span>
+            <span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addPaths</span><span class="p">([</span>
+                <span class="s1">&#39;Controllers&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Database/Migrations&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;Models&#39;</span><span class="p">,</span>
+            <span class="p">])</span><span class="o">-&gt;</span><span class="na">merge</span><span class="p">(</span><span class="k">false</span><span class="p">);</span> <span class="c1">// Be careful not to overwrite anything</span>
+        <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">Throwable</span> <span class="nv">$e</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">showError</span><span class="p">(</span><span class="nv">$e</span><span class="p">);</span>
+
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// If publication succeeded then update namespaces</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">getPublished</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$file</span><span class="p">)</span> <span class="p">{</span>
+            <span class="c1">// Replace the namespace</span>
+            <span class="nv">$contents</span> <span class="o">=</span> <span class="nb">file_get_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">);</span>
+            <span class="nv">$contents</span> <span class="o">=</span> <span class="nb">str_replace</span><span class="p">(</span><span class="s1">&#39;namespace Math\\Auth&#39;</span><span class="p">,</span> <span class="s1">&#39;namespace &#39;</span> <span class="o">.</span> <span class="nx">APP_NAMESPACE</span><span class="p">,</span> <span class="nv">$contents</span><span class="p">);</span>
+            <span class="nb">file_put_contents</span><span class="p">(</span><span class="nv">$file</span><span class="p">,</span> <span class="nv">$contents</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora, cuando los usuarios de su módulo ejecuten <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">auth:publish</span></code>, se les agregará lo siguiente a su proyecto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">aplicación</span><span class="o">/</span><span class="nx">Controladores</span><span class="o">/</span><span class="nx">AuthController</span><span class="o">.</span><span class="nx">php</span>
+<span class="nx">aplicación</span><span class="o">/</span><span class="nx">Base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">/</span><span class="nx">Migraciones</span><span class="o">/</span><span class="mi">2017</span><span class="o">-</span><span class="mi">11</span><span class="o">-</span><span class="mi">20</span><span class="o">-</span><span class="mi">223112</span><span class="nx">_create_auth_tables</span><span class="o">.</span><span class="nx">php</span><span class="o">.</span><span class="nx">php</span>
+<span class="nx">aplicación</span><span class="o">/</span><span class="nx">Modelos</span><span class="o">/</span><span class="nx">LoginModel</span><span class="o">.</span><span class="nx">php</span>
+<span class="nx">aplicación</span><span class="o">/</span><span class="nx">Modelos</span><span class="o">/</span><span class="nx">UserModel</span><span class="o">.</span><span class="nx">php</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="referencia-de-la-biblioteca">
+<span id="reference"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink">Referencia de la biblioteca</a><a class="headerlink" href="#referencia-de-la-biblioteca" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">Publisher</span></code> is an extension of <a class="reference internal" href="files.html"><span class="doc">FileCollection</span></a> so has access to all those methods for reading and filtering files.</p>
+</div>
+<section id="metodos-de-soporte">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Métodos de soporte</a><a class="headerlink" href="#metodos-de-soporte" title="Link to this heading"></a></h3>
+<section id="estatico-descubrir-cadena-directorio-editores-editor">
+<h4>[estático] descubrir(cadena $directorio = “Editores”): Editor[]<a class="headerlink" href="#estatico-descubrir-cadena-directorio-editores-editor" title="Link to this heading"></a></h4>
+<p>Descubre y devuelve todos los publicadores en el directorio de espacio de nombres especificado. Por ejemplo, si ambos
+<strong>app/Publishers/FrameworkPublisher.php</strong> y <strong>myModule/src/Publishers/AssetPublisher.php</strong> existen y están
+extensiones de <code class="docutils literal notranslate"><span class="pre">Publisher</span></code> entonces <code class="docutils literal notranslate"><span class="pre">Publisher::discover()</span></code> devolvería una instancia de cada una.</p>
+</section>
+<section id="publicar-booleano">
+<h4>publicar(): booleano<a class="headerlink" href="#publicar-booleano" title="Link to this heading"></a></h4>
+<p>Procesa la cadena completa de entrada-proceso-salida. Por defecto esto es el equivalente a llamar a <code class="docutils literal notranslate"><span class="pre">addPath($source)</span></code>
+y <code class="docutils literal notranslate"><span class="pre">merge(true)</span></code> pero las clases secundarias normalmente proporcionarán su propia implementación. <code class="docutils literal notranslate"><span class="pre">publicar()</span></code> se llama
+en todos los editores descubiertos cuando se ejecuta <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">Publish</span></code>.
+Devuelve éxito o fracaso.</p>
+</section>
+<section id="getscratch-cadena">
+<h4>getScratch(): cadena<a class="headerlink" href="#getscratch-cadena" title="Link to this heading"></a></h4>
+<p>Devuelve el espacio de trabajo temporal, creándolo si es necesario. Algunas operaciones utilizan almacenamiento intermedio para preparar
+archivos y cambios, y esto proporciona la ruta a un directorio transitorio en el que se puede escribir y que también puede usar.</p>
+</section>
+<section id="geterrors-matriz-string-throwable">
+<h4>getErrors(): matriz&lt;string, Throwable&gt;<a class="headerlink" href="#geterrors-matriz-string-throwable" title="Link to this heading"></a></h4>
+<p>Devuelve cualquier error de la última operación de escritura. Las claves de la matriz son los archivos que causaron el error y el
+Los valores son el Throwable que fue atrapado. Utilice <code class="docutils literal notranslate"><span class="pre">getMessage()</span></code> en Throwable para obtener el mensaje de error.</p>
+</section>
+<section id="addpath-cadena-ruta-bool-recursivo-verdadero">
+<h4>addPath(cadena $ruta, bool $recursivo = verdadero)<a class="headerlink" href="#addpath-cadena-ruta-bool-recursivo-verdadero" title="Link to this heading"></a></h4>
+<p>Agrega todos los archivos indicados por la ruta relativa. La ruta es una referencia a archivos o directorios reales relativos
+a <code class="docutils literal notranslate"><span class="pre">$fuente</span></code>. Si la ruta relativa se resuelve en un directorio, entonces <code class="docutils literal notranslate"><span class="pre">$recursivo</span></code> incluirá subdirectorios.</p>
+</section>
+<section id="addpaths-matriz-rutas-bool-recursivo-verdadero">
+<h4>addPaths(matriz $rutas, bool $recursivo = verdadero)<a class="headerlink" href="#addpaths-matriz-rutas-bool-recursivo-verdadero" title="Link to this heading"></a></h4>
+<p>Agrega todos los archivos indicados por las rutas relativas. Las rutas son referencias a archivos o directorios reales relativos
+a <code class="docutils literal notranslate"><span class="pre">$fuente</span></code>. Si la ruta relativa se resuelve en un directorio, entonces <code class="docutils literal notranslate"><span class="pre">$recursivo</span></code> incluirá subdirectorios.</p>
+</section>
+<section id="agregaruri-cadena-uri">
+<h4>agregarUri(cadena $uri)<a class="headerlink" href="#agregaruri-cadena-uri" title="Link to this heading"></a></h4>
+<p>Descarga el contenido de un URI usando <code class="docutils literal notranslate"><span class="pre">CURLRequest</span></code> en el espacio de trabajo temporal y luego agrega el resultado.
+archivo a la lista.</p>
+</section>
+<section id="agregaruris-matriz-uris">
+<h4>agregarUris(matriz $uris)<a class="headerlink" href="#agregaruris-matriz-uris" title="Link to this heading"></a></h4>
+<p>Descarga el contenido de los URI usando <code class="docutils literal notranslate"><span class="pre">CURLRequest</span></code> en el espacio de trabajo temporal y luego agrega el resultado.
+archivos a la lista.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The CURL request made is a simple <code class="docutils literal notranslate"><span class="pre">GET</span></code> and uses the response body for the file contents. Some
+Los archivos remotos pueden necesitar una solicitud personalizada para manejarse correctamente.</p>
+</div>
+</section>
+</section>
+<section id="salida-de-archivos">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Salida de archivos</a><a class="headerlink" href="#salida-de-archivos" title="Link to this heading"></a></h3>
+<section id="limpiar">
+<h4>limpiar()<a class="headerlink" href="#limpiar" title="Link to this heading"></a></h4>
+<p>Elimina todos los archivos, directorios y subdirectorios de <code class="docutils literal notranslate"><span class="pre">$destino</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Use wisely.</p>
+</div>
+</section>
+<section id="copiar-bool-reemplazar-verdadero-bool">
+<h4>copiar(bool $reemplazar = verdadero): bool<a class="headerlink" href="#copiar-bool-reemplazar-verdadero-bool" title="Link to this heading"></a></h4>
+<p>Copia todos los archivos en el <code class="docutils literal notranslate"><span class="pre">$destino</span></code>. Esto no recrea la estructura del directorio, por lo que cada archivo
+de la lista actual terminarán en el mismo directorio de destino. El uso de <code class="docutils literal notranslate"><span class="pre">$replace</span></code> hará que los archivos
+para sobrescribir cuando ya existe un archivo. Devuelve éxito o fracaso, use <code class="docutils literal notranslate"><span class="pre">getPublished()</span></code>
+y <code class="docutils literal notranslate"><span class="pre">getErrors()</span></code> para solucionar fallas.
+Tenga en cuenta las colisiones de nombres base duplicados, por ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="s1">&#39;/home/source&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/destination&#39;</span><span class="p">);</span>
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addPaths</span><span class="p">([</span>
+    <span class="s1">&#39;pencil/lead.png&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;metal/lead.png&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+
+<span class="c1">// This is bad! Only one file will remain at /home/destination/lead.png</span>
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">copy</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="fusionar-bool-reemplazar-verdadero-bool">
+<h4>fusionar(bool $reemplazar = verdadero): bool<a class="headerlink" href="#fusionar-bool-reemplazar-verdadero-bool" title="Link to this heading"></a></h4>
+<p>Copia todos los archivos en <code class="docutils literal notranslate"><span class="pre">$destino</span></code> en los subdirectorios relativos apropiados. Cualquier archivo que
+coincidentes <code class="docutils literal notranslate"><span class="pre">$source</span></code> se colocarán en sus directorios equivalentes en <code class="docutils literal notranslate"><span class="pre">$destination</span></code>, efectivamente
+creando una operación «espejo» o «rsync». El uso de <code class="docutils literal notranslate"><span class="pre">$replace</span></code> hará que los archivos
+sobrescribir cuando ya existe un archivo; dado que los directorios están fusionados, esto no
+afectar a otros archivos en el destino. Devuelve éxito o fracaso, use <code class="docutils literal notranslate"><span class="pre">getPublished()</span></code> y
+<code class="docutils literal notranslate"><span class="pre">getErrors()</span></code> para solucionar fallas.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="s1">&#39;/home/source&#39;</span><span class="p">,</span> <span class="s1">&#39;/home/destination&#39;</span><span class="p">);</span>
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addPaths</span><span class="p">([</span>
+    <span class="s1">&#39;pencil/lead.png&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;metal/lead.png&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+
+<span class="c1">// Results in &quot;/home/destination/pencil/lead.png&quot; and &quot;/home/destination/metal/lead.png&quot;</span>
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">merge</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="modificar-archivos">
+<span id="publisher-modifying-files"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink">Modificar archivos</a><a class="headerlink" href="#modificar-archivos" title="Link to this heading"></a></h3>
+<section id="reemplazar-cadena-archivo-matriz-reemplaza-bool">
+<h4>reemplazar(cadena $archivo,matriz $reemplaza): bool<a class="headerlink" href="#reemplazar-cadena-archivo-matriz-reemplaza-bool" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Reemplaza el contenido del <code class="docutils literal notranslate"><span class="pre">$file</span></code>. El segundo parámetro de la matriz <code class="docutils literal notranslate"><span class="pre">$replaces</span></code> especifica las cadenas de búsqueda como claves y los reemplazos como valores.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$source</span>    <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;autoloader&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getNamespace</span><span class="p">(</span><span class="s1">&#39;Higgs\\Shield&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="nv">$source</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="p">);</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config/Auth.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">replace</span><span class="p">(</span>
+    <span class="nv">$file</span><span class="p">,</span>
+    <span class="p">[</span>
+        <span class="s1">&#39;use Higgs\Config\BaseConfig;&#39;</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;class App extends BaseConfig&#39;</span>              <span class="o">=&gt;</span> <span class="s1">&#39;class App extends \Some\Package\SomeConfig&#39;</span><span class="p">,</span>
+    <span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="addlineafter-cadena-archivo-cadena-linea-cadena-despues-bool">
+<h4>addLineAfter(cadena $archivo, cadena $línea, cadena $después): bool<a class="headerlink" href="#addlineafter-cadena-archivo-cadena-linea-cadena-despues-bool" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Agrega <code class="docutils literal notranslate"><span class="pre">$line</span></code> después de una línea con una cadena específica <code class="docutils literal notranslate"><span class="pre">$after</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$source</span>    <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;autoloader&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getNamespace</span><span class="p">(</span><span class="s1">&#39;Higgs\\Shield&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="nv">$source</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="p">);</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config/App.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addLineAfter</span><span class="p">(</span>
+    <span class="nv">$file</span><span class="p">,</span>
+    <span class="s1">&#39;    public int $myOwnConfig = 1000;&#39;</span><span class="p">,</span> <span class="c1">// Adds this line</span>
+    <span class="s1">&#39;public bool $CSPEnabled = false;&#39;</span>     <span class="c1">// After this line</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="addlinebefore-cadena-archivo-cadena-linea-cadena-despues-bool">
+<h4>addLineBefore(cadena $archivo, cadena $línea, cadena $después): bool<a class="headerlink" href="#addlinebefore-cadena-archivo-cadena-linea-cadena-despues-bool" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Agrega <code class="docutils literal notranslate"><span class="pre">$line</span></code> antes de una línea con una cadena específica <code class="docutils literal notranslate"><span class="pre">$after</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Publisher\Publisher</span><span class="p">;</span>
+
+<span class="nv">$source</span>    <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;autoloader&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getNamespace</span><span class="p">(</span><span class="s1">&#39;Higgs\\Shield&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span>
+<span class="nv">$publisher</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Publisher</span><span class="p">(</span><span class="nv">$source</span><span class="p">,</span> <span class="nx">APPPATH</span><span class="p">);</span>
+
+<span class="nv">$file</span> <span class="o">=</span> <span class="nx">APPPATH</span> <span class="o">.</span> <span class="s1">&#39;Config/App.php&#39;</span><span class="p">;</span>
+
+<span class="nv">$publisher</span><span class="o">-&gt;</span><span class="na">addLineBefore</span><span class="p">(</span>
+    <span class="nv">$file</span><span class="p">,</span>
+    <span class="s1">&#39;    public int $myOwnConfig = 1000;&#39;</span><span class="p">,</span> <span class="c1">// Add this line</span>
+    <span class="s1">&#39;public bool $CSPEnabled = false;&#39;</span>     <span class="c1">// Before this line</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="pagination.html" class="btn btn-neutral float-left" title="Paginación" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="security.html" class="btn btn-neutral float-right" title="Seguridad" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clase de solicitud CURL &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/curlrequest.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Clase de correo electrónico" href="email.html" />
+    <link rel="prev" title="Galletas" href="cookies.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Clase de solicitud CURL</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="clase-de-solicitud-curl">
+<h1>Clase de solicitud CURL<a class="headerlink" href="#clase-de-solicitud-curl" title="Link to this heading"></a></h1>
+<p>La clase <code class="docutils literal notranslate"><span class="pre">CURLRequest</span></code> es un cliente HTTP ligero basado en CURL que le permite hablar con otros
+sitios web y servidores. Se puede utilizar para obtener el contenido de una búsqueda de Google, recuperar una página web o una imagen,
+o comunicarse con una API, entre muchas otras cosas.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#configuracion-para-curlrequest" id="id1">Configuración para CURLRequest</a></p>
+<ul>
+<li><p><a class="reference internal" href="#opciones-para-compartir" id="id2">Opciones para compartir</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cargando-la-biblioteca" id="id3">Cargando la biblioteca</a></p></li>
+<li><p><a class="reference internal" href="#trabajando-con-la-biblioteca" id="id4">Trabajando con la biblioteca</a></p>
+<ul>
+<li><p><a class="reference internal" href="#haciendo-peticiones" id="id5">Haciendo peticiones</a></p></li>
+<li><p><a class="reference internal" href="#usando-respuestas" id="id6">Usando respuestas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#opciones-de-solicitud" id="id7">Opciones de solicitud</a></p>
+<ul>
+<li><p><a class="reference internal" href="#permitir-redirecciones" id="id8">permitir_redirecciones</a></p></li>
+<li><p><a class="reference internal" href="#autenticacion" id="id9">autenticación</a></p></li>
+<li><p><a class="reference internal" href="#cuerpo" id="id10">cuerpo</a></p></li>
+<li><p><a class="reference internal" href="#certificado" id="id11">certificado</a></p></li>
+<li><p><a class="reference internal" href="#tiempo-de-espera-de-conexion" id="id12">tiempo de espera de conexión</a></p></li>
+<li><p><a class="reference internal" href="#galleta" id="id13">Galleta</a></p></li>
+<li><p><a class="reference internal" href="#depurar" id="id14">depurar</a></p></li>
+<li><p><a class="reference internal" href="#demora" id="id15">demora</a></p></li>
+<li><p><a class="reference internal" href="#parametros-formulario" id="id16">parámetros_formulario</a></p></li>
+<li><p><a class="reference internal" href="#encabezados" id="id17">encabezados</a></p></li>
+<li><p><a class="reference internal" href="#http-errores" id="id18">http_errores</a></p></li>
+<li><p><a class="reference internal" href="#json" id="id19">json</a></p></li>
+<li><p><a class="reference internal" href="#multiparte" id="id20">multiparte</a></p></li>
+<li><p><a class="reference internal" href="#apoderado" id="id21">apoderado</a></p></li>
+<li><p><a class="reference internal" href="#consulta" id="id22">consulta</a></p></li>
+<li><p><a class="reference internal" href="#se-acabo-el-tiempo" id="id23">se acabó el tiempo</a></p></li>
+<li><p><a class="reference internal" href="#agente-de-usuario" id="id24">agente de usuario</a></p></li>
+<li><p><a class="reference internal" href="#verificar" id="id25">verificar</a></p></li>
+<li><p><a class="reference internal" href="#version" id="id26">versión</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Esta clase sigue el modelo del <cite>Cliente HTTP Guzzle&lt;http://docs.guzzlephp.org/en/latest/&gt;</cite> _ biblioteca desde
+Es una de las bibliotecas más utilizadas. Siempre que sea posible, la sintaxis se ha mantenido igual para que, si
+su aplicación necesita algo un poco más potente que lo que proporciona esta biblioteca, tendrá
+cambiar muy poco para pasar a usar Guzzle.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This class requires the <a class="reference external" href="https://www.php.net/manual/en/book.curl.php">cURL Library</a> to be installed
+en su versión de PHP. Esta es una biblioteca muy común que normalmente está disponible, pero no en todos los hosts.
+lo proporcionará, así que consulte con su proveedor de alojamiento para verificar si tiene problemas.</p>
+</div>
+<section id="configuracion-para-curlrequest">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Configuración para CURLRequest</a><a class="headerlink" href="#configuracion-para-curlrequest" title="Link to this heading"></a></h2>
+<section id="opciones-para-compartir">
+<span id="curlrequest-sharing-options"></span><h3><a class="toc-backref" href="#id2" role="doc-backlink">Opciones para compartir</a><a class="headerlink" href="#opciones-para-compartir" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This setting exists only for backward compatibility. Do not use it
+en nuevos proyectos. Incluso si ya lo estás usando, te recomendamos que lo desactives.
+él.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.4.0, the default value has been changed to <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</div>
+<p>Si desea compartir todas las opciones entre solicitudes, configure <code class="docutils literal notranslate"><span class="pre">$shareOptions</span></code> en
+<code class="docutils literal notranslate"><span class="pre">true</span></code> en <strong>app/Config/CURLRequest.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">CURLRequest</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+    <span class="k">public</span> <span class="nx">bool</span> <span class="nv">$shareOptions</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si envía más de una solicitud con una instancia de la clase, este comportamiento
+puede causar una solicitud de error con encabezados y cuerpo innecesarios.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Before v7.2.0, the request body is not reset even if <code class="docutils literal notranslate"><span class="pre">$shareOptions</span></code> is false due to a bug.</p>
+</div>
+</section>
+</section>
+<section id="cargando-la-biblioteca">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Cargando la biblioteca</a><a class="headerlink" href="#cargando-la-biblioteca" title="Link to this heading"></a></h2>
+<p>La biblioteca se puede cargar manualmente o mediante la clase <a class="reference internal" href="../concepts/services.html"><span class="doc">Services</span></a> .</p>
+<p>Para cargar con la clase Servicios llame al método <code class="docutils literal notranslate"><span class="pre">curlrequest()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Puede pasar una serie de opciones predeterminadas como primer parámetro para modificar cómo cURL manejará la solicitud.
+Las opciones se describen más adelante en este documento:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$options</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;baseURI&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://example.com/api/v1/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">$shareOptions</span></code> is false, the default options passed to the class constructor will be used for all requests. Other options will be reset after sending a request.</p>
+</div>
+<p>Al crear la clase manualmente, debe pasar algunas dependencias. El primer parámetro es un
+instancia de la clase <code class="docutils literal notranslate"><span class="pre">Config\App</span></code>. El segundo parámetro es una instancia de URI. El tercero
+El parámetro es un objeto de respuesta. El cuarto parámetro es la matriz opcional <code class="docutils literal notranslate"><span class="pre">$options</span></code> predeterminada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\CURLRequest</span><span class="p">(</span>
+    <span class="k">new</span> <span class="nx">\Config\App</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(),</span>
+    <span class="k">new</span> <span class="nx">\Higgs\HTTP\Response</span><span class="p">(</span><span class="k">new</span> <span class="nx">\Config\App</span><span class="p">()),</span>
+    <span class="nv">$options</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="trabajando-con-la-biblioteca">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Trabajando con la biblioteca</a><a class="headerlink" href="#trabajando-con-la-biblioteca" title="Link to this heading"></a></h2>
+<p>Trabajar con solicitudes CURL es simplemente una cuestión de crear la Solicitud y obtener una
+<a class="reference internal" href="../outgoing/response.html"><span class="doc">Objeto de respuesta</span></a>  atrás. Está destinado a manejar las comunicaciones. Después
+usted tiene control total sobre cómo se maneja la información.</p>
+<section id="haciendo-peticiones">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Haciendo peticiones</a><a class="headerlink" href="#haciendo-peticiones" title="Link to this heading"></a></h3>
+<p>La mayor parte de la comunicación se realiza a través del método <code class="docutils literal notranslate"><span class="pre">request()</span></code>, que activa la solicitud y luego devuelve
+una instancia de respuesta para usted. Esto toma el método HTTP, la URL y una serie de opciones como parámetros.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">();</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;https://api.github.com/user&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;auth&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;pass&#39;</span><span class="p">],</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>By default, CURLRequest will throw <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code> if the HTTP
+El código devuelto es mayor o igual a 400. Si desea obtener la respuesta,
+consulte la opción <a href="#id27"><span class="problematic" id="id28">`http_errors`_</span></a>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">$shareOptions</span></code> is false, the options passed to the method will be used for the request. After sending the request, they will be cleared. If you want to use the options to all requests, pass the options in the constructor.</p>
+</div>
+<p>Dado que la respuesta es una instancia de <code class="docutils literal notranslate"><span class="pre">Higgs\HTTP\Response</span></code>, tienes toda la información normal.
+disponible para ti:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">);</span>
+<span class="nv">$language</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">negotiateLanguage</span><span class="p">([</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;fr&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Si bien el método <code class="docutils literal notranslate"><span class="pre">request()</span></code> es el más flexible, también puedes utilizar los siguientes métodos abreviados. Ellos
+cada uno toma la URL como primer parámetro y una serie de opciones como segundo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">head</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">options</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">patch</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">put</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<section id="uri-base">
+<h4>URI base<a class="headerlink" href="#uri-base" title="Link to this heading"></a></h4>
+<p>Se puede establecer un <code class="docutils literal notranslate"><span class="pre">baseURI</span></code> como una de las opciones durante la creación de instancias de la clase. Esto le permite
+establezca un URI base y luego realice todas las solicitudes con ese cliente utilizando URL relativas. Esto es especialmente útil
+cuando se trabaja con API:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">curlrequest</span><span class="p">([</span>
+    <span class="s1">&#39;baseURI&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;https://example.com/api/v1/&#39;</span><span class="p">,</span>
+<span class="p">]);</span>
+
+<span class="c1">// GET http:example.com/api/v1/photos</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;photos&#39;</span><span class="p">);</span>
+
+<span class="c1">// GET http:example.com/api/v1/photos/13</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;photos/13&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Cuando se proporciona un URI relativo al método <code class="docutils literal notranslate"><span class="pre">request()</span></code> o cualquiera de los métodos abreviados, se combinará
+con el baseURI de acuerdo con las reglas descritas por
+<cite>RFC 2986, sección 2&lt;https://tools.ietf.org/html/rfc3986#section-5.2&gt;</cite> _. Para ahorrarte algo de tiempo, aquí tienes algunos
+Ejemplos de cómo se resuelven las combinaciones.</p>
+<blockquote>
+<div></div></blockquote>
+</section>
+</section>
+<section id="usando-respuestas">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Usando respuestas</a><a class="headerlink" href="#usando-respuestas" title="Link to this heading"></a></h3>
+<p>Cada llamada <code class="docutils literal notranslate"><span class="pre">request()</span></code> devuelve un objeto Respuesta que contiene mucha información útil y algunos datos útiles.
+métodos. Los métodos más utilizados le permiten determinar la respuesta en sí.</p>
+<p>Puede obtener el código de estado y la frase de motivo de la respuesta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$code</span>   <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span> <span class="c1">// 200</span>
+<span class="nv">$reason</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getReason</span><span class="p">();</span> <span class="c1">// OK</span>
+</pre></div>
+</div>
+<p>Puede recuperar encabezados de la respuesta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Get a header line</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">);</span>
+
+<span class="c1">// Get all headers</span>
+<span class="k">foreach</span> <span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">headers</span><span class="p">()</span> <span class="k">as</span> <span class="nv">$name</span> <span class="o">=&gt;</span> <span class="nv">$value</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$name</span> <span class="o">.</span> <span class="s1">&#39;: &#39;</span> <span class="o">.</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getHeaderLine</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span> <span class="o">.</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El cuerpo se puede recuperar usando el método <code class="docutils literal notranslate"><span class="pre">getBody()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$body</span> <span class="o">=</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>El cuerpo es el cuerpo sin formato proporcionado por el servidor remoto. Si el tipo de contenido requiere formato, necesitará
+para asegurarse de que su secuencia de comandos maneje eso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nb">strpos</span><span class="p">(</span><span class="nv">$response</span><span class="o">-&gt;</span><span class="na">header</span><span class="p">(</span><span class="s1">&#39;content-type&#39;</span><span class="p">),</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span> <span class="o">!==</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nv">$body</span> <span class="o">=</span> <span class="nb">json_decode</span><span class="p">(</span><span class="nv">$body</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="opciones-de-solicitud">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Opciones de solicitud</a><a class="headerlink" href="#opciones-de-solicitud" title="Link to this heading"></a></h2>
+<p>Esta sección describe todas las opciones disponibles que puede pasar al constructor, el método <code class="docutils literal notranslate"><span class="pre">request()</span></code>,
+o cualquiera de los métodos abreviados.</p>
+<section id="permitir-redirecciones">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">permitir_redirecciones</a><a class="headerlink" href="#permitir-redirecciones" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, cURL seguirá todos los encabezados «Ubicación:» que los servidores remotos envían. La opción <code class="docutils literal notranslate"><span class="pre">allow_redirects</span></code>
+le permite modificar cómo funciona.</p>
+<p>Si establece el valor en <code class="docutils literal notranslate"><span class="pre">false</span></code>, no seguirá ninguna redirección:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;allow_redirects&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Establecerlo en «verdadero» aplicará la configuración predeterminada a la solicitud:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;allow_redirects&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>
+<span class="cm">/*</span>
+<span class="cm"> * Sets the following defaults:</span>
+<span class="cm"> * &#39;max&#39;       =&gt; 5, // Maximum number of redirects to follow before stopping</span>
+<span class="cm"> * &#39;strict&#39;    =&gt; true, // Ensure POST requests stay POST requests through redirects</span>
+<span class="cm"> * &#39;protocols&#39; =&gt; [&#39;http&#39;, &#39;https&#39;] // Restrict redirects to one or more protocols</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+<p>Puede pasar una matriz como valor de la opción <code class="docutils literal notranslate"><span class="pre">allow_redirects</span></code> para especificar nuevas configuraciones en lugar de las predeterminadas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;allow_redirects&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+    <span class="s1">&#39;max&#39;</span>       <span class="o">=&gt;</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;protocols&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;https&#39;</span><span class="p">],</span> <span class="c1">// Force HTTPS domains only.</span>
+<span class="p">]]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Following redirects does not work when PHP is in safe_mode or open_basedir is enabled.</p>
+</div>
+</section>
+<section id="autenticacion">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">autenticación</a><a class="headerlink" href="#autenticacion" title="Link to this heading"></a></h3>
+<p>Le permite proporcionar detalles de autenticación para <cite>HTTP Básico&lt;https://www.ietf.org/rfc/rfc2069.txt&gt;</cite> _ y
+<cite>Resumen&lt;https://www.ietf.org/rfc/rfc2069.txt&gt;</cite> _ y autenticación. Es posible que su script tenga que hacer más para soportar
+Autenticación implícita: esto simplemente le pasa el nombre de usuario y la contraseña. El valor debe ser un
+Matriz donde el primer elemento es el nombre de usuario y el segundo es la contraseña. El tercer parámetro debe ser
+el tipo de autenticación a utilizar, ya sea <code class="docutils literal notranslate"><span class="pre">básica</span></code> o <code class="docutils literal notranslate"><span class="pre">digest</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;auth&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">,</span> <span class="s1">&#39;digest&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</section>
+<section id="cuerpo">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">cuerpo</a><a class="headerlink" href="#cuerpo" title="Link to this heading"></a></h3>
+<p>Hay dos formas de configurar el cuerpo de la solicitud para los tipos de solicitud que los admitan, como PUT o POST.
+La primera forma es utilizar el método <code class="docutils literal notranslate"><span class="pre">setBody()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">setBody</span><span class="p">(</span><span class="nv">$body</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El segundo método consiste en pasar una opción <code class="docutils literal notranslate"><span class="pre">body</span></code>. Esto se proporciona para mantener la compatibilidad con la API de Guzzle.
+y funciona exactamente de la misma manera que el ejemplo anterior. El valor debe ser una cadena:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;put&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;body&#39;</span> <span class="o">=&gt;</span> <span class="nv">$body</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="certificado">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">certificado</a><a class="headerlink" href="#certificado" title="Link to this heading"></a></h3>
+<p>Para especificar la ubicación de un certificado del lado del cliente con formato PEM, pase una cadena con la ruta completa al
+archivo como la opción <code class="docutils literal notranslate"><span class="pre">cert</span></code>. Si se requiere una contraseña, establezca el valor en una matriz con el primer elemento
+como ruta al certificado y el segundo como contraseña:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cert&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;/path/server.pem&#39;</span><span class="p">,</span> <span class="s1">&#39;password&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</section>
+<section id="tiempo-de-espera-de-conexion">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">tiempo de espera de conexión</a><a class="headerlink" href="#tiempo-de-espera-de-conexion" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, Higgs no impone un límite para que cURL intente conectarse a un sitio web. Si lo necesitas
+modificar este valor, puedes hacerlo pasando la cantidad de tiempo en segundos con la opción <code class="docutils literal notranslate"><span class="pre">connect_timeout</span></code>.
+Puedes pasar 0 para esperar indefinidamente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;connect_timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="galleta">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Galleta</a><a class="headerlink" href="#galleta" title="Link to this heading"></a></h3>
+<p>Esto especifica el nombre de archivo que CURL debe usar para leer los valores de las cookies y
+para guardar los valores de las cookies. Esto se hace usando las opciones <code class="docutils literal notranslate"><span class="pre">CURL_COOKIEJAR</span></code> y <code class="docutils literal notranslate"><span class="pre">CURL_COOKIEFILE</span></code>.
+Un ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;cookie&#39;</span> <span class="o">=&gt;</span> <span class="nx">WRITEPATH</span> <span class="o">.</span> <span class="s1">&#39;CookieSaver.txt&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="depurar">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">depurar</a><a class="headerlink" href="#depurar" title="Link to this heading"></a></h3>
+<p>Cuando se pasa <code class="docutils literal notranslate"><span class="pre">debug</span></code> y se establece en <code class="docutils literal notranslate"><span class="pre">true</span></code>, esto permitirá que la depuración adicional se haga eco en STDERR durante el
+ejecución del script.</p>
+<p>Esto se hace pasando <code class="docutils literal notranslate"><span class="pre">CURLOPT_VERBOSE</span></code> y haciendo eco de la salida. Entonces, cuando estás ejecutando un integrado
+server a través de <code class="docutils literal notranslate"><span class="pre">sparkserve</span></code>, verá el resultado en la consola. De lo contrario, la salida se escribirá en
+el registro de errores del servidor.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Puede pasar un nombre de archivo como valor de depuración para que el resultado se escriba en un archivo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;debug&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/usr/local/curl_log.txt&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="demora">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">demora</a><a class="headerlink" href="#demora" title="Link to this heading"></a></h3>
+<p>Le permite pausar una cantidad de milisegundos antes de enviar la solicitud:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Delay for 2 seconds</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;delay&#39;</span> <span class="o">=&gt;</span> <span class="mi">2000</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="parametros-formulario">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">parámetros_formulario</a><a class="headerlink" href="#parametros-formulario" title="Link to this heading"></a></h3>
+<p>Puede enviar datos de formulario en una solicitud POST application/x-www-form-urlencoded pasando una matriz asociativa en
+la opción <code class="docutils literal notranslate"><span class="pre">form_params</span></code>. Esto establecerá el encabezado <code class="docutils literal notranslate"><span class="pre">Content-Type</span></code> en <code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code>
+si aún no está configurado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;POST&#39;</span><span class="p">,</span> <span class="s1">&#39;/post&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;form_params&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;baz&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;hi&#39;</span><span class="p">,</span> <span class="s1">&#39;there&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">form_params</span></code> cannot be used with the <code class="docutils literal notranslate"><span class="pre">multipart</span></code> option. You will need to use one or the other.
+Utilice <code class="docutils literal notranslate"><span class="pre">form_params</span></code> para la solicitud <code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code> y <code class="docutils literal notranslate"><span class="pre">multipart</span></code> para <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code>
+peticiones.</p>
+</div>
+</section>
+<section id="encabezados">
+<span id="curlrequest-request-options-headers"></span><h3><a class="toc-backref" href="#id17" role="doc-backlink">encabezados</a><a class="headerlink" href="#encabezados" title="Link to this heading"></a></h3>
+<p>Si bien puedes configurar cualquier encabezado que esta solicitud necesite usando el método <code class="docutils literal notranslate"><span class="pre">setHeader()</span></code>, también puedes pasar un encabezado asociativo.
+conjunto de encabezados como opción. Cada clave es el nombre de un encabezado y cada valor es una cadena o una matriz de cadenas.
+que representa los valores del campo del encabezado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;headers&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;User-Agent&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;testing/1.0&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Accept&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;X-Foo&#39;</span>      <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;Bar&#39;</span><span class="p">,</span> <span class="s1">&#39;Baz&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">]);</span>
+</pre></div>
+</div>
+<p>Si los encabezados se pasan al constructor, se tratan como valores predeterminados que serán anulados más adelante por cualquier
+más matrices de encabezados o llamadas a <code class="docutils literal notranslate"><span class="pre">setHeader()</span></code>.</p>
+</section>
+<section id="http-errores">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">http_errores</a><a class="headerlink" href="#http-errores" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, CURLRequest generará <code class="docutils literal notranslate"><span class="pre">HTTPException</span></code> si el código HTTP devuelto es
+mayor o igual a 400.</p>
+<p>Si desea ver el cuerpo de la respuesta, puede configurar <code class="docutils literal notranslate"><span class="pre">http_errors</span></code> en <code class="docutils literal notranslate"><span class="pre">false</span></code> para
+devolver el contenido en su lugar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/status/500&#39;</span><span class="p">);</span>
+<span class="c1">// If the response code is 500, an HTTPException is thrown,</span>
+<span class="c1">// and a detailed error report is displayed if in development mode.</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/status/500&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;http_errors&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getStatusCode</span><span class="p">();</span> <span class="c1">// 500</span>
+<span class="k">echo</span> <span class="nv">$response</span><span class="o">-&gt;</span><span class="na">getBody</span><span class="p">();</span>       <span class="c1">// You can see the response body.</span>
+</pre></div>
+</div>
+</section>
+<section id="json">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">json</a><a class="headerlink" href="#json" title="Link to this heading"></a></h3>
+<p>La opción <code class="docutils literal notranslate"><span class="pre">json</span></code> se utiliza para cargar fácilmente datos codificados en JSON como el cuerpo de una solicitud. Un encabezado de tipo de contenido
+de <code class="docutils literal notranslate"><span class="pre">application/json</span></code> se agrega, sobrescribiendo cualquier tipo de contenido que ya esté configurado. Los datos proporcionados a
+esta opción puede ser cualquier valor que acepte <code class="docutils literal notranslate"><span class="pre">json_encode()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$response</span> <span class="o">=</span> <span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;PUT&#39;</span><span class="p">,</span> <span class="s1">&#39;/put&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;json&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This option does not allow for any customization of the <code class="docutils literal notranslate"><span class="pre">json_encode()</span></code> function, or the Content-Type
+encabezamiento. Si necesita esa capacidad, necesitará codificar los datos manualmente, pasándolos a través de <code class="docutils literal notranslate"><span class="pre">setBody()</span></code>.
+método de CURLRequest y establezca el encabezado Content-Type con el método <code class="docutils literal notranslate"><span class="pre">setHeader()</span></code>.</p>
+</div>
+</section>
+<section id="multiparte">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">multiparte</a><a class="headerlink" href="#multiparte" title="Link to this heading"></a></h3>
+<p>Cuando necesite enviar archivos y otros datos a través de una solicitud POST, puede usar la opción <code class="docutils literal notranslate"><span class="pre">multipart</span></code>, junto con
+la clase <cite>CURLFile&lt;https://www.php.net/manual/en/class.curlfile.php&gt;</cite> _. Los valores deben ser una matriz asociativa.
+de datos POST para enviar. Para un uso más seguro, el método heredado de cargar archivos anteponiendo su nombre con una <cite>&#64;</cite>
+ha sido deshabilitado. Todos los archivos que desee enviar deben pasarse como instancias de CURLFile:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$post_data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;foo&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;userfile&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">\CURLFile</span><span class="p">(</span><span class="s1">&#39;/path/to/file.txt&#39;</span><span class="p">),</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">multipart</span></code> cannot be used with the <code class="docutils literal notranslate"><span class="pre">form_params</span></code> option. You can only use one or the other. Use
+<code class="docutils literal notranslate"><span class="pre">form_params</span></code> para solicitudes <code class="docutils literal notranslate"><span class="pre">application/x-www-form-urlencoded</span></code> y <code class="docutils literal notranslate"><span class="pre">multipart</span></code> para <code class="docutils literal notranslate"><span class="pre">multipart/form-data</span></code>
+peticiones.</p>
+</div>
+</section>
+<section id="apoderado">
+<span id="curlrequest-request-options-proxy"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">apoderado</a><a class="headerlink" href="#apoderado" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Puedes configurar un proxy pasando una matriz asociativa como la opción <code class="docutils literal notranslate"><span class="pre">proxy</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span>
+    <span class="s1">&#39;GET&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;proxy&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;http://localhost:3128&#39;</span><span class="p">]</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="consulta">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">consulta</a><a class="headerlink" href="#consulta" title="Link to this heading"></a></h3>
+<p>Puede pasar datos para enviarlos como variables de cadena de consulta pasando una matriz asociativa como la opción <code class="docutils literal notranslate"><span class="pre">consulta</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Send a GET request to /get?foo=bar</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/get&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;query&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</section>
+<section id="se-acabo-el-tiempo">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">se acabó el tiempo</a><a class="headerlink" href="#se-acabo-el-tiempo" title="Link to this heading"></a></h3>
+<p>De forma predeterminada, las funciones cURL pueden ejecutarse todo el tiempo que sea necesario, sin límite de tiempo. Puedes modificar esto con el <code class="docutils literal notranslate"><span class="pre">timeout</span></code>
+opción. El valor debe ser la cantidad de segundos durante los cuales desea que se ejecuten las funciones. Utilice 0 para esperar indefinidamente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;timeout&#39;</span> <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="agente-de-usuario">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">agente de usuario</a><a class="headerlink" href="#agente-de-usuario" title="Link to this heading"></a></h3>
+<p>Permite especificar el Agente de Usuario para solicitudes:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;http://example.com&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;user_agent&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Higgs Framework v4&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="verificar">
+<h3><a class="toc-backref" href="#id25" role="doc-backlink">verificar</a><a class="headerlink" href="#verificar" title="Link to this heading"></a></h3>
+<p>Esta opción describe el comportamiento de verificación del certificado SSL. Si la opción <code class="docutils literal notranslate"><span class="pre">verificar</span></code> es <code class="docutils literal notranslate"><span class="pre">verdadera</span></code>, habilita la
+Verificación del certificado SSL y utiliza el paquete de CA predeterminado proporcionado por el sistema operativo. Si se establece en «falso»
+deshabilitará la verificación del certificado (¡esto es inseguro y permite ataques de intermediario!). Puedes configurarlo
+a una cadena que contiene la ruta a un paquete de CA para habilitar la verificación con un certificado personalizado. El valor predeterminado
+es verdad:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Use the system&#39;s CA bundle (this is the default setting)</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;verify&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">]);</span>
+
+<span class="c1">// Use a custom SSL certificate on disk.</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;verify&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;/path/to/cert.pem&#39;</span><span class="p">]);</span>
+
+<span class="c1">// Disable validation entirely. (Insecure!)</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;verify&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+<section id="version">
+<span id="curlrequest-version"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink">versión</a><a class="headerlink" href="#version" title="Link to this heading"></a></h3>
+<p>Para configurar el protocolo HTTP a utilizar, puede pasar una cadena o flotante con el número de versión (normalmente <code class="docutils literal notranslate"><span class="pre">1.0</span></code>
+o <code class="docutils literal notranslate"><span class="pre">1.1</span></code>, <code class="docutils literal notranslate"><span class="pre">2.0</span></code> es compatible desde v7.3.0.):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Force HTTP/1.0</span>
+<span class="nv">$client</span><span class="o">-&gt;</span><span class="na">request</span><span class="p">(</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;version&#39;</span> <span class="o">=&gt;</span> <span class="mf">1.0</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="cookies.html" class="btn btn-neutral float-left" title="Galletas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="email.html" class="btn btn-neutral float-right" title="Clase de correo electrónico" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

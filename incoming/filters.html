@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Filtros del controlador &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/incoming/filters.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Mensajes HTTP" href="message.html" />
+    <link rel="prev" title="Controladores" href="controllers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controladores</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+      <li class="breadcrumb-item active">Filtros del controlador</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="filtros-del-controlador">
+<h1>Filtros del controlador<a class="headerlink" href="#filtros-del-controlador" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#creando-un-filtro" id="id1">Creando un filtro</a></p>
+<ul>
+<li><p><a class="reference internal" href="#antes-de-los-filtros" id="id2">Antes de los filtros</a></p></li>
+<li><p><a class="reference internal" href="#despues-de-los-filtros" id="id3">Después de los filtros</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#configurar-filtros" id="id4">Configurar filtros</a></p>
+<ul>
+<li><p><a class="reference internal" href="#alias" id="id5">$alias</a></p></li>
+<li><p><a class="reference internal" href="#globales" id="id6">$globales</a></p></li>
+<li><p><a class="reference internal" href="#metodos" id="id7">$métodos</a></p></li>
+<li><p><a class="reference internal" href="#filtros" id="id8">$filtros</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#confirmacion-de-filtros" id="id9">Confirmación de filtros</a></p>
+<ul>
+<li><p><a class="reference internal" href="#filtro-comprobar" id="id10">filtro: comprobar</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#filtros-proporcionados" id="id11">Filtros proporcionados</a></p>
+<ul>
+<li><p><a class="reference internal" href="#caracteres-no-validos" id="id12">caracteres no válidos</a></p></li>
+<li><p><a class="reference internal" href="#encabezados-seguros" id="id13">Encabezados seguros</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>Los filtros de controlador le permiten realizar acciones antes o después de que se ejecuten los controladores. A diferencia de <a class="reference internal" href="../extending/events.html"><span class="doc">eventos</span></a>,
+puede elegir los URI o rutas específicas a las que se aplicarán los filtros. Antes de que los filtros puedan
+modificar la Solicitud, mientras que los filtros posteriores pueden actuar e incluso modificar la Respuesta, lo que permite mucha flexibilidad
+y poder.</p>
+<p>Algunos ejemplos comunes de tareas que se pueden realizar con filtros son:</p>
+<ul class="simple">
+<li><p>Realizar protección CSRF en las solicitudes entrantes</p></li>
+<li><p>Restringir áreas de su sitio según su función</p></li>
+<li><p>Realizar limitación de velocidad en ciertos puntos finales</p></li>
+<li><p>Mostrar una página «Inactivo por mantenimiento»</p></li>
+<li><p>Realizar negociación automática de contenidos.</p></li>
+<li><p>y más…</p></li>
+</ul>
+<section id="creando-un-filtro">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Creando un filtro</a><a class="headerlink" href="#creando-un-filtro" title="Link to this heading"></a></h2>
+<p>Los filtros son clases simples que implementan <code class="docutils literal notranslate"><span class="pre">Higgs\Filters\FilterInterface</span></code>.
+Contienen dos métodos: <code class="docutils literal notranslate"><span class="pre">before()</span></code> y <code class="docutils literal notranslate"><span class="pre">after()</span></code> que contienen el código que
+se ejecutará antes y después del controlador respectivamente. Tu clase debe contener ambos métodos.
+pero puede dejar los métodos vacíos si no son necesarios. Una clase de filtro de esqueleto se ve así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Filters</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Filters\FilterInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\HTTP\RequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\HTTP\ResponseInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyFilter</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">before</span><span class="p">(</span><span class="nx">RequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$arguments</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Do something here</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">after</span><span class="p">(</span><span class="nx">RequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="nx">ResponseInterface</span> <span class="nv">$response</span><span class="p">,</span> <span class="nv">$arguments</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Do something here</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="antes-de-los-filtros">
+<h3><a class="toc-backref" href="#id2" role="doc-backlink">Antes de los filtros</a><a class="headerlink" href="#antes-de-los-filtros" title="Link to this heading"></a></h3>
+<section id="reemplazo-de-solicitud">
+<h4>Reemplazo de solicitud<a class="headerlink" href="#reemplazo-de-solicitud" title="Link to this heading"></a></h4>
+<p>Desde cualquier filtro, puede devolver el objeto <code class="docutils literal notranslate"><span class="pre">$request</span></code> y reemplazará la Solicitud actual, permitiéndole
+para realizar cambios que seguirán presentes cuando se ejecute el controlador.</p>
+</section>
+<section id="detener-filtros-posteriores">
+<h4>Detener filtros posteriores<a class="headerlink" href="#detener-filtros-posteriores" title="Link to this heading"></a></h4>
+<p>Además, cuando tengas una serie de filtros es posible que también quieras
+detener la ejecución de los filtros posteriores después de un determinado filtro. Puedes hacer esto fácilmente regresando
+<strong>cualquier resultado que no esté vacío</strong>. Si el filtro anterior devuelve un resultado vacío, las acciones del controlador o el filtro posterior
+Los filtros aún se ejecutarán.</p>
+<p>Una excepción a la regla de resultado no vacío es la instancia <code class="docutils literal notranslate"><span class="pre">Solicitud</span></code>.
+Devolverlo en el filtro anterior no detendrá la ejecución sino que solo reemplazará el objeto <code class="docutils literal notranslate"><span class="pre">$request</span></code> actual.</p>
+</section>
+<section id="respuesta-de-retorno">
+<h4>Respuesta de retorno<a class="headerlink" href="#respuesta-de-retorno" title="Link to this heading"></a></h4>
+<p>Dado que antes de que se ejecuten los filtros antes de que se ejecute su controlador, es posible que en ocasiones desee detener el
+que se produzcan acciones en el controlador.</p>
+<p>Normalmente se utiliza para realizar redirecciones, como en este ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Filters</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Filters\FilterInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\HTTP\RequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\HTTP\ResponseInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyFilter</span> <span class="k">implements</span> <span class="nx">FilterInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">before</span><span class="p">(</span><span class="nx">RequestInterface</span> <span class="nv">$request</span><span class="p">,</span> <span class="nv">$arguments</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$auth</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$auth</span><span class="o">-&gt;</span><span class="na">isLoggedIn</span><span class="p">())</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">redirect</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">to</span><span class="p">(</span><span class="nx">site_url</span><span class="p">(</span><span class="s1">&#39;login&#39;</span><span class="p">));</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si se devuelve una instancia de <code class="docutils literal notranslate"><span class="pre">Respuesta</span></code>, la respuesta se enviará de vuelta al cliente y se detendrá la ejecución del script.
+Esto puede resultar útil para implementar la limitación de velocidad para las API. Consulte <a class="reference internal" href="../libraries/throttler.html"><span class="doc">Throttler</span></a> para obtener más información.
+ejemplo.</p>
+</section>
+</section>
+<section id="despues-de-los-filtros">
+<span id="after-filters"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Después de los filtros</a><a class="headerlink" href="#despues-de-los-filtros" title="Link to this heading"></a></h3>
+<p>Los filtros posteriores son casi idénticos a los filtros anteriores, excepto que solo puedes devolver el objeto <code class="docutils literal notranslate"><span class="pre">$respuesta</span></code>,
+y no puede detener la ejecución del script. Esto le permite modificar el resultado final, o simplemente hacer algo con
+la salida final. Esto podría usarse para garantizar que ciertos encabezados de seguridad se configuraron de la manera correcta o para almacenar en caché
+el resultado final, o incluso filtrar el resultado final con un filtro de malas palabras.</p>
+</section>
+</section>
+<section id="configurar-filtros">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Configurar filtros</a><a class="headerlink" href="#configurar-filtros" title="Link to this heading"></a></h2>
+<p>Hay dos formas de configurar los filtros cuando se ejecutan. Uno se hace en
+<strong>app/Config/Filters.php</strong>, el otro se realiza en <strong>app/Config/Routes.php</strong>.</p>
+<p>Si desea especificar un filtro para una ruta específica, use <strong>app/Config/Routes.php</strong>
+y vea <a class="reference internal" href="routing.html#applying-filters"><span class="std std-ref">Enrutamiento URI</span></a> .</p>
+<p>Los filtros que se especifican para una ruta (en <strong>app/Config/Routes.php</strong>) son
+ejecutado antes de los filtros especificados en <strong>app/Config/Filters.php</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The safest way to apply filters is to <a class="reference internal" href="routing.html#use-defined-routes-only"><span class="std std-ref">disable auto-routing</span></a>, and <a class="reference internal" href="routing.html#applying-filters"><span class="std std-ref">set filters to routes</span></a>.</p>
+</div>
+<p>El archivo <strong>app/Config/Filters.php</strong> contiene cuatro propiedades que le permiten
+configurar exactamente cuándo se ejecutan los filtros.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>It is recommended that you should always add <code class="docutils literal notranslate"><span class="pre">*</span></code> at the end of a URI in the filter settings.
+Porque es posible que se pueda acceder a un método de controlador mediante URL diferentes de las que cree.
+Por ejemplo, cuando <a class="reference internal" href="routing.html#auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado)</span></a> está habilitado, si tiene <code class="docutils literal notranslate"><span class="pre">Blog::index</span></code>,
+se puede acceder a él con <code class="docutils literal notranslate"><span class="pre">blog</span></code>, <code class="docutils literal notranslate"><span class="pre">blog/index</span></code> y <code class="docutils literal notranslate"><span class="pre">blog/index/1</span></code>, etc.</p>
+</div>
+<section id="alias">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">$alias</a><a class="headerlink" href="#alias" title="Link to this heading"></a></h3>
+<p>La matriz <code class="docutils literal notranslate"><span class="pre">$aliases</span></code> se utiliza para asociar un nombre simple con uno o más nombres de clase completos que son el
+filtros para ejecutar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$aliases</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;csrf&#39;</span> <span class="o">=&gt;</span> <span class="nx">\Higgs\Filters\CSRF</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Los alias son obligatorios y si intenta utilizar un nombre de clase completo más adelante, el sistema arrojará un error. Definirlos
+de esta manera simplifica el cambio de la clase utilizada. Genial para cuando decidiste que necesitas cambiar a un
+sistema de autenticación diferente ya que solo cambias la clase del filtro y listo.</p>
+<p>Puede combinar varios filtros en un alias, lo que simplifica la aplicación de conjuntos complejos de filtros:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$aliases</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;api-prep&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="nx">\App\Filters\Negotiate</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+            <span class="nx">\App\Filters\ApiAuth</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Debe definir tantos alias como necesite.</p>
+</section>
+<section id="globales">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">$globales</a><a class="headerlink" href="#globales" title="Link to this heading"></a></h3>
+<p>La segunda sección le permite definir los filtros que deben aplicarse a cada solicitud válida realizada por el marco.</p>
+<p>Debes tener cuidado con la cantidad que utilizas aquí, ya que tener demasiadas podría tener implicaciones en el rendimiento.
+ejecutar en cada solicitud.</p>
+<p>Los filtros se pueden especificar agregando su alias a la matriz <code class="docutils literal notranslate"><span class="pre">antes</span></code> o <code class="docutils literal notranslate"><span class="pre">después</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$globals</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;csrf&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;after&#39;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="excepto-por-algunos-uri">
+<h4>Excepto por algunos URI<a class="headerlink" href="#excepto-por-algunos-uri" title="Link to this heading"></a></h4>
+<p>Hay ocasiones en las que desea aplicar un filtro a casi todas las solicitudes, pero hay algunas que deben dejarse como están.
+Un ejemplo común es si necesita excluir algunos URI del filtro de protección CSRF para permitir solicitudes de
+sitios web de terceros para acceder a uno o dos URI específicos, manteniendo el resto protegidos.</p>
+<p>Para hacer esto, agregue
+una matriz con la clave <code class="docutils literal notranslate"><span class="pre">except</span></code> y una ruta URI (relativa a BaseURL) para que coincida como valor junto con el alias:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$globals</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;csrf&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;api/*&#39;</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;after&#39;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En cualquier lugar donde pueda usar una ruta URI (relativa a BaseURL) en la configuración del filtro, puede usar una expresión regular o, como en este ejemplo, usar
+un asterisco (<code class="docutils literal notranslate"><span class="pre">*</span></code>) como comodín que coincidirá con todos los caracteres posteriores. En este ejemplo, cualquier ruta URI que comience con <code class="docutils literal notranslate"><span class="pre">api/</span></code>
+estaría exento de la protección CSRF, pero todos los formularios del sitio estarían protegidos.</p>
+<p>Si necesita especificar varios
+Rutas de URI, puede utilizar una variedad de patrones de rutas de URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$globals</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;csrf&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;foo/*&#39;</span><span class="p">,</span> <span class="s1">&#39;bar/*&#39;</span><span class="p">]],</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;after&#39;</span> <span class="o">=&gt;</span> <span class="p">[],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="metodos">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">$métodos</a><a class="headerlink" href="#metodos" title="Link to this heading"></a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">$methods</span></code> filters, you should <a class="reference internal" href="routing.html#use-defined-routes-only"><span class="std std-ref">disable Auto Routing (Legacy)</span></a>
+porque <a class="reference internal" href="routing.html#auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado)</span></a> permite que cualquier método HTTP acceda a un controlador.
+Acceder al controlador con un método inesperado podría pasar por alto el filtro.</p>
+</div>
+<p>Puede aplicar filtros a todas las solicitudes de un determinado método HTTP, como POST, GET, PUT, etc. En esta matriz,
+especifique el nombre del método en <strong>minúsculas</strong>. Su valor sería una serie de filtros para ejecutar:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$methods</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;post&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;invalidchars&#39;</span><span class="p">,</span> <span class="s1">&#39;csrf&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;get&#39;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;csrf&#39;</span><span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Unlike the <code class="docutils literal notranslate"><span class="pre">$globals</span></code> or the
+Propiedades <code class="docutils literal notranslate"><span class="pre">$filters</span></code>, estas solo se ejecutarán como los filtros anteriores.</p>
+</div>
+<p>Además de los métodos HTTP estándar, esto también admite un caso especial: <code class="docutils literal notranslate"><span class="pre">cli</span></code>. El método <code class="docutils literal notranslate"><span class="pre">cli</span></code> se aplicaría a
+todas las solicitudes que se ejecutaron desde la línea de comando.</p>
+</section>
+<section id="filtros">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">$filtros</a><a class="headerlink" href="#filtros" title="Link to this heading"></a></h3>
+<p>Esta propiedad es una matriz de alias de filtro. Para cada alias, puede especificar matrices <code class="docutils literal notranslate"><span class="pre">antes</span></code> y <code class="docutils literal notranslate"><span class="pre">después</span></code> que contengan
+una lista de patrones de ruta de URI (relativos a BaseURL) a los que se debe aplicar el filtro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$filters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;admin/*&#39;</span><span class="p">],</span> <span class="s1">&#39;after&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;users/*&#39;</span><span class="p">]],</span>
+        <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;api/*&#39;</span><span class="p">,</span> <span class="s1">&#39;admin/*&#39;</span><span class="p">]],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="filtrar-argumentos">
+<span id="filters-filters-filter-arguments"></span><h4>Filtrar argumentos<a class="headerlink" href="#filtrar-argumentos" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Al configurar <code class="docutils literal notranslate"><span class="pre">$filters</span></code>, se pueden pasar argumentos adicionales a un filtro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="nv">$filters</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;group:admin,superadmin&#39;</span>  <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;admin/*&#39;</span><span class="p">]],</span>
+        <span class="s1">&#39;permission:users.manage&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;before&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;admin/users/*&#39;</span><span class="p">]],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>En este ejemplo, cuando el URI coincide con <code class="docutils literal notranslate"><span class="pre">admin/*'</span></code>, la matriz <code class="docutils literal notranslate"><span class="pre">['admin',</span> <span class="pre">'superadmin']</span></code>
+se pasará en <code class="docutils literal notranslate"><span class="pre">$argumentos</span></code> a los métodos <code class="docutils literal notranslate"><span class="pre">before()</span></code> del filtro <code class="docutils literal notranslate"><span class="pre">group</span></code>.
+Cuando el URI coincide con <code class="docutils literal notranslate"><span class="pre">admin/users/*'</span></code>, la matriz <code class="docutils literal notranslate"><span class="pre">['users.manage']</span></code>
+se pasará en <code class="docutils literal notranslate"><span class="pre">$argumentos</span></code> a los métodos <code class="docutils literal notranslate"><span class="pre">before()</span></code> del filtro <code class="docutils literal notranslate"><span class="pre">permiso</span></code>.</p>
+</section>
+</section>
+</section>
+<section id="confirmacion-de-filtros">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Confirmación de filtros</a><a class="headerlink" href="#confirmacion-de-filtros" title="Link to this heading"></a></h2>
+<p>Higgs tiene el siguiente <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">comando</span></a> para verificar los filtros de una ruta.</p>
+<section id="filtro-comprobar">
+<span id="spark-filter-check"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">filtro: comprobar</a><a class="headerlink" href="#filtro-comprobar" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Por ejemplo, verifique los filtros para la ruta <code class="docutils literal notranslate"><span class="pre">/</span></code> con el método <strong>GET</strong>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">filtro de chispa php: marque obtener /</span>
+</pre></div>
+</div>
+<p>El resultado es como el siguiente:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------+-------+----------------+--------------- +
+| Método | Ruta | Antes de los filtros | Después de los filtros |
++--------+-------+----------------+--------------- +
+| OBTENER | / | | barra de herramientas |
++--------+-------+----------------+--------------- +
+</pre></div>
+</div>
+<p>También puedes ver las rutas y filtros con el comando <code class="docutils literal notranslate"><span class="pre">spark</span> <span class="pre">route</span></code>,
+pero es posible que no muestre filtros precisos cuando utilice expresiones regulares para las rutas.
+Ver <a class="reference internal" href="routing.html#routing-spark-routes"><span class="std std-ref">Enrutamiento URI</span></a> para más detalles.</p>
+</section>
+</section>
+<section id="filtros-proporcionados">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Filtros proporcionados</a><a class="headerlink" href="#filtros-proporcionados" title="Link to this heading"></a></h2>
+<p>Los filtros incluidos con Higgs(AI) son: <a class="reference internal" href="../libraries/honeypot.html"><span class="doc">Honeypot</span></a>, <a class="reference internal" href="../libraries/security.html#cross-site-request-forgery"><span class="std std-ref">CSRF</span></a> , <code class="docutils literal notranslate"><span class="pre">InvalidChars</span></code>, <code class="docutils literal notranslate"><span class="pre">SecureHeaders</span></code> y <a class="reference internal" href="../testing/debugging.html#the-debug-toolbar"><span class="std std-ref">DebugToolbar</span></a> .</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The filters are executed in the order defined in the config file. However, if enabled, <code class="docutils literal notranslate"><span class="pre">DebugToolbar</span></code> is always executed last because it should be able to capture everything that happens in the other filters.</p>
+</div>
+<section id="caracteres-no-validos">
+<span id="invalidchars"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">caracteres no válidos</a><a class="headerlink" href="#caracteres-no-validos" title="Link to this heading"></a></h3>
+<p>Este filtro prohíbe que los datos de entrada del usuario (<code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code>, <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code>, <code class="docutils literal notranslate"><span class="pre">php://input</span></code>) contengan los siguientes caracteres:</p>
+<ul class="simple">
+<li><p>caracteres UTF-8 no válidos</p></li>
+<li><p>caracteres de control excepto salto de línea y código de tabulación</p></li>
+</ul>
+</section>
+<section id="encabezados-seguros">
+<span id="secureheaders"></span><h3><a class="toc-backref" href="#id13" role="doc-backlink">Encabezados seguros</a><a class="headerlink" href="#encabezados-seguros" title="Link to this heading"></a></h3>
+<p>Este filtro agrega encabezados de respuesta HTTP que su aplicación puede usar para aumentar la seguridad de su aplicación.</p>
+<p>Si desea personalizar los encabezados, extienda <code class="docutils literal notranslate"><span class="pre">Higgs\Filters\SecureHeaders</span></code> y anule la propiedad <code class="docutils literal notranslate"><span class="pre">$headers</span></code>. Y cambie la propiedad <code class="docutils literal notranslate"><span class="pre">$aliases</span></code> en <strong>app/Config/Filters.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$aliases</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="c1">// ...</span>
+        <span class="s1">&#39;secureheaders&#39;</span> <span class="o">=&gt;</span> <span class="nx">\App\Filters\SecureHeaders</span><span class="o">::</span><span class="na">class</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si desea obtener información sobre encabezados seguros, consulte el <cite>Proyecto de encabezados seguros OWASP&lt;https://owasp.org/www-project-secure-headers/&gt;</cite> _.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="controllers.html" class="btn btn-neutral float-left" title="Controladores" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="message.html" class="btn btn-neutral float-right" title="Mensajes HTTP" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

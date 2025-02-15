@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generadores CLI &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/cli/cli_generators.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="CLI Library" href="cli_library.html" />
+    <link rel="prev" title="Crear comandos Spark" href="cli_commands.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Uso de la línea de comando</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Uso de la línea de comando</a></li>
+      <li class="breadcrumb-item active">Generadores CLI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generadores-cli">
+<h1>Generadores CLI<a class="headerlink" href="#generadores-cli" title="Link to this heading"></a></h1>
+<p>Higgs(AI) ahora viene equipado con generadores para facilitar la creación de controladores de stock, modelos, entidades,
+etc. También puede realizar scaffolding de un conjunto completo de archivos con un solo comando.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduccion" id="id28">Introducción</a></p></li>
+<li><p><a class="reference internal" href="#generadores-incorporados" id="id29">Generadores incorporados</a></p>
+<ul>
+<li><p><a class="reference internal" href="#hacer-celda" id="id30">hacer: celda</a></p></li>
+<li><p><a class="reference internal" href="#hacer-comando" id="id31">hacer: comando</a></p></li>
+<li><p><a class="reference internal" href="#hacer-configuracion" id="id32">hacer: configuración</a></p></li>
+<li><p><a class="reference internal" href="#hacer-controlador" id="id33">hacer: controlador</a></p></li>
+<li><p><a class="reference internal" href="#hacer-entidad" id="id34">hacer: entidad</a></p></li>
+<li><p><a class="reference internal" href="#hacer-filtro" id="id35">hacer:filtro</a></p></li>
+<li><p><a class="reference internal" href="#haz-un-modelo" id="id36">Haz un modelo</a></p></li>
+<li><p><a class="reference internal" href="#hacer-sembradora" id="id37">hacer: sembradora</a></p></li>
+<li><p><a class="reference internal" href="#hacer-migracion" id="id38">hacer:migración</a></p></li>
+<li><p><a class="reference internal" href="#hacer-validacion" id="id39">hacer:validación</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#armado-de-un-conjunto-completo-de-codigos-de-existencias" id="id40">Armado de un conjunto completo de códigos de existencias</a></p></li>
+<li><p><a class="reference internal" href="#generadorrasgo" id="id41">GeneradorRasgo</a></p></li>
+</ul>
+</nav>
+<section id="introduccion">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink">Introducción</a><a class="headerlink" href="#introduccion" title="Link to this heading"></a></h2>
+<p>Todos los generadores integrados residen en el grupo <code class="docutils literal notranslate"><span class="pre">Generadores</span></code> cuando se enumeran usando <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">list</span></code>.
+Para ver la descripción completa y la información de uso de un generador en particular, use el comando:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">ayuda de chispa php&lt;generator_command&gt;</span>
+</pre></div>
+</div>
+<p>donde <code class="docutils literal notranslate"><span class="pre">&lt;generator_command&gt;</span></code> será reemplazado con el comando para verificar.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Do you need to have the generated code in a subfolder? Let’s say if you want to create a controller
+clase resida en la subcarpeta <code class="docutils literal notranslate"><span class="pre">Admin</span></code> de la carpeta principal <code class="docutils literal notranslate"><span class="pre">Controladores</span></code>, solo necesitarás
+para anteponer la subcarpeta al nombre de la clase, así: <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">make:controller</span> <span class="pre">admin/login</span></code>. Este
+El comando creará el controlador <code class="docutils literal notranslate"><span class="pre">Login</span></code> en la subcarpeta <code class="docutils literal notranslate"><span class="pre">Controllers/Admin</span></code> con
+un espacio de nombres de <code class="docutils literal notranslate"><span class="pre">App\Controllers\Admin</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Working on modules? Code generation will set the root namespace to a default of <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.
+Si necesita tener el código generado en otra parte del espacio de nombres de su módulo, asegúrese de configurar
+la opción <code class="docutils literal notranslate"><span class="pre">--namespace</span></code> en su comando, por ejemplo, <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">make:model</span> <span class="pre">blog</span> <span class="pre">--namespace</span> <span class="pre">Acme\\Blog</span></code>.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Make sure when setting the <code class="docutils literal notranslate"><span class="pre">--namespace</span></code> option that the supplied namespace is a valid
+espacio de nombres definido en su matriz <code class="docutils literal notranslate"><span class="pre">$psr4</span></code> en <code class="docutils literal notranslate"><span class="pre">Config\Autoload</span></code> o definido en la carga automática de su compositor
+archivo. De lo contrario, se interrumpirá la generación del código.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Since v7.0.5, use of <code class="docutils literal notranslate"><span class="pre">migrate:create</span></code> to create migration files has been deprecated. It will be removed in
+lanzamientos futuros. Utilice <code class="docutils literal notranslate"><span class="pre">make:migration</span></code> como reemplazo. Además, utilice <code class="docutils literal notranslate"><span class="pre">make:migration</span> <span class="pre">--session</span></code>
+para usar en lugar de la obsoleta <code class="docutils literal notranslate"><span class="pre">session:migration</span></code>.</p>
+</div>
+</section>
+<section id="generadores-incorporados">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Generadores incorporados</a><a class="headerlink" href="#generadores-incorporados" title="Link to this heading"></a></h2>
+<p>Higgs(AI) envía los siguientes generadores de forma predeterminada.</p>
+<section id="hacer-celda">
+<h3><a class="toc-backref" href="#id30" role="doc-backlink">hacer: celda</a><a class="headerlink" href="#hacer-celda" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Crea un nuevo archivo de celda y su vista.</p>
+<section id="uso">
+<h4>Uso:<a class="headerlink" href="#uso" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span> <span class="nx">celda</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="argumento">
+<h4>Argumento:<a class="headerlink" href="#argumento" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de celda. Debería estar en PascalCase. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="opciones">
+<h4>Opciones:<a class="headerlink" href="#opciones" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-comando">
+<h3><a class="toc-backref" href="#id31" role="doc-backlink">hacer: comando</a><a class="headerlink" href="#hacer-comando" title="Link to this heading"></a></h3>
+<p>Crea un nuevo comando de chispa.</p>
+<section id="id1">
+<h4>Uso:<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span> <span class="nx">comando</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h4>Argumento:<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de comando. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id3">
+<h4>Opciones:<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--command</span></code>: El nombre del comando que se ejecutará en Spark. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">comando:nombre</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--group</span></code>: El grupo/espacio de nombres del comando. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">App</span></code> para comandos básicos y <code class="docutils literal notranslate"><span class="pre">Generadores</span></code> para comandos de generador.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--type</span></code>: El tipo de comando, ya sea un comando <code class="docutils literal notranslate"><span class="pre">básico</span></code> o un comando <code class="docutils literal notranslate"><span class="pre">generador</span></code>. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">básico</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-configuracion">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">hacer: configuración</a><a class="headerlink" href="#hacer-configuracion" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de configuración.</p>
+<section id="id4">
+<h4>Uso:<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span> <span class="nx">configuración</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h4>Argumento:<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de configuración. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id6">
+<h4>Opciones:<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-controlador">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink">hacer: controlador</a><a class="headerlink" href="#hacer-controlador" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de controlador.</p>
+<section id="id7">
+<h4>Uso:<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span> <span class="nx">controlador</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h4>Argumento:<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase del controlador. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id9">
+<h4>Opciones:<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--bare</span></code>: Se extiende desde <code class="docutils literal notranslate"><span class="pre">Higgs\Controller</span></code> en lugar de <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--restful</span></code>: Se extiende desde un recurso RESTful. Las opciones son <code class="docutils literal notranslate"><span class="pre">controlador</span></code> y <code class="docutils literal notranslate"><span class="pre">presentador</span></code>. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">controlador</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you use <code class="docutils literal notranslate"><span class="pre">--suffix</span></code>, the generated controller name will be like
+<code class="docutils literal notranslate"><span class="pre">Controlador</span> <span class="pre">de</span> <span class="pre">Producto</span></code>. Eso viola la convención de nomenclatura del controlador.
+cuando se utiliza <a class="reference internal" href="../incoming/controllers.html#controller-auto-routing-improved"><span class="std std-ref">Enrutamiento automático</span></a>
+(Los nombres de las clases de controlador DEBEN comenzar con una letra mayúscula y
+SÓLO el primer carácter puede estar en mayúscula). Entonces se puede usar <code class="docutils literal notranslate"><span class="pre">--suffix</span></code>
+cuando usas <a class="reference internal" href="../incoming/routing.html#defined-route-routing"><span class="std std-ref">Rutas Definidas</span></a> .</p>
+</div>
+</section>
+</section>
+<section id="hacer-entidad">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink">hacer: entidad</a><a class="headerlink" href="#hacer-entidad" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de entidad.</p>
+<section id="id10">
+<h4>Uso:<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span> <span class="nx">entidad</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h4>Argumento:<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de entidad. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id12">
+<h4>Opciones:<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-filtro">
+<h3><a class="toc-backref" href="#id35" role="doc-backlink">hacer:filtro</a><a class="headerlink" href="#hacer-filtro" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de filtro.</p>
+<section id="id13">
+<h4>Uso:<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span><span class="nx">filtro</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4>Argumento:<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de filtro. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id15">
+<h4>Opciones:<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="haz-un-modelo">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink">Haz un modelo</a><a class="headerlink" href="#haz-un-modelo" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de modelo.</p>
+<section id="id16">
+<h4>Uso:<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">Haz</span> <span class="nx">un</span> <span class="nx">modelo</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id17">
+<h4>Argumento:<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase del modelo. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id18">
+<h4>Opciones:<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code>: Grupo de base de datos a utilizar. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">predeterminado</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--return</span></code>: establece el tipo de retorno de <code class="docutils literal notranslate"><span class="pre">array</span></code>, <code class="docutils literal notranslate"><span class="pre">object</span></code> o <code class="docutils literal notranslate"><span class="pre">entity</span></code>. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">matriz</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>: proporcione un nombre de tabla diferente. El valor predeterminado es el nombre de clase pluralizado.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-sembradora">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink">hacer: sembradora</a><a class="headerlink" href="#hacer-sembradora" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de siembra.</p>
+<section id="id19">
+<h4>Uso:<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span> <span class="nx">sembradora</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id20">
+<h4>Argumento:<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase sembradora. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id21">
+<h4>Opciones:<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-migracion">
+<h3><a class="toc-backref" href="#id38" role="doc-backlink">hacer:migración</a><a class="headerlink" href="#hacer-migracion" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de migración.</p>
+<section id="id22">
+<h4>Uso:<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span><span class="nx">migración</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id23">
+<h4>Argumento:<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de migración. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id24">
+<h4>Opciones:<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--session</span></code>: Genera un archivo de migración para sesiones de base de datos.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table</span></code>: establece el nombre de la tabla que se utilizará en las sesiones de la base de datos. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">HIGGS_sessions</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--dbgroup</span></code>: establece el grupo de base de datos para las sesiones de base de datos. El valor predeterminado es el grupo <code class="docutils literal notranslate"><span class="pre">predeterminado</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+<section id="hacer-validacion">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink">hacer:validación</a><a class="headerlink" href="#hacer-validacion" title="Link to this heading"></a></h3>
+<p>Crea un nuevo archivo de validación.</p>
+<section id="id25">
+<h4>Uso:<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">hacer</span><span class="o">:</span><span class="nx">validación</span><span class="o">&lt;</span><span class="nx">name</span><span class="o">&gt;</span> <span class="p">[</span><span class="nx">opciones</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="id26">
+<h4>Argumento:<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">nombre</span></code>: El nombre de la clase de validación. <strong>[REQUERIDO]</strong></p></li>
+</ul>
+</section>
+<section id="id27">
+<h4>Opciones:<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--namespace</span></code>: establece el espacio de nombres raíz. El valor predeterminado es <code class="docutils literal notranslate"><span class="pre">APP_NAMESPACE</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--suffix</span></code>: agregue el sufijo del componente al nombre de la clase generada.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--force</span></code>: establezca esta opción para sobrescribir los archivos existentes en el destino.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="armado-de-un-conjunto-completo-de-codigos-de-existencias">
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Armado de un conjunto completo de códigos de existencias</a><a class="headerlink" href="#armado-de-un-conjunto-completo-de-codigos-de-existencias" title="Link to this heading"></a></h2>
+<p>En ocasiones en nuestra fase de desarrollo estamos creando funcionalidades por grupos, como por ejemplo crear un grupo <em>Admin</em>.
+Este grupo contendrá su propio controlador, modelo, archivos de migración o incluso entidades. Puede que tengas la tentación de escribir
+cada comando del generador uno por uno en la terminal y con la ilusión de que sería genial tener un solo generador
+comando para gobernarlos a todos.</p>
+<p>¡No te preocupes más! Higgs(AI) también viene con un comando dedicado <code class="docutils literal notranslate"><span class="pre">make:scaffold</span></code> que es básicamente un
+contenedor para los comandos del controlador, modelo, entidad, migración y generador de sembradora. Todo lo que necesitas es la clase.
+nombre que se utilizará para nombrar todas las clases generadas. Además, <strong>opciones individuales</strong> admitidas por cada
+El comando del generador es reconocido por el comando del andamio.</p>
+<p>Ejecutando esto en tu terminal:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark make:usuario de andamio</span>
+</pre></div>
+</div>
+<p>creará los siguientes archivos:</p>
+<ol class="arabic simple">
+<li><p><strong>aplicación/Controladores/Usuario.php</strong></p></li>
+<li><p><strong>aplicación/Modelos/Usuario.php</strong></p></li>
+<li><p><strong>aplicación/Base de datos/Migraciones/&lt;some date here&gt; _Usuario.php</strong> y</p></li>
+<li><p><strong>aplicación/Base de datos/Seeds/User.php</strong></p></li>
+</ol>
+<p>Para incluir una clase <code class="docutils literal notranslate"><span class="pre">Entidad</span></code> en los archivos scaffolded, simplemente incluya <code class="docutils literal notranslate"><span class="pre">--return</span> <span class="pre">entidad</span></code> al comando
+y se pasará al generador de modelos.</p>
+</section>
+<section id="generadorrasgo">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">GeneradorRasgo</a><a class="headerlink" href="#generadorrasgo" title="Link to this heading"></a></h2>
+<p>Todos los comandos del generador deben usar <code class="docutils literal notranslate"><span class="pre">GeneratorTrait</span></code> para utilizar completamente los métodos que se usan en el código.
+generación.</p>
+<p><strong>**********************************************</strong> <strong>*******</strong>
+Declaración de la ubicación de una plantilla de comando de generador personalizada
+<strong>**********************************************</strong> <strong>*******</strong></p>
+<p>El orden predeterminado de búsqueda de plantillas de generador es (1) la plantilla definida en el archivo <strong>app/Config/Generators.php</strong>,
+y (2) si no se encuentra, la plantilla que se encuentra en el espacio de nombres <code class="docutils literal notranslate"><span class="pre">Higgs\Commands\Generators\Views</span></code>.</p>
+<p>Para declarar la ubicación de la plantilla para su comando de generador personalizado, deberá agregarla al <strong>app/Config/Generators.php</strong>
+archivo. Por ejemplo, si tienes un comando <code class="docutils literal notranslate"><span class="pre">make:awesome-command</span></code> y tu plantilla generadora está ubicada dentro de tu <em>aplicación</em>
+directorio <strong>app/Commands/Generators/Views/awesomecommand.tpl.php</strong>, actualizaría el archivo de configuración de esta manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Generators</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">array</span> <span class="nv">$views</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="c1">// ..</span>
+        <span class="s1">&#39;make:awesome-command&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;App\Commands\Generators\Views\awesomecommand.tpl.php&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="cli_commands.html" class="btn btn-neutral float-left" title="Crear comandos Spark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="cli_library.html" class="btn btn-neutral float-right" title="CLI Library" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

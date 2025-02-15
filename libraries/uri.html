@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creando instancias de URI &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/uri.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Clase de agente de usuario" href="user_agent.html" />
+    <link rel="prev" title="Trabajar con archivos cargados" href="uploaded_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Creando instancias de URI</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p>Higgs proporciona una solución orientada a objetos para trabajar con URI en su aplicación. Usar esto lo hace
+simple para garantizar que la estructura sea siempre correcta, sin importar cuán complejo pueda ser el URI, además de agregar
+URI relativo a uno existente y resolverlo de forma segura y correcta.</p>
+<nav class="contents local" id="contenido" role="doc-toc">
+<ul class="simple">
+<li><p><a class="reference internal" href="#creando-instancias-de-uri" id="id1">Creando instancias de URI</a></p>
+<ul>
+<li><p><a class="reference internal" href="#el-uri-actual" id="id2">El URI actual</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#cadenas-uri" id="id3">Cadenas URI</a></p></li>
+<li><p><a class="reference internal" href="#las-partes-de-uri" id="id4">Las partes de URI</a></p>
+<ul>
+<li><p><a class="reference internal" href="#esquema" id="id5">Esquema</a></p></li>
+<li><p><a class="reference internal" href="#autoridad" id="id6">Autoridad</a></p></li>
+<li><p><a class="reference internal" href="#informacion-de-usuario" id="id7">Información de usuario</a></p></li>
+<li><p><a class="reference internal" href="#anfitrion" id="id8">Anfitrión</a></p></li>
+<li><p><a class="reference internal" href="#puerto" id="id9">Puerto</a></p></li>
+<li><p><a class="reference internal" href="#camino" id="id10">Camino</a></p></li>
+<li><p><a class="reference internal" href="#consulta" id="id11">Consulta</a></p></li>
+<li><p><a class="reference internal" href="#fragmento" id="id12">Fragmento</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#segmentos-uri" id="id13">Segmentos URI</a></p></li>
+<li><p><a class="reference internal" href="#deshabilitar-el-lanzamiento-de-excepciones" id="id14">Deshabilitar el lanzamiento de excepciones</a></p></li>
+</ul>
+</nav>
+<section id="creando-instancias-de-uri">
+<h1><a class="toc-backref" href="#id1" role="doc-backlink">Creando instancias de URI</a><a class="headerlink" href="#creando-instancias-de-uri" title="Link to this heading"></a></h1>
+<p>Crear una instancia de URI es tan simple como crear una nueva instancia de clase.</p>
+<p>Cuando crea la nueva instancia, puede pasar una URL completa o parcial en el constructor y se analizará.
+en sus secciones apropiadas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/some/path&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Alternativamente, puede usar la función <a class="reference internal" href="../general/common_functions.html#service" title="service"><code class="xref php php-func docutils literal notranslate"><span class="pre">service()</span></code></a> para devolverle una instancia:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;uri&#39;</span><span class="p">,</span> <span class="s1">&#39;http://www.example.com/some/path&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Desde v7.4.0, si no pasa una URL, devuelve la URI actual:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nx">service</span><span class="p">(</span><span class="s1">&#39;uri&#39;</span><span class="p">);</span> <span class="c1">// returns the current SiteURI instance.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The above code returns the <code class="docutils literal notranslate"><span class="pre">SiteURI</span></code> instance, that extends the <code class="docutils literal notranslate"><span class="pre">URI</span></code>
+clase. La clase <code class="docutils literal notranslate"><span class="pre">URI</span></code> es para URI generales, pero la clase <code class="docutils literal notranslate"><span class="pre">SiteURI</span></code> es
+para los URI de su sitio.</p>
+</div>
+<section id="el-uri-actual">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">El URI actual</a><a class="headerlink" href="#el-uri-actual" title="Link to this heading"></a></h2>
+<p>Muchas veces, todo lo que realmente desea es un objeto que represente la URL actual de esta solicitud.
+Puede utilizar la función <a class="reference internal" href="../helpers/url_helper.html#current_url" title="current_url"><code class="xref php php-func docutils literal notranslate"><span class="pre">current_url()</span></code></a> disponible en <a class="reference internal" href="../helpers/url_helper.html"><span class="doc">Asistente de URL</span></a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nx">current_url</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Debe pasar <code class="docutils literal notranslate"><span class="pre">true</span></code> como primer parámetro; de lo contrario, devolverá la representación de cadena de la URL actual.</p>
+<p>Este URI se basa en la ruta (relativa a su <code class="docutils literal notranslate"><span class="pre">baseURL</span></code>) según lo determinado por el objeto de solicitud actual y
+su configuración en <code class="docutils literal notranslate"><span class="pre">Config\App</span></code> (<code class="docutils literal notranslate"><span class="pre">baseURL</span></code>, <code class="docutils literal notranslate"><span class="pre">indexPage</span></code> y <code class="docutils literal notranslate"><span class="pre">forceGlobalSecureRequests</span></code>).</p>
+<p>Suponiendo que estás en un controlador que extiende <code class="docutils literal notranslate"><span class="pre">Higgs\Controller</span></code>,
+También puede obtener la instancia actual de SiteURI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$uri</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getUri</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cadenas-uri">
+<h1><a class="toc-backref" href="#id3" role="doc-backlink">Cadenas URI</a><a class="headerlink" href="#cadenas-uri" title="Link to this heading"></a></h1>
+<p>Muchas veces, todo lo que realmente desea es obtener una representación de cadena de un URI. Esto es fácil de hacer simplemente lanzando
+el URI como una cadena:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="nx">current_url</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="k">echo</span> <span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$uri</span><span class="p">;</span>  <span class="c1">// http://example.com/index.php</span>
+</pre></div>
+</div>
+<p>Si conoce las partes del URI y solo quiere asegurarse de que todo esté formateado correctamente, puede generar una cadena
+usando el método estático <code class="docutils literal notranslate"><span class="pre">createURIString()</span></code> de la clase URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\HTTP\URI</span><span class="p">;</span>
+
+<span class="nv">$uriString</span> <span class="o">=</span> <span class="nx">URI</span><span class="o">::</span><span class="na">createURIString</span><span class="p">(</span><span class="nv">$scheme</span><span class="p">,</span> <span class="nv">$authority</span><span class="p">,</span> <span class="nv">$path</span><span class="p">,</span> <span class="nv">$query</span><span class="p">,</span> <span class="nv">$fragment</span><span class="p">);</span>
+
+<span class="c1">// Creates: http://exmample.com/some/path?foo=bar#first-heading</span>
+<span class="k">echo</span> <span class="nx">URI</span><span class="o">::</span><span class="na">createURIString</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">,</span> <span class="s1">&#39;example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;some/path&#39;</span><span class="p">,</span> <span class="s1">&#39;foo=bar&#39;</span><span class="p">,</span> <span class="s1">&#39;first-heading&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">URI</span></code> is cast to a string, it will attempt to adjust project URLs to the
+configuración definida en <code class="docutils literal notranslate"><span class="pre">Config\App</span></code>. Si necesita la representación de cadena exacta e inalterada
+luego use <code class="docutils literal notranslate"><span class="pre">URI::createURIString()</span></code> en su lugar.</p>
+</div>
+</section>
+<section id="las-partes-de-uri">
+<h1><a class="toc-backref" href="#id4" role="doc-backlink">Las partes de URI</a><a class="headerlink" href="#las-partes-de-uri" title="Link to this heading"></a></h1>
+<p>Una vez que tenga una instancia de URI, puede configurar o recuperar cualquiera de las distintas partes del URI. Esta sección proporcionará
+detalles sobre cuáles son esas piezas y cómo trabajar con ellas.</p>
+<section id="esquema">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Esquema</a><a class="headerlink" href="#esquema" title="Link to this heading"></a></h2>
+<p>El esquema suele ser “http” o “https”, pero se admite cualquier esquema, incluido “archivo”, “mailto”, etc.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/some/path&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getScheme</span><span class="p">();</span> <span class="c1">// &#39;http&#39;</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setScheme</span><span class="p">(</span><span class="s1">&#39;https&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="autoridad">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Autoridad</a><a class="headerlink" href="#autoridad" title="Link to this heading"></a></h2>
+<p>Muchos URI contienen varios elementos que se conocen colectivamente como «autoridad». Esto incluye cualquier información de usuario,
+el host y el número de puerto. Puede recuperar todas estas piezas como una sola cadena con <code class="docutils literal notranslate"><span class="pre">getAuthority()</span></code>
+método, o puede manipular las partes individuales.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;ftp://user:password@example.com:21/some/path&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getAuthority</span><span class="p">();</span>  <span class="c1">// user@example.com:21</span>
+</pre></div>
+</div>
+<p>De forma predeterminada, esto no mostrará la parte de la contraseña, ya que no querrás mostrársela a nadie. Si quieres
+para mostrar la contraseña, puede utilizar el método <code class="docutils literal notranslate"><span class="pre">showPassword()</span></code>. Esta instancia de URI seguirá mostrando esa contraseña
+hasta que lo apagues nuevamente, así que asegúrate siempre de apagarlo tan pronto como hayas terminado:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getAuthority</span><span class="p">();</span>  <span class="c1">// user@example.com:21</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">showPassword</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getAuthority</span><span class="p">();</span>   <span class="c1">// user:password@example.com:21</span>
+
+<span class="c1">// Turn password display off again.</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">showPassword</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si no desea mostrar el puerto, pase <code class="docutils literal notranslate"><span class="pre">true</span></code> como único parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getAuthority</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>  <span class="c1">// user@example.com</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If the current port is the default port for the scheme it will never be displayed.</p>
+</div>
+</section>
+<section id="informacion-de-usuario">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Información de usuario</a><a class="headerlink" href="#informacion-de-usuario" title="Link to this heading"></a></h2>
+<p>La sección de información de usuario es simplemente el nombre de usuario y la contraseña que puede ver con un URI de FTP. Mientras puedas conseguir
+esto como parte de la Autoridad, también puedes recuperarlo tú mismo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getUserInfo</span><span class="p">();</span>   <span class="c1">// user</span>
+</pre></div>
+</div>
+<p>De forma predeterminada, no mostrará la contraseña, pero puedes anularla con el método <code class="docutils literal notranslate"><span class="pre">showPassword()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">showPassword</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getUserInfo</span><span class="p">();</span>   <span class="c1">// user:password</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">showPassword</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="anfitrion">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Anfitrión</a><a class="headerlink" href="#anfitrion" title="Link to this heading"></a></h2>
+<p>La parte del host del URI suele ser el nombre de dominio de la URL. Esto se puede configurar y recuperar fácilmente con el
+Métodos <code class="docutils literal notranslate"><span class="pre">getHost()</span></code> y <code class="docutils literal notranslate"><span class="pre">setHost()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/some/path&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getHost</span><span class="p">();</span>   <span class="c1">// www.example.com</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setHost</span><span class="p">(</span><span class="s1">&#39;anotherexample.com&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getHost</span><span class="p">();</span>    <span class="c1">// anotherexample.com</span>
+</pre></div>
+</div>
+</section>
+<section id="puerto">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Puerto</a><a class="headerlink" href="#puerto" title="Link to this heading"></a></h2>
+<p>El puerto es un número entero entre 0 y 65535. Cada esquema tiene un valor predeterminado asociado.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;ftp://user:password@example.com:21/some/path&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getPort</span><span class="p">();</span>   <span class="c1">// 21</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setPort</span><span class="p">(</span><span class="mi">2201</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getPort</span><span class="p">();</span> <span class="c1">// 2201</span>
+</pre></div>
+</div>
+<p>Cuando se utiliza el método <code class="docutils literal notranslate"><span class="pre">setPort()</span></code>, se comprobará que el puerto esté dentro del rango válido y se asignará.</p>
+</section>
+<section id="camino">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Camino</a><a class="headerlink" href="#camino" title="Link to this heading"></a></h2>
+<p>El camino son todos los segmentos dentro del propio sitio. Como era de esperar, los métodos <code class="docutils literal notranslate"><span class="pre">getPath()</span></code> y <code class="docutils literal notranslate"><span class="pre">setPath()</span></code>
+se puede utilizar para manipularlo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/some/path&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>                            <span class="c1">// &#39;/some/path&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setPath</span><span class="p">(</span><span class="s1">&#39;/another/path&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getPath</span><span class="p">();</span>  <span class="c1">// &#39;/another/path&#39;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When setting the path this way, or any other way the class allows, it is sanitized to encode any dangerous
+caracteres y elimine los segmentos de puntos por seguridad.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.4.0, the <code class="docutils literal notranslate"><span class="pre">SiteURI::getRoutePath()</span></code> method,
+devuelve la ruta URI relativa a baseURL y <code class="docutils literal notranslate"><span class="pre">SiteURI::getPath()</span></code>
+El método siempre devuelve la ruta URI completa con <code class="docutils literal notranslate"><span class="pre">/</span></code> inicial.</p>
+</div>
+</section>
+<section id="consulta">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Consulta</a><a class="headerlink" href="#consulta" title="Link to this heading"></a></h2>
+<p>Los datos de la consulta se pueden manipular a través de la clase utilizando representaciones de cadenas simples.</p>
+<section id="obtener-configurar-consulta">
+<h3>Obtener/configurar consulta<a class="headerlink" href="#obtener-configurar-consulta" title="Link to this heading"></a></h3>
+<p>Los valores de consulta sólo pueden
+establecerse como una cadena actualmente.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com?foo=bar&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">();</span>  <span class="c1">// &#39;foo=bar&#39;</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setQuery</span><span class="p">(</span><span class="s1">&#39;foo=bar&amp;bar=baz&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">setQuery()</span></code> sobrescribe cualquier variable de consulta existente.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Query values cannot contain fragments. An InvalidArgumentException will be thrown if it does.</p>
+</div>
+</section>
+<section id="configuracion-de-consulta-desde-matriz">
+<h3>Configuración de consulta desde matriz<a class="headerlink" href="#configuracion-de-consulta-desde-matriz" title="Link to this heading"></a></h3>
+<p>Puede establecer valores de consulta utilizando una matriz:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setQueryArray</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;baz&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">setQueryArray()</span></code> sobrescribe cualquier variable de consulta existente.</p>
+</section>
+<section id="agregar-valor-de-consulta">
+<h3>Agregar valor de consulta<a class="headerlink" href="#agregar-valor-de-consulta" title="Link to this heading"></a></h3>
+<p>Puedes agregar un valor al
+colección de variables de consulta sin destruir las variables de consulta existentes con el método <code class="docutils literal notranslate"><span class="pre">addQuery()</span></code>. La primera
+El parámetro es el nombre de la variable y el segundo parámetro es el valor:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">addQuery</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="filtrar-valores-de-consulta">
+<h3>Filtrar valores de consulta<a class="headerlink" href="#filtrar-valores-de-consulta" title="Link to this heading"></a></h3>
+<p>Puede filtrar los valores de consulta devueltos pasando una matriz de opciones al método <code class="docutils literal notranslate"><span class="pre">getQuery()</span></code>, ya sea con un
+<em>sólo</em> o una clave <em>excepto</em>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com?foo=bar&amp;bar=baz&amp;baz=foz&#39;</span><span class="p">);</span>
+
+<span class="c1">// Returns &#39;foo=bar&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">([</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]]);</span>
+
+<span class="c1">// Returns &#39;foo=bar&amp;baz=foz&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getQuery</span><span class="p">([</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+<p>Esto solo cambia los valores devueltos durante esta llamada. Si necesita modificar los valores de consulta del URI de forma más permanente,</p>
+</section>
+<section id="cambiar-valores-de-consulta">
+<h3>Cambiar valores de consulta<a class="headerlink" href="#cambiar-valores-de-consulta" title="Link to this heading"></a></h3>
+<p>puedes usar los métodos <code class="docutils literal notranslate"><span class="pre">stripQuery()</span></code> y <code class="docutils literal notranslate"><span class="pre">keepQuery()</span></code> para cambiar la colección de variables de consulta del objeto real:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com?foo=bar&amp;bar=baz&amp;baz=foz&#39;</span><span class="p">);</span>
+
+<span class="c1">// Leaves just the &#39;baz&#39; variable</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">stripQuery</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+
+<span class="c1">// Leaves just the &#39;foo&#39; variable</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">keepQuery</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>By default <code class="docutils literal notranslate"><span class="pre">setQuery()</span></code> and <code class="docutils literal notranslate"><span class="pre">setQueryArray()</span></code> methods uses native <code class="docutils literal notranslate"><span class="pre">parse_str()</span></code> function to prepare data.
+Si desea utilizar reglas más liberales (que permiten que los nombres de las claves contengan puntos), puede utilizar un método especial
+<code class="docutils literal notranslate"><span class="pre">useRawQueryString()</span></code> de antemano.</p>
+</div>
+</section>
+</section>
+<section id="fragmento">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Fragmento</a><a class="headerlink" href="#fragmento" title="Link to this heading"></a></h2>
+<p>Los fragmentos son la parte al final de la URL, precedida por el signo de almohadilla (<code class="docutils literal notranslate"><span class="pre">#</span></code>). En las URL HTML estos son enlaces.
+a un ancla en la página. Los URI de medios pueden utilizarlos de otras maneras.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$uri</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Higgs\HTTP\URI</span><span class="p">(</span><span class="s1">&#39;http://www.example.com/some/path#first-heading&#39;</span><span class="p">);</span>
+
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getFragment</span><span class="p">();</span>   <span class="c1">// &#39;first-heading&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setFragment</span><span class="p">(</span><span class="s1">&#39;second-heading&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">getFragment</span><span class="p">();</span>    <span class="c1">// &#39;second-heading&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="segmentos-uri">
+<h1><a class="toc-backref" href="#id13" role="doc-backlink">Segmentos URI</a><a class="headerlink" href="#segmentos-uri" title="Link to this heading"></a></h1>
+<p>Cada sección del camino entre las barras es un único segmento.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In the case of your site URI, URI Segments mean only the URI path part
+relativo a la URL base. Si su baseURL contiene subcarpetas, los valores
+será diferente de la ruta URI actual.</p>
+</div>
+<p>La clase URI proporciona una forma sencilla de determinar
+cuáles son los valores de los segmentos. Los segmentos comienzan en 1 siendo el extremo izquierdo del camino.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// URI = http://example.com/users/15/profile</span>
+
+<span class="c1">// Prints &#39;15&#39;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;users&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>También puede establecer un valor predeterminado diferente para un segmento en particular utilizando el segundo parámetro del método <code class="docutils literal notranslate"><span class="pre">getSegment()</span></code>. El valor predeterminado es una cadena vacía.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// URI = http://example.com/users/15/profile</span>
+
+<span class="c1">// will print &#39;profile&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+<span class="c1">// will print &#39;bar&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">);</span>
+<span class="c1">// will throw an exception</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
+<span class="c1">// will print &#39;baz&#39;</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setSilent</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">);</span>
+<span class="c1">// will print &#39;&#39; (empty string)</span>
+<span class="k">echo</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setSilent</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getSegment</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You can get the last +1 segment. When you try to get the last +2 or
+más segmento, se generará una excepción de forma predeterminada. tu podrías prevenir
+lanzando excepciones con el método <code class="docutils literal notranslate"><span class="pre">setSilent()</span></code>.</p>
+</div>
+<p>Puede obtener un recuento del total de segmentos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$total</span> <span class="o">=</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getTotalSegments</span><span class="p">();</span> <span class="c1">// 3</span>
+</pre></div>
+</div>
+<p>Finalmente, puedes recuperar una matriz de todos los segmentos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$segments</span> <span class="o">=</span> <span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">getSegments</span><span class="p">();</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Produces:</span>
+<span class="cm"> * [</span>
+<span class="cm"> *     0 =&gt; &#39;users&#39;,</span>
+<span class="cm"> *     1 =&gt; &#39;15&#39;,</span>
+<span class="cm"> *     2 =&gt; &#39;profile&#39;,</span>
+<span class="cm"> * ]</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="deshabilitar-el-lanzamiento-de-excepciones">
+<h1><a class="toc-backref" href="#id14" role="doc-backlink">Deshabilitar el lanzamiento de excepciones</a><a class="headerlink" href="#deshabilitar-el-lanzamiento-de-excepciones" title="Link to this heading"></a></h1>
+<p>De forma predeterminada, algunos métodos de esta clase pueden generar una excepción. Si desea desactivarlo, puede establecer una bandera especial
+eso evitará que se produzcan excepciones.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Disable throwing exceptions</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setSilent</span><span class="p">();</span>
+
+<span class="c1">// Enable throwing exceptions (default)</span>
+<span class="nv">$uri</span><span class="o">-&gt;</span><span class="na">setSilent</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="uploaded_files.html" class="btn btn-neutral float-left" title="Trabajar con archivos cargados" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="user_agent.html" class="btn btn-neutral float-right" title="Clase de agente de usuario" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

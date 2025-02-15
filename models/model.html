@@ -1,0 +1,1687 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usando el modelo de Higgs &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/models/model.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Usando clases de entidad" href="entities.html" />
+    <link rel="prev" title="Datos de modelado" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Datos de modelado</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Datos de modelado</a></li>
+      <li class="breadcrumb-item active">Usando el modelo de Higgs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usando-el-modelo-de-higgs">
+<h1>Usando el modelo de Higgs<a class="headerlink" href="#usando-el-modelo-de-higgs" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#modelos" id="id2">Modelos</a></p></li>
+<li><p><a class="reference internal" href="#accediendo-a-modelos" id="id3">Accediendo a modelos</a></p></li>
+<li><p><a class="reference internal" href="#modelo-de-higgs" id="id4">Modelo de Higgs</a></p></li>
+<li><p><a class="reference internal" href="#creando-tu-modelo" id="id5">Creando tu modelo</a></p>
+<ul>
+<li><p><a class="reference internal" href="#initialize" id="id6">initialize()</a></p></li>
+<li><p><a class="reference internal" href="#conexion-a-la-base-de-datos" id="id7">Conexión a la base de datos</a></p></li>
+<li><p><a class="reference internal" href="#configurando-su-modelo" id="id8">Configurando su modelo</a></p>
+<ul>
+<li><p><a class="reference internal" href="#table" id="id9">$table</a></p></li>
+<li><p><a class="reference internal" href="#primarykey" id="id10">$primaryKey</a></p></li>
+<li><p><a class="reference internal" href="#useautoincrement" id="id11">$useAutoIncrement</a></p></li>
+<li><p><a class="reference internal" href="#returntype" id="id12">$returnType</a></p></li>
+<li><p><a class="reference internal" href="#usesoftdeletes" id="id13">$useSoftDeletes</a></p></li>
+<li><p><a class="reference internal" href="#allowedfields" id="id14">$allowedFields</a></p></li>
+<li><p><a class="reference internal" href="#allowemptyinserts" id="id15">$allowEmptyInserts</a></p></li>
+<li><p><a class="reference internal" href="#fechas" id="id16">fechas</a></p></li>
+<li><p><a class="reference internal" href="#validacion" id="id17">Validación</a></p></li>
+<li><p><a class="reference internal" href="#devoluciones-de-llamada" id="id18">Devoluciones de llamada</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#trabajar-con-datos" id="id19">Trabajar con datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#encontrar-datos" id="id20">Encontrar datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#find" id="id21">find()</a></p></li>
+<li><p><a class="reference internal" href="#findcolumn" id="id22">findColumn()</a></p></li>
+<li><p><a class="reference internal" href="#findall" id="id23">findAll()</a></p></li>
+<li><p><a class="reference internal" href="#first" id="id24">first()</a></p></li>
+<li><p><a class="reference internal" href="#withdeleted" id="id25">withDeleted()</a></p></li>
+<li><p><a class="reference internal" href="#onlydeleted" id="id26">onlyDeleted()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#guardar-datos" id="id27">Guardar datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#insert" id="id28">insert()</a></p></li>
+<li><p><a class="reference internal" href="#model-allow-empty-inserts" id="id29">allowEmptyInserts()</a></p></li>
+<li><p><a class="reference internal" href="#update" id="id30">update()</a></p></li>
+<li><p><a class="reference internal" href="#save" id="id31">save()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#eliminar-datos" id="id32">Eliminar datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#delete" id="id33">delete()</a></p></li>
+<li><p><a class="reference internal" href="#purgedeleted" id="id34">purgeDeleted()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#validacion-en-el-modelo" id="id35">Validación en el modelo</a></p>
+<ul>
+<li><p><a class="reference internal" href="#validacion-de-datos" id="id36">Validación de datos</a></p></li>
+<li><p><a class="reference internal" href="#establecer-reglas-de-validacion" id="id37">Establecer reglas de validación</a></p></li>
+<li><p><a class="reference internal" href="#obtener-el-resultado-de-la-validacion" id="id38">Obtener el resultado de la validación</a></p></li>
+<li><p><a class="reference internal" href="#obtener-errores-de-validacion" id="id39">Obtener errores de validación</a></p></li>
+<li><p><a class="reference internal" href="#recuperar-reglas-de-validacion" id="id40">Recuperar reglas de validación</a></p></li>
+<li><p><a class="reference internal" href="#marcadores-de-posicion-de-validacion" id="id41">Marcadores de posición de validación</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#protegiendo-campos" id="id42">Protegiendo campos</a></p></li>
+<li><p><a class="reference internal" href="#cambios-en-el-tipo-de-devolucion-en-tiempo-de-ejecucion" id="id43">Cambios en el tipo de devolución en tiempo de ejecución</a></p>
+<ul>
+<li><p><a class="reference internal" href="#asarray" id="id44">asArray()</a></p></li>
+<li><p><a class="reference internal" href="#asobject" id="id45">asObject()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#procesamiento-de-grandes-cantidades-de-datos" id="id46">Procesamiento de grandes cantidades de datos</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#trabajar-con-el-generador-de-consultas" id="id47">Trabajar con el generador de consultas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#obteniendo-el-generador-de-consultas-para-la-tabla-del-modelo" id="id48">Obteniendo el generador de consultas para la tabla del modelo</a></p></li>
+<li><p><a class="reference internal" href="#obtener-el-generador-de-consultas-para-otra-tabla" id="id49">Obtener el generador de consultas para otra tabla</a></p></li>
+<li><p><a class="reference internal" href="#metodos-combinados-de-generador-de-consultas-y-modelo" id="id50">Métodos combinados de generador de consultas y modelo</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#eventos-modelo" id="id51">Eventos modelo</a></p>
+<ul>
+<li><p><a class="reference internal" href="#definicion-de-devoluciones-de-llamada" id="id52">Definición de devoluciones de llamada</a></p></li>
+<li><p><a class="reference internal" href="#especificacion-de-devoluciones-de-llamada-para-ejecutar" id="id53">Especificación de devoluciones de llamada para ejecutar</a></p></li>
+<li><p><a class="reference internal" href="#parametros-del-evento" id="id54">Parámetros del evento</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#creacion-manual-de-modelos" id="id55">Creación manual de modelos</a></p></li>
+</ul>
+</nav>
+<section id="modelos">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Modelos</a><a class="headerlink" href="#modelos" title="Link to this heading"></a></h2>
+<p>El modelo de Higgs proporciona características de conveniencia y funcionalidad adicional.
+que la gente usa comúnmente para hacer más conveniente trabajar con una <strong>tabla única</strong> en su base de datos.</p>
+<p>Sale de la caja con ayudante.
+métodos para muchas de las formas estándar que necesitaría para interactuar con una tabla de base de datos, incluida la búsqueda de registros,
+actualizar registros, eliminar registros y más.</p>
+</section>
+<section id="accediendo-a-modelos">
+<span id="accessing-models"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink">Accediendo a modelos</a><a class="headerlink" href="#accediendo-a-modelos" title="Link to this heading"></a></h2>
+<p>Los modelos normalmente se almacenan en el directorio <strong>app/Models</strong>. Deben tener un espacio de nombres que coincida con su
+ubicación dentro del directorio, como <code class="docutils literal notranslate"><span class="pre">espacio</span> <span class="pre">de</span> <span class="pre">nombres</span> <span class="pre">App\Models</span></code>.</p>
+<p>Puede acceder a los modelos dentro de sus clases creando una nueva instancia o usando la función auxiliar <a class="reference internal" href="../general/common_functions.html#model" title="model"><code class="xref php php-func docutils literal notranslate"><span class="pre">model()</span></code></a>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Create a new class manually.</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\App\Models\UserModel</span><span class="p">();</span>
+
+<span class="c1">// Create a shared instance of the model.</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;App\Models\UserModel&#39;</span><span class="p">);</span>
+<span class="c1">// or</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">\App\Models\UserModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+<span class="c1">// Create a new class with the model() function.</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Create shared instance with a supplied database connection.</span>
+<span class="nv">$db</span>        <span class="o">=</span> <span class="nx">db_connect</span><span class="p">(</span><span class="s1">&#39;custom&#39;</span><span class="p">);</span>
+<span class="nv">$userModel</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="s1">&#39;UserModel&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="nv">$db</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El <code class="docutils literal notranslate"><span class="pre">model()</span></code> usa <code class="docutils literal notranslate"><span class="pre">Factories::models()</span></code> internamente.
+Consulte <a class="reference internal" href="../concepts/factories.html#factories-loading-class"><span class="std std-ref">Cargando clases</span></a> para obtener detalles sobre el primer parámetro.</p>
+</section>
+<section id="modelo-de-higgs">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Modelo de Higgs</a><a class="headerlink" href="#modelo-de-higgs" title="Link to this heading"></a></h2>
+<p>Higgs proporciona una clase de modelo que proporciona algunas características interesantes, que incluyen:</p>
+<ul class="simple">
+<li><p>conexión automática a la base de datos</p></li>
+<li><p>métodos CRUD básicos</p></li>
+<li><p>validación en el modelo</p></li>
+<li><p><a class="reference internal" href="../libraries/pagination.html#paginating-with-models"><span class="std std-ref">paginación automática</span></a></p></li>
+<li><p>y más</p></li>
+</ul>
+<p>Esta clase proporciona una base sólida desde la cual construir tus propios modelos, permitiéndote
+Desarrolle rápidamente la capa de modelo de su aplicación.</p>
+</section>
+<section id="creando-tu-modelo">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Creando tu modelo</a><a class="headerlink" href="#creando-tu-modelo" title="Link to this heading"></a></h2>
+<p>Para aprovechar el modelo de Higgs, simplemente crearía una nueva clase de modelo.
+que extiende <code class="docutils literal notranslate"><span class="pre">Higgs\Model</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esta clase vacía proporciona acceso conveniente a la conexión de la base de datos, el Generador de consultas,
+y una serie de métodos de conveniencia adicionales.</p>
+<section id="initialize">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">initialize()</a><a class="headerlink" href="#initialize" title="Link to this heading"></a></h3>
+<p>Si necesita configuración adicional en su modelo, puede extender el método <code class="docutils literal notranslate"><span class="pre">initialize()</span></code>
+que se ejecutará inmediatamente después del constructor del modelo. Esto le permite realizar
+pasos adicionales sin repetir los parámetros del constructor, por ejemplo extendiendo otros modelos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Modules\Authentication\Models\UserAuthModel</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">UserAuthModel</span>
+<span class="p">{</span>
+    <span class="sd">/**</span>
+<span class="sd">     * Called during initialization. Appends</span>
+<span class="sd">     * our custom field to the module&#39;s model.</span>
+<span class="sd">     */</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">initialize</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">allowedFields</span><span class="p">[]</span> <span class="o">=</span> <span class="s1">&#39;middlename&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="conexion-a-la-base-de-datos">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Conexión a la base de datos</a><a class="headerlink" href="#conexion-a-la-base-de-datos" title="Link to this heading"></a></h3>
+<p>Cuando se crea una instancia de la clase por primera vez, si no se pasa ninguna instancia de conexión de base de datos al constructor,
+y si no configura la propiedad <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> en su clase de modelo,
+se conectará automáticamente al grupo de base de datos predeterminado, según lo establecido en la configuración de la base de datos.</p>
+<p>Puede
+modifique qué grupo se utiliza según el modelo agregando la propiedad <code class="docutils literal notranslate"><span class="pre">$DBGroup</span></code> a su clase.
+Esto garantiza que dentro del modelo cualquier referencia a <code class="docutils literal notranslate"><span class="pre">$this-&gt;db</span></code> se realice a través del canal apropiado.
+conexión.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$DBGroup</span> <span class="o">=</span> <span class="s1">&#39;group_name&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Reemplazaría «nombre_grupo» con el nombre de un grupo de base de datos definido de la base de datos.
+archivo de configuración.</p>
+</section>
+<section id="configurando-su-modelo">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Configurando su modelo</a><a class="headerlink" href="#configurando-su-modelo" title="Link to this heading"></a></h3>
+<p>La clase modelo tiene algunas opciones de configuración que se pueden configurar para permitir los métodos de la clase.
+para trabajar sin problemas para usted. Los dos primeros son utilizados por todos los métodos CRUD para determinar
+qué tabla usar y cómo podemos encontrar los registros requeridos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span>      <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$primaryKey</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$useAutoIncrement</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$returnType</span>     <span class="o">=</span> <span class="s1">&#39;array&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$useSoftDeletes</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">];</span>
+
+    <span class="k">protected</span> <span class="nx">bool</span> <span class="nv">$allowEmptyInserts</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+
+    <span class="c1">// Dates</span>
+    <span class="k">protected</span> <span class="nv">$useTimestamps</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$dateFormat</span>    <span class="o">=</span> <span class="s1">&#39;datetime&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$createdField</span>  <span class="o">=</span> <span class="s1">&#39;created_at&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$updatedField</span>  <span class="o">=</span> <span class="s1">&#39;updated_at&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$deletedField</span>  <span class="o">=</span> <span class="s1">&#39;deleted_at&#39;</span><span class="p">;</span>
+
+    <span class="c1">// Validation</span>
+    <span class="k">protected</span> <span class="nv">$validationRules</span>      <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$validationMessages</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$skipValidation</span>       <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$cleanValidationRules</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+    <span class="c1">// Callbacks</span>
+    <span class="k">protected</span> <span class="nv">$allowCallbacks</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$beforeInsert</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterInsert</span>    <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$beforeUpdate</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterUpdate</span>    <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$beforeFind</span>     <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterFind</span>      <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$beforeDelete</span>   <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">protected</span> <span class="nv">$afterDelete</span>    <span class="o">=</span> <span class="p">[];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="table">
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">$table</a><a class="headerlink" href="#table" title="Link to this heading"></a></h4>
+<p>Especifica la tabla de base de datos con la que trabaja principalmente este modelo. Esto sólo se aplica a la
+métodos CRUD incorporados. No está restringido a utilizar únicamente esta tabla por su cuenta.
+consultas.</p>
+</section>
+<section id="primarykey">
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">$primaryKey</a><a class="headerlink" href="#primarykey" title="Link to this heading"></a></h4>
+<p>Este es el nombre de la columna que identifica de forma única los registros de esta tabla. Este
+no necesariamente tiene que coincidir con la clave principal especificada en la base de datos, pero
+se usa con métodos como <code class="docutils literal notranslate"><span class="pre">find()</span></code> para saber con qué columna hacer coincidir el valor especificado.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>All Models must have a primaryKey specified to allow all of the features to work
+como se esperaba.</p>
+</div>
+</section>
+<section id="useautoincrement">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink">$useAutoIncrement</a><a class="headerlink" href="#useautoincrement" title="Link to this heading"></a></h4>
+<p>Especifica si la tabla utiliza una función de incremento automático para <a class="reference internal" href="#primarykey">$primaryKey</a>. Si se establece en «falso»
+entonces usted es responsable de proporcionar el valor de la clave principal para cada registro de la tabla. Este
+La característica puede ser útil cuando queremos implementar una relación 1:1 o usar UUID para nuestro modelo. El
+El valor predeterminado es «verdadero».</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you set <a class="reference internal" href="#useautoincrement">$useAutoIncrement</a> to <code class="docutils literal notranslate"><span class="pre">false</span></code>, then make sure to set your primary
+clave en la base de datos a <code class="docutils literal notranslate"><span class="pre">único</span></code>. De esta manera te asegurarás de que todas las características del modelo
+seguirá funcionando igual que antes.</p>
+</div>
+</section>
+<section id="returntype">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink">$returnType</a><a class="headerlink" href="#returntype" title="Link to this heading"></a></h4>
+<p>Los métodos CRUD del modelo le quitarán un paso de trabajo y regresarán automáticamente
+los datos resultantes, en lugar del objeto Resultado. Esta configuración le permite definir
+el tipo de datos que se devuelven. Los valores válidos son “<strong>array</strong>” (el valor predeterminado), “<strong>object</strong>” o <strong>completamente
+nombre calificado de una clase</strong> que se puede usar con <code class="docutils literal notranslate"><span class="pre">getCustomResultObject()</span></code> del objeto Result
+método. El uso de la constante especial <code class="docutils literal notranslate"><span class="pre">::class</span></code> de la clase permitirá que la mayoría de los IDE
+Complete automáticamente el nombre y permita funciones como refactorización para comprender mejor su código.</p>
+</section>
+<section id="usesoftdeletes">
+<span id="model-use-soft-deletes"></span><h4><a class="toc-backref" href="#id13" role="doc-backlink">$useSoftDeletes</a><a class="headerlink" href="#usesoftdeletes" title="Link to this heading"></a></h4>
+<p>Si es verdadero, entonces cualquier llamada al método <code class="docutils literal notranslate"><span class="pre">delete()</span></code> establecerá <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> en la base de datos, en lugar de
+en realidad eliminando la fila. Esto puede preservar datos cuando se pueda hacer referencia a ellos en otro lugar, o
+puede mantener una «papelera de reciclaje» de objetos que se pueden restaurar, o incluso simplemente conservarla como
+parte de un rastro de seguridad. Si es verdadero, los métodos <strong>find*()</strong> solo devolverán filas no eliminadas, a menos que
+el método <code class="docutils literal notranslate"><span class="pre">withDeleted()</span></code> se llama antes de llamar al método <strong>find*()</strong>.</p>
+<p>Esto requiere un campo DATETIME o INTEGER en la base de datos según el modelo.
+Configuración <a class="reference internal" href="#dateformat">$dateFormat</a>. El nombre del campo predeterminado es <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> sin embargo este nombre puede ser
+configurado con cualquier nombre de su elección utilizando la propiedad <a class="reference internal" href="#deletedfield">$deletedField</a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> field must be nullable.</p>
+</div>
+</section>
+<section id="allowedfields">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">$allowedFields</a><a class="headerlink" href="#allowedfields" title="Link to this heading"></a></h4>
+<p>Esta matriz debe actualizarse con los nombres de los campos que se pueden configurar durante <code class="docutils literal notranslate"><span class="pre">save()</span></code>, <code class="docutils literal notranslate"><span class="pre">insert()</span></code> o
+Métodos <code class="docutils literal notranslate"><span class="pre">actualizar()</span></code>. Cualquier nombre de campo distinto de estos se descartará. Esto ayuda a proteger
+en contra de simplemente tomar información de un formulario y arrojarla toda al modelo, lo que resulta en
+posibles vulnerabilidades de asignación masiva.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <a class="reference internal" href="#primarykey">$primaryKey</a> field should never be an allowed field.</p>
+</div>
+</section>
+<section id="allowemptyinserts">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink">$allowEmptyInserts</a><a class="headerlink" href="#allowemptyinserts" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Ya sea para permitir la inserción de datos vacíos. El valor predeterminado es «falso», lo que significa
+que si intentas insertar datos vacíos, se producirá una excepción con
+«No hay datos para insertar.» elevará.</p>
+<p>También puede cambiar esta configuración con el método <a class="reference internal" href="#model-allow-empty-inserts"><span class="std std-ref">allowEmptyInserts()</span></a>.</p>
+</section>
+<section id="fechas">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink">fechas</a><a class="headerlink" href="#fechas" title="Link to this heading"></a></h4>
+<section id="usetimestamps">
+<h5>$useTimestamps<a class="headerlink" href="#usetimestamps" title="Link to this heading"></a></h5>
+<p>Este valor booleano determina si la fecha actual se agrega automáticamente a todas las inserciones.
+y actualizaciones. Si es <code class="docutils literal notranslate"><span class="pre">true</span></code>, establecerá la hora actual en el formato especificado por <a class="reference internal" href="#dateformat">$dateFormat</a>. Este
+requiere que la tabla tenga columnas denominadas <strong>created_at</strong>, <strong>updated_at</strong> y <strong>deleted_at</strong> en el formato apropiado.
+tipo de datos. Consulte también <a class="reference internal" href="#createdfield">$createdField</a>, <a class="reference internal" href="#updatedfield">$updatedField</a> y <a class="reference internal" href="#deletedfield">$deletedField</a>.</p>
+</section>
+<section id="dateformat">
+<h5>$dateFormat<a class="headerlink" href="#dateformat" title="Link to this heading"></a></h5>
+<p>Este valor funciona con <a class="reference internal" href="#usetimestamps">$useTimestamps</a> y <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> para garantizar que se utilice el tipo correcto de
+El valor de fecha se inserta en la base de datos. De forma predeterminada, esto crea valores DATETIME, pero
+Las opciones válidas son: <code class="docutils literal notranslate"><span class="pre">'datetime'</span></code>, <code class="docutils literal notranslate"><span class="pre">'date'</span></code> o <code class="docutils literal notranslate"><span class="pre">'int'</span></code> (una marca de tiempo UNIX). Usando <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> o
+<a class="reference internal" href="#usetimestamps">$useTimestamps</a> con un <a class="reference internal" href="#dateformat">$dateFormat</a> no válido o faltante provocará una excepción.</p>
+</section>
+<section id="createdfield">
+<h5>$createdField<a class="headerlink" href="#createdfield" title="Link to this heading"></a></h5>
+<p>Especifica qué campo de base de datos usar para la marca de tiempo de creación del registro de datos.
+Establezca una cadena vacía (<code class="docutils literal notranslate"><span class="pre">''</span></code>) para evitar actualizarla (incluso si <a class="reference internal" href="#usetimestamps">$useTimestamps</a> está habilitado).</p>
+</section>
+<section id="updatedfield">
+<h5>$updatedField<a class="headerlink" href="#updatedfield" title="Link to this heading"></a></h5>
+<p>Especifica qué campo de base de datos se debe utilizar para mantener la marca de tiempo de actualización del registro de datos.
+Establezca una cadena vacía (<code class="docutils literal notranslate"><span class="pre">''</span></code>) para evitar actualizarla (incluso <a class="reference internal" href="#usetimestamps">$useTimestamps</a> está habilitado).</p>
+</section>
+<section id="deletedfield">
+<h5>$deletedField<a class="headerlink" href="#deletedfield" title="Link to this heading"></a></h5>
+<p>Especifica qué campo de base de datos usar para eliminaciones temporales. Consulte <a class="reference internal" href="#model-use-soft-deletes"><span class="std std-ref">$useSoftDeletes</span></a>.</p>
+</section>
+</section>
+<section id="validacion">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink">Validación</a><a class="headerlink" href="#validacion" title="Link to this heading"></a></h4>
+<section id="validationrules">
+<h5>$validationRules<a class="headerlink" href="#validationrules" title="Link to this heading"></a></h5>
+<p>Contiene una matriz de reglas de validación como se describe en <a class="reference internal" href="../libraries/validation.html#validation-array"><span class="std std-ref">How to Save Your Rules</span></a>
+o una cadena que contiene el nombre de un grupo de validación, como se describe en la misma sección.
+Se describe con más detalle a continuación.</p>
+</section>
+<section id="validationmessages">
+<h5>$validationMessages<a class="headerlink" href="#validationmessages" title="Link to this heading"></a></h5>
+<p>Contiene una serie de mensajes de error personalizados que deben usarse durante la validación, como
+descrito en <a class="reference internal" href="../libraries/validation.html#validation-custom-errors"><span class="std std-ref">Setting Custom Error Messages</span></a>. Se describe con más detalle a continuación.</p>
+</section>
+<section id="skipvalidation">
+<h5>$skipValidation<a class="headerlink" href="#skipvalidation" title="Link to this heading"></a></h5>
+<p>Si se debe omitir la validación durante todas las <strong>inserciones</strong> y <strong>actualizaciones</strong>. El valor por defecto
+El valor es «falso», lo que significa que los datos siempre intentarán ser validados. Esto es
+utilizado principalmente por el método <code class="docutils literal notranslate"><span class="pre">skipValidation()</span></code>, pero puede cambiarse a <code class="docutils literal notranslate"><span class="pre">true</span></code> para que
+este modelo nunca se validará.</p>
+</section>
+<section id="cleanvalidationrules">
+<span id="clean-validation-rules"></span><h5>$cleanValidationRules<a class="headerlink" href="#cleanvalidationrules" title="Link to this heading"></a></h5>
+<p>Si se deben eliminar las reglas de validación que no existen en los datos pasados.
+Esto se usa en <strong>actualizaciones</strong>.
+El valor predeterminado es «verdadero», lo que significa que las reglas de validación para los campos
+que no estén presentes en los datos pasados se eliminarán (temporalmente) antes de la validación.
+Esto es para evitar errores de validación al actualizar solo algunos campos.</p>
+<p>También puede cambiar el valor mediante el método <code class="docutils literal notranslate"><span class="pre">cleanRules()</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Prior to v7.2.7, <code class="docutils literal notranslate"><span class="pre">$cleanValidationRules</span></code> did not work due to a bug.</p>
+</div>
+</section>
+</section>
+<section id="devoluciones-de-llamada">
+<h4><a class="toc-backref" href="#id18" role="doc-backlink">Devoluciones de llamada</a><a class="headerlink" href="#devoluciones-de-llamada" title="Link to this heading"></a></h4>
+<section id="allowcallbacks">
+<h5>$allowCallbacks<a class="headerlink" href="#allowcallbacks" title="Link to this heading"></a></h5>
+<p>Si se deben utilizar las devoluciones de llamada definidas a continuación. Ver <a class="reference internal" href="#model-events"><span class="std std-ref">Eventos modelo</span></a>.</p>
+</section>
+<section id="beforeinsert">
+<h5>$beforeInsert<a class="headerlink" href="#beforeinsert" title="Link to this heading"></a></h5>
+</section>
+<section id="afterinsert">
+<h5>$afterInsert<a class="headerlink" href="#afterinsert" title="Link to this heading"></a></h5>
+</section>
+<section id="beforeupdate">
+<h5>$beforeUpdate<a class="headerlink" href="#beforeupdate" title="Link to this heading"></a></h5>
+</section>
+<section id="afterupdate">
+<h5>$afterUpdate<a class="headerlink" href="#afterupdate" title="Link to this heading"></a></h5>
+</section>
+<section id="beforefind">
+<h5>$beforeFind<a class="headerlink" href="#beforefind" title="Link to this heading"></a></h5>
+</section>
+<section id="afterfind">
+<h5>$afterFind<a class="headerlink" href="#afterfind" title="Link to this heading"></a></h5>
+</section>
+<section id="beforedelete">
+<h5>$beforeDelete<a class="headerlink" href="#beforedelete" title="Link to this heading"></a></h5>
+</section>
+<section id="afterdelete">
+<h5>$afterDelete<a class="headerlink" href="#afterdelete" title="Link to this heading"></a></h5>
+</section>
+<section id="beforeinsertbatch">
+<h5>$beforeInsertBatch<a class="headerlink" href="#beforeinsertbatch" title="Link to this heading"></a></h5>
+</section>
+<section id="afterinsertbatch">
+<h5>$afterInsertBatch<a class="headerlink" href="#afterinsertbatch" title="Link to this heading"></a></h5>
+</section>
+<section id="beforeupdatebatch">
+<h5>$beforeUpdateBatch<a class="headerlink" href="#beforeupdatebatch" title="Link to this heading"></a></h5>
+</section>
+<section id="afterupdatebatch">
+<h5>$afterUpdateBatch<a class="headerlink" href="#afterupdatebatch" title="Link to this heading"></a></h5>
+<p>Estas matrices le permiten especificar métodos de devolución de llamada que se ejecutarán en los datos en el
+hora especificada en el nombre de la propiedad. Ver <a class="reference internal" href="#model-events"><span class="std std-ref">Eventos modelo</span></a>.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="trabajar-con-datos">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Trabajar con datos</a><a class="headerlink" href="#trabajar-con-datos" title="Link to this heading"></a></h2>
+<section id="encontrar-datos">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Encontrar datos</a><a class="headerlink" href="#encontrar-datos" title="Link to this heading"></a></h3>
+<p>Se proporcionan varias funciones para realizar trabajo CRUD básico en sus tablas, incluyendo <code class="docutils literal notranslate"><span class="pre">find()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">insertar()</span></code>, <code class="docutils literal notranslate"><span class="pre">actualizar()</span></code>, <code class="docutils literal notranslate"><span class="pre">eliminar()</span></code> y más.</p>
+<section id="find">
+<h4><a class="toc-backref" href="#id21" role="doc-backlink">find()</a><a class="headerlink" href="#find" title="Link to this heading"></a></h4>
+<p>Devuelve una sola fila donde la clave principal coincide con el valor pasado como primer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="nv">$user_id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El valor se devuelve en el formato especificado en <a class="reference internal" href="#returntype">$returnType</a>.</p>
+<p>Puede especificar más de una fila para devolver pasando una matriz de valores de clave primaria en su lugar.
+de solo uno:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If no parameters are passed in, <code class="docutils literal notranslate"><span class="pre">find()</span></code> will return all rows in that model’s table,
+actuando efectivamente como <code class="docutils literal notranslate"><span class="pre">findAll()</span></code>, aunque menos explícito.</p>
+</div>
+</section>
+<section id="findcolumn">
+<h4><a class="toc-backref" href="#id22" role="doc-backlink">findColumn()</a><a class="headerlink" href="#findcolumn" title="Link to this heading"></a></h4>
+<p>Devuelve nulo o una matriz indexada de valores de columna:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findColumn</span><span class="p">(</span><span class="nv">$column_name</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">$column_name</span></code> debe ser el nombre de una sola columna; de lo contrario, obtendrá la <code class="docutils literal notranslate"><span class="pre">DataException</span></code>.</p>
+</section>
+<section id="findall">
+<h4><a class="toc-backref" href="#id23" role="doc-backlink">findAll()</a><a class="headerlink" href="#findall" title="Link to this heading"></a></h4>
+<p>Devuelve todos los resultados:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Esta consulta se puede modificar intercalando comandos del Generador de consultas según sea necesario antes de llamar a este método:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Puede pasar valores de límite y compensación como el primero y el segundo
+parámetros, respectivamente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">(</span><span class="nv">$limit</span><span class="p">,</span> <span class="nv">$offset</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="first">
+<h4><a class="toc-backref" href="#id24" role="doc-backlink">first()</a><a class="headerlink" href="#first" title="Link to this heading"></a></h4>
+<p>Devuelve la primera fila del conjunto de resultados. Es mejor utilizarlo en combinación con el generador de consultas.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;deleted&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">first</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="withdeleted">
+<h4><a class="toc-backref" href="#id25" role="doc-backlink">withDeleted()</a><a class="headerlink" href="#withdeleted" title="Link to this heading"></a></h4>
+<p>Si <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> es verdadero, entonces los métodos <strong>find*()</strong> no devolverán ninguna fila donde <code class="docutils literal notranslate"><span class="pre">deleted_at</span> <span class="pre">NO</span> <span class="pre">ES</span> <span class="pre">NULO</span></code>.
+Para anular esto temporalmente, puede utilizar el método <code class="docutils literal notranslate"><span class="pre">withDeleted()</span></code> antes de llamar al método <strong>find*()</strong>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Only gets non-deleted rows (deleted = 0)</span>
+<span class="nv">$activeUsers</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+
+<span class="c1">// Gets all rows</span>
+<span class="nv">$allUsers</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">withDeleted</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="onlydeleted">
+<h4><a class="toc-backref" href="#id26" role="doc-backlink">onlyDeleted()</a><a class="headerlink" href="#onlydeleted" title="Link to this heading"></a></h4>
+<p>Mientras que <code class="docutils literal notranslate"><span class="pre">withDeleted()</span></code> devolverá filas eliminadas y no eliminadas, este método modifica
+los siguientes métodos <strong>find*()</strong> para devolver solo filas eliminadas temporalmente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$deletedUsers</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">onlyDeleted</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="guardar-datos">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink">Guardar datos</a><a class="headerlink" href="#guardar-datos" title="Link to this heading"></a></h3>
+<section id="insert">
+<h4><a class="toc-backref" href="#id28" role="doc-backlink">insert()</a><a class="headerlink" href="#insert" title="Link to this heading"></a></h4>
+<p>El primer parámetro es una matriz asociativa de datos para crear una nueva fila de datos en la base de datos.
+Si se pasa un objeto en lugar de una matriz, intentará convertirlo en una matriz.</p>
+<p>Las claves de la matriz deben coincidir con el nombre de las columnas en <a class="reference internal" href="#table">$table</a>, mientras que los valores de la matriz son los valores que se guardarán para esa clave.</p>
+<p>El segundo parámetro opcional es de tipo booleano y, si se establece en falso, el método devolverá un valor booleano.
+que indica el éxito o fracaso de la consulta.</p>
+<p>Puede recuperar la clave principal de la última fila insertada utilizando el método <code class="docutils literal notranslate"><span class="pre">getInsertID()</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="c1">// Inserts data and returns inserted row&#39;s primary key</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+<span class="c1">// Inserts data and returns true on success and false on failure</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+
+<span class="c1">// Returns inserted row&#39;s primary key</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">getInsertID</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="model-allow-empty-inserts">
+<span id="id1"></span><h4><a class="toc-backref" href="#id29" role="doc-backlink">allowEmptyInserts()</a><a class="headerlink" href="#model-allow-empty-inserts" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Puede utilizar el método <code class="docutils literal notranslate"><span class="pre">allowEmptyInserts()</span></code> para insertar datos vacíos. El modelo genera una excepción cuando intenta insertar datos vacíos de forma predeterminada. Pero si llama a este método, la verificación ya no se realizará.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">allowEmptyInserts</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">insert</span><span class="p">([]);</span>
+</pre></div>
+</div>
+<p>También puede cambiar esta configuración con la propiedad <a class="reference internal" href="#allowemptyinserts">$allowEmptyInserts</a>.</p>
+<p>Puede habilitar la verificación nuevamente llamando a <code class="docutils literal notranslate"><span class="pre">allowEmptyInserts(false)</span></code>.</p>
+</section>
+<section id="update">
+<h4><a class="toc-backref" href="#id30" role="doc-backlink">update()</a><a class="headerlink" href="#update" title="Link to this heading"></a></h4>
+<p>Actualiza un registro existente en la base de datos. El primer parámetro es <a class="reference internal" href="#primarykey">$primaryKey</a> del registro a actualizar.
+Se pasa una matriz asociativa de datos a este método como segundo parámetro. Las claves de la matriz deben coincidir con el nombre.
+de las columnas en una <a class="reference internal" href="#table">$table</a>, mientras que los valores de la matriz son los valores a guardar para esa clave:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">(</span><span class="nv">$id</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Since v7.3.0, this method raises a <code class="docutils literal notranslate"><span class="pre">DatabaseException</span></code>
+si genera una declaración SQL sin una cláusula WHERE.
+En versiones anteriores, si se llama sin <a class="reference internal" href="#primarykey">$primaryKey</a> especificada y
+se generó una declaración SQL sin una cláusula WHERE, la consulta aún
+ejecutar y todos los registros de la tabla se actualizarán.</p>
+</div>
+<p>Se pueden actualizar varios registros con una sola llamada pasando una matriz de claves primarias como primer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">update</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Cuando necesite una solución más flexible, puede dejar los parámetros vacíos y funciona como el Generador de consultas.
+comando de actualización, con el beneficio adicional de validación, eventos, etc.:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span>
+    <span class="o">-&gt;</span><span class="na">whereIn</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">set</span><span class="p">([</span><span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">])</span>
+    <span class="o">-&gt;</span><span class="na">update</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="save">
+<span id="model-save"></span><h4><a class="toc-backref" href="#id31" role="doc-backlink">save()</a><a class="headerlink" href="#save" title="Link to this heading"></a></h4>
+<p>Este es un contenedor de los métodos <code class="docutils literal notranslate"><span class="pre">insert()</span></code> y <code class="docutils literal notranslate"><span class="pre">update()</span></code> que manejan la inserción o actualización del registro.
+automáticamente, en función de si encuentra una clave de matriz que coincida con el valor de <strong>clave principal</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Defined as a model property</span>
+<span class="nv">$primaryKey</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span><span class="p">;</span>
+
+<span class="c1">// Does an insert()</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+
+<span class="c1">// Performs an update, since the primary key, &#39;id&#39;, is found.</span>
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span>       <span class="o">=&gt;</span> <span class="mi">3</span><span class="p">,</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;darth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;d.vader@theempire.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El método save también puede simplificar mucho el trabajo con objetos de resultados de clases personalizados al reconocer un objeto no simple.
+objeto y tomando sus valores públicos y protegidos en una matriz, que luego se pasa al directorio apropiado
+método de inserción o actualización. Esto le permite trabajar con clases de Entidad de una manera muy limpia. Las clases de entidad son
+clases simples que representan una única instancia de un tipo de objeto, como un usuario, una publicación de blog, trabajo, etc.
+La clase es responsable de mantener la lógica de negocios que rodea al objeto en sí, como el formateo.
+elementos de cierta manera, etc. No deberían tener idea de cómo se guardan en la base de datos. En su
+más simples, podrían verse así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Entities</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Job</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$description</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__get</span><span class="p">(</span><span class="nv">$key</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">property_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$key</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">};</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__set</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$value</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">property_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$key</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$key</span><span class="p">}</span> <span class="o">=</span> <span class="nv">$value</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Un modelo muy sencillo con el que trabajar podría verse así:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">JobModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span>         <span class="o">=</span> <span class="s1">&#39;jobs&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$returnType</span>    <span class="o">=</span> <span class="nx">\App\Entities\Job</span><span class="o">::</span><span class="na">class</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Este modelo funciona con datos de la tabla <code class="docutils literal notranslate"><span class="pre">jobs</span></code> y devuelve todos los resultados como una instancia de <code class="docutils literal notranslate"><span class="pre">App\Entities\Job</span></code>.
+Cuando necesite conservar ese registro en la base de datos, deberá escribir métodos personalizados o utilizar el
+método <code class="docutils literal notranslate"><span class="pre">save()</span></code> del modelo para inspeccionar la clase, tomar las propiedades públicas y privadas y guardarlas en la base de datos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Retrieve a Job instance</span>
+<span class="nv">$job</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">15</span><span class="p">);</span>
+
+<span class="c1">// Make some changes</span>
+<span class="nv">$job</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="s1">&#39;Foobar&#39;</span><span class="p">;</span>
+
+<span class="c1">// Save the changes</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$job</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you find yourself working with Entities a lot, Higgs provides a built-in <a class="reference internal" href="entities.html"><span class="doc">Entity class</span></a>
+que proporciona varias funciones útiles que simplifican el desarrollo de entidades.</p>
+</div>
+</section>
+</section>
+<section id="eliminar-datos">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink">Eliminar datos</a><a class="headerlink" href="#eliminar-datos" title="Link to this heading"></a></h3>
+<section id="delete">
+<h4><a class="toc-backref" href="#id33" role="doc-backlink">delete()</a><a class="headerlink" href="#delete" title="Link to this heading"></a></h4>
+<p>Toma un valor de clave principal como primer parámetro y elimina el registro coincidente de la tabla del modelo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si el valor <a class="reference internal" href="#usesoftdeletes">$useSoftDeletes</a> del modelo es verdadero, esto actualizará la fila para establecer <code class="docutils literal notranslate"><span class="pre">deleted_at</span></code> en el valor actual.
+fecha y hora. Puede forzar una eliminación permanente configurando el segundo parámetro como verdadero.</p>
+<p>Se puede pasar una matriz de claves primarias como primer parámetro para eliminar varios registros a la vez:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>Si no se pasan parámetros, actuará como el método de eliminación del Generador de consultas, lo que requerirá una llamada a dónde.
+previamente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="purgedeleted">
+<h4><a class="toc-backref" href="#id34" role="doc-backlink">purgeDeleted()</a><a class="headerlink" href="#purgedeleted" title="Link to this heading"></a></h4>
+<p>Limpia la tabla de la base de datos eliminando permanentemente todas las filas que tienen “deleted_at IS NOT NULL”.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">purgeDeleted</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="validacion-en-el-modelo">
+<span id="in-model-validation"></span><h3><a class="toc-backref" href="#id35" role="doc-backlink">Validación en el modelo</a><a class="headerlink" href="#validacion-en-el-modelo" title="Link to this heading"></a></h3>
+<section id="validacion-de-datos">
+<h4><a class="toc-backref" href="#id36" role="doc-backlink">Validación de datos</a><a class="headerlink" href="#validacion-de-datos" title="Link to this heading"></a></h4>
+<p>Para muchas personas, validar los datos en el modelo es la forma preferida de garantizar que los datos se mantengan en un único
+estándar, sin duplicar código. La clase Modelo proporciona una manera de validar automáticamente todos los datos.
+antes de guardar en la base de datos con los métodos <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">update()</span></code> o <code class="docutils literal notranslate"><span class="pre">save()</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>When you update data, by default, the validation in the model class only
+valida los campos proporcionados. Esto es para evitar errores de validación al actualizar solo algunos campos.</p>
+<p>Pero esto significa que las reglas <code class="docutils literal notranslate"><span class="pre">obligatorias*</span></code> no funcionan como se esperaba al actualizar.
+Si desea verificar los campos obligatorios, puede cambiar el comportamiento mediante configuración.
+Consulte <a class="reference internal" href="#clean-validation-rules"><span class="std std-ref">$cleanValidationRules</span></a> para obtener más detalles.</p>
+</div>
+</section>
+<section id="establecer-reglas-de-validacion">
+<h4><a class="toc-backref" href="#id37" role="doc-backlink">Establecer reglas de validación</a><a class="headerlink" href="#establecer-reglas-de-validacion" title="Link to this heading"></a></h4>
+<p>El primer paso es completar la propiedad de clase <a class="reference internal" href="#validationrules">$validationRules</a> con los campos y reglas que deben
+se aplicado. Si tiene mensajes de error personalizados que desea utilizar, colóquelos en la matriz <a class="reference internal" href="#validationmessages">$validationMessages</a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;username&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[30]|alpha_numeric_space|min_length[3]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span>        <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[255]|min_length[8]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;pass_confirm&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required_with[password]|max_length[255]|matches[password]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$validationMessages</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;is_unique&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Sorry. That email has already been taken. Please choose another.&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Si prefiere organizar sus reglas y mensajes de error dentro del archivo de configuración de Validación, puede hacerlo
+y simplemente establezca <a class="reference internal" href="#validationrules">$validationRules</a> con el nombre del grupo de reglas de validación que creó:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>La otra forma de establecer las reglas de validación de campos por funciones,</p>
+<dl class="php class" id="namespace-Higgs">
+<dt class="sig sig-object php" id="Higgs\Model">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\</span></span><span class="sig-name descname"><span class="pre">Model</span></span><a class="headerlink" href="#Higgs\Model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Model::setValidationRule">
+<span class="sig-prename descclassname"><span class="pre">Higgs\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$field</span></em>, <em class="sig-param"><span class="pre">$fieldRules</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Model::setValidationRule" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$campo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – </p></li>
+<li><p><strong>$fieldRules</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Esta función establecerá las reglas de validación del campo.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fieldName</span>  <span class="o">=</span> <span class="s1">&#39;username&#39;</span><span class="p">;</span>
+<span class="nv">$fieldRules</span> <span class="o">=</span> <span class="s1">&#39;required|max_length[30]|alpha_numeric_space|min_length[3]&#39;</span><span class="p">;</span>
+
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationRule</span><span class="p">(</span><span class="nv">$fieldName</span><span class="p">,</span> <span class="nv">$fieldRules</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Model::setValidationRules">
+<span class="sig-prename descclassname"><span class="pre">Higgs\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationRules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$validationRules</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Model::setValidationRules" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Matriz de parámetros $reglas de validación<span class="colon">:</span></dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<p>Esta función establecerá las reglas de validación.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;username&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[30]|alpha_numeric_space|min_length[3]&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span>    <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;rules&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+            <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;We really need your email.&#39;</span><span class="p">,</span>
+        <span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationRules</span><span class="p">(</span><span class="nv">$validationRules</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p>La otra forma de configurar el mensaje de validación de campos por funciones,</p>
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Model::setValidationMessage">
+<span class="sig-prename descclassname"><span class="pre">Higgs\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$field</span></em>, <em class="sig-param"><span class="pre">$fieldMessages</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Model::setValidationMessage" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$campo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – </p></li>
+<li><p><strong>$fieldMessages</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Esta función establecerá los mensajes de error de campo.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fieldName</span>              <span class="o">=</span> <span class="s1">&#39;name&#39;</span><span class="p">;</span>
+<span class="nv">$fieldValidationMessage</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;required&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Your name is required here&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationMessage</span><span class="p">(</span><span class="nv">$fieldName</span><span class="p">,</span> <span class="nv">$fieldValidationMessage</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Model::setValidationMessages">
+<span class="sig-prename descclassname"><span class="pre">Higgs\Model::</span></span><span class="sig-name descname"><span class="pre">setValidationMessages</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$fieldMessages</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Model::setValidationMessages" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$fieldMessages</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz</span></code></span>) – </p></li>
+</ul>
+</dd>
+</dl>
+<p>Esta función configurará los mensajes de campo.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fieldValidationMessage</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;required&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;Your baby name is missing.&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;min_length&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Too short, man!&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">setValidationMessages</span><span class="p">(</span><span class="nv">$fieldValidationMessage</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="obtener-el-resultado-de-la-validacion">
+<h4><a class="toc-backref" href="#id38" role="doc-backlink">Obtener el resultado de la validación</a><a class="headerlink" href="#obtener-el-resultado-de-la-validacion" title="Link to this heading"></a></h4>
+<p>Ahora, cada vez que llame a los métodos <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, <code class="docutils literal notranslate"><span class="pre">update()</span></code> o <code class="docutils literal notranslate"><span class="pre">save()</span></code>, los datos serán validados. Si falla,
+el modelo devolverá un valor booleano <strong>falso</strong>.</p>
+</section>
+<section id="obtener-errores-de-validacion">
+<span id="model-getting-validation-errors"></span><h4><a class="toc-backref" href="#id39" role="doc-backlink">Obtener errores de validación</a><a class="headerlink" href="#obtener-errores-de-validacion" title="Link to this heading"></a></h4>
+<p>Puede utilizar el método <code class="docutils literal notranslate"><span class="pre">errors()</span></code> para recuperar los errores de validación:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="o">===</span> <span class="k">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;updateUser&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">errors</span><span class="p">()]);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto devuelve una matriz con los nombres de los campos y sus errores asociados que se puede usar para mostrar todos los
+errores en la parte superior del formulario, o para mostrarlos individualmente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="k">empty</span><span class="p">(</span><span class="nv">$errors</span><span class="p">))</span><span class="o">:</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;alert alert-danger&quot;</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">foreach</span> <span class="p">(</span><span class="nv">$errors</span> <span class="k">as</span> <span class="nv">$field</span> <span class="o">=&gt;</span> <span class="nv">$error</span><span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$error</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?php</span> <span class="k">endforeach</span> <span class="cp">?&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="cp">&lt;?php</span> <span class="k">endif</span> <span class="cp">?&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="recuperar-reglas-de-validacion">
+<h4><a class="toc-backref" href="#id40" role="doc-backlink">Recuperar reglas de validación</a><a class="headerlink" href="#recuperar-reglas-de-validacion" title="Link to this heading"></a></h4>
+<p>Puede recuperar las reglas de validación de un modelo accediendo a sus <code class="docutils literal notranslate"><span class="pre">validationRules</span></code>
+propiedad:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">validationRules</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>También puede recuperar solo un subconjunto de esas reglas llamando al descriptor de acceso
+método directamente, con opciones:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getValidationRules</span><span class="p">(</span><span class="nv">$options</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El parámetro <code class="docutils literal notranslate"><span class="pre">$options</span></code> es una matriz asociativa con un elemento,
+cuya clave es <code class="docutils literal notranslate"><span class="pre">'excepto'</span></code> o <code class="docutils literal notranslate"><span class="pre">'solo'</span></code>, y que tiene como
+valorar una serie de nombres de campos de interés:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// get the rules for all but the &quot;username&quot; field</span>
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getValidationRules</span><span class="p">([</span><span class="s1">&#39;except&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">]]);</span>
+<span class="c1">// get the rules for only the &quot;city&quot; and &quot;state&quot; fields</span>
+<span class="nv">$rules</span> <span class="o">=</span> <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">getValidationRules</span><span class="p">([</span><span class="s1">&#39;only&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;city&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">]]);</span>
+</pre></div>
+</div>
+</section>
+<section id="marcadores-de-posicion-de-validacion">
+<h4><a class="toc-backref" href="#id41" role="doc-backlink">Marcadores de posición de validación</a><a class="headerlink" href="#marcadores-de-posicion-de-validacion" title="Link to this heading"></a></h4>
+<p>El modelo proporciona un método simple para reemplazar partes de sus reglas en función de los datos que se le pasan. Este
+Suena bastante oscuro pero puede ser especialmente útil con la regla de validación <code class="docutils literal notranslate"><span class="pre">is_unique</span></code>. Los marcadores de posición son simplemente
+el nombre del campo (o clave de matriz) que se pasó como <code class="docutils literal notranslate"><span class="pre">$data</span></code> entre llaves. Será
+reemplazado por el <strong>valor</strong> del campo entrante coincidente. Un ejemplo debería aclarar esto:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;max_length[19]|is_natural_no_zero&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email,id,{id}]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.3.5, you must set the validation rules for the placeholder
+campo (<code class="docutils literal notranslate"><span class="pre">id</span></code>).</p>
+</div>
+<p>En este conjunto de reglas, se establece que la dirección de correo electrónico debe ser única en la base de datos, excepto en la fila
+que tiene una identificación que coincide con el valor del marcador de posición. Suponiendo que los datos del formulario POST tuvieran lo siguiente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$_POST</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;foo@example.com&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+<p>entonces el marcador de posición <code class="docutils literal notranslate"><span class="pre">{id}</span></code> se reemplazaría con el número <strong>4</strong>, dando esta regla revisada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$validationRules</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;id&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;max_length[19]|is_natural_no_zero&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[254]|valid_email|is_unique[users.email,id,4]&#39;</span><span class="p">,</span>
+    <span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Por lo tanto, ignorará la fila en la base de datos que tiene <code class="docutils literal notranslate"><span class="pre">id=4</span></code> cuando verifique que el correo electrónico sea único.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.3.5, if the placeholder (<code class="docutils literal notranslate"><span class="pre">id</span></code>) value does not pass the
+validación, el marcador de posición no sería reemplazado.</p>
+</div>
+<p>Esto también se puede utilizar para crear reglas más dinámicas en tiempo de ejecución, siempre y cuando tenga cuidado de que cualquier dinámica
+Las claves pasadas no entran en conflicto con los datos de su formulario.</p>
+</section>
+</section>
+<section id="protegiendo-campos">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink">Protegiendo campos</a><a class="headerlink" href="#protegiendo-campos" title="Link to this heading"></a></h3>
+<p>Para ayudar a protegerse contra ataques de asignación masiva, la clase Modelo <strong>requiere</strong> que enumere todos los nombres de los campos.
+que se puede cambiar durante las inserciones y actualizaciones en la propiedad de clase <a class="reference internal" href="#allowedfields">$allowedFields</a>. Cualquier dato proporcionado
+Además, estos se eliminarán antes de llegar a la base de datos. Esto es excelente para garantizar que las marcas de tiempo,
+o las claves primarias no se cambian.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ocasionalmente, encontrarás ocasiones en las que necesitarás poder cambiar estos elementos. Esto ocurre a menudo durante
+pruebas, migraciones o semillas. En estos casos, puedes activar o desactivar la protección:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">false</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">insert</span><span class="p">(</span><span class="nv">$data</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">protect</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="cambios-en-el-tipo-de-devolucion-en-tiempo-de-ejecucion">
+<h3><a class="toc-backref" href="#id43" role="doc-backlink">Cambios en el tipo de devolución en tiempo de ejecución</a><a class="headerlink" href="#cambios-en-el-tipo-de-devolucion-en-tiempo-de-ejecucion" title="Link to this heading"></a></h3>
+<p>Puede especificar el formato en el que se deben devolver los datos cuando se utilizan los métodos <strong>find*()</strong> como propiedad de clase,
+<a href="#id56"><span class="problematic" id="id57">`$tiporetorno`_</span></a>. Sin embargo, es posible que en ocasiones desees recibir los datos en un formato diferente. El modelo
+proporciona métodos que le permiten hacer precisamente eso.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>These methods only change the return type for the next <strong>find*()</strong> method call. After that,
+se restablece a su valor predeterminado.</p>
+</div>
+<section id="asarray">
+<h4><a class="toc-backref" href="#id44" role="doc-backlink">asArray()</a><a class="headerlink" href="#asarray" title="Link to this heading"></a></h4>
+<p>Devuelve datos del siguiente método <strong>find*()</strong> como matrices asociativas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">asArray</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+<section id="asobject">
+<h4><a class="toc-backref" href="#id45" role="doc-backlink">asObject()</a><a class="headerlink" href="#asobject" title="Link to this heading"></a></h4>
+<p>Devuelve datos del siguiente método <strong>find*()</strong> como objetos estándar o instancias de clase personalizadas:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Return as standard objects</span>
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">asObject</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+
+<span class="c1">// Return as custom class instances</span>
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">asObject</span><span class="p">(</span><span class="s1">&#39;User&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="procesamiento-de-grandes-cantidades-de-datos">
+<h3><a class="toc-backref" href="#id46" role="doc-backlink">Procesamiento de grandes cantidades de datos</a><a class="headerlink" href="#procesamiento-de-grandes-cantidades-de-datos" title="Link to this heading"></a></h3>
+<p>A veces, es necesario procesar grandes cantidades de datos y se corre el riesgo de quedarse sin memoria.
+Para simplificar esto, puede utilizar el método chunk() para obtener fragmentos de datos más pequeños que luego pueda
+haz tu trabajo. El primer parámetro es el número de filas que se recuperarán en un solo fragmento. El segundo
+El parámetro es un cierre que se llamará para cada fila de datos.</p>
+<p>Esto se utiliza mejor durante cronjobs, exportaciones de datos u otras tareas grandes.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">chunk</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="k">static</span> <span class="k">function</span> <span class="p">(</span><span class="nv">$data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something.</span>
+    <span class="c1">// $data is a single row of data.</span>
+<span class="p">});</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="trabajar-con-el-generador-de-consultas">
+<span id="model-events-callbacks"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink">Trabajar con el generador de consultas</a><a class="headerlink" href="#trabajar-con-el-generador-de-consultas" title="Link to this heading"></a></h2>
+<section id="obteniendo-el-generador-de-consultas-para-la-tabla-del-modelo">
+<h3><a class="toc-backref" href="#id48" role="doc-backlink">Obteniendo el generador de consultas para la tabla del modelo</a><a class="headerlink" href="#obteniendo-el-generador-de-consultas-para-la-tabla-del-modelo" title="Link to this heading"></a></h3>
+<p>El modelo Higgs tiene una instancia del Generador de consultas para la conexión de base de datos de ese modelo.
+Puede obtener acceso a la instancia <strong>compartida</strong> del Generador de consultas en cualquier momento que lo necesite:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$builder</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">builder</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Este constructor ya está configurado con la <a class="reference internal" href="#table">$table</a> del modelo.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Once you get the Query Builder instance, you can call methods of the
+<a class="reference internal" href="../database/query_builder.html"><span class="doc">Generador de consultas</span></a>.
+Sin embargo, dado que Query Builder no es un modelo, no puede llamar a métodos del modelo.</p>
+</div>
+</section>
+<section id="obtener-el-generador-de-consultas-para-otra-tabla">
+<h3><a class="toc-backref" href="#id49" role="doc-backlink">Obtener el generador de consultas para otra tabla</a><a class="headerlink" href="#obtener-el-generador-de-consultas-para-otra-tabla" title="Link to this heading"></a></h3>
+<p>Si necesita acceso a otra tabla, puede obtener otra instancia del Generador de consultas.
+Pase el nombre de la tabla como parámetro, pero tenga en cuenta que esto <strong>no</strong> devolverá
+una instancia compartida:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$groupBuilder</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">builder</span><span class="p">(</span><span class="s1">&#39;groups&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="metodos-combinados-de-generador-de-consultas-y-modelo">
+<h3><a class="toc-backref" href="#id50" role="doc-backlink">Métodos combinados de generador de consultas y modelo</a><a class="headerlink" href="#metodos-combinados-de-generador-de-consultas-y-modelo" title="Link to this heading"></a></h3>
+<p>También puede utilizar los métodos del Generador de consultas y los métodos CRUD del modelo en la misma llamada encadenada, lo que permite
+uso muy elegante:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$users</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">where</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;active&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">orderBy</span><span class="p">(</span><span class="s1">&#39;last_login&#39;</span><span class="p">,</span> <span class="s1">&#39;asc&#39;</span><span class="p">)</span>
+    <span class="o">-&gt;</span><span class="na">findAll</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>En este caso, opera en la instancia compartida del Generador de consultas que posee el modelo.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The Model does not provide a perfect interface to the Query Builder.
+El modelo y el generador de consultas son clases separadas con propósitos diferentes.
+No se debe esperar que devuelvan los mismos datos.</p>
+</div>
+<p>Si el Generador de consultas devuelve un resultado, se devuelve tal cual.
+En ese caso, el resultado puede ser diferente al devuelto por el método del modelo.
+y puede que no sea lo que se esperaba. Los eventos del modelo no se activan.</p>
+<p>Para evitar comportamientos inesperados, no utilice métodos del Generador de consultas que devuelvan resultados.
+y especifique el método del modelo al final del encadenamiento de métodos.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You can also access the model’s database connection seamlessly:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$user_name</span> <span class="o">=</span> <span class="nv">$userModel</span><span class="o">-&gt;</span><span class="na">escape</span><span class="p">(</span><span class="nv">$name</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="eventos-modelo">
+<span id="model-events"></span><h2><a class="toc-backref" href="#id51" role="doc-backlink">Eventos modelo</a><a class="headerlink" href="#eventos-modelo" title="Link to this heading"></a></h2>
+<p>Hay varios puntos dentro de la ejecución del modelo en los que puede especificar múltiples métodos de devolución de llamada para ejecutar.
+Estos métodos se pueden utilizar para normalizar datos, hacer hash de contraseñas, guardar entidades relacionadas y mucho más.</p>
+<p>La siguiente
+Los puntos en la ejecución del modelo pueden verse afectados, cada uno a través de una propiedad de clase:</p>
+<ul class="simple">
+<li><p><a href="#id58"><span class="problematic" id="id59">`$antes de Insertar`_</span></a>, <a href="#id60"><span class="problematic" id="id61">`$después de Insertar`_</span></a></p></li>
+<li><p><a href="#id62"><span class="problematic" id="id63">`$antes de la actualización`_</span></a>, <a href="#id64"><span class="problematic" id="id65">`$después de la actualización`_</span></a></p></li>
+<li><p><a href="#id66"><span class="problematic" id="id67">`$antes de buscar`_</span></a>, <a href="#id68"><span class="problematic" id="id69">`$después de buscar`_</span></a></p></li>
+<li><p><a href="#id70"><span class="problematic" id="id71">`$antes de eliminar`_</span></a>, <a href="#id72"><span class="problematic" id="id73">`$después de eliminar`_</span></a></p></li>
+<li><p><a href="#id74"><span class="problematic" id="id75">`$antes de InsertarBatch`_</span></a>, <a href="#id76"><span class="problematic" id="id77">`$después de InsertarBatch`_</span></a></p></li>
+<li><p><a href="#id78"><span class="problematic" id="id79">`$antes de ActualizarBatch`_</span></a>, <a href="#id80"><span class="problematic" id="id81">`$después de ActualizarBatch`_</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$beforeInsertBatch</span></code>, <code class="docutils literal notranslate"><span class="pre">$afterInsertBatch</span></code>, <code class="docutils literal notranslate"><span class="pre">$beforeUpdateBatch</span></code> and
+<code class="docutils literal notranslate"><span class="pre">$afterUpdateBatch</span></code> se puede utilizar desde la versión 7.0.0.</p>
+</div>
+<section id="definicion-de-devoluciones-de-llamada">
+<h3><a class="toc-backref" href="#id52" role="doc-backlink">Definición de devoluciones de llamada</a><a class="headerlink" href="#definicion-de-devoluciones-de-llamada" title="Link to this heading"></a></h3>
+<p>Usted especifica las devoluciones de llamada creando primero un nuevo método de clase en su modelo para usar.</p>
+<p>Este método de clase siempre recibirá una matriz <code class="docutils literal notranslate"><span class="pre">$data</span></code> como único parámetro.</p>
+<p>El contenido exacto de la matriz <code class="docutils literal notranslate"><span class="pre">$data</span></code> variará entre eventos, pero siempre
+contener una clave llamada <code class="docutils literal notranslate"><span class="pre">datos</span></code> que contiene los datos primarios pasados al original
+método. En el caso de los métodos <strong>insert*()</strong> o <strong>update*()</strong>, eso será
+los pares clave/valor que se están insertando en la base de datos. Los <code class="docutils literal notranslate"><span class="pre">$datos</span></code> principales
+La matriz también contendrá los otros valores pasados al método y se detallará.
+en <a href="#id82"><span class="problematic" id="id83">`Parámetros de evento`_</span></a>.</p>
+<p>El método de devolución de llamada debe devolver la matriz <code class="docutils literal notranslate"><span class="pre">$data</span></code> original para que otras devoluciones de llamada
+tener la información completa.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">hashPassword</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nb">isset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password_hash&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">password_hash</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">],</span> <span class="nx">PASSWORD_DEFAULT</span><span class="p">);</span>
+        <span class="nb">unset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="s1">&#39;password&#39;</span><span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="especificacion-de-devoluciones-de-llamada-para-ejecutar">
+<h3><a class="toc-backref" href="#id53" role="doc-backlink">Especificación de devoluciones de llamada para ejecutar</a><a class="headerlink" href="#especificacion-de-devoluciones-de-llamada-para-ejecutar" title="Link to this heading"></a></h3>
+<p>Usted especifica cuándo ejecutar las devoluciones de llamada agregando el nombre del método a la propiedad de clase apropiada (<a class="reference internal" href="#beforeinsert">$beforeInsert</a>, <a class="reference internal" href="#afterupdate">$afterUpdate</a>,
+etc). Se pueden agregar varias devoluciones de llamada a un solo evento y se procesarán una tras otra. Puede
+use la misma devolución de llamada en múltiples eventos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$beforeInsert</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hashPassword&#39;</span><span class="p">];</span>
+    <span class="k">protected</span> <span class="nv">$beforeUpdate</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hashPassword&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Además, cada modelo puede permitir (predeterminado) o denegar devoluciones de llamada en toda la clase configurando su propiedad <a class="reference internal" href="#allowcallbacks">$allowCallbacks</a>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$allowCallbacks</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>También puedes cambiar esta configuración temporalmente para una llamada de modelo único usando el método <code class="docutils literal notranslate"><span class="pre">allowCallbacks()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">allowCallbacks</span><span class="p">(</span><span class="k">false</span><span class="p">)</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// No callbacks triggered</span>
+<span class="nv">$model</span><span class="o">-&gt;</span><span class="na">find</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// Callbacks subject to original property value</span>
+</pre></div>
+</div>
+</section>
+<section id="parametros-del-evento">
+<h3><a class="toc-backref" href="#id54" role="doc-backlink">Parámetros del evento</a><a class="headerlink" href="#parametros-del-evento" title="Link to this heading"></a></h3>
+<p>Dado que los datos exactos pasados a cada devolución de llamada varían un poco, aquí están los detalles sobre lo que hay en el parámetro <code class="docutils literal notranslate"><span class="pre">$data</span></code>
+pasado a cada evento:
+=================== =============================================================================================================
+Evento              $datos contenidos
+=================== =============================================================================================================
+beforeInsert        <strong>datos</strong> = los pares clave/valor que se están insertando. Si un objeto o clase de entidad se pasa al</p>
+<blockquote>
+<div><p>Método <code class="docutils literal notranslate"><span class="pre">insert()</span></code>, primero se convierte en una matriz.</p>
+</div></blockquote>
+<dl>
+<dt>afterInsert         <strong>id</strong> = la clave principal de la nueva fila, o 0 en caso de error.</dt><dd><p><strong>datos</strong> = los pares clave/valor que se insertan.
+<strong>resultado</strong> = los resultados del método <code class="docutils literal notranslate"><span class="pre">insert()</span></code> utilizado a través del Generador de consultas.</p>
+</dd>
+<dt>beforeUpdate        <strong>id</strong> = la matriz de claves principales de las filas que se actualizan.</dt><dd><p><strong>datos</strong> = los pares clave/valor que se están actualizando. Si un objeto o clase de entidad se pasa al
+Método <code class="docutils literal notranslate"><span class="pre">update()</span></code>, primero se convierte en una matriz.</p>
+</dd>
+<dt>afterUpdate         <strong>id</strong> = la matriz de claves principales de las filas que se actualizan.</dt><dd><p><strong>datos</strong> = los pares clave/valor que se actualizan.
+<strong>resultado</strong> = los resultados del método <code class="docutils literal notranslate"><span class="pre">update()</span></code> utilizado a través del Generador de consultas.</p>
+</dd>
+<dt>beforeFind          El nombre del <strong>método</strong> que realiza la llamada, si se solicitó un <strong>singleton</strong> y estos campos adicionales:</dt><dd><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">first()</span></code> Sin campos adicionales</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">find()</span></code> <strong>id</strong> = la clave principal de la fila que se busca.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">findAll()</span></code> <strong>límite</strong> = el número de filas a buscar.</p></li>
+</ul>
+<p><strong>desplazamiento</strong> = el número de filas que se omitirán durante la búsqueda.</p>
+</dd>
+</dl>
+<p>afterFind           Igual que <strong>beforeFind</strong> pero incluye las filas de datos resultantes, o nulo si no se encuentra ningún resultado.
+beforeDelete        <strong>id</strong> = clave principal de la fila que se pasa al método <code class="docutils literal notranslate"><span class="pre">delete()</span></code>.</p>
+<blockquote>
+<div><p><strong>purgar</strong> = booleano si las filas de eliminación temporal deben eliminarse definitivamente.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>afterDelete         <strong>id</strong> = clave principal de la fila que se pasa al método <code class="docutils literal notranslate"><span class="pre">delete()</span></code>.</dt><dd><p><strong>purgar</strong> = booleano si las filas de eliminación temporal deben eliminarse definitivamente.
+<strong>resultado</strong> = el resultado de la llamada <code class="docutils literal notranslate"><span class="pre">delete()</span></code> en el Generador de consultas.
+<strong>datos</strong> = sin usar.</p>
+</dd>
+<dt>beforeInsertBatch   <strong>data</strong> = matriz asociativa de valores que se están insertando. Si un objeto o clase de entidad se pasa al</dt><dd><p>Método <code class="docutils literal notranslate"><span class="pre">insertBatch()</span></code>, primero se convierte en una matriz.</p>
+</dd>
+<dt>afterInsertBatch    <strong>data</strong> = la matriz asociativa de valores que se insertan.</dt><dd><p><strong>resultado</strong> = los resultados del método <code class="docutils literal notranslate"><span class="pre">insertbatch()</span></code> utilizado a través del Generador de consultas.</p>
+</dd>
+<dt>beforeUpdateBatch   <strong>data</strong> = matriz asociativa de valores que se están actualizando. Si un objeto o clase de entidad se pasa al</dt><dd><p>Método <code class="docutils literal notranslate"><span class="pre">updateBatch()</span></code>, primero se convierte en una matriz.</p>
+</dd>
+<dt>afterUpdateBatch    <strong>datos</strong> = los pares clave/valor que se actualizan.</dt><dd><p><strong>resultado</strong> = los resultados del método <code class="docutils literal notranslate"><span class="pre">updateBatch()</span></code> utilizado a través del Generador de consultas.</p>
+</dd>
+</dl>
+<p>Los métodos <code class="docutils literal notranslate"><span class="pre">beforeFind</span></code> y <code class="docutils literal notranslate"><span class="pre">afterFind</span></code> pueden devolver un conjunto de datos modificado para anular la respuesta normal.
+del modelo. Para <code class="docutils literal notranslate"><span class="pre">afterFind</span></code>, cualquier cambio realizado en <code class="docutils literal notranslate"><span class="pre">data</span></code> en la matriz de retorno se devolverá automáticamente
+al contexto de llamada. Para que <code class="docutils literal notranslate"><span class="pre">beforeFind</span></code> intercepte el flujo de trabajo de búsqueda, también debe devolver un
+booleano, <code class="docutils literal notranslate"><span class="pre">datosderetorno</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$beforeFind</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;checkCache&#39;</span><span class="p">];</span>
+
+    <span class="c1">// ...</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">checkCache</span><span class="p">(</span><span class="k">array</span> <span class="nv">$data</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// Check if the requested item is already in our cache</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isset</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="o">&amp;&amp;</span> <span class="nv">$item</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">getCachedItem</span><span class="p">(</span><span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]))</span> <span class="p">{</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span>       <span class="o">=</span> <span class="nv">$item</span><span class="p">;</span>
+            <span class="nv">$data</span><span class="p">[</span><span class="s1">&#39;returnData&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+
+            <span class="k">return</span> <span class="nv">$data</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="creacion-manual-de-modelos">
+<h2><a class="toc-backref" href="#id55" role="doc-backlink">Creación manual de modelos</a><a class="headerlink" href="#creacion-manual-de-modelos" title="Link to this heading"></a></h2>
+<p>No es necesario ampliar ninguna clase especial para crear un modelo para su aplicación. Todo lo que necesitas es conseguir un
+instancia de la conexión de la base de datos y listo. Esto le permite evitar las características de Higgs.
+Model le ofrece soluciones listas para usar y crea una experiencia totalmente personalizada.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Database\ConnectionInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserModel</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$db</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="fm">__construct</span><span class="p">(</span><span class="nx">ConnectionInterface</span> <span class="nv">$db</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span> <span class="o">=</span> <span class="nv">$db</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Datos de modelado" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="entities.html" class="btn btn-neutral float-right" title="Usando clases de entidad" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

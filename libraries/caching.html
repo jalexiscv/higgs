@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controlador de almacenamiento en caché &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/libraries/caching.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Galletas" href="cookies.html" />
+    <link rel="prev" title="Referencia de la biblioteca" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Referencia de la biblioteca</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Referencia de la biblioteca</a></li>
+      <li class="breadcrumb-item active">Controlador de almacenamiento en caché</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="controlador-de-almacenamiento-en-cache">
+<h1>Controlador de almacenamiento en caché<a class="headerlink" href="#controlador-de-almacenamiento-en-cache" title="Link to this heading"></a></h1>
+<p>Higgs incluye envoltorios de algunas de las formas más populares de
+Almacenamiento en caché rápido y dinámico. Todos, excepto el almacenamiento en caché basado en archivos, requieren
+requisitos del servidor y se generará una excepción fatal si el servidor
+no se cumplen los requisitos.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#uso-de-ejemplo" id="id1">Uso de ejemplo</a></p></li>
+<li><p><a class="reference internal" href="#configurando-el-cache" id="id2">Configurando el caché</a></p>
+<ul>
+<li><p><a class="reference internal" href="#controlador" id="id3">$ controlador</a></p></li>
+<li><p><a class="reference internal" href="#backuphandler" id="id4">$backupHandler</a></p></li>
+<li><p><a class="reference internal" href="#prefijo" id="id5">$prefijo</a></p></li>
+<li><p><a class="reference internal" href="#ttl" id="id6">$ttl</a></p></li>
+<li><p><a class="reference internal" href="#archivo" id="id7">$archivo</a></p></li>
+<li><p><a class="reference internal" href="#memcached" id="id8">$memcached</a></p></li>
+<li><p><a class="reference internal" href="#redis" id="id9">$redis</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#herramientas-de-linea-de-comandos" id="id10">Herramientas de línea de comandos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cache-borrar" id="id11">caché: borrar</a></p></li>
+<li><p><a class="reference internal" href="#cache-informacion" id="id12">caché: información</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencia-de-clase" id="id13">Referencia de clase</a></p></li>
+<li><p><a class="reference internal" href="#conductores" id="id14">Conductores</a></p>
+<ul>
+<li><p><a class="reference internal" href="#almacenamiento-en-cache-basado-en-archivos" id="id15">Almacenamiento en caché basado en archivos</a></p></li>
+<li><p><a class="reference internal" href="#almacenamiento-en-cache-de-memcached" id="id16">Almacenamiento en caché de Memcached</a></p></li>
+<li><p><a class="reference internal" href="#almacenamiento-en-cache-de-wincache" id="id17">Almacenamiento en caché de WinCache</a></p></li>
+<li><p><a class="reference internal" href="#almacenamiento-en-cache-de-redis" id="id18">Almacenamiento en caché de Redis</a></p></li>
+<li><p><a class="reference internal" href="#predios-caching" id="id19">Predios Caching</a></p></li>
+<li><p><a class="reference internal" href="#cache-ficticia" id="id20">Caché ficticia</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="uso-de-ejemplo">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Uso de ejemplo</a><a class="headerlink" href="#uso-de-ejemplo" title="Link to this heading"></a></h2>
+<p>El siguiente ejemplo muestra un patrón de uso común dentro de sus controladores.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$foo</span> <span class="o">=</span> <span class="nx">cache</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;Saving to the cache!&lt;br&gt;&#39;</span><span class="p">;</span>
+    <span class="nv">$foo</span> <span class="o">=</span> <span class="s1">&#39;foobarbaz!&#39;</span><span class="p">;</span>
+
+    <span class="c1">// Save into the cache for 5 minutes</span>
+    <span class="nx">cache</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="nv">$foo</span><span class="p">,</span> <span class="mi">300</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">echo</span> <span class="nv">$foo</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Puede obtener una instancia del motor de caché directamente a través de la clase Servicios:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cache</span> <span class="o">=</span> <span class="nx">\Config\Services</span><span class="o">::</span><span class="na">cache</span><span class="p">();</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="configurando-el-cache">
+<span id="libraries-caching-configuring-the-cache"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Configurando el caché</a><a class="headerlink" href="#configurando-el-cache" title="Link to this heading"></a></h2>
+<p>Toda la configuración del motor de caché se realiza en <strong>app/Config/Cache.php</strong>. En ese archivo,
+Los siguientes artículos están disponibles.</p>
+<section id="controlador">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">$ controlador</a><a class="headerlink" href="#controlador" title="Link to this heading"></a></h3>
+<p>Es el nombre del controlador que debe usarse como controlador principal al arrancar el motor.
+Los nombres disponibles son: dummy, file, memcached, redis, predis, wincache.</p>
+</section>
+<section id="backuphandler">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">$backupHandler</a><a class="headerlink" href="#backuphandler" title="Link to this heading"></a></h3>
+<p>En el caso de que la primera opción <code class="docutils literal notranslate"><span class="pre">$handler</span></code> no esté disponible, este será el siguiente controlador de caché que se cargará.
+Este es comúnmente el controlador <code class="docutils literal notranslate"><span class="pre">File</span></code> ya que el sistema de archivos siempre está disponible, pero puede no encajar.
+configuraciones más complejas de múltiples servidores.</p>
+</section>
+<section id="prefijo">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">$prefijo</a><a class="headerlink" href="#prefijo" title="Link to this heading"></a></h3>
+<p>Si tiene más de una aplicación usando el mismo almacenamiento de caché, puede agregar un prefijo personalizado
+cadena aquí que se antepone a todos los nombres de clave.</p>
+</section>
+<section id="ttl">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">$ttl</a><a class="headerlink" href="#ttl" title="Link to this heading"></a></h3>
+<p>El número predeterminado de segundos para guardar elementos cuando no se especifica ninguno.</p>
+<p>ADVERTENCIA: Esto no lo utilizan los controladores de marco donde 60 segundos están codificados, pero puede ser útil
+a proyectos y módulos. Esto reemplazará el valor codificado en una versión futura.</p>
+</section>
+<section id="archivo">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">$archivo</a><a class="headerlink" href="#archivo" title="Link to this heading"></a></h3>
+<p>Esta es una serie de configuraciones específicas del controlador <code class="docutils literal notranslate"><span class="pre">Archivo</span></code> para determinar cómo se deben guardar los archivos de caché.</p>
+</section>
+<section id="memcached">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">$memcached</a><a class="headerlink" href="#memcached" title="Link to this heading"></a></h3>
+<p>Este es un conjunto de servidores que se utilizarán cuando se utilice el controlador <code class="docutils literal notranslate"><span class="pre">Memcache(d)</span></code>.</p>
+</section>
+<section id="redis">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">$redis</a><a class="headerlink" href="#redis" title="Link to this heading"></a></h3>
+<p>La configuración para el servidor Redis que desea utilizar cuando utiliza el controlador <code class="docutils literal notranslate"><span class="pre">Redis</span></code> y <code class="docutils literal notranslate"><span class="pre">Predis</span></code>.</p>
+</section>
+</section>
+<section id="herramientas-de-linea-de-comandos">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Herramientas de línea de comandos</a><a class="headerlink" href="#herramientas-de-linea-de-comandos" title="Link to this heading"></a></h2>
+<p>Higgs se envía con varios <a class="reference internal" href="../cli/spark_commands.html"><span class="doc">comandos</span></a> que están disponibles
+desde la línea de comando para ayudarle a trabajar con Cache.
+Estas herramientas no son necesarias para utilizar el controlador de caché, pero pueden resultarle útiles.</p>
+<section id="cache-borrar">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">caché: borrar</a><a class="headerlink" href="#cache-borrar" title="Link to this heading"></a></h3>
+<p>Borra las cachés del sistema actual:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">caché de chispa de php: borrar</span>
+</pre></div>
+</div>
+</section>
+<section id="cache-informacion">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">caché: información</a><a class="headerlink" href="#cache-informacion" title="Link to this heading"></a></h3>
+<p>Muestra información de caché de archivos en el sistema actual:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">caché de chispa php: información</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This command only supports the File cache handler.</p>
+</div>
+</section>
+</section>
+<section id="referencia-de-clase">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Referencia de clase</a><a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\Cache">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\Cache\</span></span><span class="sig-name descname"><span class="pre">CacheInterface</span></span><a class="headerlink" href="#Higgs\Cache\CacheInterface" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::isSupported">
+<span class="sig-name descname"><span class="pre">isSupported</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::isSupported" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> si es compatible, <code class="docutils literal notranslate"><span class="pre">false</span></code> si no</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">mixed</span></span></span><a class="headerlink" href="#Higgs\Cache\CacheInterface::get" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del elemento de caché</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>valor del artículo o <code class="docutils literal notranslate"><span class="pre">nulo</span></code> si no se encuentra</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Este método intentará recuperar un elemento del almacén de caché. Si el
+El elemento no existe, el método devolverá nulo.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$foo</span> <span class="o">=</span> <span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;my_cached_item&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::remember">
+<span class="sig-name descname"><span class="pre">remember</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$key</span></em>, <em class="sig-param"><span class="pre">int</span> <span class="pre">$ttl</span></em>, <em class="sig-param"><span class="pre">Closure</span> <span class="pre">$callback</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::remember" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del elemento de caché</p></li>
+<li><p><strong>$ttl</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Tiempo de vida en segundos</p></li>
+<li><p><strong>$callback</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">Cierre</span></code></span>) – Devolución de llamada para invocar cuando el elemento de caché devuelve nulo</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>el valor del elemento de caché</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Obtiene un elemento del caché. Si se devolvió <code class="docutils literal notranslate"><span class="pre">null</span></code>, esto invocará la devolución de llamada
+y guarda el resultado. De cualquier manera, esto devolverá el valor.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::save">
+<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$key</span></em>, <em class="sig-param"><span class="pre">$data</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">int</span> <span class="pre">$ttl</span> <span class="pre">=</span> <span class="pre">60</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$raw</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::save" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del elemento de caché</p></li>
+<li><p><strong>$data</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – los datos a guardar</p></li>
+<li><p><strong>$ttl</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Tiempo de vida, en segundos (predeterminado 60)</p></li>
+<li><p><strong>$raw</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se debe almacenar el valor bruto</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Este método guardará un elemento en el almacén de caché. Si el guardado falla, el
+El método devolverá <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">(</span><span class="s1">&#39;cache_item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;data_to_cache&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">$raw</span></code> parameter is only utilized by Memcache,
+para permitir el uso de <code class="docutils literal notranslate"><span class="pre">increment()</span></code> y <code class="docutils literal notranslate"><span class="pre">decrement()</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::delete">
+<span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#Higgs\Cache\CacheInterface::delete" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del elemento almacenado en caché</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Este método eliminará un elemento específico del almacén de caché. Si el artículo
+la eliminación falla, el método devolverá falso.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">delete</span><span class="p">(</span><span class="s1">&#39;cache_item_id&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::deleteMatching">
+<span class="sig-name descname"><span class="pre">deleteMatching</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$pattern</span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">integer</span></span></span><a class="headerlink" href="#Higgs\Cache\CacheInterface::deleteMatching" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$pattern</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – patrón de estilo global para que coincida con las claves de los elementos almacenados en caché</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>número de elementos eliminados</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">entero</span></code></span></p>
+</dd>
+</dl>
+<p>Este método eliminará varios elementos del almacén de caché a la vez
+haciendo coincidir sus claves con un patrón de estilo globo. Devolverá el número total de elementos eliminados.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This method is only implemented for File, Redis and Predis handlers.
+Debido a limitaciones, no se pudo implementar para los controladores de Memcached y Wincache.</p>
+</div>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">deleteMatching</span><span class="p">(</span><span class="s1">&#39;prefix_*&#39;</span><span class="p">);</span> <span class="c1">// deletes all items of which keys start with &quot;prefix_&quot;</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">deleteMatching</span><span class="p">(</span><span class="s1">&#39;*_suffix&#39;</span><span class="p">);</span> <span class="c1">// deletes all items of which keys end with &quot;_suffix&quot;</span>
+</pre></div>
+</div>
+<p>Para obtener más información sobre la sintaxis de estilo glob, consulte
+<cite>Glob (programación)&lt;https://en.wikipedia.org/wiki/Glob_(programming)#Syntax&gt;</cite> _.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::increment">
+<span class="sig-name descname"><span class="pre">increment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$offset</span> <span class="pre">=</span> <span class="pre">1</span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">mixed</span></span></span><a class="headerlink" href="#Higgs\Cache\CacheInterface::increment" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$clave</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – ID de caché</p></li>
+<li><p><strong>$offset</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Paso/valor a agregar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nuevo valor en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Realiza un incremento atómico de un valor almacenado sin procesar.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// &#39;iterator&#39; has a value of 2</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">increment</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 3</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">increment</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 6</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::decrement">
+<span class="sig-name descname"><span class="pre">decrement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$offset</span> <span class="pre">=</span> <span class="pre">1</span></em><span class="optional">]</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">mixed</span></span></span><a class="headerlink" href="#Higgs\Cache\CacheInterface::decrement" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$clave</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – ID de caché</p></li>
+<li><p><strong>$offset</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">int</span></code></span>) – Paso/valor a reducir</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nuevo valor en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Realiza una disminución atómica de un valor almacenado sin procesar.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// &#39;iterator&#39; has a value of 6</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">decrement</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 5</span>
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">decrement</span><span class="p">(</span><span class="s1">&#39;iterator&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span> <span class="c1">// &#39;iterator&#39; is now 3</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::clean">
+<span class="sig-name descname"><span class="pre">clean</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::clean" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">true</span></code> en caso de éxito, <code class="docutils literal notranslate"><span class="pre">false</span></code> en caso de error</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Este método «limpiará» todo el caché. Si la eliminación del
+Los archivos de caché fallan, el método devolverá falso.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">clean</span><span class="p">();</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::getCacheInfo">
+<span class="sig-name descname"><span class="pre">getCacheInfo</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::getCacheInfo" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>información sobre toda la base de datos de caché</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Este método devolverá información sobre todo el caché.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getCacheInfo</span><span class="p">());</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The information returned and the structure of the data is dependent
+en qué adaptador se está utilizando.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::getMetadata">
+<span class="sig-name descname"><span class="pre">getMetadata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$key</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::getMetadata" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre del elemento de caché</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>metadatos del elemento almacenado en caché. <code class="docutils literal notranslate"><span class="pre">null</span></code> para elementos faltantes, o una matriz con al menos la clave «caducar» para una época de vencimiento absoluta (<code class="docutils literal notranslate"><span class="pre">null</span></code> para nunca caduca).</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">matriz|nulo</span></code></span></p>
+</dd>
+</dl>
+<p>Este método devolverá información detallada sobre un elemento específico en el
+cache.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$cache</span><span class="o">-&gt;</span><span class="na">getMetadata</span><span class="p">(</span><span class="s1">&#39;my_cached_item&#39;</span><span class="p">));</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The information returned and the structure of the data is dependent
+en qué adaptador se está utilizando. Algunos adaptadores (Archivo, Memcached, Wincache)
+aún devuelve «falso» para los elementos faltantes.</p>
+</div>
+</dd></dl>
+
+<dl class="php staticmethod">
+<dt class="sig sig-object php" id="Higgs\Cache\CacheInterface::validateKey">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">validateKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">string</span> <span class="pre">$key</span></em>, <em class="sig-param"><span class="pre">string</span> <span class="pre">$prefix</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Cache\CacheInterface::validateKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – clave de caché potencial</p></li>
+<li><p><strong>$prefijo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Prefijo opcional</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La clave verificada y con prefijo. Si la clave excede la longitud máxima de clave del controlador, se aplicará un hash.</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Este método lo utilizan los métodos del controlador para comprobar que las claves son válidas. tirará
+una <code class="docutils literal notranslate"><span class="pre">InvalidArgumentException</span></code> para caracteres que no son cadenas, no válidos y longitudes vacías.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Cache\Handlers\BaseHandler</span><span class="p">;</span>
+
+<span class="nv">$prefixedKey</span> <span class="o">=</span> <span class="nx">BaseHandler</span><span class="o">::</span><span class="na">validateKey</span><span class="p">(</span><span class="nv">$key</span><span class="p">,</span> <span class="nv">$prefix</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="conductores">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Conductores</a><a class="headerlink" href="#conductores" title="Link to this heading"></a></h2>
+<section id="almacenamiento-en-cache-basado-en-archivos">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Almacenamiento en caché basado en archivos</a><a class="headerlink" href="#almacenamiento-en-cache-basado-en-archivos" title="Link to this heading"></a></h3>
+<p>A diferencia del almacenamiento en caché de la clase de salida, el almacenamiento en caché basado en archivos del controlador
+permite almacenar en caché partes de los archivos de visualización. Úselo con cuidado y
+asegúrese de comparar su aplicación, ya que puede llegar un punto en el que el disco
+La E/S anulará las ganancias positivas mediante el almacenamiento en caché. Esto requiere un caché
+directorio para que la aplicación realmente pueda escribirlo.</p>
+</section>
+<section id="almacenamiento-en-cache-de-memcached">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Almacenamiento en caché de Memcached</a><a class="headerlink" href="#almacenamiento-en-cache-de-memcached" title="Link to this heading"></a></h3>
+<p>Los servidores Memcached se pueden especificar en el archivo de configuración de caché. Las opciones disponibles son:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Cache</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="nv">$memcached</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;host&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;port&#39;</span>   <span class="o">=&gt;</span> <span class="mi">11211</span><span class="p">,</span>
+        <span class="s1">&#39;weight&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;raw&#39;</span>    <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Para obtener más información sobre Memcached, consulte
+<cite>https://www.php.net/memcached&lt;https://www.php.net/memcached&gt;</cite> _.</p>
+</section>
+<section id="almacenamiento-en-cache-de-wincache">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Almacenamiento en caché de WinCache</a><a class="headerlink" href="#almacenamiento-en-cache-de-wincache" title="Link to this heading"></a></h3>
+<p>En Windows, también puede utilizar el controlador WinCache.</p>
+<p>Para obtener más información sobre WinCache, consulte
+<cite>https://www.php.net/wincache&lt;https://www.php.net/wincache&gt;</cite> _.</p>
+</section>
+<section id="almacenamiento-en-cache-de-redis">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Almacenamiento en caché de Redis</a><a class="headerlink" href="#almacenamiento-en-cache-de-redis" title="Link to this heading"></a></h3>
+<p>Redis es un almacén de valores clave en memoria que puede funcionar en modo caché LRU.
+Para usarlo, necesita el <cite>servidor Redis y la extensión PHP phpredis&lt;https://github.com/phpredis/phpredis&gt;</cite> _.</p>
+<p>Opciones de configuración para conectarse al servidor Redis almacenado en el archivo de configuración de caché. Las opciones disponibles son:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Cache</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="nv">$redis</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;host&#39;</span>     <span class="o">=&gt;</span> <span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;password&#39;</span> <span class="o">=&gt;</span> <span class="k">null</span><span class="p">,</span>
+        <span class="s1">&#39;port&#39;</span>     <span class="o">=&gt;</span> <span class="mi">6379</span><span class="p">,</span>
+        <span class="s1">&#39;timeout&#39;</span>  <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;database&#39;</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Para obtener más información sobre Redis, consulte
+<cite>https://redis.io&lt;https://redis.io&gt;</cite> _.</p>
+</section>
+<section id="predios-caching">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Predios Caching</a><a class="headerlink" href="#predios-caching" title="Link to this heading"></a></h3>
+<p>Predis es una biblioteca cliente PHP flexible y con todas las funciones para el almacén clave-valor de Redis.
+Para usarlo, desde la línea de comando dentro de la raíz de tu proyecto:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">composer require predios/predios</span>
+</pre></div>
+</div>
+<p>Para obtener más información sobre Redis, consulte
+<cite>https://github.com/nrk/predis&lt;https://github.com/nrk/predis&gt;</cite> _.</p>
+</section>
+<section id="cache-ficticia">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Caché ficticia</a><a class="headerlink" href="#cache-ficticia" title="Link to this heading"></a></h3>
+<p>Este es un backend de almacenamiento en caché que siempre «fallará». No almacena datos,
+pero le permite mantener su código de almacenamiento en caché en entornos que no lo hacen
+admite el caché elegido.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Referencia de la biblioteca" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="cookies.html" class="btn btn-neutral float-right" title="Galletas" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

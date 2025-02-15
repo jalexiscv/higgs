@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clase de forja de base de datos &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/dbmgmt/forge.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Migraciones de bases de datos" href="migration.html" />
+    <link rel="prev" title="Administrar bases de datos" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Administrar bases de datos</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Administrar bases de datos</a></li>
+      <li class="breadcrumb-item active">Clase de forja de base de datos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="clase-de-forja-de-base-de-datos">
+<h1>Clase de forja de base de datos<a class="headerlink" href="#clase-de-forja-de-base-de-datos" title="Link to this heading"></a></h1>
+<p>La clase Database Forge contiene métodos que le ayudarán a gestionar su
+base de datos.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#inicializando-la-clase-forge" id="id3">Inicializando la clase Forge</a></p></li>
+<li><p><a class="reference internal" href="#crear-y-eliminar-bases-de-datos" id="id4">Crear y eliminar bases de datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#forge-createdatabase-db-name" id="id5">$forge-&gt;createDatabase(“db_name”)</a></p></li>
+<li><p><a class="reference internal" href="#forge-dropdatabase-db-name" id="id6">$forge-&gt;dropDatabase(“db_name”)</a></p></li>
+<li><p><a class="reference internal" href="#crear-bases-de-datos-en-la-linea-de-comando" id="id7">Crear bases de datos en la línea de comando</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#crear-tablas" id="id8">Crear tablas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#agregar-campos" id="id9">Agregar campos</a></p></li>
+<li><p><a class="reference internal" href="#agregar-claves" id="id10">Agregar claves</a></p></li>
+<li><p><a class="reference internal" href="#agregar-claves-externas" id="id11">Agregar claves externas</a></p></li>
+<li><p><a class="reference internal" href="#creando-una-tabla" id="id12">Creando una tabla</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#mesas-de-caida" id="id13">Mesas de caída</a></p>
+<ul>
+<li><p><a class="reference internal" href="#dejar-caer-una-mesa" id="id14">Dejar caer una mesa</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#modificar-tablas" id="id15">Modificar tablas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#agregar-un-campo-a-una-tabla" id="id16">Agregar un campo a una tabla</a></p></li>
+<li><p><a class="reference internal" href="#eliminar-campos-de-una-tabla" id="id17">Eliminar campos de una tabla</a></p></li>
+<li><p><a class="reference internal" href="#modificar-un-campo-en-una-tabla" id="id18">Modificar un campo en una tabla</a></p></li>
+<li><p><a class="reference internal" href="#agregar-claves-a-una-tabla" id="id19">Agregar claves a una tabla</a></p></li>
+<li><p><a class="reference internal" href="#dejar-caer-una-clave-principal" id="id20">Dejar caer una clave principal</a></p></li>
+<li><p><a class="reference internal" href="#dejando-caer-una-llave" id="id21">Dejando caer una llave</a></p></li>
+<li><p><a class="reference internal" href="#dejar-caer-una-clave-externa" id="id22">Dejar caer una clave externa</a></p></li>
+<li><p><a class="reference internal" href="#cambiar-el-nombre-de-una-tabla" id="id23">Cambiar el nombre de una tabla</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#referencia-de-clase" id="id24">Referencia de clase</a></p></li>
+</ul>
+</nav>
+<section id="inicializando-la-clase-forge">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Inicializando la clase Forge</a><a class="headerlink" href="#inicializando-la-clase-forge" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>In order to initialize the Forge class, your database
+El controlador ya debe estar ejecutándose, ya que la clase Forge depende de él.</p>
+</div>
+<p>Cargue la clase Forge de la siguiente manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span> <span class="o">=</span> <span class="nx">\Config\Database</span><span class="o">::</span><span class="na">forge</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>También puede pasar otro nombre de grupo de base de datos al cargador DB Forge, en caso de que
+la base de datos que desea administrar no es la predeterminada:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">myforge</span> <span class="o">=</span> <span class="nx">\Config\Database</span><span class="o">::</span><span class="na">forge</span><span class="p">(</span><span class="s1">&#39;other_db&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, pasamos el nombre de un grupo de base de datos diferente.
+al que conectarse como primer parámetro.</p>
+</section>
+<section id="crear-y-eliminar-bases-de-datos">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Crear y eliminar bases de datos</a><a class="headerlink" href="#crear-y-eliminar-bases-de-datos" title="Link to this heading"></a></h2>
+<section id="forge-createdatabase-db-name">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">$forge-&gt;createDatabase(“db_name”)</a><a class="headerlink" href="#forge-createdatabase-db-name" title="Link to this heading"></a></h3>
+<p>Le permite crear la base de datos especificada en el primer parámetro.
+Devuelve verdadero/falso según el éxito o el fracaso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">createDatabase</span><span class="p">(</span><span class="s1">&#39;my_db&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;Database created!&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Un segundo parámetro opcional establecido en verdadero agregará la declaración <code class="docutils literal notranslate"><span class="pre">SI</span> <span class="pre">EXISTE</span></code>
+o comprobará si existe una base de datos antes de crearla (dependiendo del DBMS).</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">createDatabase</span><span class="p">(</span><span class="s1">&#39;my_db&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm"> * gives CREATE DATABASE IF NOT EXISTS `my_db`</span>
+<span class="cm"> * or will check if a database exists</span>
+<span class="cm"> */</span>
+</pre></div>
+</div>
+</section>
+<section id="forge-dropdatabase-db-name">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">$forge-&gt;dropDatabase(“db_name”)</a><a class="headerlink" href="#forge-dropdatabase-db-name" title="Link to this heading"></a></h3>
+<p>Le permite eliminar la base de datos especificada en el primer parámetro.
+Devuelve verdadero/falso según el éxito o el fracaso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropDatabase</span><span class="p">(</span><span class="s1">&#39;my_db&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">&#39;Database deleted!&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="crear-bases-de-datos-en-la-linea-de-comando">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Crear bases de datos en la línea de comando</a><a class="headerlink" href="#crear-bases-de-datos-en-la-linea-de-comando" title="Link to this heading"></a></h3>
+<p>Higgs admite la creación de bases de datos directamente desde su terminal favorito utilizando el <code class="docutils literal notranslate"><span class="pre">db:create</span></code> dedicado.
+dominio. Al utilizar este comando se supone que la base de datos aún no existe. De lo contrario, Higgs
+se quejará de que la creación de la base de datos ha fallado.</p>
+<p>Para comenzar, simplemente escriba el comando y el nombre de la base de datos (por ejemplo, <code class="docutils literal notranslate"><span class="pre">foo</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark db: crear foo</span>
+</pre></div>
+</div>
+<p>Si todo salió bien, deberías esperar que se muestre el mensaje <a href="#id1"><span class="problematic" id="id2">``</span></a>Base de datos «foo» creada exitosamente””.</p>
+<p>Si está en un entorno de prueba o está utilizando el controlador SQLite3, puede pasar la extensión del archivo
+para el archivo donde se creará la base de datos usando la opción <code class="docutils literal notranslate"><span class="pre">--ext</span></code>. Los valores válidos son <code class="docutils literal notranslate"><span class="pre">db</span></code> y
+<code class="docutils literal notranslate"><span class="pre">sqlite</span></code> y por defecto es <code class="docutils literal notranslate"><span class="pre">db</span></code>. Recuerde que estos no deben ir precedidos de un punto.
+:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">php spark db: crear foo --ext sqlite</span>
+</pre></div>
+</div>
+<p>El comando anterior creará el archivo db en <strong>WRITEPATH/foo.sqlite</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When using the special SQLite3 database name <code class="docutils literal notranslate"><span class="pre">:memory:</span></code>, expect that the command will still
+produce un mensaje de éxito pero no se crea ningún archivo de base de datos. Esto se debe a que SQLite3 simplemente usará
+una base de datos en memoria.</p>
+</div>
+</section>
+</section>
+<section id="crear-tablas">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Crear tablas</a><a class="headerlink" href="#crear-tablas" title="Link to this heading"></a></h2>
+<p>Hay varias cosas que quizás desee hacer al crear tablas. Agregar
+campos, agregar claves a la tabla, modificar columnas. Higgs proporciona una
+mecanismo para ello.</p>
+<section id="agregar-campos">
+<span id="adding-fields"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Agregar campos</a><a class="headerlink" href="#agregar-campos" title="Link to this heading"></a></h3>
+<section id="forjar-addfield">
+<h4>$forjar-&gt;addField()<a class="headerlink" href="#forjar-addfield" title="Link to this heading"></a></h4>
+<p>Los campos normalmente se crean mediante una matriz asociativa. Dentro de la matriz, debes
+incluya una clave <code class="docutils literal notranslate"><span class="pre">tipo</span></code> que se relacione con el tipo de datos del campo.</p>
+<p>Por ejemplo, <code class="docutils literal notranslate"><span class="pre">INT</span></code>, <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code>, <code class="docutils literal notranslate"><span class="pre">TEXT</span></code>, etc.
+Muchos tipos de datos (por ejemplo, <code class="docutils literal notranslate"><span class="pre">VARCHAR</span></code>) también requieren una clave <code class="docutils literal notranslate"><span class="pre">constraint</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;users&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="c1">// will translate to &quot;users VARCHAR(100)&quot; when the field is added.</span>
+</pre></div>
+</div>
+<p>Además, se pueden utilizar las siguientes claves/valores:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">unsigned</span></code>/true: para generar <code class="docutils literal notranslate"><span class="pre">UNSIGNED</span></code> en la definición del campo.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">default</span></code>/value: para generar la restricción <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code> en la definición del campo.</p></li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">null</span></code>/true: para generar <code class="docutils literal notranslate"><span class="pre">NULL</span></code> en la definición del campo. Sin esto,</dt><dd><p>el campo por defecto será <code class="docutils literal notranslate"><span class="pre">NO</span> <span class="pre">NULO</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">auto_increment</span></code>/true: genera un indicador de auto_increment en el</dt><dd><p>campo. Tenga en cuenta que el tipo de campo debe ser un tipo que admita esto,
+como por ejemplo <code class="docutils literal notranslate"><span class="pre">INTEGER</span></code>.</p>
+</dd>
+</dl>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unique</span></code>/true: para generar una clave única para la definición del campo.</p></li>
+</ul>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>           <span class="o">=&gt;</span> <span class="s1">&#39;INT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;constraint&#39;</span>     <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s1">&#39;unsigned&#39;</span>       <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;auto_increment&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;100&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;unique&#39;</span>     <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;author&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;VARCHAR&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="s1">&#39;default&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;King of Town&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;description&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;null&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;status&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>       <span class="o">=&gt;</span> <span class="s1">&#39;ENUM&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;constraint&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;publish&#39;</span><span class="p">,</span> <span class="s1">&#39;pending&#39;</span><span class="p">,</span> <span class="s1">&#39;draft&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;default&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;pending&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$fields</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Una vez definidos los campos, se pueden agregar usando
+<code class="docutils literal notranslate"><span class="pre">$forge-&gt;addField($fields)</span></code> seguido de una llamada al
+<a class="reference internal" href="#creating-a-table"><span class="std std-ref">crearTabla()</span></a> método.</p>
+</section>
+<section id="notas-sobre-tipos-de-datos">
+<h4>Notas sobre tipos de datos<a class="headerlink" href="#notas-sobre-tipos-de-datos" title="Link to this heading"></a></h4>
+<section id="tipos-de-punto-flotante">
+<h5>Tipos de punto flotante<a class="headerlink" href="#tipos-de-punto-flotante" title="Link to this heading"></a></h5>
+<p>Los tipos de punto flotante como <code class="docutils literal notranslate"><span class="pre">FLOAT</span></code> y <code class="docutils literal notranslate"><span class="pre">DOUBLE</span></code> representan valores aproximados.
+Por lo tanto, no deben usarse cuando se necesitan valores exactos.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">mysql</span><span class="o">&gt;</span> <span class="nx">CREAR</span> <span class="nx">TABLA</span> <span class="nx">t</span> <span class="p">(</span><span class="nx">f</span> <span class="nx">FLOAT</span><span class="p">,</span> <span class="nx">d</span> <span class="nx">DOBLE</span><span class="p">);</span>
+<span class="nx">mysql</span><span class="o">&gt;</span> <span class="nx">INSERTAR</span> <span class="nx">EN</span> <span class="nx">t</span> <span class="nx">VALORES</span> <span class="p">(</span><span class="mf">99.9</span><span class="p">,</span> <span class="mf">99.9</span><span class="p">);</span>
+
+<span class="nx">mysql</span><span class="o">&gt;</span> <span class="nx">SELECCIONAR</span> <span class="o">*</span> <span class="nx">DESDE</span> <span class="nx">t</span> <span class="nx">DONDE</span> <span class="nx">f</span><span class="o">=</span><span class="mf">99.9</span><span class="p">;</span>
+<span class="nx">Conjunto</span> <span class="nx">vacío</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mo">00</span> <span class="nx">seg</span><span class="p">)</span>
+
+<span class="nx">mysql</span><span class="o">&gt;</span> <span class="nx">SELECCIONE</span> <span class="o">*</span> <span class="nx">DESDE</span> <span class="nx">t</span> <span class="nx">DONDE</span> <span class="nx">f</span> <span class="o">&gt;</span> <span class="mf">99.89</span> <span class="nx">Y</span> <span class="nx">f</span> <span class="o">&lt;</span> <span class="mf">99.91</span><span class="p">;</span>
+<span class="o">+------+------+</span>
+<span class="o">|</span> <span class="nx">f</span> <span class="o">|</span> <span class="nx">re</span> <span class="o">|</span>
+<span class="o">+------+------+</span>
+<span class="o">|</span> <span class="mi">99</span><span class="p">,</span><span class="mi">9</span> <span class="o">|</span> <span class="mi">99</span><span class="p">,</span><span class="mi">9</span> <span class="o">|</span>
+<span class="o">+------+------+</span>
+<span class="mi">1</span> <span class="nx">fila</span> <span class="nx">en</span> <span class="nx">conjunto</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mo">01</span> <span class="nx">seg</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Cuando es importante preservar la precisión exacta, por ejemplo con datos monetarios,
+Se debe utilizar <code class="docutils literal notranslate"><span class="pre">DECIMAL</span></code> o <code class="docutils literal notranslate"><span class="pre">NUMERIC</span></code>.</p>
+</section>
+<section id="texto">
+<h5>TEXTO<a class="headerlink" href="#texto" title="Link to this heading"></a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">TEXT</span></code> no debe usarse en SQLSRV. Está en desuso.
+Consulte <cite>ntext, texto e imagen (Transact-SQL) - SQL Server | Microsoft aprende &lt;https://learn.microsoft.com/en-us/sql/t-sql/data-types/ntext-text-and-image-transact-sql?view=sql-server-ver16&gt;</cite> _.</p>
+</section>
+</section>
+<section id="cadenas-sql-sin-formato-como-valores-predeterminados">
+<span id="forge-addfield-default-value-rawsql"></span><h4>Cadenas SQL sin formato como valores predeterminados<a class="headerlink" href="#cadenas-sql-sin-formato-como-valores-predeterminados" title="Link to this heading"></a></h4>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.2.0.</span></p>
+</div>
+<p>Desde v7.2.0, <code class="docutils literal notranslate"><span class="pre">$forge-&gt;addField()</span></code> acepta una instancia <code class="docutils literal notranslate"><span class="pre">Higgs\Database\RawSql</span></code>, que expresa cadenas SQL sin formato.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Database\RawSql</span><span class="p">;</span>
+
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;id&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>           <span class="o">=&gt;</span> <span class="s1">&#39;INT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;constraint&#39;</span>     <span class="o">=&gt;</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s1">&#39;unsigned&#39;</span>       <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+        <span class="s1">&#39;auto_increment&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;created_at&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;type&#39;</span>    <span class="o">=&gt;</span> <span class="s1">&#39;TIMESTAMP&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;default&#39;</span> <span class="o">=&gt;</span> <span class="k">new</span> <span class="nx">RawSql</span><span class="p">(</span><span class="s1">&#39;CURRENT_TIMESTAMP&#39;</span><span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="nv">$fields</span><span class="p">);</span>
+<span class="cm">/*</span>
+<span class="cm">gives:</span>
+<span class="cm">    &quot;id&quot; INT(5) UNSIGNED NOT NULL AUTO_INCREMENT,</span>
+<span class="cm">    &quot;created_at&quot; TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">RawSql</span></code>, you MUST escape the data manually. Failure to do so could result in SQL injections.</p>
+</div>
+</section>
+<section id="pasar-cadenas-como-campos">
+<h4>Pasar cadenas como campos<a class="headerlink" href="#pasar-cadenas-como-campos" title="Link to this heading"></a></h4>
+<p>Si sabe exactamente cómo desea que se cree un campo, puede pasar el
+cadena en las definiciones de campo con <code class="docutils literal notranslate"><span class="pre">addField()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="s2">&quot;label varchar(100) NOT NULL DEFAULT &#39;default label&#39;&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Passing raw strings as fields cannot be followed by <code class="docutils literal notranslate"><span class="pre">addKey()</span></code> calls on those fields.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Multiple calls to <code class="docutils literal notranslate"><span class="pre">addField()</span></code> are cumulative.</p>
+</div>
+</section>
+<section id="creando-un-campo-de-identificacion">
+<h4>Creando un campo de identificación<a class="headerlink" href="#creando-un-campo-de-identificacion" title="Link to this heading"></a></h4>
+<p>Existe una excepción especial para la creación de campos de identificación. Un campo con tipo
+La identificación se asignará automáticamente como INT(9) auto_incrementing
+Clave primaria.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addField</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="c1">// gives `id` INT(9) NOT NULL AUTO_INCREMENT</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="agregar-claves">
+<span id="adding-keys"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">Agregar claves</a><a class="headerlink" href="#agregar-claves" title="Link to this heading"></a></h3>
+<section id="forjar-addkey">
+<h4>$forjar-&gt;addKey()<a class="headerlink" href="#forjar-addkey" title="Link to this heading"></a></h4>
+<p>En términos generales, querrás que tu mesa tenga claves. Esto es
+logrado con <code class="docutils literal notranslate"><span class="pre">$forge-&gt;addKey('field')</span></code>. El segundo opcional
+El parámetro establecido en verdadero lo convertirá en una clave principal y la tercera.
+El parámetro establecido en verdadero lo convertirá en una clave única. Puedes especificar un nombre
+con el cuarto parámetro. Tenga en cuenta que <code class="docutils literal notranslate"><span class="pre">addKey()</span></code> debe ir seguido de un
+llamada a <code class="docutils literal notranslate"><span class="pre">createTable()</span></code> o <code class="docutils literal notranslate"><span class="pre">processIndexes()</span></code> cuando la tabla ya
+existe.</p>
+<p>Se deben enviar claves no principales de varias columnas como una matriz. Salida de muestra
+a continuación es para MySQL.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="c1">// gives PRIMARY KEY `blog_id` (`blog_id`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="s1">&#39;site_id&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="c1">// gives PRIMARY KEY `blog_id_site_id` (`blog_id`, `site_id`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">(</span><span class="s1">&#39;blog_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives KEY `blog_name` (`blog_name`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">([</span><span class="s1">&#39;blog_name&#39;</span><span class="p">,</span> <span class="s1">&#39;blog_label&#39;</span><span class="p">],</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s1">&#39;my_key_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives KEY `my_key_name` (`blog_name`, `blog_label`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">([</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">],</span> <span class="k">false</span><span class="p">,</span> <span class="k">true</span><span class="p">,</span> <span class="s1">&#39;my_key_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives UNIQUE KEY `my_key_name` (`blog_id`, `uri`)</span>
+</pre></div>
+</div>
+</section>
+<section id="forjar-addprimarykey">
+<h4>$forjar-&gt;addPrimaryKey()<a class="headerlink" href="#forjar-addprimarykey" title="Link to this heading"></a></h4>
+</section>
+<section id="forjar-adduniquekey">
+<h4>$forjar-&gt;addUniqueKey()<a class="headerlink" href="#forjar-adduniquekey" title="Link to this heading"></a></h4>
+<p>Para hacer que la lectura del código sea más objetiva, también es posible agregar elementos primarios.
+y claves únicas con métodos específicos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addPrimaryKey</span><span class="p">(</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="s1">&#39;pd_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives PRIMARY KEY `pd_name` (`blog_id`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addUniqueKey</span><span class="p">([</span><span class="s1">&#39;blog_id&#39;</span><span class="p">,</span> <span class="s1">&#39;uri&#39;</span><span class="p">],</span> <span class="s1">&#39;key_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives UNIQUE KEY `key_name` (`blog_id`, `uri`)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When you add a primary key, MySQL and SQLite will assume the name <code class="docutils literal notranslate"><span class="pre">PRIMARY</span></code> even if a name is provided.</p>
+</div>
+</section>
+</section>
+<section id="agregar-claves-externas">
+<span id="adding-foreign-keys"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">Agregar claves externas</a><a class="headerlink" href="#agregar-claves-externas" title="Link to this heading"></a></h3>
+<p>Las claves externas ayudan a imponer relaciones y acciones en sus tablas. Para tablas que admiten claves externas,
+puedes agregarlos directamente en Forge:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">(</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">);</span>
+<span class="c1">// gives CONSTRAINT `TABLENAME_users_id_foreign` FOREIGN KEY(`users_id`) REFERENCES `users`(`id`)</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">([</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span> <span class="s1">&#39;users_name&#39;</span><span class="p">],</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">]);</span>
+<span class="c1">// gives CONSTRAINT `TABLENAME_users_id_foreign` FOREIGN KEY(`users_id`, `users_name`) REFERENCES `users`(`id`, `name`)</span>
+</pre></div>
+</div>
+<p>Puede especificar la acción deseada para las propiedades «al actualizar» y «al eliminar» de la restricción, así como el nombre:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">(</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;CASCADE&#39;</span><span class="p">,</span> <span class="s1">&#39;CASCADE&#39;</span><span class="p">,</span> <span class="s1">&#39;my_fk_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives CONSTRAINT `my_fk_name` FOREIGN KEY(`users_id`) REFERENCES `users`(`id`) ON DELETE CASCADE ON UPDATE CASCADE</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">(</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;CASCADE&#39;</span><span class="p">);</span>
+<span class="c1">// gives CONSTRAINT `TABLENAME_users_foreign` FOREIGN KEY(`users_id`) REFERENCES `users`(`id`) ON DELETE CASCADE</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">([</span><span class="s1">&#39;users_id&#39;</span><span class="p">,</span> <span class="s1">&#39;users_name&#39;</span><span class="p">],</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="s1">&#39;CASCADE&#39;</span><span class="p">,</span> <span class="s1">&#39;CASCADE&#39;</span><span class="p">,</span> <span class="s1">&#39;my_fk_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives CONSTRAINT `my_fk_name` FOREIGN KEY(`users_id`, `users_name`) REFERENCES `users`(`id`, `name`) ON DELETE CASCADE ON UPDATE CASCADE</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>SQLite3 does not support the naming of foreign keys. Higgs will refer to them by <code class="docutils literal notranslate"><span class="pre">prefix_table_column_foreign</span></code>.</p>
+</div>
+</section>
+<section id="creando-una-tabla">
+<span id="creating-a-table"></span><h3><a class="toc-backref" href="#id12" role="doc-backlink">Creando una tabla</a><a class="headerlink" href="#creando-una-tabla" title="Link to this heading"></a></h3>
+<p>Una vez declarados los campos y las claves, puede crear una nueva tabla
+con</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives CREATE TABLE table_name</span>
+</pre></div>
+</div>
+<p>Un segundo parámetro opcional establecido en verdadero creará la tabla solo si aún no existe.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="c1">// creates table only if table does not exist</span>
+</pre></div>
+</div>
+<p>También puedes pasar atributos de tabla opcionales, como <code class="docutils literal notranslate"><span class="pre">ENGINE</span></code> de MySQL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ENGINE&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;InnoDB&#39;</span><span class="p">];</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">createTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="nv">$attributes</span><span class="p">);</span>
+<span class="c1">// produces: CREATE TABLE `table_name` (...) ENGINE = InnoDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Unless you specify the <code class="docutils literal notranslate"><span class="pre">CHARACTER</span> <span class="pre">SET</span></code> and/or <code class="docutils literal notranslate"><span class="pre">COLLATE</span></code> attributes,
+<code class="docutils literal notranslate"><span class="pre">createTable()</span></code> siempre los agregará con su <em>juego de caracteres</em> configurado
+y valores <em>DBCollat</em>, siempre y cuando no estén vacíos (sólo MySQL).</p>
+</div>
+</section>
+</section>
+<section id="mesas-de-caida">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Mesas de caída</a><a class="headerlink" href="#mesas-de-caida" title="Link to this heading"></a></h2>
+<section id="dejar-caer-una-mesa">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Dejar caer una mesa</a><a class="headerlink" href="#dejar-caer-una-mesa" title="Link to this heading"></a></h3>
+<p>Ejecute una instrucción <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">TABLE</span></code> y opcionalmente agregue una cláusula <code class="docutils literal notranslate"><span class="pre">IF</span> <span class="pre">EXISTS</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Produces: DROP TABLE `table_name`</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">);</span>
+
+<span class="c1">// Produces: DROP TABLE IF EXISTS `table_name`</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Se puede pasar un tercer parámetro para agregar una opción <code class="docutils literal notranslate"><span class="pre">CASCADE</span></code>, que podría ser necesaria para algunos
+controladores para manejar la eliminación de tablas con claves externas.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Produces: DROP TABLE `table_name` CASCADE</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropTable</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="modificar-tablas">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Modificar tablas</a><a class="headerlink" href="#modificar-tablas" title="Link to this heading"></a></h2>
+<section id="agregar-un-campo-a-una-tabla">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Agregar un campo a una tabla</a><a class="headerlink" href="#agregar-un-campo-a-una-tabla" title="Link to this heading"></a></h3>
+<section id="forjar-addcolumn">
+<h4>$forjar-&gt;addColumn()<a class="headerlink" href="#forjar-addcolumn" title="Link to this heading"></a></h4>
+<p>El método <code class="docutils literal notranslate"><span class="pre">addColumn()</span></code> se utiliza para modificar una tabla existente. Él
+acepta la misma matriz de campos que <a class="reference internal" href="#adding-fields"><span class="std std-ref">Creando tablas</span></a> , y puede
+utilizarse para agregar campos adicionales.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Unlike when creating a table, if <code class="docutils literal notranslate"><span class="pre">null</span></code> is not specified, the column
+será <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, no <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>.</p>
+</div>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;preferences&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">addColumn</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="nv">$fields</span><span class="p">);</span>
+<span class="c1">// Executes: ALTER TABLE `table_name` ADD `preferences` TEXT</span>
+</pre></div>
+</div>
+<p>Si está utilizando MySQL o CUBIRD, puede aprovechar sus
+Cláusulas <code class="docutils literal notranslate"><span class="pre">AFTER</span></code> y <code class="docutils literal notranslate"><span class="pre">FIRST</span></code> para posicionar la nueva columna.</p>
+<p>Ejemplos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Will place the new column after the `another_field` column:</span>
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;preferences&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">,</span> <span class="s1">&#39;after&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;another_field&#39;</span><span class="p">],</span>
+<span class="p">];</span>
+
+<span class="c1">// Will place the new column at the start of the table definition:</span>
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;preferences&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">],</span>
+<span class="p">];</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="eliminar-campos-de-una-tabla">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Eliminar campos de una tabla</a><a class="headerlink" href="#eliminar-campos-de-una-tabla" title="Link to this heading"></a></h3>
+<section id="forjar-dropcolumn">
+<span id="db-forge-dropcolumn"></span><h4>$forjar-&gt;dropColumn()<a class="headerlink" href="#forjar-dropcolumn" title="Link to this heading"></a></h4>
+<p>Se utiliza para eliminar una columna de una tabla.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="s1">&#39;column_to_drop&#39;</span><span class="p">);</span> <span class="c1">// to drop one single column</span>
+</pre></div>
+</div>
+<p>Se utiliza para eliminar varias columnas de una tabla.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="s1">&#39;column_1,column_2&#39;</span><span class="p">);</span>      <span class="c1">// by proving comma separated column names</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropColumn</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;column_1&#39;</span><span class="p">,</span> <span class="s1">&#39;column_2&#39;</span><span class="p">]);</span> <span class="c1">// by proving array of column names</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="modificar-un-campo-en-una-tabla">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">Modificar un campo en una tabla</a><a class="headerlink" href="#modificar-un-campo-en-una-tabla" title="Link to this heading"></a></h3>
+<section id="forjar-modificarcolumna">
+<span id="db-forge-modifycolumn"></span><h4>$forjar-&gt;modificarColumna()<a class="headerlink" href="#forjar-modificarcolumna" title="Link to this heading"></a></h4>
+<p>El uso de este método es idéntico a <code class="docutils literal notranslate"><span class="pre">addColumn()</span></code>, excepto que
+modifica una columna existente en lugar de agregar una nueva. Con el fin de
+cambiar el nombre, puede agregar una clave de «nombre» en la matriz que define el campo.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$fields</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;old_name&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;new_name&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;TEXT&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;null&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="p">],</span>
+<span class="p">];</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">modifyColumn</span><span class="p">(</span><span class="s1">&#39;table_name&#39;</span><span class="p">,</span> <span class="nv">$fields</span><span class="p">);</span>
+<span class="c1">// gives ALTER TABLE `table_name` CHANGE `old_name``new_name` TEXT NOT NULL</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">modifyColumn()</span></code> may unexpectedly change <code class="docutils literal notranslate"><span class="pre">NULL</span></code>/<code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code>.
+Por lo tanto, se recomienda especificar siempre el valor de la clave «nula». A diferencia de cuando se crea
+una tabla, si no se especifica <code class="docutils literal notranslate"><span class="pre">null</span></code>, la columna será <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, no
+<code class="docutils literal notranslate"><span class="pre">NO</span> <span class="pre">NULO</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Due to a bug, prior v7.3.4, SQLite3 may not set <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> even if you
+especifique <code class="docutils literal notranslate"><span class="pre">'nulo'</span> <span class="pre">=&gt;</span> <span class="pre">falso</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Due to a bug, prior v7.3.4, Postgres and SQLSRV set <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">NULL</span></code> even
+si especifica <code class="docutils literal notranslate"><span class="pre">'null'</span> <span class="pre">=&gt;</span> <span class="pre">true</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="agregar-claves-a-una-tabla">
+<span id="db-forge-adding-keys-to-a-table"></span><h3><a class="toc-backref" href="#id19" role="doc-backlink">Agregar claves a una tabla</a><a class="headerlink" href="#agregar-claves-a-una-tabla" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Puede agregar claves a una tabla existente usando <code class="docutils literal notranslate"><span class="pre">addKey()</span></code>, <code class="docutils literal notranslate"><span class="pre">addPrimaryKey()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">addUniqueKey()</span></code> o <code class="docutils literal notranslate"><span class="pre">addForeignKey()</span></code> y <code class="docutils literal notranslate"><span class="pre">processIndexes()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addKey</span><span class="p">([</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">],</span> <span class="k">false</span><span class="p">,</span> <span class="k">false</span><span class="p">,</span> <span class="s1">&#39;category_name&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addPrimaryKey</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;pk_actions&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">addForeignKey</span><span class="p">(</span><span class="s1">&#39;userid&#39;</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;userid_fk&#39;</span><span class="p">);</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forge</span><span class="o">-&gt;</span><span class="na">processIndexes</span><span class="p">(</span><span class="s1">&#39;actions&#39;</span><span class="p">);</span>
+<span class="cm">/* gives:</span>
+<span class="cm">ALTER TABLE `actions` ADD KEY `category_name` (`category`, `name`);</span>
+<span class="cm">ALTER TABLE `actions` ADD CONSTRAINT `pk_actions` PRIMARY KEY(`id`);</span>
+<span class="cm">ALTER TABLE `actions` ADD CONSTRAINT `userid_fk` FOREIGN KEY (`userid`) REFERENCES `user`(`id`);</span>
+<span class="cm">*/</span>
+</pre></div>
+</div>
+</section>
+<section id="dejar-caer-una-clave-principal">
+<span id="dropping-a-primary-key"></span><h3><a class="toc-backref" href="#id20" role="doc-backlink">Dejar caer una clave principal</a><a class="headerlink" href="#dejar-caer-una-clave-principal" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<p>Ejecute DROP PRIMARY KEY.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// MySQLi Produces: ALTER TABLE `tablename` DROP PRIMARY KEY</span>
+<span class="c1">// Others Produces: ALTER TABLE `tablename` DROP CONSTRAINT `pk_tablename`</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropPrimaryKey</span><span class="p">(</span><span class="s1">&#39;tablename&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="dejando-caer-una-llave">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Dejando caer una llave</a><a class="headerlink" href="#dejando-caer-una-llave" title="Link to this heading"></a></h3>
+<p>Ejecute una TECLA SOLTAR.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// For Indexes Produces:        DROP INDEX `users_index` ON `tablename`</span>
+<span class="c1">// For Unique Indexes Produces: ALTER TABLE `tablename` DROP CONSTRAINT `users_index`</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropKey</span><span class="p">(</span><span class="s1">&#39;tablename&#39;</span><span class="p">,</span> <span class="s1">&#39;users_index&#39;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="dejar-caer-una-clave-externa">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Dejar caer una clave externa</a><a class="headerlink" href="#dejar-caer-una-clave-externa" title="Link to this heading"></a></h3>
+<p>Ejecute una SOLTAR LLAVE EXTRANJERA.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Produces: ALTER TABLE `tablename` DROP FOREIGN KEY `users_foreign`</span>
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">dropForeignKey</span><span class="p">(</span><span class="s1">&#39;tablename&#39;</span><span class="p">,</span> <span class="s1">&#39;users_foreign&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="cambiar-el-nombre-de-una-tabla">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Cambiar el nombre de una tabla</a><a class="headerlink" href="#cambiar-el-nombre-de-una-tabla" title="Link to this heading"></a></h3>
+<p>Ejecuta un cambio de nombre de TABLA</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$forge</span><span class="o">-&gt;</span><span class="na">renameTable</span><span class="p">(</span><span class="s1">&#39;old_table_name&#39;</span><span class="p">,</span> <span class="s1">&#39;new_table_name&#39;</span><span class="p">);</span>
+<span class="c1">// gives ALTER TABLE `old_table_name` RENAME TO `new_table_name`</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="referencia-de-clase">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Referencia de clase</a><a class="headerlink" href="#referencia-de-clase" title="Link to this heading"></a></h2>
+<dl class="php class" id="namespace-Higgs\Database">
+<dt class="sig sig-object php" id="Higgs\Database\Forge">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">Higgs\Database\</span></span><span class="sig-name descname"><span class="pre">Forge</span></span><a class="headerlink" href="#Higgs\Database\Forge" title="Link to this definition"></a></dt>
+<dd><dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::addColumn">
+<span class="sig-name descname"><span class="pre">addColumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$field</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::addColumn" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la tabla a la que agregar la columna</p></li>
+<li><p><strong>$campo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – Definición(es) de columna</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Agrega una columna a una tabla existente. Uso: consulte <a class="reference internal" href="#agregar-un-campo-a-una-tabla">Agregar un campo a una tabla</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::addField">
+<span class="sig-name descname"><span class="pre">addField</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$field</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::addField" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$campo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – definición de campo para agregar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>instancia <code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code> (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code></p>
+</dd>
+</dl>
+<p>Agrega un campo al conjunto que se utilizará para crear una tabla. Uso: Consulte <a class="reference internal" href="#agregar-campos">Agregar campos</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::addForeignKey">
+<span class="sig-name descname"><span class="pre">addForeignKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$fieldName</span></em>, <em class="sig-param"><span class="pre">$tableName</span></em>, <em class="sig-param"><span class="pre">$tableField</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$onUpdate</span> <span class="pre">=</span> <span class="pre">''</span></em>, <em class="sig-param"><span class="pre">$onDelete</span> <span class="pre">=</span> <span class="pre">''</span></em>, <em class="sig-param"><span class="pre">$fkName</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::addForeignKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$fieldName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|string[]</span></code></span>) – Nombre de un campo clave o una matriz de campos</p></li>
+<li><p><strong>$tableName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de una tabla principal</p></li>
+<li><p><strong>$tableField</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string|string[]</span></code></span>) – Nombre de un campo de la tabla principal o una matriz de campos</p></li>
+<li><p><strong>$onUpdate</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – acción deseada para «al actualizar»</p></li>
+<li><p><strong>$onDelete</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – acción deseada para «al eliminar»</p></li>
+<li><p><strong>$fkName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de la clave externa. Esto no funciona con SQLite3</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>instancia <code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code> (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code></p>
+</dd>
+</dl>
+<p>Agrega una clave externa al conjunto que se utilizará para crear una tabla. Uso: Consulte <a class="reference internal" href="#agregar-claves-externas">Agregar claves externas</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$fkName</span></code> can be used since v7.3.0.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::addKey">
+<span class="sig-name descname"><span class="pre">addKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$primary</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$unique</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$keyName</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::addKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Nombre de un campo clave o una matriz de campos</p></li>
+<li><p><strong>$primary</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – se establece en verdadero si debe ser una clave principal o una normal</p></li>
+<li><p><strong>$unique</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – se establece en verdadero si debe ser una clave única o normal</p></li>
+<li><p><strong>$keyName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la clave que se agregará</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>instancia <code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code> (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code></p>
+</dd>
+</dl>
+<p>Agrega una clave al conjunto que se utilizará para crear una tabla. Uso: Consulte <a class="reference internal" href="#agregar-claves">Agregar claves</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$keyName</span></code> can be used since v7.3.0.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::addPrimaryKey">
+<span class="sig-name descname"><span class="pre">addPrimaryKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$keyName</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::addPrimaryKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Nombre de un campo clave o una matriz de campos</p></li>
+<li><p><strong>$keyName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la clave que se agregará</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>instancia <code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code> (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code></p>
+</dd>
+</dl>
+<p>Agrega una clave principal al conjunto que se utilizará para crear una tabla. Uso: Consulte <a class="reference internal" href="#agregar-claves">Agregar claves</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$keyName</span></code> can be used since v7.3.0.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::addUniqueKey">
+<span class="sig-name descname"><span class="pre">addUniqueKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$key</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$keyName</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::addUniqueKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$key</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – Nombre de un campo clave o una matriz de campos</p></li>
+<li><p><strong>$keyName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la clave que se agregará</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>instancia <code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code> (encadenamiento de métodos)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">\Higgs\Database\Forge</span></code></p>
+</dd>
+</dl>
+<p>Agrega una clave única al conjunto que se utilizará para crear una tabla. Uso: Consulte <a class="reference internal" href="#agregar-claves">Agregar claves</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$keyName</span></code> can be used since v7.3.0.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::createDatabase">
+<span class="sig-name descname"><span class="pre">createDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$dbName</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$ifNotExists</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::createDatabase" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$db_name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de la base de datos a crear</p></li>
+<li><p><strong>$ifNotExists</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – establezca en verdadero para agregar una cláusula <code class="docutils literal notranslate"><span class="pre">SI</span> <span class="pre">NO</span> <span class="pre">EXISTE</span></code> o verificar si la base de datos existe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Crea una nueva base de datos. Uso: Consulte <a href="#id25"><span class="problematic" id="id26">`Creación y eliminación de bases de datos`_</span></a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::createTable">
+<span class="sig-name descname"><span class="pre">createTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$if_not_exists</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">array</span> <span class="pre">$attributes</span> <span class="pre">=</span> <span class="pre">[]</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::createTable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de la tabla a crear</p></li>
+<li><p><strong>$if_not_exists</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – configúrelo en verdadero para agregar una cláusula <code class="docutils literal notranslate"><span class="pre">SI</span> <span class="pre">NO</span> <span class="pre">EXISTE</span></code></p></li>
+<li><p><strong>$attributes</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – una matriz asociativa de atributos de tabla</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>objeto de consulta en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Crea una nueva tabla. Uso: Consulte <a href="#id27"><span class="problematic" id="id28">`Creación de una tabla`_</span></a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::dropColumn">
+<span class="sig-name descname"><span class="pre">dropColumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em>, <em class="sig-param"><span class="pre">$column_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::dropColumn" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la tabla</p></li>
+<li><p><strong>$column_names</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – cadena delimitada por comas o una matriz de nombres de columnas</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Elimina una o varias columnas de una tabla. Uso: Consulte <a class="reference internal" href="#eliminar-campos-de-una-tabla">Eliminar campos de una tabla</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::dropDatabase">
+<span class="sig-name descname"><span class="pre">dropDatabase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$dbName</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::dropDatabase" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$dbName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la base de datos que se eliminará</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Elimina una base de datos. Uso: Consulte <a href="#id29"><span class="problematic" id="id30">`Creación y eliminación de bases de datos`_</span></a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::dropKey">
+<span class="sig-name descname"><span class="pre">dropKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em>, <em class="sig-param"><span class="pre">$keyName</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$prefixKeyName</span> <span class="pre">=</span> <span class="pre">true</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::dropKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de la tabla que tiene clave</p></li>
+<li><p><strong>$keyName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la clave que se eliminará</p></li>
+<li><p><strong>$prefixKeyName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – si el prefijo de la base de datos debe agregarse a <code class="docutils literal notranslate"><span class="pre">$keyName</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Elimina un índice o índice único.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$keyName</span></code> and <code class="docutils literal notranslate"><span class="pre">$prefixKeyName</span></code> can be used since v7.3.0.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::dropPrimaryKey">
+<span class="sig-name descname"><span class="pre">dropPrimaryKey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$keyName</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::dropPrimaryKey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la tabla para eliminar la clave principal</p></li>
+<li><p><strong>$keyName</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la clave principal que se eliminará</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Elimina una clave principal de una tabla.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><code class="docutils literal notranslate"><span class="pre">$keyName</span></code> can be used since v7.3.0.</p>
+</div>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::dropTable">
+<span class="sig-name descname"><span class="pre">dropTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table_name</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$if_exists</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::dropTable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de la tabla a eliminar</p></li>
+<li><p><strong>$if_exists</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Establecer en verdadero para agregar una cláusula <code class="docutils literal notranslate"><span class="pre">SI</span> <span class="pre">EXISTE</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Deja caer una mesa. Uso: Consulte <a class="reference internal" href="#dejar-caer-una-mesa">Dejar caer una mesa</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::processIndexes">
+<span class="sig-name descname"><span class="pre">processIndexes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::processIndexes" title="Link to this definition"></a></dt>
+<dd><div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 7.0.0.</span></p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nombre de la tabla a la que agregar índices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Se utiliza después de <code class="docutils literal notranslate"><span class="pre">addKey()</span></code>, <code class="docutils literal notranslate"><span class="pre">addPrimaryKey()</span></code>, <code class="docutils literal notranslate"><span class="pre">addUniqueKey()</span></code>,
+y <code class="docutils literal notranslate"><span class="pre">addForeignKey()</span></code> para agregar índices a una tabla existente.
+Consulte <a class="reference internal" href="#agregar-claves-a-una-tabla">Agregar claves a una tabla</a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::modifyColumn">
+<span class="sig-name descname"><span class="pre">modifyColumn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table</span></em>, <em class="sig-param"><span class="pre">$field</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::modifyColumn" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de la tabla</p></li>
+<li><p><strong>$campo</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array</span></code></span>) – Definición(es) de columna</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>verdadero en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Modifica una columna de la tabla. Uso: Consulte <a href="#id31"><span class="problematic" id="id32">`Modificación de un campo en una tabla`_</span></a>.</p>
+</dd></dl>
+
+<dl class="php method">
+<dt class="sig sig-object php" id="Higgs\Database\Forge::renameTable">
+<span class="sig-name descname"><span class="pre">renameTable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$table_name</span></em>, <em class="sig-param"><span class="pre">$new_table_name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#Higgs\Database\Forge::renameTable" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$table</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">strings</span></code></span>) – Actual de la tabla</p></li>
+<li><p><strong>$new_table_name</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Nuevo nombre de la tabla</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>objeto de consulta en caso de éxito, falso en caso de error</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixto</span></code></span></p>
+</dd>
+</dl>
+<p>Cambia el nombre de una tabla. Uso: Consulte <a class="reference internal" href="#cambiar-el-nombre-de-una-tabla">Cambiar el nombre de una tabla</a>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="index.html" class="btn btn-neutral float-left" title="Administrar bases de datos" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="migration.html" class="btn btn-neutral float-right" title="Migraciones de bases de datos" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

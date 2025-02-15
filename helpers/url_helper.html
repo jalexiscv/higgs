@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asistente de URL &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/helpers/url_helper.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Asistente de URL</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="asistente-de-url">
+<h1>Asistente de URL<a class="headerlink" href="#asistente-de-url" title="Link to this heading"></a></h1>
+<p>El archivo URL Helper contiene funciones que ayudan a trabajar con URL.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#cargando-este-ayudante" id="id1">Cargando este ayudante</a></p></li>
+<li><p><a class="reference internal" href="#funciones-disponibles" id="id2">Funciones disponibles</a></p></li>
+</ul>
+</nav>
+<section id="cargando-este-ayudante">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Cargando este ayudante</a><a class="headerlink" href="#cargando-este-ayudante" title="Link to this heading"></a></h2>
+<p>El marco carga automáticamente este asistente en cada solicitud.</p>
+</section>
+<section id="funciones-disponibles">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Funciones disponibles</a><a class="headerlink" href="#funciones-disponibles" title="Link to this heading"></a></h2>
+<p>Están disponibles las siguientes funciones:</p>
+<dl class="php function">
+<dt class="sig sig-object php" id="site_url">
+<span class="sig-name descname"><span class="pre">site_url</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$uri</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$protocol</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$altConfig</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#site_url" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$uri</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string</span></code></span>) – cadena de URI o matriz de segmentos de URI.</p></li>
+<li><p><strong>$protocol</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Protocolo, por ejemplo, “http” o “https”. Si se establece una cadena vacía “”, se devuelve un enlace relativo al protocolo.</p></li>
+<li><p><strong>$altConfig</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">\Config\App</span></code></span>) – Configuración alternativa a utilizar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>URL del sitio</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.3.0, if you set <code class="docutils literal notranslate"><span class="pre">Config\App::$allowedHostnames</span></code>,
+esto devuelve la URL con el nombre de host establecido si la URL actual coincide.</p>
+</div>
+<p>Devuelve la URL de su sitio, como se especifica en su archivo de configuración. El <strong>index.php</strong>
+archivo (o lo que haya configurado como su sitio <code class="docutils literal notranslate"><span class="pre">Config\App::$indexPage</span></code> en su configuración
+archivo) se agregará a la URL, al igual que cualquier segmento de URI que pase al
+función.</p>
+<p>Le recomendamos que utilice esta función cada vez que necesite generar un
+URL local para que sus páginas sean más portátiles en caso de que su URL
+cambios.</p>
+<p>Opcionalmente, los segmentos se pueden pasar a la función como una cadena o un
+formación. Aquí hay un ejemplo de cadena:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">site_url</span><span class="p">(</span><span class="s1">&#39;news/local/123&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El ejemplo anterior devolvería algo como:</p>
+<p><strong>http://example.com/index.php/news/local/123</strong></p>
+<p>A continuación se muestra un ejemplo de segmentos pasados como una matriz:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$segments</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="s1">&#39;local&#39;</span><span class="p">,</span> <span class="s1">&#39;123&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="nx">site_url</span><span class="p">(</span><span class="nv">$segments</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Puede que la configuración alternativa le resulte útil si genera URL para un
+sitio diferente al suyo, que contiene diferentes preferencias de configuración.
+Usamos esto para pruebas unitarias del marco en sí.</p>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="base_url">
+<span class="sig-name descname"><span class="pre">base_url</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$uri</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$protocol</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#base_url" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$uri</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">array|string</span></code></span>) – cadena de URI o matriz de segmentos de URI.</p></li>
+<li><p><strong>$protocol</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Protocolo, por ejemplo, “http” o “https”. Si se establece una cadena vacía “”, se devuelve un enlace relativo al protocolo.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>URL base</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Since v7.3.0, if you set <code class="docutils literal notranslate"><span class="pre">Config\App::$allowedHostnames</span></code>,
+esto devuelve la URL con el nombre de host establecido si la URL actual coincide.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In previous versions, this returned the base URL without a trailing
+barra diagonal (<code class="docutils literal notranslate"><span class="pre">/</span></code>) cuando se llama sin argumento. El error fue solucionado y
+desde v7.3.2 devuelve la URL base con una barra diagonal.</p>
+</div>
+<p>Devuelve la URL base de su sitio, como se especifica en su archivo de configuración. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">base_url</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Esta función devuelve lo mismo que <a class="reference internal" href="#site_url" title="site_url"><code class="xref php php-func docutils literal notranslate"><span class="pre">site_url()</span></code></a>, sin
+se agrega <code class="docutils literal notranslate"><span class="pre">Config\App::$indexPage</span></code>.</p>
+<p>También como <a class="reference internal" href="#site_url" title="site_url"><code class="xref php php-func docutils literal notranslate"><span class="pre">site_url()</span></code></a>, puedes proporcionar segmentos como una cadena o
+una matriz. Aquí hay un ejemplo de cadena:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Returns like `http://example.com/blog/post/123`</span>
+<span class="k">echo</span> <span class="nx">base_url</span><span class="p">(</span><span class="s1">&#39;blog/post/123&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El ejemplo anterior devolvería algo como:</p>
+<p><strong>http://ejemplo.com/blog/post/123</strong></p>
+<p>Si pasa una cadena vacía <code class="docutils literal notranslate"><span class="pre">''</span></code> como segundo parámetro, devuelve
+el enlace relativo al protocolo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// Returns like `//example.com/blog/post/123`</span>
+<span class="k">echo</span> <span class="nx">base_url</span><span class="p">(</span><span class="s1">&#39;blog/post/123&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Esto es útil porque a diferencia de <a class="reference internal" href="#site_url" title="site_url"><code class="xref php php-func docutils literal notranslate"><span class="pre">site_url()</span></code></a>, puedes proporcionar un
+cadena a un archivo, como una imagen o una hoja de estilo. Por ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">base_url</span><span class="p">(</span><span class="s1">&#39;images/icons/edit.png&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Esto te daría algo como:</p>
+<p><strong>http://example.com/images/icons/edit.png</strong></p>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="current_url">
+<span class="sig-name descname"><span class="pre">current_url</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$returnObject</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$request</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#current_url" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$returnObject</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">boolean</span></code></span>) – True si desea que se devuelva una instancia de URI, en lugar de una cadena.</p></li>
+<li><p><strong>$request</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">IncomingRequest|null</span></code></span>) – una solicitud alternativa para usar en la detección de ruta; útil para realizar pruebas.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>La URL actual</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena|\Higgs\HTTP\URI</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la URL completa de la página que se está viendo actualmente.
+Al devolver una cadena, se eliminan las partes de consulta y fragmento de la URL.
+Al devolver el URI, se conservan las partes de la consulta y del fragmento.</p>
+<p>Sin embargo, por razones de seguridad, se crea en función de la configuración de <code class="docutils literal notranslate"><span class="pre">Config\App</span></code>,
+y no pretende coincidir con la URL del navegador.</p>
+<p>Desde v7.3.0, si configura <code class="docutils literal notranslate"><span class="pre">Config\App::$allowedHostnames</span></code>,
+esto devuelve la URL con el nombre de host establecido si la URL actual coincide.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Calling <code class="docutils literal notranslate"><span class="pre">current_url()</span></code> is the same as doing this:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">site_url</span><span class="p">(</span><span class="nx">uri_string</span><span class="p">());</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Prior to v7.1.2, this function had a bug causing it to ignore the configuration on <code class="docutils literal notranslate"><span class="pre">Config\App::$indexPage</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="previous_url">
+<span class="sig-name descname"><span class="pre">previous_url</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$returnObject</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#previous_url" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$returnObject</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">boolean</span></code></span>) – True si desea que se devuelva una instancia de URI en lugar de una cadena.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>la URL en la que se encontraba anteriormente el usuario</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena|mixto|\Higgs\HTTP\URI</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la URL completa (incluidos los segmentos) de la página en la que se encontraba anteriormente el usuario.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Due to security issues of blindly trusting the <code class="docutils literal notranslate"><span class="pre">HTTP_REFERER</span></code> system variable, Higgs will
+almacenar páginas visitadas anteriormente en la sesión si está disponible. Esto asegura que siempre
+Utilice una fuente conocida y confiable. Si la sesión no se ha cargado o no está disponible de otro modo,
+luego se utilizará una versión desinfectada de <code class="docutils literal notranslate"><span class="pre">HTTP_REFERER</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="uri_string">
+<span class="sig-name descname"><span class="pre">uri_string</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uri_string" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Devuelve<span class="colon">:</span></dt>
+<dd class="field-odd"><p>una cadena URI</p>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve la parte de la ruta de la URL actual relativa a baseURL.</p>
+<p>Por ejemplo, cuando su URL base es <strong>http://some-site.com/</strong> y la URL actual es:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">http</span><span class="o">://</span><span class="nx">some</span><span class="o">-</span><span class="nx">site</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span><span class="nx">comments</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>La función devolvería:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">blog</span><span class="o">/</span><span class="nx">comentarios</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>Cuando su URL base es <strong>http://some-site.com/subfolder/</strong> y la URL actual es:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">http</span><span class="o">://</span><span class="nx">some</span><span class="o">-</span><span class="nx">site</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">subfolder</span><span class="o">/</span><span class="nx">blog</span><span class="o">/</span><span class="nx">comments</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>La función devolvería:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">blog</span><span class="o">/</span><span class="nx">comentarios</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In previous versions, the parameter <code class="docutils literal notranslate"><span class="pre">$relative</span> <span class="pre">=</span> <span class="pre">false</span></code> was defined.
+Sin embargo, debido a un error, esta función siempre devolvía una ruta relativa a baseURL.
+Desde v7.3.2, el parámetro se eliminó.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>In previous versions, when you navigate to the baseURL, this function
+devolvió <code class="docutils literal notranslate"><span class="pre">/</span></code>. Desde v7.3.2, el error se ha solucionado y devuelve un
+cadena vacía(<code class="docutils literal notranslate"><span class="pre">''</span></code>).</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="index_page">
+<span class="sig-name descname"><span class="pre">index_page</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$altConfig</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#index_page" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$altConfig</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">\Config\App</span></code></span>) – Configuración alternativa para usar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>El valor <code class="docutils literal notranslate"><span class="pre">indexPage</span></code></p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Devuelve su sitio <strong>indexPage</strong>, como se especifica en su archivo de configuración.
+Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">index_page</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Al igual que con <a class="reference internal" href="#site_url" title="site_url"><code class="xref php php-func docutils literal notranslate"><span class="pre">site_url()</span></code></a>, puede especificar una configuración alternativa.
+Puede que la configuración alternativa le resulte útil si genera URL para un
+sitio diferente al suyo, que contiene diferentes preferencias de configuración.
+Usamos esto para pruebas unitarias del marco en sí.</p>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="anchor">
+<span class="sig-name descname"><span class="pre">anchor</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$uri</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$title</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$attributes</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$altConfig</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#anchor" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$uri</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – cadena URI o matriz de segmentos URI</p></li>
+<li><p><strong>$título</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – título ancla</p></li>
+<li><p><strong>$atributos</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – atributos HTML</p></li>
+<li><p><strong>$altConfig</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">\Config\App</span></code></span>) – Configuración alternativa para usar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>hipervínculo HTML (etiqueta de anclaje)</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Crea un enlace de anclaje HTML estándar basado en la URL de su sitio local.</p>
+<p>El primer parámetro puede contener cualquier segmento que desee agregar al
+URL. Al igual que con la función <a class="reference internal" href="#site_url" title="site_url"><code class="xref php php-func docutils literal notranslate"><span class="pre">site_url()</span></code></a> anterior, los segmentos pueden
+ser una cadena o una matriz.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you are building links that are internal to your application
+no incluya la URL base (<code class="docutils literal notranslate"><span class="pre">http://...</span></code>). Esto se agregará
+automáticamente a partir de la información especificada en su archivo de configuración.
+Incluya solo los segmentos de URI que desee agregar a la URL.</p>
+</div>
+<p>El segundo segmento es el texto que le gustaría que dijera el enlace. Si usted
+déjelo en blanco, se utilizará la URL.</p>
+<p>El tercer parámetro puede contener una lista de atributos que le gustaría
+añadido al enlace. Los atributos pueden ser una cadena simple o una
+matriz asociativa.</p>
+<p>Aquí hay unos ejemplos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;news/local/123&#39;</span><span class="p">,</span> <span class="s1">&#39;My News&#39;</span><span class="p">,</span> <span class="s1">&#39;title=&quot;News title&quot;&#39;</span><span class="p">);</span>
+<span class="c1">// Prints: &lt;a href=&quot;http://example.com/index.php/news/local/123&quot; title=&quot;News title&quot;&gt;My News&lt;/a&gt;</span>
+
+<span class="k">echo</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;news/local/123&#39;</span><span class="p">,</span> <span class="s1">&#39;My News&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;The best news!&#39;</span><span class="p">]);</span>
+<span class="c1">// Prints: &lt;a href=&quot;http://example.com/index.php/news/local/123&quot; title=&quot;The best news!&quot;&gt;My News&lt;/a&gt;</span>
+
+<span class="k">echo</span> <span class="nx">anchor</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Click here&#39;</span><span class="p">);</span>
+<span class="c1">// Prints: &lt;a href=&quot;http://example.com/index.php&quot;&gt;Click here&lt;/a&gt;</span>
+</pre></div>
+</div>
+<p>Como se indicó anteriormente, puede especificar una configuración alternativa.
+Puede que la configuración alternativa le resulte útil si genera enlaces para un
+sitio diferente al suyo, que contiene diferentes preferencias de configuración.
+Usamos esto para pruebas unitarias del marco en sí.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Attributes passed into the anchor function are automatically escaped to protected against XSS attacks.</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="anchor_popup">
+<span class="sig-name descname"><span class="pre">anchor_popup</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$uri</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$title</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$attributes</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$altConfig</span> <span class="pre">=</span> <span class="pre">null</span></em><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#anchor_popup" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$uri</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cadena URI</p></li>
+<li><p><strong>$título</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – título ancla</p></li>
+<li><p><strong>$atributos</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – atributos HTML</p></li>
+<li><p><strong>$altConfig</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">\Config\App</span></code></span>) – Configuración alternativa para usar</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>hipervínculo emergente</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Casi idéntica a la función <a class="reference internal" href="#anchor" title="anchor"><code class="xref php php-func docutils literal notranslate"><span class="pre">anchor()</span></code></a> excepto que
+abre la URL en una nueva ventana. Puede especificar la ventana de JavaScript
+atributos en el tercer parámetro para controlar cómo se abre la ventana.
+Si el tercer parámetro no está configurado, simplemente se abrirá una nueva ventana con
+la configuración de su propio navegador.</p>
+<p>Aquí hay un ejemplo con atributos:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$atts</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;width&#39;</span>       <span class="o">=&gt;</span> <span class="mi">800</span><span class="p">,</span>
+    <span class="s1">&#39;height&#39;</span>      <span class="o">=&gt;</span> <span class="mi">600</span><span class="p">,</span>
+    <span class="s1">&#39;scrollbars&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;status&#39;</span>      <span class="o">=&gt;</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;resizable&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;yes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;screenx&#39;</span>     <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;screeny&#39;</span>     <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;window_name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;_blank&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+
+<span class="k">echo</span> <span class="nx">anchor_popup</span><span class="p">(</span><span class="s1">&#39;news/local/123&#39;</span><span class="p">,</span> <span class="s1">&#39;Click Me!&#39;</span><span class="p">,</span> <span class="nv">$atts</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Como se indicó anteriormente, puede especificar una configuración alternativa.
+Puede que la configuración alternativa le resulte útil si genera enlaces para un
+sitio diferente al suyo, que contiene diferentes preferencias de configuración.
+Usamos esto para pruebas unitarias del marco en sí.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The above attributes are the function defaults so you only need to
+configure los que sean diferentes a lo que necesita. Si quieres el
+función para usar todos sus valores predeterminados simplemente pase una matriz vacía en el
+tercer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">anchor_popup</span><span class="p">(</span><span class="s1">&#39;news/local/123&#39;</span><span class="p">,</span> <span class="s1">&#39;Click Me!&#39;</span><span class="p">,</span> <span class="p">[]);</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <strong>window_name</strong> is not really an attribute, but an argument to
+la <cite>ventana.open() de JavaScript&lt;https://www.w3schools.com/jsref/met_win_open.asp&gt;</cite> _
+método, que acepta un nombre de ventana o un destino de ventana.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Any other attribute than the listed above will be parsed as an
+Atributo HTML a la etiqueta de anclaje.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Attributes passed into the anchor_popup function are automatically escaped to protected against XSS attacks.</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="mailto">
+<span class="sig-name descname"><span class="pre">mailto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$email</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$title</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$attributes</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mailto" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>electrónico</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">$correo</span></code></span>) – dirección de correo electrónico</p></li>
+<li><p><strong>$título</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – título ancla</p></li>
+<li><p><strong>$atributos</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – atributos HTML</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Un hipervínculo «enviar a»</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Crea un enlace de correo electrónico HTML estándar. Ejemplo de uso:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">echo</span> <span class="nx">mailto</span><span class="p">(</span><span class="s1">&#39;me@my-site.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Click Here to Contact Me&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Al igual que con la pestaña <a class="reference internal" href="#anchor" title="anchor"><code class="xref php php-func docutils literal notranslate"><span class="pre">anchor()</span></code></a> anterior, puedes establecer atributos usando el
+tercer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Mail me&#39;</span><span class="p">];</span>
+<span class="k">echo</span> <span class="nx">mailto</span><span class="p">(</span><span class="s1">&#39;me@my-site.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Contact Me&#39;</span><span class="p">,</span> <span class="nv">$attributes</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Attributes passed into the mailto function are automatically escaped to protected against XSS attacks.</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="safe_mailto">
+<span class="sig-name descname"><span class="pre">safe_mailto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$email</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$title</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$attributes</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#safe_mailto" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>electrónico</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span> <span class="pre">$correo</span></code></span>) – dirección de correo electrónico</p></li>
+<li><p><strong>$título</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – título ancla</p></li>
+<li><p><strong>$atributos</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">mixed</span></code></span>) – atributos HTML</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>Un hipervínculo «enviar a» seguro contra spam</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Idéntico a la función <a class="reference internal" href="#mailto" title="mailto"><code class="xref php php-func docutils literal notranslate"><span class="pre">mailto()</span></code></a> excepto que escribe un mensaje ofuscado
+versión de la etiqueta <em>mailto</em> usando números ordinales escritos con JavaScript para
+ayudar a evitar que los robots de spam recopilen la dirección de correo electrónico.</p>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="auto_link">
+<span class="sig-name descname"><span class="pre">auto_link</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$str</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$type</span> <span class="pre">=</span> <span class="pre">'both'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$popup</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#auto_link" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$cadena</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cadena de entrada</p></li>
+<li><p><strong>$type</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – tipo de enlace (“correo electrónico”, “url” o “ambos”)</p></li>
+<li><p><strong>$popup</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se deben crear enlaces emergentes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>cadena enlazada</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Convierte automáticamente las URL y direcciones de correo electrónico contenidas en una cadena en
+Enlaces. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$string</span> <span class="o">=</span> <span class="nx">auto_link</span><span class="p">(</span><span class="nv">$string</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El segundo parámetro determina si las URL y los correos electrónicos se convierten o
+solo uno o el otro. El comportamiento predeterminado es ambos si el parámetro no es
+especificado. Los enlaces de correo electrónico están codificados como <a class="reference internal" href="#safe_mailto" title="safe_mailto"><code class="xref php php-func docutils literal notranslate"><span class="pre">safe_mailto()</span></code></a> como se muestra
+arriba.</p>
+<p>Convierte solo URL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$string</span> <span class="o">=</span> <span class="nx">auto_link</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Convierte sólo direcciones de correo electrónico:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$string</span> <span class="o">=</span> <span class="nx">auto_link</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s1">&#39;email&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>El tercer parámetro determina si los enlaces se muestran en una nueva ventana.
+El valor puede ser verdadero o falso (booleano):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$string</span> <span class="o">=</span> <span class="nx">auto_link</span><span class="p">(</span><span class="nv">$string</span><span class="p">,</span> <span class="s1">&#39;both&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The only URLs recognized are those that start with <code class="docutils literal notranslate"><span class="pre">www.</span></code> or with <code class="docutils literal notranslate"><span class="pre">://</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="url_title">
+<span class="sig-name descname"><span class="pre">url_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$str</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$separator</span> <span class="pre">=</span> <span class="pre">'-'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$lowercase</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#url_title" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$cadena</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cadena de entrada</p></li>
+<li><p><strong>$separator</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Separador de palabras (normalmente <code class="docutils literal notranslate"><span class="pre">'-'</span></code> o <code class="docutils literal notranslate"><span class="pre">'_'</span></code>)</p></li>
+<li><p><strong>$minúsculas</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se debe transformar la cadena de salida a minúsculas</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>cadena con formato URL</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Toma una cadena como entrada y crea una cadena URL amigable para los humanos. Esto es
+útil si, por ejemplo, tienes un blog en el que te gustaría utilizar el
+título de sus entradas en la URL. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$title</span>     <span class="o">=</span> <span class="s2">&quot;What&#39;s wrong with CSS?&quot;</span><span class="p">;</span>
+<span class="nv">$url_title</span> <span class="o">=</span> <span class="nx">url_title</span><span class="p">(</span><span class="nv">$title</span><span class="p">);</span>
+<span class="c1">// Produces: Whats-wrong-with-CSS</span>
+</pre></div>
+</div>
+<p>El segundo parámetro determina el delimitador de palabras. Por defecto guiones
+son usados. Las opciones preferidas son: <code class="docutils literal notranslate"><span class="pre">-</span></code> (guión) o <code class="docutils literal notranslate"><span class="pre">_</span></code> (guión bajo).</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$title</span>     <span class="o">=</span> <span class="s2">&quot;What&#39;s wrong with CSS?&quot;</span><span class="p">;</span>
+<span class="nv">$url_title</span> <span class="o">=</span> <span class="nx">url_title</span><span class="p">(</span><span class="nv">$title</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">);</span>
+<span class="c1">// Produces: Whats_wrong_with_CSS</span>
+</pre></div>
+</div>
+<p>El tercer parámetro determina si se admiten caracteres en minúsculas.
+forzado. Por defecto no lo son. Las opciones son booleanas verdadero/falso.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$title</span>     <span class="o">=</span> <span class="s2">&quot;What&#39;s wrong with CSS?&quot;</span><span class="p">;</span>
+<span class="nv">$url_title</span> <span class="o">=</span> <span class="nx">url_title</span><span class="p">(</span><span class="nv">$title</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+<span class="c1">// Produces: whats-wrong-with-css</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="mb_url_title">
+<span class="sig-name descname"><span class="pre">mb_url_title</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$str</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$separator</span> <span class="pre">=</span> <span class="pre">'-'</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$lowercase</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mb_url_title" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$cadena</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cadena de entrada</p></li>
+<li><p><strong>$separator</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – Separador de palabras (normalmente <code class="docutils literal notranslate"><span class="pre">'-'</span></code> o <code class="docutils literal notranslate"><span class="pre">'_'</span></code>)</p></li>
+<li><p><strong>$minúsculas</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">bool</span></code></span>) – si se debe transformar la cadena de salida a minúsculas</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>cadena con formato URL</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Esta función funciona igual que <a class="reference internal" href="#url_title" title="url_title"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_title()</span></code></a> pero convierte todos
+caracteres acentuados automáticamente.</p>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="prep_url">
+<span class="sig-name descname"><span class="pre">prep_url</span></span><span class="sig-paren">(</span><span class="optional">[</span><em class="sig-param"><span class="pre">$str</span> <span class="pre">=</span> <span class="pre">''</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">$secure</span> <span class="pre">=</span> <span class="pre">false</span></em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#prep_url" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$cadena</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – cadena de URL</p></li>
+<li><p><strong>$secure</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">boolean</span></code></span>) – verdadero para <code class="docutils literal notranslate"><span class="pre">https://</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>cadena URL con prefijo de protocolo</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<p>Esta función agregará <code class="docutils literal notranslate"><span class="pre">http://</span></code> o <code class="docutils literal notranslate"><span class="pre">https://</span></code> en el caso de que un prefijo de protocolo
+falta en una URL.</p>
+<p>Pase la cadena URL a la función de esta manera:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$url</span> <span class="o">=</span> <span class="nx">prep_url</span><span class="p">(</span><span class="s1">&#39;example.com&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="url_to">
+<span class="sig-name descname"><span class="pre">url_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$controller</span></em><span class="optional">[</span>, <em class="sig-param"><span class="pre">...$args</span></em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#url_to" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$controlador</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – nombre de ruta o Controlador::método</p></li>
+<li><p><strong>mixed...$args</strong> – Uno o más parámetros que se pasarán a la ruta. El último parámetro le permite configurar la configuración regional.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Devuelve<span class="colon">:</span></dt>
+<dd class="field-even"><p>URL absoluta</p>
+</dd>
+<dt class="field-odd">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">cadena</span></code></span></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>This function requires the controller/method to have a route defined in <strong>app/Config/Routes.php</strong>.</p>
+</div>
+<p>Crea una URL absoluta para un método de controlador en su aplicación. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// The route is defined as:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">url_to</span><span class="p">(</span><span class="s1">&#39;Home::index&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Result: &#39;http://example.com/&#39; --&gt;</span>
+</pre></div>
+</div>
+<p>También puedes agregar argumentos a la ruta.
+Aquí hay un ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// The route is defined as:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;pages/(:segment)&#39;</span><span class="p">,</span> <span class="s1">&#39;Page::index/$1&#39;</span><span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">url_to</span><span class="p">(</span><span class="s1">&#39;Page::index&#39;</span><span class="p">,</span> <span class="s1">&#39;home&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Result: &#39;http://example.com/pages/home&#39; --&gt;</span>
+</pre></div>
+</div>
+<p>Esto es útil porque aún puedes cambiar tus rutas después de poner enlaces.
+en tus puntos de vista.</p>
+<p>Desde v7.3.0, cuando usa <code class="docutils literal notranslate"><span class="pre">{locale}</span></code> en su ruta, puede especificar opcionalmente el valor local como último parámetro.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// The route is defined as:</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span>
+    <span class="s1">&#39;{locale}/users/(:num)/gallery/(:num)&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Galleries::showUserGallery/$1/$2&#39;</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;as&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;user_gallery&#39;</span><span class="p">]</span>
+<span class="p">);</span>
+
+<span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">url_to</span><span class="p">(</span><span class="s1">&#39;user_gallery&#39;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;en&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>View Gallery<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+<span class="cm">&lt;!-- Result: &#39;http://example.com/en/users/15/gallery/12&#39; --&gt;</span>
+</pre></div>
+</div>
+<p>Para obtener detalles completos, consulte <a class="reference internal" href="../incoming/routing.html#reverse-routing"><span class="std std-ref">Enrutamiento inverso</span></a> y <a class="reference internal" href="../incoming/routing.html#using-named-routes"><span class="std std-ref">Rutas con nombre</span></a>.</p>
+</dd></dl>
+
+<dl class="php function">
+<dt class="sig sig-object php" id="url_is">
+<span class="sig-name descname"><span class="pre">url_is</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">$path</span></em><span class="sig-paren">)</span><a class="headerlink" href="#url_is" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parámetros<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>$path</strong> (<span><code class="xref php php-obj docutils literal notranslate"><span class="pre">string</span></code></span>) – La ruta URL relativa a baseURL para verificar la ruta URI actual.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Tipo del valor devuelto<span class="colon">:</span></dt>
+<dd class="field-even"><p><span><code class="xref php php-obj docutils literal notranslate"><span class="pre">booleano</span></code></span></p>
+</dd>
+</dl>
+<p>Compara la ruta de la URL actual con la ruta proporcionada para ver si coinciden. Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">url_is</span><span class="p">(</span><span class="s1">&#39;admin&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto coincidiría con <strong>http://example.com/admin</strong>. Coincidiría con <strong>http://example.com/subdir/admin</strong>
+si su URL base es <code class="docutils literal notranslate"><span class="pre">http://example.com/subdir/</span></code>.</p>
+<p>Puede utilizar el comodín <code class="docutils literal notranslate"><span class="pre">*</span></code> para hacer coincidir
+cualquier otro carácter aplicable en la URL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">url_is</span><span class="p">(</span><span class="s1">&#39;admin*&#39;</span><span class="p">))</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto coincidiría con cualquiera de los siguientes:</p>
+<ul class="simple">
+<li><p>/administrador</p></li>
+<li><p>/administrador/</p></li>
+<li><p>/admin/usuarios</p></li>
+<li><p>/admin/usuarios/escuelas/compañeros/…</p></li>
+</ul>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Probando su base de datos &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/testing/database.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Generando datos de prueba" href="fabricator.html" />
+    <link rel="prev" title="Pruebas" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Pruebas</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Pruebas</a></li>
+      <li class="breadcrumb-item active">Probando su base de datos</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="probando-su-base-de-datos">
+<h1>Probando su base de datos<a class="headerlink" href="#probando-su-base-de-datos" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#la-clase-de-prueba" id="id1">La clase de prueba</a></p></li>
+<li><p><a class="reference internal" href="#configurar-una-base-de-datos-de-prueba" id="id2">Configurar una base de datos de prueba</a></p>
+<ul>
+<li><p><a class="reference internal" href="#migraciones-y-semillas" id="id3">Migraciones y Semillas</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#metodos-auxiliares" id="id4">Métodos auxiliares</a></p>
+<ul>
+<li><p><a class="reference internal" href="#cambiar-el-estado-de-la-base-de-datos" id="id5">Cambiar el estado de la base de datos</a></p></li>
+<li><p><a class="reference internal" href="#obtener-datos-de-la-base-de-datos" id="id6">Obtener datos de la base de datos</a></p></li>
+<li><p><a class="reference internal" href="#afirmaciones" id="id7">Afirmaciones</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="la-clase-de-prueba">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">La clase de prueba</a><a class="headerlink" href="#la-clase-de-prueba" title="Link to this heading"></a></h2>
+<p>Para aprovechar las herramientas de base de datos integradas que Higgs proporciona para las pruebas, su
+las pruebas deben extender <code class="docutils literal notranslate"><span class="pre">CIUnitTestCase</span></code> y usar <code class="docutils literal notranslate"><span class="pre">DatabaseTestTrait</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Database</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Test\CIUnitTestCase</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Test\DatabaseTestTrait</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyTests</span> <span class="k">extends</span> <span class="nx">CIUnitTestCase</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">DatabaseTestTrait</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Debido a que la funcionalidad especial se ejecuta durante las fases <code class="docutils literal notranslate"><span class="pre">setUp()</span></code> y <code class="docutils literal notranslate"><span class="pre">tearDown()</span></code>, debe asegurarse
+que llames a los métodos de los padres si necesitas usarlos, de lo contrario perderás mucho
+de la funcionalidad aquí descrita:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Database</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Test\CIUnitTestCase</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Test\DatabaseTestTrait</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyTests</span> <span class="k">extends</span> <span class="nx">CIUnitTestCase</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">DatabaseTestTrait</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">setUp</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">setUp</span><span class="p">();</span>
+
+        <span class="c1">// Do something here....</span>
+    <span class="p">}</span>
+
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">tearDown</span><span class="p">()</span><span class="o">:</span> <span class="nx">void</span>
+    <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">tearDown</span><span class="p">();</span>
+
+        <span class="c1">// Do something here....</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="configurar-una-base-de-datos-de-prueba">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Configurar una base de datos de prueba</a><a class="headerlink" href="#configurar-una-base-de-datos-de-prueba" title="Link to this heading"></a></h2>
+<p>Al ejecutar pruebas de bases de datos, debe proporcionar una base de datos que pueda usarse durante las pruebas. En lugar de
+Al utilizar las funciones de base de datos integradas de PHPUnit, el marco proporciona herramientas específicas para Higgs. La primera
+El siguiente paso es asegurarse de haber configurado un grupo de base de datos <code class="docutils literal notranslate"><span class="pre">pruebas</span></code> en <strong>app/Config/Database.php</strong>.
+Esto especifica una conexión de base de datos que solo se usa mientras se ejecutan pruebas, para mantener seguros el resto de sus datos.</p>
+<p>Si tiene varios desarrolladores en su equipo, es probable que desee mantener sus credenciales almacenadas en
+el archivo <strong>.env</strong>. Para hacerlo, edite el archivo para asegurarse de que las siguientes líneas estén presentes y tengan el
+Información correcta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">nombre</span> <span class="nx">de</span> <span class="nx">host</span> <span class="o">=</span> <span class="nx">host</span> <span class="nx">local</span>
+<span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span> <span class="o">=</span> <span class="nx">ci4_test</span>
+<span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">nombre</span> <span class="nx">de</span> <span class="nx">usuario</span> <span class="o">=</span> <span class="nx">raíz</span>
+<span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">contraseña</span> <span class="o">=</span> <span class="nx">raíz</span>
+<span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">DBDriver</span> <span class="o">=</span> <span class="nx">MySQLi</span>
+<span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">DBPrefix</span> <span class="o">=</span>
+<span class="nx">base</span> <span class="nx">de</span> <span class="nx">datos</span><span class="o">.</span><span class="nx">pruebas</span><span class="o">.</span><span class="nx">puerto</span> <span class="o">=</span> <span class="mi">3306</span>
+</pre></div>
+</div>
+<section id="migraciones-y-semillas">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Migraciones y Semillas</a><a class="headerlink" href="#migraciones-y-semillas" title="Link to this heading"></a></h3>
+<p>Al ejecutar pruebas, debe asegurarse de que su base de datos tenga configurado el esquema correcto y que
+está en un estado conocido para cada prueba. Puede utilizar migraciones y semillas para configurar su base de datos,
+agregando un par de propiedades de clase a su prueba.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Database</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Test\CIUnitTestCase</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Test\DatabaseTestTrait</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyTests</span> <span class="k">extends</span> <span class="nx">CIUnitTestCase</span>
+<span class="p">{</span>
+    <span class="k">use</span> <span class="nx">DatabaseTestTrait</span><span class="p">;</span>
+
+    <span class="c1">// For Migrations</span>
+    <span class="k">protected</span> <span class="nv">$migrate</span>     <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$migrateOnce</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$refresh</span>     <span class="o">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$namespace</span>   <span class="o">=</span> <span class="s1">&#39;Tests\Support&#39;</span><span class="p">;</span>
+
+    <span class="c1">// For Seeds</span>
+    <span class="k">protected</span> <span class="nv">$seedOnce</span> <span class="o">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$seed</span>     <span class="o">=</span> <span class="s1">&#39;TestSeeder&#39;</span><span class="p">;</span>
+    <span class="k">protected</span> <span class="nv">$basePath</span> <span class="o">=</span> <span class="s1">&#39;path/to/database/files&#39;</span><span class="p">;</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="migraciones">
+<h4>Migraciones<a class="headerlink" href="#migraciones" title="Link to this heading"></a></h4>
+<section id="migrar">
+<h5>$migrar<a class="headerlink" href="#migrar" title="Link to this heading"></a></h5>
+<p>Este valor booleano determina si la migración de la base de datos se ejecuta antes de la prueba.
+De forma predeterminada, la base de datos siempre se migra al último estado disponible según lo definido en <code class="docutils literal notranslate"><span class="pre">$namespace</span></code>.
+Si es «falso», la migración nunca se ejecuta. Si desea deshabilitar la migración, establezca <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+</section>
+<section id="migraronce">
+<h5>$migrarOnce<a class="headerlink" href="#migraronce" title="Link to this heading"></a></h5>
+<p>Este valor booleano determina si la migración de la base de datos se ejecuta solo una vez. Si quieres
+para ejecutar la migración una vez antes de la primera prueba, establezca «verdadero». Si no está presente o es «falso», la migración
+se ejecuta antes de cada prueba.</p>
+</section>
+<section id="actualizar">
+<h5>$actualizar<a class="headerlink" href="#actualizar" title="Link to this heading"></a></h5>
+<p>Este valor booleano determina si la base de datos se actualiza por completo antes de la prueba. Si es «verdadero»,
+todas las migraciones se revierten a la versión 0.</p>
+</section>
+<section id="espacio-de-nombres">
+<h5>$ espacio de nombres<a class="headerlink" href="#espacio-de-nombres" title="Link to this heading"></a></h5>
+<p>De forma predeterminada, Higgs buscará en <strong>tests/_support/Database/Migrations</strong> para localizar las migraciones.
+que debería ejecutarse durante la prueba. Puede cambiar esta ubicación especificando un nuevo espacio de nombres en las propiedades <code class="docutils literal notranslate"><span class="pre">$namespace</span></code>.
+Esto no debe incluir el subespacio de nombres <strong>Base de datos\Migraciones</strong> sino solo el espacio de nombres base.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>If you set this property to <code class="docutils literal notranslate"><span class="pre">null</span></code>, it runs migrations from all available namespaces like <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">spark</span> <span class="pre">migrate</span> <span class="pre">--all</span></code>.</p>
+</div>
+</section>
+</section>
+<section id="semillas">
+<h4>Semillas<a class="headerlink" href="#semillas" title="Link to this heading"></a></h4>
+<section id="semilla">
+<h5>$semilla<a class="headerlink" href="#semilla" title="Link to this heading"></a></h5>
+<p>Si está presente y no está vacío, especifica el nombre de un archivo semilla que se utiliza para llenar la base de datos con
+datos de prueba antes de ejecutar la prueba.</p>
+</section>
+<section id="semilla-una-vez">
+<h5>$ semilla una vez<a class="headerlink" href="#semilla-una-vez" title="Link to this heading"></a></h5>
+<p>Este valor booleano determina si la inicialización de la base de datos se ejecuta solo una vez. Si quieres
+para ejecutar la inicialización de la base de datos una vez antes de la primera prueba, establezca «true». Si no está presente o es «falso», inicialización de la base de datos
+se ejecuta antes de cada prueba.</p>
+</section>
+<section id="rutabase">
+<h5>$rutabase<a class="headerlink" href="#rutabase" title="Link to this heading"></a></h5>
+<p>De forma predeterminada, Higgs buscará en <strong>tests/_support/Database/Seeds</strong> para localizar las semillas que debe ejecutar durante la prueba.
+Puede cambiar este directorio especificando la propiedad <code class="docutils literal notranslate"><span class="pre">$basePath</span></code>. Esto no debe incluir el directorio <strong>Seeds</strong>,
+sino la ruta al directorio único que contiene el subdirectorio.</p>
+</section>
+</section>
+</section>
+</section>
+<section id="metodos-auxiliares">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Métodos auxiliares</a><a class="headerlink" href="#metodos-auxiliares" title="Link to this heading"></a></h2>
+<p>La clase <strong>DatabaseTestTrait</strong> proporciona varios métodos auxiliares para ayudar a probar su base de datos.</p>
+<section id="cambiar-el-estado-de-la-base-de-datos">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Cambiar el estado de la base de datos</a><a class="headerlink" href="#cambiar-el-estado-de-la-base-de-datos" title="Link to this heading"></a></h3>
+<section id="base-de-datos-de-regresion">
+<h4>base de datos de regresión ()<a class="headerlink" href="#base-de-datos-de-regresion" title="Link to this heading"></a></h4>
+<p>Este método, llamado durante <code class="docutils literal notranslate"><span class="pre">$refresh</span></code> descrito anteriormente, está disponible si necesita restablecer la base de datos manualmente.</p>
+</section>
+<section id="migrarbase-de-datos">
+<h4>migrarBase de datos()<a class="headerlink" href="#migrarbase-de-datos" title="Link to this heading"></a></h4>
+<p>Llamado durante <code class="docutils literal notranslate"><span class="pre">setUp()</span></code>, este método está disponible si necesita ejecutar migraciones manualmente.</p>
+</section>
+<section id="semilla-nombre">
+<h4>semilla($nombre)<a class="headerlink" href="#semilla-nombre" title="Link to this heading"></a></h4>
+<p>Le permite cargar manualmente una semilla en la base de datos. El único parámetro es el nombre de la semilla a ejecutar. La semilla
+debe estar presente dentro de la ruta especificada en <code class="docutils literal notranslate"><span class="pre">$basePath</span></code>.</p>
+</section>
+<section id="hasindatabase-tabla-datos">
+<h4>hasInDatabase($tabla, $datos)<a class="headerlink" href="#hasindatabase-tabla-datos" title="Link to this heading"></a></h4>
+<p>Inserta una nueva fila en la base de datos. Esta fila se elimina después de que se ejecute la prueba actual. <code class="docutils literal notranslate"><span class="pre">$data</span></code> es un asociativo
+Matriz con los datos a insertar en la tabla.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;Joe Cool&#39;</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">hasInDatabase</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="nv">$data</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="obtener-datos-de-la-base-de-datos">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Obtener datos de la base de datos</a><a class="headerlink" href="#obtener-datos-de-la-base-de-datos" title="Link to this heading"></a></h3>
+<section id="grabfromdatabase-tabla-columna-criterios">
+<h4>grabFromDatabase($tabla, $columna, $criterios)<a class="headerlink" href="#grabfromdatabase-tabla-columna-criterios" title="Link to this heading"></a></h4>
+<p>Devuelve el valor de <code class="docutils literal notranslate"><span class="pre">$columna</span></code> de la tabla especificada donde la fila coincide con <code class="docutils literal notranslate"><span class="pre">$criterios</span></code>. Si más de uno
+Si se encuentra una fila, solo devolverá la primera.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$username</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">grabFromDatabase</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;username&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="afirmaciones">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Afirmaciones</a><a class="headerlink" href="#afirmaciones" title="Link to this heading"></a></h3>
+<section id="dontseeindatabase-tabla-criterios">
+<h4>dontSeeInDatabase($tabla, $criterios)<a class="headerlink" href="#dontseeindatabase-tabla-criterios" title="Link to this heading"></a></h4>
+<p>Afirma que una fila con criterios que coinciden con los pares clave/valor en <code class="docutils literal notranslate"><span class="pre">$criteria</span></code> NO existe en la base de datos.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$criteria</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;email&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">dontSeeInDatabase</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="nv">$criteria</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="ver-en-la-base-de-datos-tabla-criterios">
+<h4>ver en la base de datos ($ tabla, $ criterios)<a class="headerlink" href="#ver-en-la-base-de-datos-tabla-criterios" title="Link to this heading"></a></h4>
+<p>Afirma que una fila con criterios que coinciden con los pares clave/valor en <code class="docutils literal notranslate"><span class="pre">$criteria</span></code> SÍ existe en la base de datos.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$criteria</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;email&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;joe@example.com&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">seeInDatabase</span><span class="p">(</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="nv">$criteria</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+<section id="vernumrecords-esperado-tabla-criterios">
+<h4>verNumRecords($esperado, $tabla, $criterios)<a class="headerlink" href="#vernumrecords-esperado-tabla-criterios" title="Link to this heading"></a></h4>
+<p>Afirma que se encuentran varias filas coincidentes en la base de datos que coinciden con <code class="docutils literal notranslate"><span class="pre">$criteria</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="nv">$criteria</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;active&#39;</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">];</span>
+<span class="nv">$this</span><span class="o">-&gt;</span><span class="na">seeNumRecords</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="nv">$criteria</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="overview.html" class="btn btn-neutral float-left" title="Pruebas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="fabricator.html" class="btn btn-neutral float-right" title="Generando datos de prueba" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

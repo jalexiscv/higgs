@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear noticias &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/tutorial/create_news_items.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Conclusión" href="conclusion.html" />
+    <link rel="prev" title="Sección de noticias" href="news_section.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Cree su primera aplicación</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../incoming/index.html">Controllers and Routing</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/controllers.html">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../incoming/restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Cree su primera aplicación</a></li>
+      <li class="breadcrumb-item active">Crear noticias</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="crear-noticias">
+<h1>Crear noticias<a class="headerlink" href="#crear-noticias" title="Link to this heading"></a></h1>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#habilitar-filtro-csrf" id="id1">Habilitar filtro CSRF</a></p></li>
+<li><p><a class="reference internal" href="#agregar-reglas-de-enrutamiento" id="id2">Agregar reglas de enrutamiento</a></p></li>
+<li><p><a class="reference internal" href="#crear-un-formulario" id="id3">Crear un formulario</a></p>
+<ul>
+<li><p><a class="reference internal" href="#crear-noticia-crear-ver-archivo" id="id4">Crear noticia/crear Ver archivo</a></p></li>
+<li><p><a class="reference internal" href="#controlador-de-noticias" id="id5">Controlador de noticias</a></p>
+<ul>
+<li><p><a class="reference internal" href="#agregue-news-new-para-mostrar-el-formulario" id="id6">Agregue News::new() para mostrar el formulario</a></p></li>
+<li><p><a class="reference internal" href="#agregue-news-create-para-crear-una-noticia" id="id7">Agregue News::create() para crear una noticia</a></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#noticiasactualizacion-de-modelos" id="id8">NoticiasActualización de modelos</a></p></li>
+<li><p><a class="reference internal" href="#crear-una-noticia" id="id9">Crear una noticia</a></p></li>
+<li><p><a class="reference internal" href="#felicidades" id="id10">Felicidades</a></p></li>
+</ul>
+</nav>
+<p>Ahora sabes cómo leer datos de una base de datos usando Higgs, pero
+aún no has escrito ninguna información en la base de datos. En esta sección,
+ampliará su controlador de noticias y el modelo creado anteriormente para incluir
+esta funcionalidad.</p>
+<section id="habilitar-filtro-csrf">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Habilitar filtro CSRF</a><a class="headerlink" href="#habilitar-filtro-csrf" title="Link to this heading"></a></h2>
+<p>Antes de crear un formulario, habilitemos la protección CSRF.</p>
+<p>Abra el archivo <strong>app/Config/Filters.php</strong> y actualice la propiedad <code class="docutils literal notranslate"><span class="pre">$methods</span></code> como se muestra a continuación:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">Config</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Config\BaseConfig</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Filters</span> <span class="k">extends</span> <span class="nx">BaseConfig</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="nv">$methods</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s1">&#39;post&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s1">&#39;csrf&#39;</span><span class="p">],</span>
+    <span class="p">];</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Configura el filtro CSRF para que se habilite para todas las solicitudes <strong>POST</strong>.
+Puede leer más sobre la protección CSRF en <a class="reference internal" href="../libraries/security.html"><span class="doc">Security</span></a> biblioteca.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>In general, if you use <code class="docutils literal notranslate"><span class="pre">$methods</span></code> filters, you should <a class="reference internal" href="../incoming/routing.html#use-defined-routes-only"><span class="std std-ref">disable Auto Routing (Legacy)</span></a>
+porque <a class="reference internal" href="../incoming/routing.html#auto-routing-legacy"><span class="std std-ref">Enrutamiento automático (heredado)</span></a> permite que cualquier método HTTP acceda a un controlador.
+Acceder al controlador con un método inesperado podría pasar por alto el filtro.</p>
+</div>
+</section>
+<section id="agregar-reglas-de-enrutamiento">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Agregar reglas de enrutamiento</a><a class="headerlink" href="#agregar-reglas-de-enrutamiento" title="Link to this heading"></a></h2>
+<p>Antes de que pueda comenzar a agregar noticias a su aplicación Higgs
+debe agregar una regla adicional al archivo <strong>app/Config/Routes.php</strong>. Asegúrese de que su
+El archivo contiene lo siguiente:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="c1">// ...</span>
+
+<span class="k">use</span> <span class="nx">App\Controllers\News</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">App\Controllers\Pages</span><span class="p">;</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">News</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;news/new&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">News</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;new&#39;</span><span class="p">]);</span> <span class="c1">// Add this line</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">post</span><span class="p">(</span><span class="s1">&#39;news&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">News</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">]);</span> <span class="c1">// Add this line</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;news/(:segment)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">News</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;show&#39;</span><span class="p">]);</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;pages&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pages</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;index&#39;</span><span class="p">]);</span>
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;(:segment)&#39;</span><span class="p">,</span> <span class="p">[</span><span class="nx">Pages</span><span class="o">::</span><span class="na">class</span><span class="p">,</span> <span class="s1">&#39;view&#39;</span><span class="p">]);</span>
+</pre></div>
+</div>
+<p>La directiva de ruta para <code class="docutils literal notranslate"><span class="pre">'news/new'</span></code> se coloca antes de la directiva para <code class="docutils literal notranslate"><span class="pre">'news/(:segment)'</span></code> para garantizar que se muestre el formulario para crear una noticia.</p>
+<p>La línea <code class="docutils literal notranslate"><span class="pre">$routes-&gt;post()</span></code> define el enrutador para una solicitud POST. Coincide
+sólo una solicitud POST a la ruta URI <strong>/news</strong>, y se asigna al método <code class="docutils literal notranslate"><span class="pre">create()</span></code> de
+la clase <code class="docutils literal notranslate"><span class="pre">Noticias</span></code>.</p>
+<p>Puede leer más sobre los diferentes tipos de enrutamiento en <a class="reference internal" href="../incoming/routing.html#defined-route-routing"><span class="std std-ref">Establecer reglas de enrutamiento</span></a>.</p>
+</section>
+<section id="crear-un-formulario">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Crear un formulario</a><a class="headerlink" href="#crear-un-formulario" title="Link to this heading"></a></h2>
+<section id="crear-noticia-crear-ver-archivo">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Crear noticia/crear Ver archivo</a><a class="headerlink" href="#crear-noticia-crear-ver-archivo" title="Link to this heading"></a></h3>
+<p>Para ingresar datos en la base de datos, necesita crear un formulario donde pueda
+introducir la información a almacenar. Esto significa que necesitarás un formulario
+con dos campos, uno para el título y otro para el texto. derivarás
+la babosa de nuestro título en el modelo.</p>
+<p>Cree una nueva vista en <strong>app/Views/news/create.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">h2</span><span class="o">&gt;&lt;?=</span> <span class="nx">esc</span><span class="p">(</span><span class="nv">$title</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+
+<span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">session</span><span class="p">()</span><span class="o">-&gt;</span><span class="na">getFlashdata</span><span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span>
+<span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">validation_list_errors</span><span class="p">()</span> <span class="cp">?&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">form</span> <span class="na">action</span><span class="o">=</span><span class="s">&quot;/news&quot;</span> <span class="na">method</span><span class="o">=</span><span class="s">&quot;post&quot;</span><span class="p">&gt;</span>
+    <span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">csrf_field</span><span class="p">()</span> <span class="cp">?&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;title&quot;</span><span class="p">&gt;</span>Title<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;input&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;title&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">set_value</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="s">&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;body&quot;</span><span class="p">&gt;</span>Text<span class="p">&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">textarea</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;body&quot;</span> <span class="na">cols</span><span class="o">=</span><span class="s">&quot;45&quot;</span> <span class="na">rows</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span><span class="cp">&lt;?</span><span class="o">=</span> <span class="nx">set_value</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">)</span> <span class="cp">?&gt;</span><span class="p">&lt;/</span><span class="nt">textarea</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+
+    <span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;submit&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;Create news item&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">form</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Probablemente sólo haya cuatro cosas aquí que parezcan desconocidas.</p>
+<p>La función <a class="reference internal" href="../general/common_functions.html#session" title="session"><code class="xref php php-func docutils literal notranslate"><span class="pre">session()</span></code></a> se utiliza para obtener el objeto Sesión,
+y <code class="docutils literal notranslate"><span class="pre">session()-&gt;getFlashdata('error')</span></code> se usa para mostrar el error relacionado con la protección CSRF
+al usuario. Sin embargo, de forma predeterminada, si falla una verificación de validación CSRF, se generará una excepción.
+así que todavía no funciona. Consulte <a class="reference internal" href="../libraries/security.html#csrf-redirection-on-failure"><span class="std std-ref">Redirección en caso de error</span></a> para obtener más información.</p>
+<p>La función <a class="reference internal" href="../helpers/form_helper.html#validation_list_errors" title="validation_list_errors"><code class="xref php php-func docutils literal notranslate"><span class="pre">validation_list_errors()</span></code></a> proporcionada por <a class="reference internal" href="../helpers/form_helper.html"><span class="doc">Form Helper</span></a>
+se utiliza para informar errores relacionados con la validación del formulario.</p>
+<p>La función <a class="reference internal" href="../general/common_functions.html#csrf_field" title="csrf_field"><code class="xref php php-func docutils literal notranslate"><span class="pre">csrf_field()</span></code></a> crea una entrada oculta con un token CSRF que ayuda a proteger contra algunos ataques comunes.</p>
+<p>La función <a class="reference internal" href="../helpers/form_helper.html#set_value" title="set_value"><code class="xref php php-func docutils literal notranslate"><span class="pre">set_value()</span></code></a> proporcionada por <a class="reference internal" href="../helpers/form_helper.html"><span class="doc">Form Helper</span></a> se utiliza para mostrar
+datos de entrada antiguos cuando se producen errores.</p>
+</section>
+<section id="controlador-de-noticias">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Controlador de noticias</a><a class="headerlink" href="#controlador-de-noticias" title="Link to this heading"></a></h3>
+<p>Vuelve a tu controlador de <code class="docutils literal notranslate"><span class="pre">Noticias</span></code>.</p>
+<section id="agregue-news-new-para-mostrar-el-formulario">
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Agregue News::new() para mostrar el formulario</a><a class="headerlink" href="#agregue-news-new-para-mostrar-el-formulario" title="Link to this heading"></a></h4>
+<p>Primero, cree un método para mostrar el formulario HTML que ha creado.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\NewsModel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Exceptions\PageNotFoundException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">News</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">new</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/header&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Create a news item&#39;</span><span class="p">])</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;news/create&#39;</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/footer&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cargamos el <a class="reference internal" href="../helpers/form_helper.html"><span class="doc">Form helper</span></a> con el
+:php:func:función <cite>ayudante()</cite>. La mayoría de las funciones auxiliares requieren que el auxiliar sea
+cargado antes de su uso.</p>
+<p>Luego devuelve la vista del formulario creado.</p>
+</section>
+<section id="agregue-news-create-para-crear-una-noticia">
+<h4><a class="toc-backref" href="#id7" role="doc-backlink">Agregue News::create() para crear una noticia</a><a class="headerlink" href="#agregue-news-create-para-crear-una-noticia" title="Link to this heading"></a></h4>
+<p>A continuación, cree un método para crear una noticia a partir de los datos enviados.</p>
+<p>Vas a hacer tres cosas aquí:</p>
+<p>Primero, comprueba si los datos enviados pasaron las reglas de validación.
+2. guarda la noticia en la base de datos.
+3. devuelve una página de éxito.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Models\NewsModel</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\Exceptions\PageNotFoundException</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">News</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nx">helper</span><span class="p">(</span><span class="s1">&#39;form&#39;</span><span class="p">);</span>
+
+        <span class="nv">$data</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">([</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">]);</span>
+
+        <span class="c1">// Checks whether the submitted data passed the validation rules.</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validateData</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[255]|min_length[3]&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;body&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[5000]|min_length[10]&#39;</span><span class="p">,</span>
+        <span class="p">]))</span> <span class="p">{</span>
+            <span class="c1">// The validation fails, so returns the form.</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">new</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="c1">// Gets the validated data.</span>
+        <span class="nv">$post</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getValidated</span><span class="p">();</span>
+
+        <span class="nv">$model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">(</span><span class="nx">NewsModel</span><span class="o">::</span><span class="na">class</span><span class="p">);</span>
+
+        <span class="nv">$model</span><span class="o">-&gt;</span><span class="na">save</span><span class="p">([</span>
+            <span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;slug&#39;</span>  <span class="o">=&gt;</span> <span class="nx">url_title</span><span class="p">(</span><span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">],</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="k">true</span><span class="p">),</span>
+            <span class="s1">&#39;body&#39;</span>  <span class="o">=&gt;</span> <span class="nv">$post</span><span class="p">[</span><span class="s1">&#39;body&#39;</span><span class="p">],</span>
+        <span class="p">]);</span>
+
+        <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/header&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Create a news item&#39;</span><span class="p">])</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;news/success&#39;</span><span class="p">)</span>
+            <span class="o">.</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;templates/footer&#39;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>El código anterior agrega mucha funcionalidad.</p>
+<section id="recuperar-los-datos">
+<h5>Recuperar los datos<a class="headerlink" href="#recuperar-los-datos" title="Link to this heading"></a></h5>
+<p>Primero, usamos <a class="reference internal" href="../incoming/incomingrequest.html"><span class="doc">IncomingRequest</span></a>
+objeto <code class="docutils literal notranslate"><span class="pre">$this-&gt;request</span></code>, que el framework establece en el controlador.</p>
+<p>Obtenemos los elementos necesarios de los datos <strong>POST</strong> del usuario y los configuramos en el
+variable <code class="docutils literal notranslate"><span class="pre">$datos</span></code>.</p>
+</section>
+<section id="validar-los-datos">
+<h5>Validar los datos<a class="headerlink" href="#validar-los-datos" title="Link to this heading"></a></h5>
+<p>A continuación, utilizará la función auxiliar proporcionada por el controlador.
+<a class="reference internal" href="../incoming/controllers.html#controller-validatedata"><span class="std std-ref">validarDatos()</span></a>  para validar los datos enviados.
+En este caso, los campos título y cuerpo son obligatorios y en la longitud específica.</p>
+<p>Higgs tiene una poderosa biblioteca de validación como se demuestra
+arriba. Puede leer más sobre <a class="reference internal" href="../libraries/validation.html"><span class="doc">Biblioteca de validación</span></a>.</p>
+<p>Si la validación falla, llamamos al método <code class="docutils literal notranslate"><span class="pre">new()</span></code> que acabas de crear y devolvemos
+el formulario HTML.</p>
+</section>
+<section id="guardar-la-noticia">
+<h5>Guardar la noticia<a class="headerlink" href="#guardar-la-noticia" title="Link to this heading"></a></h5>
+<p>Si la validación pasó todas las reglas, obtenemos los datos validados por
+<a class="reference internal" href="../libraries/validation.html#validation-getting-validated-data"><span class="std std-ref">$this-&gt;validador-&gt;getValidated()</span></a>  y
+configúrelos en la variable <code class="docutils literal notranslate"><span class="pre">$post</span></code>.</p>
+<p>El <code class="docutils literal notranslate"><span class="pre">NewsModel</span></code> se carga y se llama. Este se encarga de pasar la noticia.
+en el modelo. El método <a class="reference internal" href="../models/model.html#model-save"><span class="std std-ref">save()</span></a> maneja la inserción o actualización del
+grabar automáticamente, en función de si encuentra una clave de matriz que coincida con la clave principal
+llave.</p>
+<p>Esto contiene una nueva función <a class="reference internal" href="../helpers/url_helper.html#url_title" title="url_title"><code class="xref php php-func docutils literal notranslate"><span class="pre">url_title()</span></code></a>. Esta función -
+proporcionado por <a class="reference internal" href="../helpers/url_helper.html"><span class="doc">URL helper</span></a> - se desnuda
+la cadena que le pasas, reemplazando todos los espacios por guiones (<code class="docutils literal notranslate"><span class="pre">-</span></code>) y hace
+Asegúrate de que todo esté en minúsculas. Esto te deja con un bonito
+slug, perfecto para crear URI.</p>
+</section>
+<section id="volver-a-la-pagina-de-exito">
+<h5>Volver a la página de éxito<a class="headerlink" href="#volver-a-la-pagina-de-exito" title="Link to this heading"></a></h5>
+<p>Después de esto, los archivos de visualización se cargan y se devuelven para mostrar un mensaje de éxito.
+Cree una vista en <strong>app/Views/news/success.php</strong> y escriba un mensaje de éxito.</p>
+<p>Esto podría ser tan simple como:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;</span><span class="nx">Noticia</span> <span class="nx">creada</span> <span class="nx">exitosamente</span><span class="o">.&lt;/</span><span class="nx">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="noticiasactualizacion-de-modelos">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">NoticiasActualización de modelos</a><a class="headerlink" href="#noticiasactualizacion-de-modelos" title="Link to this heading"></a></h2>
+<p>Lo único que queda es asegurarse de que su modelo esté configurado.
+para permitir que los datos se guarden correctamente. El método <code class="docutils literal notranslate"><span class="pre">save()</span></code> que fue
+utilizado determinará si la información debe insertarse
+o si la fila ya existe y debe actualizarse, según la presencia
+de una clave primaria. En este caso, no se le pasa ningún campo <code class="docutils literal notranslate"><span class="pre">id</span></code>,
+entonces insertará una nueva fila en su tabla, <code class="docutils literal notranslate"><span class="pre">noticias</span></code>.</p>
+<p>Sin embargo, de forma predeterminada, los métodos de inserción y actualización en el modelo
+en realidad no guarda ningún dato porque no sabe qué campos son
+seguro para ser actualizado. Edite <code class="docutils literal notranslate"><span class="pre">NewsModel</span></code> para proporcionarle una lista de elementos actualizables.
+campos en la propiedad <code class="docutils literal notranslate"><span class="pre">$allowedFields</span></code>.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Models</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\Model</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">NewsModel</span> <span class="k">extends</span> <span class="nx">Model</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$table</span> <span class="o">=</span> <span class="s1">&#39;news&#39;</span><span class="p">;</span>
+
+    <span class="k">protected</span> <span class="nv">$allowedFields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="s1">&#39;slug&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esta nueva propiedad ahora contiene los campos que permitimos guardar en el
+base de datos. ¿Notas que omitimos el <code class="docutils literal notranslate"><span class="pre">id</span></code>? Eso es porque casi
+Nunca es necesario hacer eso, ya que es un campo que se incrementa automáticamente en la base de datos.
+Esto ayuda a proteger contra vulnerabilidades de asignaciones masivas. Si tu modelo es
+Al manejar sus marcas de tiempo, también las omitiría.</p>
+</section>
+<section id="crear-una-noticia">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Crear una noticia</a><a class="headerlink" href="#crear-una-noticia" title="Link to this heading"></a></h2>
+<p>Ahora apunte su navegador a su entorno de desarrollo local donde
+instaló Higgs y agregue <strong>/news/new</strong> a la URL.
+Agrega algunas noticias y mira las diferentes páginas que creaste.</p>
+<a class="reference internal image-reference" href="../_images/tutorial3.png"><img alt="../_images/tutorial3.png" class="align-center" src="../_images/tutorial3.png" style="width: 45%; height: 415px;" /></a>
+<a class="reference internal image-reference" href="../_images/tutorial4.png"><img alt="../_images/tutorial4.png" class="align-center" src="../_images/tutorial4.png" style="width: 45%; height: 415px;" /></a>
+</section>
+<section id="felicidades">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Felicidades</a><a class="headerlink" href="#felicidades" title="Link to this heading"></a></h2>
+<p>¡Acaba de completar su primera aplicación de Higgs (AI)!</p>
+<p>El siguiente diagrama muestra la carpeta <strong>app</strong> de tu proyecto, con todos los
+archivos que usted creó o modificó.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>aplicación/
+├── Configuración
+│ ├── Filtros.php (Modificado)
+│ └── Rutas.php (Modificado)
+├── Controladores
+│ ├── Noticias.php
+│ └── Páginas.php
+├── Modelos
+│ └── NewsModel.php
+└── Vistas
+    ├── noticias
+    │ ├── crear.php
+    │ ├── index.php
+    │ ├── éxito.php
+    │ └── ver.php
+    ├── páginas
+    │ ├── acerca de.php
+    │ └── inicio.php
+    └── plantillas
+        ├── pie de página.php
+        └── encabezado.php
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="news_section.html" class="btn btn-neutral float-left" title="Sección de noticias" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="conclusion.html" class="btn btn-neutral float-right" title="Conclusión" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>

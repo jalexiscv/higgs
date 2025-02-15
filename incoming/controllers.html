@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Controladores &mdash; documentación de Higgs - 7.0.2</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=67a8c293" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/citheme.css?v=d9728d44" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="canonical" href="https://higgs.com.co/incoming/controllers.html" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=e20d7d46"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=efdbd0b9"></script>
+        <script src="../_static/js/citheme.js?v=e0bcfc84"></script>
+        <script src="../_static/js/carbon.js?v=693e881e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="../genindex.html" />
+    <link rel="search" title="Búsqueda" href="../search.html" />
+    <link rel="next" title="Filtros del controlador" href="filters.html" />
+    <link rel="prev" title="Enrutamiento URI" href="routing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/logo.svg" class="logo" alt="Logotipo"/>
+          </a>
+              <div class="version">
+                7.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/index.html">Bienvenido a Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../intro/hmvc.html">HMVC (Hierarchical Model-View-Controller)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../intro/psr.html">Cumplimiento de PSR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../license.html">Acuerdo de licencia</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Instalación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_composer.html">Compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/installing_manual.html">Instalación manual</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/running.html">Ejecutando su aplicación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/troubleshooting.html">Solución de problemas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelogs/index.html">Registro de Cambios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/upgrading.html">Actualizaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation/repositories.html">Repositorios</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Cree su primera aplicación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/static_pages.html">Páginas estáticas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/news_section.html">Sección de noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/create_news_items.html">Crear noticias</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutorial/conclusion.html">Conclusión</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Descripción general del Higgs (AI)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/structure.html">Application Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/mvc.html">Modelos, vistas y controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/autoloader.html">Archivos de carga automática</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/services.html">Servicios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/factories.html">Fábricas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/http.html">Trabajar con solicitudes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../concepts/security.html">Pautas de seguridad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../general/index.html">Temas generales</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../general/configuration.html">Configuración en Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/urls.html">URL de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/helpers.html">Funciones auxiliares</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/common_functions.html">Funciones y constantes globales</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/logging.html">Información de registro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/errors.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/caching.html">Almacenamiento en caché de páginas web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/ajax.html">Solicitudes AJAX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/modules.html">Módulos de código</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/managing_apps.html">Administrar sus aplicaciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../general/environments.html">Manejo de múltiples entornos</a></li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Controllers and Routing</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="routing.html">Enrutamiento URI</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Controladores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filtros del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message.html">Mensajes HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="request.html">Solicitar clase</a></li>
+<li class="toctree-l2"><a class="reference internal" href="incomingrequest.html">IncomingRequest Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="content_negotiation.html">Content Negotiation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="methodspoofing.html">Suplantación de método HTTP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restful.html">Manejo de recursos RESTful</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../outgoing/index.html">Construyendo respuestas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/views.html">Puntos de vista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_cells.html">Ver celdas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_renderer.html">Ver renderizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_layouts.html">Ver diseños</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_parser.html">Ver analizador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/view_decorators.html">Ver decoradores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/table.html">Clase de tabla HTML</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/response.html">HTTP Responses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/api_responses.html">Rasgo de respuesta API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/csp.html">Política de seguridad de contenidos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/localization.html">Localización</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../outgoing/alternative_php.html">Sintaxis PHP alternativa para ver archivos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../database/index.html">Trabajar con bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../database/examples.html">Inicio rápido: ejemplos de uso</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/configuration.html">Configuración de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/connecting.html">Conexión a una base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/queries.html">Ejecución de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/results.html">Generando resultados de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/helpers.html">Funciones auxiliares de consulta</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/query_builder.html">Clase de generador de consultas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/transactions.html">Actas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/metadata.html">Obtener metadatos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/call_function.html">Llamadas a funciones personalizadas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/events.html">Eventos de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../database/utilities.html">Utilidades de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Datos de modelado</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../models/model.html">Usando el modelo de Higgs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/entities.html">Usando clases de entidad</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dbmgmt/index.html">Administrar bases de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/forge.html">Manipulación de bases de datos con Database Forge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/migration.html">Migraciones de bases de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/seeds.html">Siembra de base de datos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dbmgmt/db_commands.html">Comandos de base de datos</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/index.html">Referencia de la biblioteca</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/caching.html">Controlador de almacenamiento en caché</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/cookies.html">Galletas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/curlrequest.html">Clase de solicitud CURL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/email.html">Clase de correo electrónico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/encryption.html">Servicio de cifrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/files.html">Trabajar con archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/file_collections.html">Colecciones de archivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/honeypot.html">clase de miel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/images.html">Clase de manipulación de imágenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/pagination.html">Paginación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/publisher.html">Editor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/security.html">Seguridad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/sessions.html">Biblioteca de sesiones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/throttler.html">acelerador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/time.html">Horarios y fechas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/typography.html">Tipografía</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uploaded_files.html">Trabajar con archivos cargados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html">Creando instancias de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#cadenas-uri">Cadenas URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#las-partes-de-uri">Las partes de URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#segmentos-uri">Segmentos URI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/uri.html#deshabilitar-el-lanzamiento-de-excepciones">Deshabilitar el lanzamiento de excepciones</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/user_agent.html">Clase de agente de usuario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../libraries/validation.html">Validation</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../helpers/index.html">Ayudantes</a><ul class="simple">
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../testing/index.html">Pruebas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../testing/overview.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/database.html">Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/fabricator.html">Generating Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/controllers.html">Controller Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/feature.html">HTTP Testing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/response.html">Respuestas de prueba</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/mocking.html">Mocking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/benchmark.html">Evaluación comparativa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../testing/debugging.html">Depurando su aplicación</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../cli/index.html">Uso de la línea de comando</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_overview.html">Descripción general de la CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_controllers.html">Ejecución de controladores a través de CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/spark_commands.html">Comandos de chispa</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_commands.html">Crear comandos Spark</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_generators.html">Generadores CLI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_library.html">CLI Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cli/cli_request.html">Clase de solicitud CLI</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../extending/index.html">Higgs extendido</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../extending/core_classes.html">Crear clases de sistema central</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/common.html">Reemplazo de funciones comunes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/events.html">Eventos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/basecontroller.html">Ampliación del controlador</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/authentication.html">Autenticación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/composer_packages.html">Crear paquetes de compositor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../extending/contributing.html">Contribuyendo al Higgs</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../libraries/official_packages.html">Paquetes Oficiales</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Higgs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Controllers and Routing</a></li>
+      <li class="breadcrumb-item active">Controladores</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="controladores">
+<h1>Controladores<a class="headerlink" href="#controladores" title="Link to this heading"></a></h1>
+<p>Los controladores son el corazón de su aplicación, ya que determinan cómo se deben manejar las solicitudes HTTP.</p>
+<nav class="contents local" id="contenido">
+<ul class="simple">
+<li><p><a class="reference internal" href="#que-es-un-controlador" id="id1">¿Qué es un controlador?</a></p></li>
+<li><p><a class="reference internal" href="#constructor" id="id2">Constructor</a></p></li>
+<li><p><a class="reference internal" href="#propiedades-incluidas" id="id3">Propiedades incluidas</a></p>
+<ul>
+<li><p><a class="reference internal" href="#solicitar-objeto" id="id4">Solicitar objeto</a></p></li>
+<li><p><a class="reference internal" href="#objeto-de-respuesta" id="id5">Objeto de respuesta</a></p></li>
+<li><p><a class="reference internal" href="#objeto-registrador" id="id6">Objeto registrador</a></p></li>
+<li><p><a class="reference internal" href="#ayudantes" id="id7">Ayudantes</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#fuerzahttps" id="id8">fuerzaHTTPS</a></p></li>
+<li><p><a class="reference internal" href="#validacion-de-datos" id="id9">Validación de datos</a></p>
+<ul>
+<li><p><a class="reference internal" href="#this-validardatos" id="id10">$this-&gt;validarDatos()</a></p></li>
+<li><p><a class="reference internal" href="#esto-validar" id="id11">$esto-&gt;validar()</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#metodos-de-proteccion" id="id12">Métodos de protección</a></p></li>
+<li><p><a class="reference internal" href="#ruta-automatica-mejorada" id="id13">Ruta automática (mejorada)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#probemoslo-hola-mundo" id="id14">Probémoslo: ¡Hola mundo!</a></p></li>
+<li><p><a class="reference internal" href="#metodos" id="id15">Métodos</a></p></li>
+<li><p><a class="reference internal" href="#pasar-segmentos-de-uri-a-sus-metodos" id="id16">Pasar segmentos de URI a sus métodos</a></p></li>
+<li><p><a class="reference internal" href="#controlador-predeterminado" id="id17">Controlador predeterminado</a></p></li>
+<li><p><a class="reference internal" href="#metodo-alternativo-predeterminado" id="id18">Método alternativo predeterminado</a></p></li>
+<li><p><a class="reference internal" href="#organizar-sus-controladores-en-subdirectorios" id="id19">Organizar sus controladores en subdirectorios</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#enrutamiento-automatico-heredado" id="id20">Enrutamiento automático (heredado)</a></p>
+<ul>
+<li><p><a class="reference internal" href="#probemoslo-hola-mundo-legado" id="id21">Probémoslo: ¡Hola mundo! (Legado)</a></p></li>
+<li><p><a class="reference internal" href="#metodos-heredados" id="id22">Métodos (heredados)</a></p></li>
+<li><p><a class="reference internal" href="#pasar-segmentos-de-uri-a-sus-metodos-heredados" id="id23">Pasar segmentos de URI a sus métodos (heredados)</a></p></li>
+<li><p><a class="reference internal" href="#controlador-predeterminado-heredado" id="id24">Controlador predeterminado (heredado)</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#llamadas-a-metodos-de-reasignacion" id="id25">Llamadas a métodos de reasignación</a></p></li>
+<li><p><a class="reference internal" href="#ampliacion-del-controlador" id="id26">Ampliación del controlador</a></p></li>
+<li><p><a class="reference internal" href="#eso-es-todo" id="id27">¡Eso es todo!</a></p></li>
+</ul>
+</nav>
+<section id="que-es-un-controlador">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">¿Qué es un controlador?</a><a class="headerlink" href="#que-es-un-controlador" title="Link to this heading"></a></h2>
+<p>Un controlador es simplemente un archivo de clase que maneja una solicitud HTTP.
+<a class="reference internal" href="routing.html"><span class="doc">Enrutamiento URI</span></a>  asocia un URI con un controlador. Devuelve un
+ver cadena u objeto <code class="docutils literal notranslate"><span class="pre">Respuesta</span></code>.</p>
+<p>Cada controlador que cree debe extender la clase <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>.
+Esta clase proporciona varias funciones que están disponibles para todos sus controladores.</p>
+</section>
+<section id="constructor">
+<span id="controller-constructor"></span><h2><a class="toc-backref" href="#id2" role="doc-backlink">Constructor</a><a class="headerlink" href="#constructor" title="Link to this heading"></a></h2>
+<p>El controlador de Higgs tiene un constructor especial <code class="docutils literal notranslate"><span class="pre">initController()</span></code>.
+Será llamado por el marco después de la ejecución del constructor de PHP <code class="docutils literal notranslate"><span class="pre">__construct()</span></code>.</p>
+<p>Si desea anular <code class="docutils literal notranslate"><span class="pre">initController()</span></code>, no olvide agregar <code class="docutils literal notranslate"><span class="pre">parent::initController($request,</span> <span class="pre">$response,</span> <span class="pre">$logger);</span></code> en el método:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">Higgs\HTTP\RequestInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Higgs\HTTP\ResponseInterface</span><span class="p">;</span>
+<span class="k">use</span> <span class="nx">Psr\Log\LoggerInterface</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Product</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">initController</span><span class="p">(</span>
+        <span class="nx">RequestInterface</span> <span class="nv">$request</span><span class="p">,</span>
+        <span class="nx">ResponseInterface</span> <span class="nv">$response</span><span class="p">,</span>
+        <span class="nx">LoggerInterface</span> <span class="nv">$logger</span>
+    <span class="p">)</span> <span class="p">{</span>
+        <span class="k">parent</span><span class="o">::</span><span class="na">initController</span><span class="p">(</span><span class="nv">$request</span><span class="p">,</span> <span class="nv">$response</span><span class="p">,</span> <span class="nv">$logger</span><span class="p">);</span>
+
+        <span class="c1">// Add your code here.</span>
+    <span class="p">}</span>
+
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>You cannot use <code class="docutils literal notranslate"><span class="pre">return</span></code> in the constructor. So <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">redirect()-&gt;to('route');</span></code> does not work.</p>
+</div>
+<p>El método <code class="docutils literal notranslate"><span class="pre">initController()</span></code> establece las siguientes tres propiedades.</p>
+</section>
+<section id="propiedades-incluidas">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Propiedades incluidas</a><a class="headerlink" href="#propiedades-incluidas" title="Link to this heading"></a></h2>
+<p>El controlador de Higgs proporciona estas propiedades.</p>
+<section id="solicitar-objeto">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Solicitar objeto</a><a class="headerlink" href="#solicitar-objeto" title="Link to this heading"></a></h3>
+<p>El <a class="reference internal" href="incomingrequest.html"><span class="doc">Solicitar instancia principal de la aplicación</span></a> siempre está disponible
+como propiedad de clase, <code class="docutils literal notranslate"><span class="pre">$this-&gt;request</span></code>.</p>
+</section>
+<section id="objeto-de-respuesta">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Objeto de respuesta</a><a class="headerlink" href="#objeto-de-respuesta" title="Link to this heading"></a></h3>
+<p>La <a class="reference internal" href="../outgoing/response.html"><span class="doc">Instancia de respuesta principal de la aplicación</span></a> siempre está disponible
+como propiedad de clase, <code class="docutils literal notranslate"><span class="pre">$this-&gt;response</span></code>.</p>
+</section>
+<section id="objeto-registrador">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Objeto registrador</a><a class="headerlink" href="#objeto-registrador" title="Link to this heading"></a></h3>
+<p>Una instancia de la clase <a class="reference internal" href="../general/logging.html"><span class="doc">Logger</span></a> está disponible como propiedad de clase,
+<code class="docutils literal notranslate"><span class="pre">$this-&gt;logger</span></code>.</p>
+</section>
+<section id="ayudantes">
+<span id="controllers-helpers"></span><h3><a class="toc-backref" href="#id7" role="doc-backlink">Ayudantes</a><a class="headerlink" href="#ayudantes" title="Link to this heading"></a></h3>
+<p>Puede definir una serie de archivos auxiliares como una propiedad de clase. Siempre que se carga el controlador
+Estos archivos auxiliares se cargarán automáticamente en la memoria para que pueda utilizar sus métodos en cualquier lugar.
+dentro del controlador:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">MyController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$helpers</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;url&#39;</span><span class="p">,</span> <span class="s1">&#39;form&#39;</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="fuerzahttps">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">fuerzaHTTPS</a><a class="headerlink" href="#fuerzahttps" title="Link to this heading"></a></h2>
+<p>Un método conveniente para forzar el acceso a un método a través de HTTPS está disponible en todos
+controladores:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isSecure</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forceHTTPS</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>De forma predeterminada, y en los navegadores modernos que admiten el encabezado HTTP Strict Transport Security, esto
+La llamada debería obligar al navegador a convertir llamadas que no sean HTTPS en llamadas HTTPS durante un año. Puede
+modifique esto pasando la duración (en segundos) como primer parámetro:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">isSecure</span><span class="p">())</span> <span class="p">{</span>
+    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">forceHTTPS</span><span class="p">(</span><span class="mi">31536000</span><span class="p">);</span> <span class="c1">// one year</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A number of <a class="reference internal" href="../general/common_functions.html"><span class="doc">time-based constants</span></a> are always available for you to use, including <code class="docutils literal notranslate"><span class="pre">YEAR</span></code>, <code class="docutils literal notranslate"><span class="pre">MONTH</span></code>, and more.</p>
+</div>
+</section>
+<section id="validacion-de-datos">
+<span id="controllers-validating-data"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">Validación de datos</a><a class="headerlink" href="#validacion-de-datos" title="Link to this heading"></a></h2>
+<section id="this-validardatos">
+<span id="controller-validatedata"></span><h3><a class="toc-backref" href="#id10" role="doc-backlink">$this-&gt;validarDatos()</a><a class="headerlink" href="#this-validardatos" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.2.0.</span></p>
+</div>
+<p>Para simplificar la verificación de datos, el controlador también proporciona el método conveniente
+<code class="docutils literal notranslate"><span class="pre">validarDatos()</span></code>.</p>
+<p>El método acepta (1) una serie de datos para validar, (2) una serie de reglas,
+(3) una serie opcional de mensajes de error personalizados para mostrar si los elementos no son válidos,
+(4) un grupo de base de datos opcional para usar.</p>
+<p>Los documentos <a class="reference internal" href="../libraries/validation.html"><span class="doc">Biblioteca de validación</span></a> tener detalles sobre
+formatos de reglas y matrices de mensajes, así como reglas disponibles:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">StoreController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">product</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$data</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;id&#39;</span>   <span class="o">=&gt;</span> <span class="nv">$id</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">request</span><span class="o">-&gt;</span><span class="na">getPost</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">),</span>
+        <span class="p">];</span>
+
+        <span class="nv">$rule</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;id&#39;</span>   <span class="o">=&gt;</span> <span class="s1">&#39;integer&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;required|max_length[255]&#39;</span><span class="p">,</span>
+        <span class="p">];</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validateData</span><span class="p">(</span><span class="nv">$data</span><span class="p">,</span> <span class="nv">$rule</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;store/product&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">(),</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="esto-validar">
+<span id="controller-validate"></span><h3><a class="toc-backref" href="#id11" role="doc-backlink">$esto-&gt;validar()</a><a class="headerlink" href="#esto-validar" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This method exists only for backward compatibility. Do not use it
+en nuevos proyectos. Incluso si ya lo estás usando, te recomendamos que uses
+en su lugar, use el método <code class="docutils literal notranslate"><span class="pre">validateData()</span></code>.</p>
+</div>
+<p>El controlador también proporciona el método conveniente <code class="docutils literal notranslate"><span class="pre">validate()</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">validate()</span></code>, use <code class="docutils literal notranslate"><span class="pre">validateData()</span></code> to validate POST
+solo datos. <code class="docutils literal notranslate"><span class="pre">validate()</span></code> usa <code class="docutils literal notranslate"><span class="pre">$request-&gt;getVar()</span></code> que devuelve
+<code class="docutils literal notranslate"><span class="pre">$_GET</span></code>, <code class="docutils literal notranslate"><span class="pre">$_POST</span></code> o <code class="docutils literal notranslate"><span class="pre">$_COOKIE</span></code> en ese orden (dependiendo de php.ini
+<cite>solicitud-orden&lt;https://www.php.net/manual/en/ini.core.php#ini.request-order&gt;</cite> _).
+Los valores más nuevos anulan los valores más antiguos. Los valores POST pueden ser anulados por el
+cookies si tienen el mismo nombre.</p>
+</div>
+<p>El método acepta una serie de reglas en el primer parámetro,
+y en el segundo parámetro opcional, una serie de mensajes de error personalizados para mostrar
+si los artículos no son válidos.</p>
+<p>Internamente, esto utiliza el controlador
+Instancia <code class="docutils literal notranslate"><span class="pre">$this-&gt;request</span></code> para obtener los datos a validar.</p>
+<p>Los documentos <a class="reference internal" href="../libraries/validation.html"><span class="doc">Biblioteca de validación</span></a> tener detalles sobre
+formatos de reglas y matrices de mensajes, así como reglas disponibles:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateUser</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$userID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">([</span>
+            <span class="s1">&#39;email&#39;</span> <span class="o">=&gt;</span> <span class="s2">&quot;required|is_unique[users.email,id,</span><span class="si">{</span><span class="nv">$userID</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+            <span class="s1">&#39;name&#39;</span>  <span class="o">=&gt;</span> <span class="s1">&#39;required|alpha_numeric_spaces&#39;</span><span class="p">,</span>
+        <span class="p">]))</span> <span class="p">{</span>
+            <span class="c1">// The validation failed.</span>
+            <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;users/update&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">(),</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// The validation was successful.</span>
+
+        <span class="c1">// Get the validated data.</span>
+        <span class="nv">$validData</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getValidated</span><span class="p">();</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>When you use the <code class="docutils literal notranslate"><span class="pre">validate()</span></code> method, you should use the
+<a class="reference internal" href="../libraries/validation.html#validation-getting-validated-data"><span class="std std-ref">obtenerValidado()</span></a> método para obtener el
+datos validados. Debido a que el método <code class="docutils literal notranslate"><span class="pre">validate()</span></code> utiliza el
+<a class="reference internal" href="../libraries/validation.html#validation-withrequest"><span class="std std-ref">Validación::conSolicitud()</span></a> método internamente,
+y valida los datos de
+<a class="reference internal" href="incomingrequest.html#incomingrequest-getting-json-data"><span class="std std-ref">$solicitud-&gt;getJSON()</span></a>
+o <a class="reference internal" href="incomingrequest.html#incomingrequest-retrieving-raw-data"><span class="std std-ref">$solicitud-&gt;getRawInput()</span></a>
+o <a class="reference internal" href="incomingrequest.html#incomingrequest-getting-data"><span class="std std-ref">$solicitud-&gt;getVar()</span></a> , y un atacante
+podría cambiar qué datos se validan.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The <a class="reference internal" href="../libraries/validation.html#validation-getting-validated-data"><span class="std std-ref">$this-&gt;validator-&gt;getValidated()</span></a>
+El método se puede utilizar desde v7.4.0.</p>
+</div>
+<p>Si le resulta más sencillo mantener las reglas en el archivo de configuración, puede reemplazar
+la matriz <code class="docutils literal notranslate"><span class="pre">$rules</span></code> con el nombre del grupo como se define en <strong>app/Config/Validation.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">UserController</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">updateUser</span><span class="p">(</span><span class="nx">int</span> <span class="nv">$userID</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validate</span><span class="p">(</span><span class="s1">&#39;userRules&#39;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="c1">// The validation failed.</span>
+            <span class="k">return</span> <span class="nx">view</span><span class="p">(</span><span class="s1">&#39;users/update&#39;</span><span class="p">,</span> <span class="p">[</span>
+                <span class="s1">&#39;errors&#39;</span> <span class="o">=&gt;</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getErrors</span><span class="p">(),</span>
+            <span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="c1">// The validation was successful.</span>
+
+        <span class="c1">// Get the validated data.</span>
+        <span class="nv">$validData</span> <span class="o">=</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">validator</span><span class="o">-&gt;</span><span class="na">getValidated</span><span class="p">();</span>
+
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Validation can also be handled automatically in the model, but sometimes it’s easier to do it in the controller. Where is up to you.</p>
+</div>
+</section>
+</section>
+<section id="metodos-de-proteccion">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Métodos de protección</a><a class="headerlink" href="#metodos-de-proteccion" title="Link to this heading"></a></h2>
+<p>En algunos casos, es posible que desee ocultar ciertos métodos del acceso público.
+Para lograr esto, simplemente declare el método como «privado» o «protegido».
+Eso evitará que sea atendido mediante una solicitud de URL.</p>
+<p>Por ejemplo, si tuvieras que definir un método como este para el controlador <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="k">function</span> <span class="nf">utility</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// some code</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>y definir una ruta (<code class="docutils literal notranslate"><span class="pre">helloworld/utitilty</span></code>) para el método. Entonces intentar acceder a él utilizando la siguiente URL no funcionará:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">utility</span>
+</pre></div>
+</div>
+<p>El enrutamiento automático tampoco funcionará.</p>
+</section>
+<section id="ruta-automatica-mejorada">
+<span id="controller-auto-routing-improved"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink">Ruta automática (mejorada)</a><a class="headerlink" href="#ruta-automatica-mejorada" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.2.0.</span></p>
+</div>
+<p>Desde la versión 4.2.0, se introdujo el nuevo enrutamiento automático más seguro.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If you are familiar with Auto Routing, which was enabled by default
+desde Higgs 3 hasta 4.1.x, puedes ver las diferencias en
+<span class="xref std std-ref">Registro de cambios v7.2.0</span> .</p>
+</div>
+<p>Esta sección describe la funcionalidad del nuevo enrutamiento automático.
+Enruta automáticamente una solicitud HTTP y ejecuta el método de controlador correspondiente.
+sin definiciones de ruta.</p>
+<p>Desde v7.2.0, el enrutamiento automático está deshabilitado de forma predeterminada. Para usarlo, consulte <a class="reference internal" href="routing.html#enabled-auto-routing-improved"><span class="std std-ref">Habilitar enrutamiento automático</span></a>.</p>
+<p>Considere este URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, Higgs intentaría encontrar un controlador llamado <code class="docutils literal notranslate"><span class="pre">App\Controllers\Helloworld</span></code> y cargarlo cuando el enrutamiento automático está habilitado.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When a controller’s short name matches the first segment of a URI, it will be loaded.</p>
+</div>
+<section id="probemoslo-hola-mundo">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Probémoslo: ¡Hola mundo!</a><a class="headerlink" href="#probemoslo-hola-mundo" title="Link to this heading"></a></h3>
+<p>Creemos un controlador simple para que puedas verlo en acción. Usando su editor de texto, cree un archivo llamado <strong>Helloworld.php</strong>,
+y ponga el siguiente código en él. Notarás que el controlador <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> está extendiendo el <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>. puede
+También extienda <code class="docutils literal notranslate"><span class="pre">Higgs\Controller</span></code> si no necesita la funcionalidad de BaseController.</p>
+<p>El BaseController proporciona un lugar conveniente para cargar componentes y realizar funciones que necesitan todos sus
+controladores. Puede ampliar esta clase en cualquier controlador nuevo.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIndex</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Luego guarde el archivo en su directorio <strong>app/Controllers</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The file must be called <strong>Helloworld.php</strong>, with a capital <code class="docutils literal notranslate"><span class="pre">H</span></code>. When you use Auto Routing, Controller class names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>A controller method that will be executed by Auto Routing (Improved) needs HTTP verb (<code class="docutils literal notranslate"><span class="pre">get</span></code>, <code class="docutils literal notranslate"><span class="pre">post</span></code>, <code class="docutils literal notranslate"><span class="pre">put</span></code>, etc.) prefix like <code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>, <code class="docutils literal notranslate"><span class="pre">postCreate()</span></code>.</p>
+</div>
+<p>Ahora visite su sitio usando una URL similar a esta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span>
+</pre></div>
+</div>
+<p>Si lo hiciste bien deberías ver:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">¡Hola</span> <span class="nx">Mundo</span><span class="o">!</span>
+</pre></div>
+</div>
+<p>Esto es válido:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto <strong>no</strong> es válido:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto <strong>no</strong> es válido:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloWorld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Además, asegúrese siempre de que su controlador extienda el controlador principal
+clase para que pueda heredar todos sus métodos.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El sistema intentará hacer coincidir el URI con los controladores haciendo coincidir cada segmento con
+directorios/archivos en <strong>aplicación/Controladores</strong>, cuando no se encontró una coincidencia con las rutas definidas.
+Es por eso que sus directorios/archivos DEBEN comenzar con una letra mayúscula y el resto DEBE estar en minúsculas.</p>
+<p>Si desea otra convención de nomenclatura, debe definirla manualmente utilizando el
+<a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Enrutamiento de ruta definida</span></a> .
+A continuación se muestra un ejemplo basado en el cargador automático PSR-4:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Folder and file structure:</span>
+<span class="cm"> * \&lt;NamespaceName&gt;(\&lt;SubNamespaceNames&gt;)*\&lt;ClassName&gt;</span>
+<span class="cm"> */</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;helloworld&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\HelloWorld::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="metodos">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Métodos</a><a class="headerlink" href="#metodos" title="Link to this heading"></a></h3>
+<section id="visibilidad-del-metodo">
+<h4>Visibilidad del método<a class="headerlink" href="#visibilidad-del-metodo" title="Link to this heading"></a></h4>
+<p>Cuando define un método que es ejecutable a través de una solicitud HTTP, el método debe ser
+declarado como <code class="docutils literal notranslate"><span class="pre">público</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>For security reasons be sure to declare any new utility methods as <code class="docutils literal notranslate"><span class="pre">protected</span></code> or <code class="docutils literal notranslate"><span class="pre">private</span></code>.</p>
+</div>
+</section>
+<section id="metodo-predeterminado">
+<h4>Método predeterminado<a class="headerlink" href="#metodo-predeterminado" title="Link to this heading"></a></h4>
+<p>En el ejemplo anterior, el nombre del método es <code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>.
+El método (verbo HTTP + <code class="docutils literal notranslate"><span class="pre">Index()</span></code>) se denomina <strong>método predeterminado</strong> y se carga si el <strong>segundo segmento</strong> del URI está vacío.</p>
+</section>
+<section id="metodos-normales">
+<h4>Métodos normales<a class="headerlink" href="#metodos-normales" title="Link to this heading"></a></h4>
+<p>El segundo segmento del URI determina qué método en el
+Se llama al controlador.</p>
+<p>Vamos a intentarlo. Agregue un nuevo método a su controlador:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIndex</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getComment</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;I am not flat!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora cargue la siguiente URL para ver el método <code class="docutils literal notranslate"><span class="pre">getComment()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">comment</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Deberías ver tu nuevo mensaje.</p>
+</section>
+</section>
+<section id="pasar-segmentos-de-uri-a-sus-metodos">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Pasar segmentos de URI a sus métodos</a><a class="headerlink" href="#pasar-segmentos-de-uri-a-sus-metodos" title="Link to this heading"></a></h3>
+<p>Si su URI contiene más de dos segmentos, se pasarán a su
+método como parámetros.</p>
+<p>Por ejemplo, digamos que tiene un URI como este:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">sandals</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>A su método se le pasarán los segmentos URI 3 y 4 (<code class="docutils literal notranslate"><span class="pre">'sandals'</span></code> y <code class="docutils literal notranslate"><span class="pre">'123'</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getShoes</span><span class="p">(</span><span class="nv">$sandals</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$sandals</span> <span class="o">.</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="controlador-predeterminado">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink">Controlador predeterminado</a><a class="headerlink" href="#controlador-predeterminado" title="Link to this heading"></a></h3>
+<p>El controlador predeterminado es un controlador especial que se utiliza cuando un URI termina con
+un nombre de directorio o cuando un URI no está presente, como será el caso cuando solo su
+Se solicita la URL raíz del sitio.</p>
+<section id="definicion-de-un-controlador-predeterminado">
+<h4>Definición de un controlador predeterminado<a class="headerlink" href="#definicion-de-un-controlador-predeterminado" title="Link to this heading"></a></h4>
+<p>Probémoslo con el controlador <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code>.</p>
+<p>Para especificar un controlador predeterminado, abra su <strong>app/Config/Routing.php</strong>
+archivo y establezca esta propiedad:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">cadena</span> <span class="nx">pública</span> <span class="nv">$defaultController</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nx">Holamundo</span><span class="o">&amp;</span><span class="c1">#39;;</span>
+</pre></div>
+</div>
+<p>Donde <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> es el nombre de la clase de controlador que desea utilizar.</p>
+<p>Y comenta la línea en <strong>app/Config/Routes.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si ahora navega hasta su sitio sin especificar ningún segmento de URI,
+vea el mensaje «Hola mundo».</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>When you use Auto Routing (Improved), you must remove the line
+<code class="docutils literal notranslate"><span class="pre">$rutas-&gt;get('/',</span> <span class="pre">'Inicio::index');</span></code>. Porque las rutas definidas toman
+prioridad sobre el enrutamiento automático y los controladores definidos en las rutas definidas
+El enrutamiento automático (mejorado) les niega el acceso por razones de seguridad.</p>
+</div>
+<p>Para obtener más información, consulte la
+:ref: documentación <cite>enrutamiento-automático-opciones-de-configuración mejoradas</cite>.</p>
+</section>
+</section>
+<section id="metodo-alternativo-predeterminado">
+<span id="controller-default-method-fallback"></span><h3><a class="toc-backref" href="#id18" role="doc-backlink">Método alternativo predeterminado</a><a class="headerlink" href="#metodo-alternativo-predeterminado" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Nuevo en la versión 4.4.0.</span></p>
+</div>
+<p>Si el método del controlador correspondiente al segmento URI del nombre del método
+no existe, y si se define el método predeterminado, los segmentos de URI restantes
+se pasan al método predeterminado para su ejecución.</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Product</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIndex</span><span class="p">(</span><span class="nv">$id</span> <span class="o">=</span> <span class="k">null</span><span class="p">,</span> <span class="nv">$action</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cargue la siguiente URL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">product</span><span class="o">/</span><span class="mi">15</span><span class="o">/</span><span class="nx">edit</span>
+</pre></div>
+</div>
+<p>Al método se le pasarán los segmentos URI 2 y 3 (<code class="docutils literal notranslate"><span class="pre">'15'</span></code> y <code class="docutils literal notranslate"><span class="pre">'edit'</span></code>):</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>If there are more parameters in the URI than the method parameters,
+El enrutamiento automático (mejorado) no ejecuta el método y genera 404
+Extraviado.</p>
+</div>
+<section id="retorno-al-controlador-predeterminado">
+<h4>Retorno al controlador predeterminado<a class="headerlink" href="#retorno-al-controlador-predeterminado" title="Link to this heading"></a></h4>
+<p>Si el controlador correspondiente al segmento URI del nombre del controlador
+no existe, y si el controlador predeterminado («Home» por defecto) existe en
+el directorio, los segmentos URI restantes se pasan al directorio del controlador predeterminado
+método predeterminado.</p>
+<p>Por ejemplo, cuando tiene el siguiente controlador predeterminado <code class="docutils literal notranslate"><span class="pre">Home</span></code> en el
+Directorio <strong>aplicación/Controladores/Noticias</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers\News</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">App\Controllers\BaseController</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Home</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getIndex</span><span class="p">(</span><span class="nv">$id</span> <span class="o">=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// ...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cargue la siguiente URL:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">news</span><span class="o">/</span><span class="mi">101</span>
+</pre></div>
+</div>
+<p>Se encontrarán el controlador <code class="docutils literal notranslate"><span class="pre">News\Home</span></code> y el método predeterminado <code class="docutils literal notranslate"><span class="pre">getIndex()</span></code>.
+Por lo tanto, al método predeterminado se le pasarán los segmentos URI 2 (<code class="docutils literal notranslate"><span class="pre">'101'</span></code>):</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If there is <code class="docutils literal notranslate"><span class="pre">App\Controllers\News</span></code> controller, it takes precedence.
+Los segmentos de URI se buscan secuencialmente y se encuentra el primer controlador
+se utiliza.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>If there are more parameters in the URI than the method parameters,
+El enrutamiento automático (mejorado) no ejecuta el método y genera 404
+Extraviado.</p>
+</div>
+</section>
+</section>
+<section id="organizar-sus-controladores-en-subdirectorios">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Organizar sus controladores en subdirectorios</a><a class="headerlink" href="#organizar-sus-controladores-en-subdirectorios" title="Link to this heading"></a></h3>
+<p>Si está creando una aplicación grande, es posible que desee crearla jerárquicamente.
+Organice o estructure sus controladores en subdirectorios. Higgs
+le permite hacer esto.</p>
+<p>Simplemente cree subdirectorios en la <strong>aplicación/Controladores</strong> principal,
+y coloque sus clases de controlador dentro de ellas.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Directory names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<p>Al utilizar esta función, el primer segmento de su URI debe
+especifique el directorio. Por ejemplo, digamos que tiene un controlador ubicado aquí:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">aplicación</span><span class="o">/</span><span class="nx">Controladores</span><span class="o">/</span><span class="nx">Productos</span><span class="o">/</span><span class="nx">Zapatos</span><span class="o">.</span><span class="nx">php</span>
+</pre></div>
+</div>
+<p>Para llamar al controlador anterior, su URI se verá así:</p>
+<blockquote>
+<div><p>ejemplo.com/index.php/products/shoes/show/123</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You cannot have directories with the same name in <strong>app/Controllers</strong>
+y <strong>público</strong>.
+Esto se debe a que si hay un directorio, el servidor web lo buscará y
+no será encaminado al Higgs.</p>
+</div>
+<p>Cada uno de sus subdirectorios puede contener un controlador predeterminado que será
+Se llama si la URL contiene <em>sólo</em> el subdirectorio. Simplemente pon un controlador
+allí que coincida con el nombre de su controlador predeterminado como se especifica en
+su archivo <strong>app/Config/Routing.php</strong>.</p>
+<p>Higgs también le permite mapear sus URI utilizando su <a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Enrutamiento de ruta definido</span></a> …</p>
+</section>
+</section>
+<section id="enrutamiento-automatico-heredado">
+<span id="controller-auto-routing-legacy"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink">Enrutamiento automático (heredado)</a><a class="headerlink" href="#enrutamiento-automatico-heredado" title="Link to this heading"></a></h2>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>This feature exists only for backward compatibility. Do not use it
+en nuevos proyectos. Incluso si ya lo estás usando, te recomendamos que uses
+el <a class="reference internal" href="routing.html#auto-routing-improved"><span class="std std-ref">Ruta automática (mejorada)</span></a> en su lugar.</p>
+</div>
+<p>Esta sección describe la funcionalidad de Auto Routing (Legacy), que es un sistema de enrutamiento de Higgs 3.
+Enruta automáticamente una solicitud HTTP y ejecuta el método de controlador correspondiente.
+sin definiciones de ruta. El enrutamiento automático está deshabilitado de forma predeterminada.</p>
+<div class="admonition warning">
+<p class="admonition-title">Advertencia</p>
+<p>To prevent misconfiguration and miscoding, we recommend that you do not use
+Enrutamiento automático (heredado). Es fácil crear aplicaciones vulnerables donde el controlador filtra
+o la protección CSRF se omiten.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Auto Routing (Legacy) routes a HTTP request with <strong>any</strong> HTTP method to a controller method.</p>
+</div>
+<p>Considere este URI:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>En el ejemplo anterior, Higgs intentaría encontrar un controlador llamado <strong>Helloworld.php</strong> y cargarlo.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>When a controller’s short name matches the first segment of a URI, it will be loaded.</p>
+</div>
+<section id="probemoslo-hola-mundo-legado">
+<h3><a class="toc-backref" href="#id21" role="doc-backlink">Probémoslo: ¡Hola mundo! (Legado)</a><a class="headerlink" href="#probemoslo-hola-mundo-legado" title="Link to this heading"></a></h3>
+<p>Creemos un controlador simple para que puedas verlo en acción. Usando su editor de texto, cree un archivo llamado <strong>Helloworld.php</strong>,
+y ponga el siguiente código en él. Notarás que el controlador <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> está extendiendo el <code class="docutils literal notranslate"><span class="pre">BaseController</span></code>. puede
+También extienda <code class="docutils literal notranslate"><span class="pre">Higgs\Controller</span></code> si no necesita la funcionalidad de BaseController.</p>
+<p>El BaseController proporciona un lugar conveniente para cargar componentes y realizar funciones que necesitan todos sus
+controladores. Puede ampliar esta clase en cualquier controlador nuevo.</p>
+<p>Por razones de seguridad, asegúrese de declarar cualquier método de utilidad nuevo como «protegido» o «privado»:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Luego guarde el archivo en su directorio <strong>app/Controllers</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>The file must be called <strong>Helloworld.php</strong>, with a capital <code class="docutils literal notranslate"><span class="pre">H</span></code>. When you use Auto Routing, Controller class names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<p>Ahora visite su sitio usando una URL similar a esta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span>
+</pre></div>
+</div>
+<p>Si lo hiciste bien deberías ver:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">¡Hola</span> <span class="nx">Mundo</span><span class="o">!</span>
+</pre></div>
+</div>
+<p>Esto es válido:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto <strong>no</strong> es válido:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Esto <strong>no</strong> es válido:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">HelloWorld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Además, asegúrese siempre de que su controlador extienda el controlador principal
+clase para que pueda heredar todos sus métodos.</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>El sistema intentará hacer coincidir el URI con los controladores haciendo coincidir cada segmento con
+directorios/archivos en <strong>aplicación/Controladores</strong>, cuando no se encontró una coincidencia con las rutas definidas.
+Es por eso que sus directorios/archivos DEBEN comenzar con una letra mayúscula y el resto DEBE estar en minúsculas.</p>
+<p>Si desea otra convención de nomenclatura, debe definirla manualmente utilizando el
+<a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Enrutamiento de ruta definida</span></a> .
+A continuación se muestra un ejemplo basado en el cargador automático PSR-4:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * Folder and file structure:</span>
+<span class="cm"> * \&lt;NamespaceName&gt;(\&lt;SubNamespaceNames&gt;)*\&lt;ClassName&gt;</span>
+<span class="cm"> */</span>
+
+<span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;helloworld&#39;</span><span class="p">,</span> <span class="s1">&#39;\App\Controllers\HelloWorld::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="metodos-heredados">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Métodos (heredados)</a><a class="headerlink" href="#metodos-heredados" title="Link to this heading"></a></h3>
+<p>En el ejemplo anterior, el nombre del método es <code class="docutils literal notranslate"><span class="pre">index()</span></code>. El método <code class="docutils literal notranslate"><span class="pre">índice()</span></code>
+siempre se carga de forma predeterminada si el <strong>segundo segmento</strong> del URI es
+vacío. Otra forma de mostrar tu mensaje «Hola mundo» sería esta:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">index</span><span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>El segundo segmento del URI determina qué método en el
+Se llama al controlador.</strong></p>
+<p>Vamos a intentarlo. Agregue un nuevo método a su controlador:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Helloworld</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">index</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;Hello World!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">comment</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s1">&#39;I am not flat!&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Ahora cargue la siguiente URL para ver el método de comentario:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">helloworld</span><span class="o">/</span><span class="nx">comment</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>Deberías ver tu nuevo mensaje.</p>
+</section>
+<section id="pasar-segmentos-de-uri-a-sus-metodos-heredados">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Pasar segmentos de URI a sus métodos (heredados)</a><a class="headerlink" href="#pasar-segmentos-de-uri-a-sus-metodos-heredados" title="Link to this heading"></a></h3>
+<p>Si su URI contiene más de dos segmentos, se pasarán a su
+método como parámetros.</p>
+<p>Por ejemplo, digamos que tiene un URI como este:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">ejemplo</span><span class="o">.</span><span class="nx">com</span><span class="o">/</span><span class="nx">index</span><span class="o">.</span><span class="nx">php</span><span class="o">/</span><span class="nx">products</span><span class="o">/</span><span class="nx">shoes</span><span class="o">/</span><span class="nx">sandals</span><span class="o">/</span><span class="mi">123</span>
+</pre></div>
+</div>
+<p>A su método se le pasarán los segmentos URI 3 y 4 (<code class="docutils literal notranslate"><span class="pre">'sandals'</span></code> y <code class="docutils literal notranslate"><span class="pre">'123'</span></code>):</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">shoes</span><span class="p">(</span><span class="nv">$sandals</span><span class="p">,</span> <span class="nv">$id</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$sandals</span> <span class="o">.</span> <span class="nv">$id</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="controlador-predeterminado-heredado">
+<h3><a class="toc-backref" href="#id24" role="doc-backlink">Controlador predeterminado (heredado)</a><a class="headerlink" href="#controlador-predeterminado-heredado" title="Link to this heading"></a></h3>
+<p>El controlador predeterminado es un controlador especial que se utiliza cuando un URI termina con
+un nombre de directorio o cuando un URI no está presente, como será el caso cuando solo su
+Se solicita la URL raíz del sitio.</p>
+<section id="definicion-de-un-controlador-predeterminado-heredado">
+<h4>Definición de un controlador predeterminado (heredado)<a class="headerlink" href="#definicion-de-un-controlador-predeterminado-heredado" title="Link to this heading"></a></h4>
+<p>Probémoslo con el controlador <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code>.</p>
+<p>Para especificar un controlador predeterminado, abra su <strong>app/Config/Routing.php</strong>
+archivo y establezca esta propiedad:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">cadena</span> <span class="nx">pública</span> <span class="nv">$defaultController</span> <span class="o">=</span> <span class="err">&#39;</span><span class="nx">Holamundo</span><span class="o">&amp;</span><span class="c1">#39;;</span>
+</pre></div>
+</div>
+<p>Donde <code class="docutils literal notranslate"><span class="pre">Helloworld</span></code> es el nombre de la clase de controlador que desea utilizar.</p>
+<p>Y comenta la línea en <strong>app/Config/Routes.php</strong>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nv">$routes</span><span class="o">-&gt;</span><span class="na">get</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;Home::index&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Si ahora navega hasta su sitio sin especificar ningún segmento de URI,
+vea el mensaje «Hola mundo».</p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>The line <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get('/',</span> <span class="pre">'Home::index');</span></code> is an optimization that you will want to use in a «real-world» app. But for demonstration purposes we don’t want to use that feature. <code class="docutils literal notranslate"><span class="pre">$routes-&gt;get()</span></code> is explained in <a class="reference internal" href="routing.html"><span class="doc">URI Routing</span></a></p>
+</div>
+<p>Para obtener más información, consulte el
+:ref: documentación <cite>enrutamiento-auto-enrutamiento-heredado-configuración-opciones</cite>.</p>
+<p>Organizar sus controladores en subdirectorios (heredados)
+==================================================== =======</p>
+<p>Si está creando una aplicación grande, es posible que desee crearla jerárquicamente.
+Organice o estructure sus controladores en subdirectorios. Higgs
+le permite hacer esto.</p>
+<p>Simplemente cree subdirectorios en la <strong>aplicación/Controladores</strong> principal,
+y coloque sus clases de controlador dentro de ellas.</p>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>Directory names MUST start with an uppercase letter and ONLY the first character can be uppercase.</p>
+</div>
+<p>Al utilizar esta función, el primer segmento de su URI debe
+especifique el directorio. Por ejemplo, digamos que tiene un controlador ubicado aquí:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="nx">aplicación</span><span class="o">/</span><span class="nx">Controladores</span><span class="o">/</span><span class="nx">Productos</span><span class="o">/</span><span class="nx">Zapatos</span><span class="o">.</span><span class="nx">php</span>
+</pre></div>
+</div>
+<p>Para llamar al controlador anterior, su URI se verá así:</p>
+<blockquote>
+<div><p>ejemplo.com/index.php/products/shoes/show/123</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>You cannot have directories with the same name in <strong>app/Controllers</strong> and <strong>public/</strong>.
+Esto se debe a que si hay un directorio, el servidor web lo buscará y
+no será encaminado al Higgs.</p>
+</div>
+<p>Cada uno de sus subdirectorios puede contener un controlador predeterminado que será
+Se llama si la URL contiene <em>sólo</em> el subdirectorio. Simplemente pon un controlador
+allí que coincida con el nombre de su controlador predeterminado como se especifica en
+su archivo <strong>app/Config/Routing.php</strong>.</p>
+<p>Higgs también le permite mapear sus URI utilizando su <a class="reference internal" href="routing.html#defined-route-routing"><span class="std std-ref">Enrutamiento de ruta definido</span></a> …</p>
+</section>
+</section>
+</section>
+<section id="llamadas-a-metodos-de-reasignacion">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Llamadas a métodos de reasignación</a><a class="headerlink" href="#llamadas-a-metodos-de-reasignacion" title="Link to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p><strong>Auto Routing (Improved)</strong> does not support this feature intentionally.</p>
+</div>
+<p>Como se señaló anteriormente, el segundo segmento del URI generalmente determina qué
+Se llama al método en el controlador. Higgs te permite anular
+este comportamiento mediante el uso del método <code class="docutils literal notranslate"><span class="pre">_remap()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">// Some code here...</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Importante</p>
+<p>If your controller contains a method named <code class="docutils literal notranslate"><span class="pre">_remap()</span></code>,
+<strong>siempre</strong> será llamado independientemente de lo que contenga su URI. Él
+anula el comportamiento normal en el que el URI determina qué método
+Se llama, lo que le permite definir sus propias reglas de enrutamiento de métodos.</p>
+</div>
+<p>La llamada al método anulado (normalmente el segundo segmento del URI)
+pasarse como parámetro al método <code class="docutils literal notranslate"><span class="pre">_remap()</span></code>:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">(</span><span class="nv">$method</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$method</span> <span class="o">===</span> <span class="s1">&#39;some_method&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$method</span><span class="p">}();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">default_method</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Cualquier segmento adicional después del nombre del método se pasa a <code class="docutils literal notranslate"><span class="pre">_remap()</span></code>. Estos parámetros se pueden pasar al método.
+para emular el comportamiento predeterminado de Higgs.</p>
+<p>Ejemplo:</p>
+<div class="highlight-html+php notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;?</span><span class="nx">php</span>
+
+<span class="k">namespace</span> <span class="nx">App\Controllers</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">Products</span> <span class="k">extends</span> <span class="nx">BaseController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">_remap</span><span class="p">(</span><span class="nv">$method</span><span class="p">,</span> <span class="o">...</span><span class="nv">$params</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$method</span> <span class="o">=</span> <span class="s1">&#39;process_&#39;</span> <span class="o">.</span> <span class="nv">$method</span><span class="p">;</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">method_exists</span><span class="p">(</span><span class="nv">$this</span><span class="p">,</span> <span class="nv">$method</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="p">{</span><span class="nv">$method</span><span class="p">}(</span><span class="o">...</span><span class="nv">$params</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">throw</span> <span class="nx">\Higgs\Exceptions\PageNotFoundException</span><span class="o">::</span><span class="na">forPageNotFound</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="ampliacion-del-controlador">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Ampliación del controlador</a><a class="headerlink" href="#ampliacion-del-controlador" title="Link to this heading"></a></h2>
+<p>Si desea ampliar el controlador, consulte <a class="reference internal" href="../extending/basecontroller.html"><span class="doc">Ampliación del controlador</span></a>.</p>
+</section>
+<section id="eso-es-todo">
+<h2><a class="toc-backref" href="#id27" role="doc-backlink">¡Eso es todo!</a><a class="headerlink" href="#eso-es-todo" title="Link to this heading"></a></h2>
+<p>Esto, en pocas palabras, es todo lo que hay que saber sobre los controladores.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="routing.html" class="btn btn-neutral float-left" title="Enrutamiento URI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="filters.html" class="btn btn-neutral float-right" title="Filtros del controlador" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2012-2024 Jose Alexis Correa Valencia.
+      <span class="lastupdated">Actualizado por última vez en jun 16, 2024.
+      </span></p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script> 
+
+</body>
+</html>
